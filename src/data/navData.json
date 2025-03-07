@@ -1,0 +1,100 @@
+[
+  {
+    "key": "Home",
+    "url": "/",
+    "children": []
+  },
+  {
+    "key": "About",
+    "url": "/about/",
+    "children": [
+      {
+        "key": "How We Work",
+        "url": "/about/how-we-work/",
+        "children": [
+          {
+            "key": "Facilitation",
+            "url": "/about/how-we-work/facilitation/"
+          },
+          {
+            "key": "Network Coordination and Development",
+            "url": "/about/how-we-work/network-coordination-development/"
+          },
+          {
+            "key": "Strategic Planning and Technical Assistance",
+            "url": "/about/how-we-work/strategic-planning-ta/"
+          }
+        ]
+      },
+      {
+        "key": "Our Ohana",
+        "url": "/about/our-ohana/"
+      },
+      {
+        "key": "Our Roots",
+        "url": "/about/our-roots/"
+      }
+    ]
+  },
+  {
+    "key": "Projects",
+    "url": "/projects/",
+    "children": [
+      {
+        "key": "Capacity Building and Technical Assistance",
+        "url": "/projects/project-1/",
+        "children": [
+          {
+            "key": "Blank Page",
+            "url": "/projects/project-1/details/"
+          }
+        ]
+      },
+      {
+        "key": "Network Coordination",
+        "url": "/projects/project-2/",
+        "children": [
+          {
+            "key": "Blank Page",
+            "url": "/projects/project-1/details/"
+          }
+        ]
+      },
+      {
+        "key": "Strategic & Community-Based Planning",
+        "url": "/projects/project-2/",
+        "children": [
+          {
+            "key": "Blank Page",
+            "url": "/projects/project-1/details/"
+          }
+        ]
+      },
+      {
+        "key": "Past Projects",
+        "url": "/projects/project-2/",
+        "children": [
+          {
+            "key": "Work Up to Our 25th Anniversary",
+            "url": "/projects/project-1/details/"
+          },
+           {
+             "key": "Work Out of Our 25th Anniversary",
+             "url": "/projects/project-1/details/"
+           }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "Contact",
+    "url": "/contact/",
+    "children": []
+  },
+  {
+    "key": "Donate",
+    "url": "http://paypal.com/us/fundraiser/charity/2274761",
+    "target": "_blank", 
+    "children": []     
+  }
+]

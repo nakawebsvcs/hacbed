@@ -1,0 +1,15 @@
+{
+  "name": "HACBED",
+  "email": "info@hacbed.org",
+  "phoneForTel": "808-550-2661",
+  "phoneFormatted": "(808) 550-2661",
+  "address": {
+    "lineOne": "Hawai'i Alliance for Community Based Economic Development (HACBED)",
+    "lineTwo": "1575 South Beretania Street, Suite 211",
+    "city": "Honolulu",
+    "state": "HI",
+    "zip": "96826",
+    "mapLink": "https://maps.app.goo.gl/mpvETnRz7bZXRuBq7"
+  },
+  "domain": "www.hacbed.org"
+}
