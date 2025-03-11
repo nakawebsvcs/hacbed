@@ -1,114 +1,57 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
-import Landing from "@components/Landing.astro";
-import FAQ from "@components/FAQ.astro";
-
-// Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
-import {getOptimizedImage} from "@js/utils"
-import landingImage from "@assets/images/landing.jpg" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
-const optimizedImage = await getOptimizedImage(landingImage)
 ---
 
 <BaseLayout
   title="About"
   description="Meta description for the page"
-  preloadedImage = {optimizedImage}
 >
-  <!-- ============================================ -->
-  <!--                    LANDING                   -->
-  <!-- ============================================ -->
 
-  <Landing 
-    title="About Us"
-    image={optimizedImage}
-  />
-
-  <!-- ============================================ -->
-  <!--                 Side By Side                 -->
-  <!-- ============================================ -->
-
-  <section id="sbs">
-    <div class="cs-container">
-      <!-- Left Image Section -->
-      <div class="cs-left">
-        <picture class="cs-picture cs-picture1">
-          <source
-            media="(max-width: 600px)"
-            srcset="/assets/images/cabinets2-m.jpg"
-          />
-          <source
-            media="(min-width: 601px)"
-            srcset="/assets/images/cabinets2.jpg"
-          />
-          <img
-            aria-hidden="true"
-            decoding="async"
-            src="/assets/images/cabinets2.jpg"
-            alt="cabinets"
-            loading="lazy"
-            width="400"
-            height="563"
-          />
-        </picture>
-        <picture class="cs-picture cs-picture2">
-          <source
-            media="(max-width: 600px)"
-            srcset="/assets/images/construction-m.jpg"
-          />
-          <source
-            media="(min-width: 601px)"
-            srcset="/assets/images/construction.jpg"
-          />
-          <img
-            aria-hidden="true"
-            decoding="async"
-            src="/assets/images/construction.jpg"
-            alt="house"
-            loading="lazy"
-            width="400"
-            height="563"
-          />
-        </picture>
-      </div>
-      <!-- Right Content Section-->
-      <div class="cs-right">
-        <span class="cs-topper">About Us</span>
-        <h2 class="cs-title">About Company Title</h2>
-        <p class="cs-text">
-          In consequat tincidunt turpis sit amet imperdiet. Praesent Class
-          officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur
-          et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent
-          nonatourean olei aptent taciti sociosqu ad litora torquent per.
-        </p>
-        <p class="cs-text">
-          In consequat tincidunt turpis sit amet imperdiet. Praesent Class
-          officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur
-          et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent
-          nonatourean olei aptent taciti sociosqu ad litora torquent per.
-        </p>
-        <div class="cs-flex-group">
-          <p class="cs-flex-p">
-            In consequat tincidunt turpis sit amet imperdiet. Praesent Classei
-            consequat tincidunt turpis sit amet imperdiet for mind.
-          </p>
-          <span class="cs-name">Justin Time</span>
-          <span class="cs-job">CEO-Founder</span>
-          <img
-            class="cs-quote-icon"
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/quote-white.svg"
-            alt="gavel"
-            width="136"
-            height="77"
-          />
-        </div>
-        <a href="/projects" class="cs-button-solid">Our Projects</a>
-      </div>
+ <!-- Custom hero/banner section -->
+  <section class="page-header">
+  <div class="full-width-image-container">
+    <img src="/assets/images/About-Page.png" alt="About page header" />
+    <div class="header-overlay">
+      <h1 class="header-title">ABOUT</h1>
     </div>
-  </section>
-  <FAQ />
+  </div>
+</section>
+
+
+  <!-- ============================================ -->
+<!--                  Content                     -->
+<!-- ============================================ -->
+
+<section id="content-1450">
+    <div class="cs-container">
+        <div class="cs-content">
+           <!--  <span class="cs-topper">ABOUT US</span> 
+            <h2 class="cs-title">About</h2> -->
+            <p class="cs-text">
+                HACBED is a nonprofit intermediary that works to build the capacity of families and communities so that they have choice and control to achieve social, economic, and environmental justice.<br><br>
+
+For more than 30 years, HACBED's core competencies have been holding spaces for tough conversation, collecting stories and data, and disseminating that information. Recognizing that impact is limited when work is done in silos, HACBED works to break down barriers and to create networks and partnerships to bring about far reaching systemic change. HACBED begins with active listening to build relationships and break down barriers to create networks and partnerships to support partners to bring about systemic change. HACBED thus plays the role of network facilitator, catalyst, and advocate to support community building.<br><br>
+
+HACBED's strategic focuses are facilitation and network weaving, community and organizational capacity building, community based planning, and asset development and policy.
+            </p><br><br>
+            <h2 class="cs-title">Mission</h2><br>
+            <span class="cs-topper">HACBED strives to achieve economic, social, and environmental justice in Hawai`i through community-based economic development.</span>
+            <p class="cs-text">
+               <br> <em> Pursuit of Our Mission </em><br><br>
+
+HACBED pursues its mission by assisting community-based economic institutions that provide direct economic benefits to individuals, families, and communities. These institutions enhance community investments in order to help those communities build an economic structure that allows them to exercise greater control over their own futures.<br><br>
+
+Above all, HACBED serves this place called Hawai`i, as well as those who choose to be of this place and work to make it their home. In particular, HACBED has a strong focus on those who face social and economic injustices. HACBED provides this service by empowering education and capacity building for communities through policy development and advocacy for positive systemic change.<br><br>
+
+A “competitive advantage” is defined as “resources that allow an entity to develop and maintain an edge over competitors who produce similar goods and services.” HACBED's competitive advantages stem from its knowledge and experience as it relates to community engagement and the connections HACBED has been able to form. This advantage is founded on the belief that people “know” and “can” and is conducted through informed and skilled listening that strengthens the community voice and and promotes collective action. By focusing on its competitive advantages, HACBED is able to build trust and credibility while maintaining its activist roots, which involve addressing injustice by acting to correct wrongs.
+
+
+            </p>
+        </div>
+    </div>
+</section>
+                              
   <CTA />
 </BaseLayout>
 
@@ -116,206 +59,96 @@ const optimizedImage = await getOptimizedImage(landingImage)
   /* PAGE-SPECIFIC STYLES FOR THE ABOUT PAGE */
 
   /*-- -------------------------- -->
-<---       Side By Side         -->
+<---       Custom Landing      -->
 <--- -------------------------- -*/
 
   /* Mobile - 360px */
-  @media only screen and (min-width: 0em) {
-    #sbs {
-      padding: var(--sectionPadding);
-
-      .cs-container {
+@media only screen and (min-width: 0rem) {
+  .page-header {
+    padding: 0; /* Remove padding as we want full-width */
+    
+    
+    .full-width-image-container {
+      position: relative; /* Required for absolute positioning of children */
+      width: 100vw; /* Full viewport width */
+      height: clamp(42rem, 40vh, 30rem); /* Min 15rem, preferred 30% of viewport height, max 30rem */
+      overflow: hidden; /* Prevents image overflow */
+      
+      img {
         width: 100%;
-        max-width: (1280/16rem);
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        row-gap: (40/16rem);
+        height: 100%;
+        object-fit: cover;
+        display: block; /* Removes any extra space below the image */
       }
-
-      .cs-left {
-        /* scaling the font size with the view width */
-        font-size: ~"min(2.31vw, .7em)";
-        /* using ems so we can use font size to scale the whole section */
-        width: (631/16em);
-        height: (636/16em);
-        position: relative;
-      }
-
-      .cs-picture {
-        border-radius: (24/16em);
-        display: block;
+      
+      .header-overlay {
         position: absolute;
-        /* clips img tag corners */
-        overflow: hidden;
-        img {
-          width: 100%;
-          height: 100%;
-          /* makes image act like a background image */
-          object-fit: cover;
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-      }
-
-      .cs-picture1 {
-        width: (522/16em);
-        height: (581/16em);
         top: 0;
         left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay for better text visibility */
       }
-
-      .cs-picture2 {
-        width: (414/16em);
-        height: (400/16em);
-        background-color: #fff;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-        /* 6px - 12px */
-        border: clamp(0.375em, 1.5vw, 0.75em) solid #fff;
-        right: 0;
-        bottom: 0;
-      }
-
-      .cs-right {
-        max-width: (542/16rem);
-        margin: auto;
-      }
-
-      .cs-topper {
-        text-align: left;
-        margin-bottom: (4/16rem);
-      }
-
-      .cs-title {
-        text-align: left;
-        max-width: (800/16rem);
-      }
-
-      .cs-text {
-        text-align: left;
-        max-width: (750/16rem);
-        margin-bottom: (16/16rem);
-        color: var(--bodyTextColor);
-
-        &:last-of-type {
-          margin-bottom: (32/16rem);
-        }
-      }
-
-      .cs-flex-group {
-        /* 16px - 32px */
-        padding: clamp(1rem, 3vw, 2rem);
-        background-color: #f7f7f7;
-        border-radius: (16/16rem);
-        position: relative;
-      }
-
-      .cs-flex-p {
-        /* 14px - 16px */
-        font-size: clamp(0.875rem, 1.5vw, 1rem);
-        line-height: 1.5em;
-        margin: 0 0 (16/16rem);
-        color: #353535;
-      }
-
-      .cs-name {
-        font-size: (16/16rem);
-        font-weight: bold;
-        line-height: 1.2em;
-        text-transform: uppercase;
-        margin: 0 0 (4/16rem);
-        color: var(--headerColor);
-        display: block;
-      }
-
-      .cs-job {
-        font-size: (14/16rem);
-        line-height: 1.5em;
-        color: #353535;
-        display: block;
-      }
-
-      .cs-quote-icon {
-        /* 60px - 136px */
-        width: clamp(3.75rem, 10vw, 8.5rem);
-        height: auto;
-        position: absolute;
-        /* 16px - 32px */
-        right: clamp(1rem, 4vw, 2rem);
-        bottom: (0/16rem);
-      }
-
-      .cs-button-solid {
-        margin-top: (32/16rem);
-      }
-    }
-  }
-
-  /* Desktop - 1024px */
-  @media only screen and (min-width: 64em) {
-    #sbs {
-      .cs-container {
-        flex-flow: row;
-        justify-content: space-between;
-        gap: (52/16rem);
-      }
-
-      .cs-left {
-        font-size: ~"min(1.2vw, 1em)";
-        flex: none;
-      }
-
-      .cs-right {
+      
+      .header-title {
+        color: var(--primary);
+        text-align: center;
         margin: 0;
+        padding: 0 1rem;
+        /* Match your existing title styling */
+        font-size: var(--headerFontSize, 2.5rem);
+        font-weight: 700;
+        line-height: 1.2em;
+        /* Add text shadow for better readability against varying backgrounds */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
       }
     }
   }
+}
 
-  /* Dark Mode */
-  @media only screen and (min-width: 0em) {
-    body.dark-mode {
-      #sbs {
-        .cs-left {
-          &:before,
-          &:after {
-            background: var(--accent);
-          }
+  /*-- -------------------------- -->
+<---          Content           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #content-1450 {
+        padding: var(--sectionPadding);
+        
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
         }
 
-        .cs-picture2 {
-          background-color: var(--dark);
-          /* 6px - 12px */
-          border: clamp(0.375em, 1.5vw, 0.75em) solid var(--dark);
+        .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: left;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
         }
 
-        .cs-topper {
-          color: var(--primaryLight);
+        .cs-title, .cs-text {
+            max-width: 100%;
         }
 
-        .cs-title,
-        .cs-text,
-        .cs-h3,
-        .cs-flex-p,
-        .cs-name {
-          color: var(--bodyTextColorWhite);
+        .cs-text {
+            /* 16px - 20px */
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin: 0 0 (32/16rem) 0;
         }
-
-        .cs-flex-group {
-          background-color: var(--accent);
-        }
-
-        .cs-job {
-          color: var(--bodyTextColorWhite);
-          opacity: 0.8;
-        }
-
-        .cs-quote-icon {
-          opacity: 0.2;
-        }
-      }
     }
-  }
+}
+                                
 </style>

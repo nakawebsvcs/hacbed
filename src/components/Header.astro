@@ -29,90 +29,93 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
         </div>
       </button>
       <!-- If you want to use another navigation stitch and enjoy the benefits of dynamic routing, replace the .cs-ul-wrapper in the navigation stitch with this one below -->
-     <div class="cs-ul-wrapper">
-       <ul id="cs-expanded-ul" class="cs-ul">
-          {navData.map((entry) => (
-            <li
-              class:list={[
-                "cs-li",
-                { "cs-dropdown": entry.children?.length > 0 },
-              ]}
-              
+    <!-- Main wrapper for the navigation menu -->
+<div class="cs-ul-wrapper">
+  <ul id="cs-expanded-ul" class="cs-ul">
+    {navData.map((entry) => (
+      <li class:list={["cs-li", { "cs-dropdown": entry.children?.length > 0 }]}>
+        {entry.children?.length > 0 ? (
+          <div class="cs-nav-wrapper">
+            <a
+              href={entry.url}
+              class:list={["cs-li-link", { "cs-active": Astro.url.pathname === entry.url }]}
+              aria-current={Astro.url.pathname === entry.url ? "page" : undefined}
             >
-              {entry.children?.length > 0 ? (
-                // If entry has children in navData.json, create a button and a dropdown icon
-                <button
-                aria-expanded="false"
-                aria-controls={`submenu-${entry.key}`}
-                  class:list={[
-                    "cs-li-link cs-dropdown-button",
-                    { "cs-active": Astro.url.pathname.includes(entry.url)},
-                  ]}
-                >
-                  {entry.key}
-                  <Icon name="mdi--caret" class="cs-drop-icon" />
-                </button>
-              ) : (
-                // If entry does not have children in navData.json, create an anchor
-                <a
-                  href={entry.url}
-                  class:list={[
-                    "cs-li-link",
-                    { "cs-active": Astro.url.pathname === entry.url },
-                  ]}
-                  aria-current={Astro.url.pathname === entry.url ? "page" : undefined}
-                >
-                  {entry.key}
-                </a>
-              )}
-              
-              {entry.children?.length > 0 && (
-                // If entry has children in navData.json, create a drop down menu
-                <ul id={`submenu-${entry.key}`} class="cs-drop-ul">
-                  {entry.children.map((child) => (
-                   <li class:list={["cs-drop-li", { "cs-dropdown": child.children?.length > 0 }]}>
-  {child.children?.length > 0 ? (
-    <button
-      aria-expanded="false"
-      aria-controls={`submenu-${entry.key}-${child.key}`}
-      class="cs-li-link cs-drop-link cs-dropdown-button"
-    >
-      {child.key}
-      <Icon name="mdi--caret" class="cs-tertiary-icon" />
-    </button>
-  ) : (
-    <a 
-      href={child.url} 
-      class="cs-li-link cs-drop-link"
-      aria-current={Astro.url.pathname === child.url ? "page" : undefined}
-    >
-      {child.key}
-    </a>
-  )}
-  
-  {child.children?.length > 0 && (
-    <ul id={`submenu-${entry.key}-${child.key}`} class="cs-tertiary-ul">
-      {child.children.map((grandchild) => (
-        <li class="cs-tertiary-li">
-          <a 
-            href={grandchild.url} 
-            class="cs-li-link cs-tertiary-link"
-            aria-current={Astro.url.pathname === grandchild.url ? "page" : undefined}
+              {entry.key}
+            </a>
+            <button
+              aria-expanded="false"
+              aria-controls={`submenu-${entry.key}`}
+              class="cs-dropdown-button cs-drop-icon-button"
+            >
+              <Icon name="mdi--caret" class="cs-drop-icon" />
+            </button>
+          </div>
+        ) : (
+          <a
+            href={entry.url}
+            class:list={["cs-li-link", { "cs-active": Astro.url.pathname === entry.url }]}
+            aria-current={Astro.url.pathname === entry.url ? "page" : undefined}
           >
-            {grandchild.key}
+            {entry.key}
           </a>
-        </li>
-      ))}
-    </ul>
-  )}
-</li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
+        )}
+        
+        {entry.children?.length > 0 && (
+          <ul id={`submenu-${entry.key}`} class="cs-drop-ul">
+            {entry.children.map((child) => (
+              <li class:list={["cs-drop-li", { "cs-dropdown": child.children?.length > 0 }]}>
+                {child.children?.length > 0 ? (
+                  <div class="cs-nav-wrapper">
+                    <a 
+                      href={child.url} 
+                      class="cs-li-link cs-drop-link"
+                      aria-current={Astro.url.pathname === child.url ? "page" : undefined}
+                    >
+                      {child.key}
+                    </a>
+                    <button
+                      aria-expanded="false"
+                      aria-controls={`submenu-${entry.key}-${child.key}`}
+                      class="cs-dropdown-button cs-tertiary-toggle"
+                    >
+                      <Icon name="mdi--caret" class="cs-tertiary-icon" />
+                    </button>
+                  </div>
+                ) : (
+                  <a
+                    href={child.url}
+                    class="cs-li-link cs-drop-link"
+                    aria-current={Astro.url.pathname === child.url ? "page" : undefined}
+                  >
+                    {child.key}
+                  </a>
+                )}
+                
+                {child.children?.length > 0 && (
+                  <ul id={`submenu-${entry.key}-${child.key}`} class="cs-tertiary-ul">
+                    {child.children.map((grandchild) => (
+                      <li class="cs-tertiary-li">
+                        <a
+                          href={grandchild.url}
+                          class="cs-li-link cs-tertiary-link"
+                          aria-current={Astro.url.pathname === grandchild.url ? "page" : undefined}
+                        >
+                          {grandchild.key}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ))}
+  </ul>
+</div>
+
     </nav>
    <!--  <a href="/contact" class="cs-button-solid cs-nav-button">Contact Us</a> -->
   </div>
@@ -817,7 +820,8 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    z-index: 1000 !important; /* Make sure it appears above other content */
+    z-index: 9999 !important; /* Make sure it appears above other content */
+    pointer-events: auto;
   }
   
   /* Hide tertiary menu by default */
@@ -857,6 +861,186 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
     &:hover {
       background-color: #f5f5f5;
     }
+  }
+}
+
+/* Add these new styles - Nav wrapper for link + dropdown toggle */
+.cs-nav-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Separate dropdown toggle buttons */
+.cs-drop-icon-button,
+.cs-tertiary-toggle {
+  background: none;
+  border: none;
+  padding: 0 0 0 0.25rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Mobile-specific wrapper styling */
+@media only screen and (max-width: 63.9375rem) {
+  .cs-nav-wrapper {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  /* For tertiary buttons in mobile */
+  .cs-tertiary-toggle {
+    color: #fff;
+  }
+  
+  /* Adjust the mobile dropdown padding to accommodate the new structure */
+  #cs-navigation .cs-dropdown .cs-li-link {
+    margin-right: 0.5rem;
+  }
+}
+
+/* Desktop specific wrapper styling */
+@media only screen and (min-width: 64rem) {
+  /* Fix dropdown indicator positioning on desktop */
+  .cs-drop-icon-button .cs-drop-icon,
+  .cs-tertiary-toggle .cs-tertiary-icon {
+    margin-left: 0.25rem;
+  }
+  
+  /* Adjust how the wrapper displays in desktop mode */
+  .cs-nav-wrapper {
+    gap: 0.25rem;
+  }
+  
+  /* For z-index issues with the dropdown menus */
+  #cs-navigation .cs-drop-ul {
+    z-index: 100; /* Increase from -100 to ensure proper layering */
+  }
+  
+  /* Improve tertiary menu positioning */
+  .cs-tertiary-ul {
+    transform: scaleY(0);
+    transform-origin: top left;
+    transition: transform 0.3s, visibility 0.3s, opacity 0.3s;
+  }
+  
+  /* Fix tertiary menu hover behavior */
+  .cs-drop-li.cs-dropdown:hover .cs-tertiary-ul,
+  .cs-drop-li.cs-dropdown.cs-active .cs-tertiary-ul {
+    transform: scaleY(1);
+  }
+}
+
+/* Fix for dropdown buttons text styling */
+#cs-navigation .cs-dropdown-button {
+  font-size: inherit;
+  color: inherit;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Make sure tertiary toggle icon stays visible */
+.cs-tertiary-toggle .cs-tertiary-icon {
+  display: inline-block;
+  min-width: 0.75rem;
+}
+
+/* Add these specific fixes for tertiary menus */
+@media only screen and (min-width: 64rem) {
+  /* Ensure tertiary menus are properly visible when their parent is active */
+  .cs-drop-li.cs-dropdown.cs-active > .cs-tertiary-ul,
+  .cs-drop-li.cs-dropdown:hover > .cs-tertiary-ul {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: scaleY(1) !important;
+    z-index: 10000 !important;
+  }
+  
+  /* Properly position tertiary menus */
+  .cs-tertiary-ul {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 14rem;
+    background-color: #fff;
+    border-bottom: 5px solid var(--primary);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    z-index: 10000;
+  }
+  
+  /* Fix tertiary toggle button alignment */
+  .cs-tertiary-toggle {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* Fix mobile tertiary menus */
+@media only screen and (max-width: 63.9375rem) {
+  .cs-tertiary-ul {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: #444; /* Darker than parent dropdown */
+  }
+  
+  /* Make tertiary menu visible when parent is active */
+  .cs-drop-li.cs-dropdown.cs-active > .cs-tertiary-ul {
+    display: block !important;
+  }
+}
+
+/* Desktop-specific fixes for tertiary menus */
+@media only screen and (min-width: 64rem) {
+  /* Fix hover behavior with the new wrapper */
+  .cs-drop-li.cs-dropdown .cs-nav-wrapper:hover + .cs-tertiary-ul,
+  .cs-drop-li.cs-dropdown:hover > .cs-tertiary-ul {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: scaleY(1) !important;
+  }
+  
+  /* Fix tertiary menu positioning with the new structure */
+  .cs-tertiary-ul {
+    top: 0 !important; 
+    left: 100% !important;
+    position: absolute !important;
+    transform-origin: top left !important;
+    z-index: 10000 !important;
+  }
+  
+  /* Make sure the parent is correctly positioned for absolute children */
+  .cs-drop-li.cs-dropdown {
+    position: relative !important;
+  }
+  
+  /* Make sure the hover state includes the tertiary menu */
+  .cs-drop-li.cs-dropdown {
+    /* Ensure the hover continues when moving to submenu */
+    padding-right: 1rem; /* Add padding to create a "bridge" to the submenu */
+  }
+  
+  /* Another approach - add a "bridge" element to maintain hover state */
+  .cs-drop-li.cs-dropdown::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    top: 0;
+    right: -20px;
+    z-index: 9998;
+    pointer-events: none; /* Don't interfere with other interactions */
+  }
+  
+  /* Make tertiary menu visible when parent or toggle has focus */
+  .cs-tertiary-toggle:focus-visible + .cs-tertiary-ul,
+  .cs-tertiary-toggle:focus + .cs-tertiary-ul {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 }
 

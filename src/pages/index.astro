@@ -3,11 +3,6 @@ import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
 import FAQ from "@components/FAQ.astro";
 
-// Optimize our landing image
-import {getOptimizedImage} from "@js/utils"
-import landingImage from "@assets/images/landing.jpg"
-const optimizedImage = await getOptimizedImage(landingImage)
-
 // Define the service categories we want to display - hardcoded for safety
 const serviceCategories = [
   "Capacity Building and Technical Assistance",
@@ -51,7 +46,6 @@ try {
 <BaseLayout
   title="HACBED | Hawai'i Alliance for Community-Based Economic Development"
   description="HACBED strives to achieve economic, social, and environmental justice in Hawai i through community-based economic development."
-  preloadedImage = {optimizedImage}
 >
   <!-- ============================================ -->
   <!--                    Hero                      -->
@@ -174,7 +168,7 @@ Where we want to go
 </li>
 </ul>
             </p>
-            <a href="/our-roots" class="cs-button-solid">Read Our History</a>
+            <a href="/about/our-roots/" class="cs-button-solid">Read Our History</a>
         </div>
     </div>
 </section>

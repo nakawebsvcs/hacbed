@@ -1,31 +1,407 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
-import Landing from "@components/Landing.astro";
-// Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
-import { getOptimizedImage } from "@js/utils";
-import landingImage from "@assets/images/landing.jpg" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
-const optimizedImage = await getOptimizedImage(landingImage)
 ---
 
 <BaseLayout
   title="How We Work"
   description="Meta description for the page"
-  preloadedImage = {optimizedImage}
 >
-  <!-- ============================================ -->
-  <!--                    LANDING                   -->
-  <!-- ============================================ -->
+  <!-- Custom hero/banner section -->
+  <section class="page-header">
+  <div class="full-width-image-container">
+    <img src="/assets/images/About-Page.png" alt="About page header" />
+    <div class="header-overlay">
+      <h1 class="header-title">HOW WE WORK</h1>
+    </div>
+  </div>
+</section>
 
-  <Landing 
-    title="How We Work"
-    image={optimizedImage}
-  />
+
+  <!-- ============================================ -->
+<!--                  Content                     -->
+<!-- ============================================ -->
+
+<section id="content-1450">
+    <div class="cs-container">
+        <div class="cs-content">
+           <!--  <span class="cs-topper">ABOUT US</span> 
+            <h2 class="cs-title">About</h2> -->
+            <p class="cs-text">
+                HACBED uplifts community voice and supports collective action through our approach to community-based economic development. We play the role of facilitator, catalyst, community builder and broker as asked by the communities we serve. Holding this space, we also act as a producer of training, technical assistance, advocacy, education, as well as research & development (R&D) related products and services. HACBED has developed a body of information, experience, and expertise to support the field of community-based economic development and asset building in Hawai`i by:<br>
+              <ul>
+<li>Providing organizational capacity development support to grassroots organizations involved in CBED and asset building across the state and elsewhere.
+<li>Supporting community-based organizations through training, workshops, coaching, technical assistance, and other support services.</li>
+<li>Implementing field building strategies to improve the environment in which community-based organizations must operate in Hawai`i. </li>
+<li>Sitting, talking story, and listening to capture, synthesize, reflect, and sometimes translate the vision and ideas of community members.</li></ul></p>
+<p class="cs-text">Our focus and scope of work is in the following areas:<br>
+  <ul>
+
+<li><em>Community & Organizational Capacity Building</em> -- organizational assessments (diagnostics), strategic thinking and planning, community economic development training and technical assistance, and executive coaching to assist communities and non-profit organizations in building the capacity needed to plan, implement, and sustain community-based economic development and other asset building ventures.</li>
+<li><em>Community Based Planning</em> -- community-based planning for sustainable community-based economic development and asset building, including the designing and facilitating of community engagement and participation processes, building coalitions and networks, and developing community-based institutions.</li>
+<li><em>Family & Community Asset Building For Self-Sufficiency</em> -- developing policies and community practices around strategies that help individuals, families, and communities to build wealth/assets. These assets will then help them to become self sufficient and develop increased opportunities that will allow them to exercise choice and control over their futures.</li></ul></p>
+<p class="cs-text">For more information on our primary activities, take a look at the links below.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- ============================================ -->
+<!--                    Services                  -->
+<!-- ============================================ -->
+
+<section id="services-1727">
+    <div class="cs-container">
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <a href="/about/how-we-work/facilitation/" class="cs-link">
+                    <h3 class="cs-h3">Facilitation</h3>
+                </a>
+                <picture class="cs-background">
+                    <source media="(max-width: 600px)" srcset="/assets/images/facilitation.jpg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/facilitation.jpg">
+                    <img decoding="async" loading="lazy" src="/assets/images/facilitation.jpg" alt="group of people" width="413" height="320" aria-hidden="true">
+                </picture>
+            </li>
+            <li class="cs-item">
+                <a href="/about/how-we-work/network-coordination-development/" class="cs-link">
+                    <h3 class="cs-h3">Network Coordination and Development</h3>
+                </a>
+                <picture class="cs-background">
+                    <source media="(max-width: 600px)" srcset="/assets/images/networkcoordination.jpg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/networkcoordination.jpg">
+                    <img decoding="async" loading="lazy" src="/assets/images/networkcoordination.jpg" alt="people working together in a room" width="413" height="320" aria-hidden="true">
+                </picture>
+            </li>
+            <li class="cs-item">
+                <a href="/about/how-we-work/strategic-planning-ta/" class="cs-link">
+                    <h3 class="cs-h3">Strategic Planning and Technical Assistance</h3>
+                </a>
+                <picture class="cs-background">
+                    <source media="(max-width: 600px)" srcset="/assets/images/strategicplanning.jpg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/strategicplanning.jpg">
+                    <img decoding="async" loading="lazy" src="/assets/images/strategicplanning.jpg" alt="table workspace" width="413" height="320" aria-hidden="true">
+                </picture>
+            </li>
+        </ul>
+    </div>
+</section>
+                                
 
   <CTA />
 </BaseLayout>
 
 <style lang="less">
   /* PAGE-SPECIFIC STYLES FOR THE PAGE */
+
+  /*-- -------------------------- -->
+<---       Custom Landing      -->
+<--- -------------------------- -*/
+
+  /* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  .page-header {
+    padding: 0; /* Remove padding as we want full-width */
+    
+    
+    .full-width-image-container {
+      position: relative; /* Required for absolute positioning of children */
+      width: 100vw; /* Full viewport width */
+      height: clamp(42rem, 40vh, 30rem); /* Min 15rem, preferred 30% of viewport height, max 30rem */
+      overflow: hidden; /* Prevents image overflow */
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block; /* Removes any extra space below the image */
+      }
+      
+      .header-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay for better text visibility */
+      }
+      
+      .header-title {
+        color: var(--primary);
+        text-align: center;
+        margin: 0;
+        padding: 0 1rem;
+        /* Match your existing title styling */
+        font-size: var(--headerFontSize, 2.5rem);
+        font-weight: 700;
+        line-height: 1.2em;
+        /* Add text shadow for better readability against varying backgrounds */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+      }
+    }
+  }
+}
+
+  /*-- -------------------------- -->
+<---          Content           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #content-1450 {
+        padding: var(--sectionPadding);
+        
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
+        }
+
+        .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: left;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
+
+             ul {
+                width: 100%;
+                max-width: 100%;
+                margin: 0 0 (24/16rem) 0;
+                padding-left: (24/16rem);
+                list-style-position: outside;
+                
+                li {
+                  font-size: clamp(1rem, 2vw, 1.25rem); // Match your .cs-text font size
+                  line-height: 1.5em;
+                  color: var(--bodyTextColor);
+                  margin-bottom: (8/16rem);
+                  position: relative;
+                  padding-left: (4/16rem);
+                  
+                  &::marker {
+                    color: var(--primary); // Use your brand color for bullets
+                  }
+                  
+                  // For nested lists
+                  ul {
+                    margin: (8/16rem) 0 (8/16rem) 0;
+                    
+                    li {
+                      font-size: 0.95em; // Slightly smaller than parent
+                    }
+      }
+    }
+  }
+}
+  
+  // Add styling for ordered lists too
+  ol {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 (24/16rem) 0;
+    padding-left: (24/16rem);
+    list-style-position: outside;
+    counter-reset: item;
+    
+    li {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      line-height: 1.5em;
+      color: var(--bodyTextColor);
+      margin-bottom: (8/16rem);
+      position: relative;
+      padding-left: (4/16rem);
+      
+      &::marker {
+        color: var(--secondary);
+      }
+    }
+  }
+
+        .cs-title, .cs-text {
+            max-width: 100%;
+        }
+
+        .cs-text {
+            /* 16px - 20px */
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin: 0 0 (32/16rem) 0;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---          Services          -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #services-1727 {
+        padding: var(--sectionPadding);
+        position: relative;
+        margin-top: -4rem;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(3rem, 6vw, 4rem);
+        }
+
+        .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
+        }
+
+        .cs-title {
+            max-width: 25ch;
+        }
+
+        .cs-card-group {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            align-items: stretch;
+            grid-template-columns: repeat(12, 1fr);
+            /* 16px - 20px */
+            gap: clamp(1rem, 2vw, 1.25rem);
+        }
+
+        .cs-item {
+            text-align: center;
+            list-style: none;
+            width: 100%;
+            /* 240px - 320px */
+            height: clamp(15rem, 40vw, 20rem);
+            margin: 0;
+            /* prevents padding and border from affecting height and width */
+            box-sizing: border-box;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            grid-column: span 12;
+            grid-row: span 1;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+
+            &:hover .cs-background:before {
+                opacity: 0.8;
+            }
+
+            &:hover .cs-background img {
+                transform: scale(1.2);
+            }
+        }
+
+        .cs-link {
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            /* padding goes on the link, not the cs-item as is normal. We do this because we want the whole card to be hoverable. So we add the padding to the link tag to create the space inside the card. By adding the space inside the cs-link tag we can make the whole card hoverable since the padding is now contributing to the height and width of the link */
+            /* 16px - 32px */
+            padding: clamp(1rem, 3vw, 2rem);
+            /* prevents padding from affecting height and width */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .cs-number {
+            font-size: (84/16rem);
+            font-weight: 900;
+            color: rgba(0, 0, 0, 0);
+            opacity: 100%;
+            position: absolute;
+            /* 16px - 32px */
+            right: clamp(1rem, 3vw, 2rem);
+            bottom: clamp(1rem, 3vw, 2rem);
+            transition: opacity 0.3s, top 0.3s;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: var(--bodyTextColorWhite);
+        }
+
+        .cs-h3 {
+            /* 25px - 31px */
+            font-size: clamp(1.5625rem, 2.5vw, 1.9375rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            text-align: inherit;
+            margin: 0;
+            color: var(--bodyTextColorWhite);
+        }
+
+        .cs-background {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+
+            &:before {
+                /* background color overlay */
+                content: "";
+                width: 100%;
+                height: 100%;
+                background-color: #000;
+                opacity: 0.4;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                transition: background-color 0.3s, opacity 0.3s;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                /* Makes img tag act as a background image */
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: transform 0.6s;
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #services-1727 {
+      margin-top: -6rem;
+        .cs-item {
+            grid-column: span 4;
+        }
+    }
+}
+                                
 
   </style>
