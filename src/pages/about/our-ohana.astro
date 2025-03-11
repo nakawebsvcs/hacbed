@@ -7,18 +7,270 @@ import CTA from "@components/CTA.astro";
   title="Our Ohana"
   description="Meta description for the page"
 >
-  <!-- Custom hero/banner section -->
+  <!-- Custom hero/banner section 
   <section class="page-header">
     <div class="cs-container">
       <h1>About</h1>
       <img src="/assets/images/About-Page.png" alt="About page header" width="100%" />
     </div>
-  </section>
+  </section> -->
+
+  <!-- ============================================ -->
+<!--                  Meat Team                   -->
+<!-- ============================================ -->
+
+<section id="meet-437">
+    <div class="cs-container">
+        <div class="cs-content">
+            <!-- <span class="cs-topper">Our Team</span> -->
+            <h2 class="cs-title">Our Team</h2>
+        </div>
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="/assets/images/Brent-Kakesako.jpg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/Brent-Kakesako.jpg">
+                    <img loading="lazy" decoding="async" src="/assets/images/Brent-Kakesako.jpg" alt="Brent-Kakesako" width="305" height="242" aria-hidden="true">
+                </picture>
+                <span class="cs-name">Brent Kakesako</span>
+                <span class="cs-job">Executive Director</span>
+                <span class="cs-bio">Brent feels humbled to co-learn alongside communities across Hawai'i and beyond and blessed with an awesome team he supports as best he can. He is driven by his family upbringing, the connection he feels to this place, and his initial eye opening community engagement experiences. Brent also dabbled in supporting the startup ecosystem, founded a small consulting business, coaches wrestling, and wipes out a lot at Kewalo's. He received his J.D. from the William S. Richardson School of Law, an M.B.A. from the Shidler College of Business, and his Bachelors from Harvard University focused on the study of teams.</span>
+            </li>
+            <li class="cs-item">
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="/assets/images/Merri-Keliikuli.jpg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/Merri-Keliikuli.jpg">
+                    <img loading="lazy" decoding="async" src="/assets/images/Merri-Keliikuli.jpg" alt="Merri-Keliikuli" width="305" height="242" aria-hidden="true">
+                </picture>
+                <span class="cs-name">Merri Keli'ikuli</span>
+                <span class="cs-job">Office Manager & Program Support</span>
+                <span class="cs-bio">Merri Keli'ikuli is responsible for day to day management of the office, accounting/bookkeeping, and support across various programs/projects. Merri's work experience includes her previous role as Executive Director of Hoa 'Āina O Mākaha, overseeing daily operations, grant and budget management, and community outreach. Prior to that, she led several teams in retail operations while executing merchant planning and buying for more than 25 years. Merri received her bachelor's degree in Business Administration from Loyola Marymount University.</span>
+            </li>
+            <li class="cs-item">
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="/assets/images/Corin-Thornburg.jpeg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/Corin-Thornburg.jpeg">
+                    <img loading="lazy" decoding="async" src="/assets/images/Corin-Thornburg.jpeg" alt="Corin-Thornburg" width="305" height="242" aria-hidden="true">
+                </picture>
+                <span class="cs-name">Corin Thornburg</span>
+                <span class="cs-job">Senior Community-Based Economic Development Project Associate</span>
+                <span class="cs-bio">Corin Thornburg supports the team with current activities as HACBED grows partnerships and collaborative projects. Prior to HACBED, Corin worked as a teacher and grant writer at Hakipu'u Learning Center, Public Charter School in Kāne'ohe, O'ahu. Following graduation, Corin worked at the University of San Diego, supporting local procurement initiatives in Linda Vista, California. She is grateful to all who have guided, mentored, and taught her. Corin grew up in 'Ewa Beach and Mānana on O'ahu. She received her B.A. in Psychology from Azusa Pacific University and M.A .from the University of San Diego in Social Innovation.</span>
+            </li>
+        </ul>
+    </div>
+</section>
+                                
 
   <CTA />
 </BaseLayout>
 
 <style lang="less">
   /* PAGE-SPECIFIC STYLES FOR THE PAGE */
+
+  /*-- -------------------------- -->
+<---         Meet Team          -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #meet-437 {
+        text-align: center;
+        padding: var(--sectionPadding);
+        margin-top: 4rem;
+
+        .cs-container {
+            width: 100%;
+            /* changes to 1280px at tablet */
+            max-width: (550/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
+        }
+
+        .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
+        }
+
+        .cs-title {
+          color: var(--secondary);
+        }
+
+        .cs-card-group {
+            width: 100%;
+            max-width: (955/16em);
+            padding: 0;
+            margin: 0 auto;
+            /* 24px - 40px, accounts for the translate amount on the list items */
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            /* 8px - 20px */
+            column-gap: clamp(0.5rem, 1.5vw, 1.25rem);
+            row-gap: (12/16rem);
+        }
+
+        .cs-item {
+            list-style: none;
+            width: 48%;
+            padding-bottom: (24/16rem);
+            border-radius: (12/16rem);
+            background-color: #fff;
+            box-shadow: 0px 24px 54px rgba(87, 107, 147, 0.12);
+            border: 1px solid #b4b2c7;
+            position: relative;
+            &:before {
+                /* hover box */
+                content: "";
+                width: 99%;
+                height: 99%;
+                border: 4px solid var(--primary);
+                border-radius: (12/16rem);
+                background: transparent;
+                pointer-events: none;
+                opacity: 0;
+                position: absolute;
+                display: block;
+                z-index: 10;
+                /* next three lines are old school way of centering something */
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition:
+                    transform 0.3s,
+                    width 0.3s,
+                    height 0.3s,
+                    opacity 0.3s;
+            }
+
+            &:hover {
+                &:before {
+                    opacity: 1;
+                }
+                .cs-picture {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+
+        .cs-picture {
+            width: 100%;
+            /* height divided by width */
+            aspect-ratio: 305/242;
+            margin-bottom: (24/16rem);
+            /* clips corners of image */
+            overflow: hidden;
+            border-radius: (12/16rem) (12/16rem) 0 0;
+            border-bottom: 1px solid #b4b2c7;
+            position: relative;
+            display: block;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                /* makes it behave like a background image */
+                object-fit: cover;
+                /* places the top of the image at the top of the picture element */
+                object-position: top;
+                transition: transform 0.6s;
+            }
+        }
+
+        .cs-name {
+            /* 16px - 25px */
+            font-size: clamp(1rem, 2vw, 1.5625rem);
+            line-height: 1.2em;
+            font-weight: 700;
+            margin-bottom: (4/16rem);
+            color: var(--headerColor);
+            display: block;
+        }
+
+        .cs-job {
+            /* 14px - 16px */
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            line-height: 1.5em;
+            color: var(--secondary);
+            display: block;
+        }
+
+        .cs-bio {
+            /* 14px - 16px */
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            line-height: 1.5em;
+            color: var(--bodyTextColor);
+            margin-top: 0.75rem;
+            padding: 0 1rem;
+            display: block;
+            /* Ensure proper text wrapping */
+            white-space: normal;
+        }
+    }
+}
+
+/* Tablet - 600px */
+@media only screen and (min-width: 37.5rem) {
+    #meet-437 {
+        .cs-container {
+            max-width: (1280/16rem);
+        }
+
+        .cs-card-group {
+            flex-wrap: wrap;
+            justify-content: center;
+            /* Add more spacing between cards */
+            column-gap: clamp(1rem, 2vw, 2rem);
+            row-gap: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .cs-item {
+            /* Make cards more responsive with percentage widths */
+            width: calc(33% - 1rem);
+            max-width: (350/16rem);
+            
+            /* Remove the staggered effect */
+            &:nth-of-type(2),
+            &:nth-of-type(4) {
+                transform: none;
+            }
+        }
+    }
+}
+
+/* Desktop - 1024px+ */
+@media only screen and (min-width: 64rem) {
+    #meet-437 {
+       .cs-card-group {
+            column-gap: clamp(1.5rem, 3vw, 3rem);
+            flex-wrap: nowrap;
+            max-width: (1200/16rem);
+        }
+        
+        .cs-item {
+            /* Make cards wider on desktop */
+            width: calc(33.33% - 2rem);
+            min-width: (350/16rem);
+            /* Increase max-width to make cards wider */
+            max-width: (400/16rem);
+            /* To ensure proper spacing and flexibility */
+            flex: 1 1 0;
+        }
+    }
+}
 
   </style>
