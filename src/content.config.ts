@@ -1,3 +1,4 @@
+typescript:src/content.config.ts
 import { z, defineCollection } from "astro:content";
 import { glob } from 'astro/loaders';
 
@@ -19,6 +20,23 @@ const blogsCollection = defineCollection({
 		}),
 });
 
+const teamCollection = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/team" }),
+  schema: z.object({
+    title: z.string(),
+    members: z.array(
+      z.object({
+        name: z.string(),
+        jobTitle: z.string(),
+        bio: z.string(),
+        imageUrl: z.string(),
+        imageAlt: z.string().optional(),
+      })
+    ),
+  }),
+});
+
 export const collections = {
-	blog: blogsCollection,
+  blog: blogsCollection,
+  team: teamCollection,
 };

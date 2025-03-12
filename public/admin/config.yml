@@ -21,3 +21,23 @@ collections:
       - { label: "Image Caption", name: "imageAlt", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "team"
+    label: "Team Settings"
+    files:
+      - name: "team-members"
+        label: "Team Members"
+        file: "src/content/team/team-members.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", default: "Our Team" }
+          - label: "Team Members"
+            name: "members"
+            widget: "list"
+            allow_add: true
+            collapsed: false
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Job Title", name: "jobTitle", widget: "string" }
+              - { label: "Bio", name: "bio", widget: "text" }
+              - { label: "Photo", name: "imageUrl", widget: "image" }
+              - { label: "Image Alt Text", name: "imageAlt", widget: "string", required: false }
+
