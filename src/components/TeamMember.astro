@@ -1,0 +1,30 @@
+---
+export interface Props {
+  name: string;
+  jobTitle: string;
+  bio: string;
+  imageUrl: string;
+  imageAlt?: string;
+}
+
+const { name, jobTitle, bio, imageUrl, imageAlt = name } = Astro.props;
+---
+
+<li class="cs-item">
+  <picture class="cs-picture">
+    <source media="(max-width: 600px)" srcset={imageUrl}>
+    <source media="(min-width: 601px)" srcset={imageUrl}>
+    <img 
+      loading="lazy" 
+      decoding="async" 
+      src={imageUrl} 
+      alt={imageAlt} 
+      width="305" 
+      height="242" 
+      aria-hidden="true"
+    >
+  </picture>
+  <span class="cs-name">{name}</span>
+  <span class="cs-job">{jobTitle}</span>
+  <span class="cs-bio">{bio}</span>
+</li>
