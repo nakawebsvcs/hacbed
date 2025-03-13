@@ -1,4 +1,3 @@
-typescript:src/content.config.ts
 import { z, defineCollection } from "astro:content";
 import { glob } from 'astro/loaders';
 
@@ -20,23 +19,34 @@ const blogsCollection = defineCollection({
 		}),
 });
 
+// new collection for team members
 const teamCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/team" }),
-  schema: z.object({
-    title: z.string(),
-    members: z.array(
-      z.object({
-        name: z.string(),
-        jobTitle: z.string(),
-        bio: z.string(),
-        imageUrl: z.string(),
-        imageAlt: z.string().optional(),
-      })
-    ),
-  }),
+	loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/team" }),
+	schema: ({ image }) =>
+		z.object({
+			name: z.string(),
+			jobTitle: z.string(),
+			bio: z.string(),
+			image: image(),
+			order: z.number().optional(),
+		}),
+});
+
+// new collection for board members
+const boardCollection = defineCollection({
+	loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/board" }),
+	schema: ({ image }) =>
+		z.object({
+			name: z.string(),
+			jobTitle: z.string(),
+			bio: z.string(),
+			image: image(),
+			order: z.number().optional(),
+		}),
 });
 
 export const collections = {
   blog: blogsCollection,
   team: teamCollection,
+  board: boardCollection
 };

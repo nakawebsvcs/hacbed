@@ -22,22 +22,25 @@ collections:
       - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "team"
-    label: "Team Settings"
-    files:
-      - name: "team-members"
-        label: "Team Members"
-        file: "src/content/team/team-members.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string", default: "Our Team" }
-          - label: "Team Members"
-            name: "members"
-            widget: "list"
-            allow_add: true
-            collapsed: false
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Job Title", name: "jobTitle", widget: "string" }
-              - { label: "Bio", name: "bio", widget: "text" }
-              - { label: "Photo", name: "imageUrl", widget: "image" }
-              - { label: "Image Alt Text", name: "imageAlt", widget: "string", required: false }
+    label: "Team Members"
+    folder: "src/content/team"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Job Title", name: "jobTitle", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "markdown" }
+      - { label: "Image", name: "image", widget: "image", media_folder: "/src/assets/images" }
+      - { label: "Display Order", name: "order", widget: "number", required: false, value_type: "int" }
 
+  - name: "board"
+    label: "Board Members"
+    folder: "src/content/board"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Job Title", name: "jobTitle", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "markdown" }
+      - { label: "Image", name: "image", widget: "image", media_folder: "/src/assets/images" }
+      - { label: "Display Order", name: "order", widget: "number", required: false, value_type: "int" }

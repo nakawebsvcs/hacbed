@@ -3,46 +3,53 @@ import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
 import TeamSection from "@components/TeamSection.astro";
 import BoardSection from "@components/BoardSection.astro";
+import { getCollection } from 'astro:content';
 
-// Import the team data directly
-import { teamMembers } from "../../js/teamData.js";
-import { boardMembers } from "../../js/boardData.js";
+// Get data from content collections
+const teamMembers = await getCollection('team');
+const boardMembers = await getCollection('board');
+
+// Sort by order field if provided
+const sortedTeamMembers = teamMembers.sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+const sortedBoardMembers = boardMembers.sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+
+// Format the data to match your component expectations
+const formattedTeamMembers = sortedTeamMembers.map(member => ({
+  name: member.data.name,
+  jobTitle: member.data.jobTitle,
+  bio: member.data.bio,
+  imageUrl: member.data.image.src,
+  imageAlt: member.data.name
+}));
+
+const formattedBoardMembers = sortedBoardMembers.map(member => ({
+  name: member.data.name,
+  jobTitle: member.data.jobTitle,
+  bio: member.data.bio,
+  imageUrl: member.data.image.src,
+  imageAlt: member.data.name
+}));
 ---
 
 <BaseLayout
   title="Our Ohana"
   description="Meta description for the page"
 >
-  <!-- Custom hero/banner section 
-  <section class="page-header">
-    <div class="cs-container">
-      <h1>About</h1>
-      <img src="/assets/images/About-Page.png" alt="About page header" width="100%" />
-    </div>
-  </section> -->
-
-  <!-- ============================================ -->
-<!--                  Meet Team                   -->
-<!-- ============================================ -->
-
-<TeamSection 
-  id="team-section"
-  title="Our Team" 
-  members={teamMembers} 
-/>
+  <TeamSection 
+    id="team-section"
+    title="Our Team" 
+    members={formattedTeamMembers} 
+  />
     
-    <BoardSection 
+  <BoardSection 
     id="board-section"
-      title="Our Board" 
-      members={boardMembers} 
-    />
+    title="Our Board" 
+    members={formattedBoardMembers} 
+  />
                                 
-
   <CTA />
 </BaseLayout>
 
 <style lang="less">
   /* PAGE-SPECIFIC STYLES FOR THE PAGE */
-
- 
-  </style>
+</style>
