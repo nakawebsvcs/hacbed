@@ -151,7 +151,7 @@ const { id, title, members, topper } = Astro.props;
 
         .cs-picture {
             width: 100%;
-            aspect-ratio: 305/242;
+            aspect-ratio: 305/350;
             margin-bottom: (24/16rem);
             overflow: hidden;
             border-radius: (12/16rem) (12/16rem) 0 0;
@@ -204,10 +204,14 @@ const { id, title, members, topper } = Astro.props;
         .cs-read-more {
             display: inline-block;
             margin-top: 0.5rem;
-            color: var(--primary);
+            color: var(--secondary);
             font-weight: bold;
             cursor: pointer;
             font-size: 0.875rem;
+            background-color: transparent;
+            border: 1px solid #e0e0e0; 
+            border-radius: 4px;
+            padding: 0.25rem 0.75rem;
             
             &:after {
                 content: "Read More";

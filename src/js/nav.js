@@ -1,18 +1,10 @@
 // Astro:page-load wrapper for View Transitions purposes
 document.addEventListener("astro:page-load", () => {
-  const tertiaryButtons = document.querySelectorAll(".cs-tertiary-toggle");
-  console.log(
-    "Found tertiary buttons:",
-    tertiaryButtons.length,
-    tertiaryButtons
-  );
+  // Make the script controlling the <Hamburger /> mobile menu component available after navigating to a new page.
 
-  // Also check for all dropdown buttons
-  const allDropButtons = document.querySelectorAll(".cs-dropdown-button");
-  console.log("All dropdown buttons:", allDropButtons.length);
-  // Basic navigation setup (unchanged)
   const CSbody = document.querySelector("body");
   const CSnavbarMenu = document.getElementById("cs-navigation");
+  const CSUlWrapper = document.getElementById("cs-ul-wrapper");
   const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
 
   function toggleMenu() {
@@ -21,14 +13,13 @@ document.addEventListener("astro:page-load", () => {
     CSbody.classList.toggle("cs-open");
   }
 
-  // Mobile menu toggle
-  if (mobileMenuToggle) {
-    mobileMenuToggle.addEventListener("click", function () {
-      toggleMenu();
-      ariaExpanded(mobileMenuToggle);
-    });
-  }
+  // Toggles the hamburger mobile menu
+  mobileMenuToggle.addEventListener("click", function () {
+    toggleMenu();
+    ariaExpanded(mobileMenuToggle);
+  });
 
+  // Checks the value of aria expanded on an element and changes it accordingly whether it is expanded or not
   function ariaExpanded(element) {
     const isExpanded = element.getAttribute("aria-expanded");
     element.setAttribute(
@@ -37,22 +28,21 @@ document.addEventListener("astro:page-load", () => {
     );
   }
 
-  // PRIMARY DROPDOWNS
+  // Add event listeners to each dropdown element for accessibility
   const dropdownElements = document.querySelectorAll(".cs-dropdown");
-  console.log("Found dropdowns:", dropdownElements.length);
-
   dropdownElements.forEach((element) => {
-    // Add standard keyboard and focus handlers
+    // This variable tracks if the Escape key was pressed. This flag will be checked in the focusout event handler to ensure that pressing the Escape key does not trigger the focusout event and subsequently remove the cs-active class from the dropdown
     let escapePressed = false;
 
     element.addEventListener("focusout", function (event) {
       if (escapePressed) {
         escapePressed = false;
-        return;
+        return; // Skip the focusout logic if escape was pressed
       }
-
+      // If the focus has moved outside the dropdown, remove the active class from the dropdown
       if (!element.contains(event.relatedTarget)) {
         element.classList.remove("cs-active");
+        // adjust aria-expanded attribute on the dropdown button only
         const dropdownButton = element.querySelector(".cs-dropdown-button");
         if (dropdownButton) {
           ariaExpanded(dropdownButton);
@@ -62,107 +52,76 @@ document.addEventListener("astro:page-load", () => {
 
     element.addEventListener("keydown", function (event) {
       const dropdownButton = element.querySelector(".cs-dropdown-button");
-
+      // If the dropdown is active, stop the event from propagating. This is so we can use Escape to close the dropdown, then press it again to close the hamburger menu (if needed)
       if (element.classList.contains("cs-active")) {
         event.stopPropagation();
       }
 
+      // Pressing Enter or Space will toggle the dropdown and adjust the aria-expanded attribute
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
+
         element.classList.toggle("cs-active");
+        // adjust aria-expanded attribute on the dropdown button only
         if (dropdownButton) {
           ariaExpanded(dropdownButton);
         }
       }
 
+      // Pressing Escape will remove the active class from the dropdown. The stopPropagation above will stop the hamburger menu from closing
       if (event.key === "Escape") {
         escapePressed = true;
         element.classList.remove("cs-active");
+        // adjust aria-expanded attribute on the dropdown button only
         if (dropdownButton) {
           ariaExpanded(dropdownButton);
         }
       }
     });
-  });
 
-  // Add click handlers for ALL dropdown buttons, including tertiary ones
-  const allDropdownButtons = document.querySelectorAll(".cs-dropdown-button");
-  console.log("All dropdown buttons:", allDropdownButtons.length);
+    // Handles dropdown menus on mobile - the matching media query (max-width: 63.9375rem) is necessary so that clicking the dropdown button on desktop does not add the active class and thus interfere with the hover state
 
-  allDropdownButtons.forEach((button) => {
-    button.addEventListener("click", function (e) {
-      // Prevent default behavior
-      e.preventDefault();
-      e.stopPropagation();
-
-      // Find the parent dropdown element
-      const parentDropdown = button.closest(".cs-dropdown");
-
-      if (parentDropdown) {
-        // Add specific log for tertiary buttons
-        if (button.classList.contains("cs-tertiary-toggle")) {
-          console.log("Tertiary button clicked!");
-          // Force active class on tertiary dropdown parent
-          parentDropdown.classList.toggle("cs-active");
-
-          // Add specific debug for "How We Work" item
-          if (parentDropdown.textContent.includes("How We Work")) {
-            console.log("How We Work dropdown toggled!");
-            console.log(
-              "Tertiary menu:",
-              parentDropdown.querySelector(".cs-tertiary-ul")
-            );
-
-            // Force display the tertiary menu through JS as a fallback
-            const tertiaryMenu =
-              parentDropdown.querySelector(".cs-tertiary-ul");
-            if (tertiaryMenu) {
-              tertiaryMenu.style.display =
-                tertiaryMenu.style.display === "block" ? "none" : "block";
-              tertiaryMenu.style.opacity = "1";
-              tertiaryMenu.style.visibility = "visible";
-              tertiaryMenu.style.transform = "none";
-              tertiaryMenu.style.zIndex = "99999";
-            }
-          }
+    const maxWidthMediaQuery = window.matchMedia("(max-width: 63.9375rem)");
+    if (maxWidthMediaQuery.matches) {
+      element.addEventListener("click", (e) => {
+        element.classList.toggle("cs-active");
+        const dropdownButton = element.querySelector(".cs-dropdown-button");
+        if (dropdownButton) {
+          ariaExpanded(dropdownButton);
         }
+      });
 
-        // Toggle the active class on the parent (original code)
-        parentDropdown.classList.toggle("cs-active");
-
-        // Update ARIA attributes
-        ariaExpanded(button);
-      }
-    });
-  });
-  // Escape key for mobile menu
-  document.addEventListener("keydown", (event) => {
-    if (
-      event.key === "Escape" &&
-      mobileMenuToggle?.classList.contains("cs-active")
-    ) {
-      toggleMenu();
-    }
-  });
-
-  // Enter key for links
-  const allLinks = document.querySelectorAll(".cs-li-link");
-  allLinks.forEach((link) => {
-    if (link.tagName === "A") {
-      link.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-          window.location.href = link.href;
+      // If you press Escape and the hamburger menu is open, close it
+      document.addEventListener("keydown", (event) => {
+        if (
+          event.key === "Escape" &&
+          mobileMenuToggle.classList.contains("cs-active")
+        ) {
+          toggleMenu();
         }
       });
     }
   });
-});
 
-// Add this debugging code
-document.addEventListener("click", (e) => {
-  const closest = e.target.closest(".cs-tertiary-toggle");
-  if (closest) {
-    console.log("Tertiary button clicked", closest);
-    console.log("Parent dropdown:", closest.closest(".cs-dropdown"));
+  // Pressing Enter will redirect to the href
+  const dropdownLinks = document.querySelectorAll(".cs-drop-li > .cs-li-link");
+  dropdownLinks.forEach((link) => {
+    link.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        window.location.href = this.href;
+      }
+    });
+  });
+
+  // tertiary nav toggle code
+  const tertiaryDrop = Array.from(
+    document.querySelectorAll("#cs-navigation .cs-drop3-main")
+  );
+
+  for (const item of tertiaryDrop) {
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
+      item.classList.toggle("drop3-active");
+    });
   }
-});
+});                            

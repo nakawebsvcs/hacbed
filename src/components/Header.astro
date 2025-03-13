@@ -4,12 +4,15 @@ import { Icon } from 'astro-icon/components';
 import DarkModeToggle from "@components/DarkModeToggle.astro";
 ---
 
-<!-- ============================================ --><!--                 Navigation                   --><!-- ============================================ -->
+<!-- ============================================ -->
+<!--                 Navigation                   -->
+<!-- ============================================ -->
+
 <header id="cs-navigation">
-  <div class="cs-container">
-    <!--Nav Logo-->
-    <a href="/" class="cs-logo" aria-label="back to home">
-      <img
+    <div class="cs-container">
+        <!--Nav Logo-->
+        <a href="" class="cs-logo" aria-label="back to home">
+            <img
         src="/assets/images/hacbed-logo.svg"
         alt=""
         width="210"
@@ -17,108 +20,118 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
         aria-hidden="true"
         decoding="async"
       />
-    </a>
-    <!--Navigation List-->
-    <nav class="cs-nav" role="navigation">
-      <!--Mobile Nav Toggle-->
-      <button class="cs-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="cs-expanded-ul" aria-label="Toggle mobile menu.">
-        <div class="cs-box" aria-hidden="true">
-          <span class="cs-line cs-line1" aria-hidden="true"></span>
-          <span class="cs-line cs-line2" aria-hidden="true"></span>
-          <span class="cs-line cs-line3" aria-hidden="true"></span>
-        </div>
-      </button>
-      <!-- If you want to use another navigation stitch and enjoy the benefits of dynamic routing, replace the .cs-ul-wrapper in the navigation stitch with this one below -->
-    <!-- Main wrapper for the navigation menu -->
-<div class="cs-ul-wrapper">
-  <ul id="cs-expanded-ul" class="cs-ul">
-    {navData.map((entry) => (
-      <li class:list={["cs-li", { "cs-dropdown": entry.children?.length > 0 }]}>
-        {entry.children?.length > 0 ? (
-          <div class="cs-nav-wrapper">
-            <a
-              href={entry.url}
-              class:list={["cs-li-link", { "cs-active": Astro.url.pathname === entry.url }]}
-              aria-current={Astro.url.pathname === entry.url ? "page" : undefined}
-            >
-              {entry.key}
-            </a>
-            <button
-              aria-expanded="false"
-              aria-controls={`submenu-${entry.key}`}
-              class="cs-dropdown-button cs-drop-icon-button"
-            >
-              <Icon name="mdi--caret" class="cs-drop-icon" />
+        </a>
+        <!--Navigation List-->
+        <nav class="cs-nav" role="navigation">
+            <!--Mobile Nav Toggle-->
+            <button class="cs-toggle" aria-label="mobile menu toggle">
+                <div class="cs-box" aria-hidden="true">
+                    <span class="cs-line cs-line1" aria-hidden="true"></span>
+                    <span class="cs-line cs-line2" aria-hidden="true"></span>
+                    <span class="cs-line cs-line3" aria-hidden="true"></span>
+                </div>
             </button>
-          </div>
-        ) : (
-          <a
-            href={entry.url}
-            class:list={["cs-li-link", { "cs-active": Astro.url.pathname === entry.url }]}
-            aria-current={Astro.url.pathname === entry.url ? "page" : undefined}
-          >
-            {entry.key}
-          </a>
-        )}
-        
-        {entry.children?.length > 0 && (
-          <ul id={`submenu-${entry.key}`} class="cs-drop-ul">
-            {entry.children.map((child) => (
-              <li class:list={["cs-drop-li", { "cs-dropdown": child.children?.length > 0 }]}>
-                {child.children?.length > 0 ? (
-                  <div class="cs-nav-wrapper">
-                    <a 
-                      href={child.url} 
-                      class="cs-li-link cs-drop-link"
-                      aria-current={Astro.url.pathname === child.url ? "page" : undefined}
-                    >
-                      {child.key}
-                    </a>
-                    <button
-                      aria-expanded="false"
-                      aria-controls={`submenu-${entry.key}-${child.key}`}
-                      class="cs-dropdown-button cs-tertiary-toggle"
-                    >
-                      <Icon name="mdi--caret" class="cs-tertiary-icon" />
-                    </button>
-                  </div>
-                ) : (
-                  <a
-                    href={child.url}
-                    class="cs-li-link cs-drop-link"
-                    aria-current={Astro.url.pathname === child.url ? "page" : undefined}
-                  >
-                    {child.key}
-                  </a>
-                )}
-                
-                {child.children?.length > 0 && (
-                  <ul id={`submenu-${entry.key}-${child.key}`} class="cs-tertiary-ul">
-                    {child.children.map((grandchild) => (
-                      <li class="cs-tertiary-li">
-                        <a
-                          href={grandchild.url}
-                          class="cs-li-link cs-tertiary-link"
-                          aria-current={Astro.url.pathname === grandchild.url ? "page" : undefined}
-                        >
-                          {grandchild.key}
+            <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
+            <div class="cs-ul-wrapper">
+                <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+                    <li class="cs-li">
+                        <a href="" class="cs-li-link cs-active">
+                            Home
                         </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-        )}
-      </li>
-    ))}
-  </ul>
-</div>
-
-    </nav>
-   <!--  <a href="/contact" class="cs-button-solid cs-nav-button">Contact Us</a> -->
-  </div>
+                    </li>
+                    <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown and it will work-->
+                    <li class="cs-li cs-dropdown" tabindex="0">
+                        <span class="cs-li-link">
+                            About
+                            <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+                        </span>
+                        <ul class="cs-drop-ul">
+                            <li class="cs-drop-li">
+                                <a href="" class="cs-li-link cs-drop-link">How We Work</a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="" class="cs-li-link cs-drop-link">Our 'Ohana</a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="" class="cs-li-link cs-drop-link">Our Roots</a>
+                            </li>
+                        </ul>
+                    </li>
+                   <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown and it will work-->
+                    <li class="cs-li cs-dropdown" tabindex="0">
+                        <span class="cs-li-link cs-dropdown-toggle">
+                            Projects
+                            <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+                        </span>
+                        <ul class="cs-drop-ul">
+                            <li class="cs-drop-li cs-drop3-main">
+                                <span class="cs-li-link cs-drop-link ">
+                                    Capacity Building and Technical Assistance
+                                    <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+                                </span>
+                                <!--Tertiary-->
+                                <ul class="cs-drop3">
+                                    <li class="cs-drop-li3">
+                                        <a href="" class="cs-li-link cs-drop-link cs-drop-link3">Dyanamic Link</a>
+                                    </li>
+                                </ul>
+                            </li>
+                             <li class="cs-drop-li cs-drop3-main">
+                                <span class="cs-li-link cs-drop-link ">
+                                    Network Coordination
+                                    <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+                                </span>
+                                <!--Tertiary-->
+                                <ul class="cs-drop3">
+                                    <li class="cs-drop-li3">
+                                        <a href="" class="cs-li-link cs-drop-link cs-drop-link3">Dyanamic Link</a>
+                                    </li>
+                                </ul>
+                            </li>
+                             <li class="cs-drop-li cs-drop3-main">
+                                <span class="cs-li-link cs-drop-link ">
+                                    Strategic & Community-Based Planning
+                                    <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+                                </span>
+                                <!--Tertiary-->
+                                <ul class="cs-drop3">
+                                    <li class="cs-drop-li3">
+                                        <a href="" class="cs-li-link cs-drop-link cs-drop-link3">Dyanamic Link</a>
+                                    </li>
+                                </ul>
+                            </li>
+                             <li class="cs-drop-li cs-drop3-main">
+                                <span class="cs-li-link cs-drop-link ">
+                                    Past Projects
+                                    <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+                                </span>
+                                <!--Tertiary-->
+                                <ul class="cs-drop3">
+                                    <li class="cs-drop-li3">
+                                        <a href="" class="cs-li-link cs-drop-link cs-drop-link3">Work Up to Our 25th Anniversary</a>
+                                    </li>
+                                     <li class="cs-drop-li3">
+                                        <a href="" class="cs-li-link cs-drop-link cs-drop-link3">Work Out of Our 25th Anniversary</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            </ul>
+                            </li>
+                    <li class="cs-li">
+                        <a href="" class="cs-li-link">
+                            Contact
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="" class="cs-li-link">
+                            Donate
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+       <!-- <a href="" class="cs-button-solid cs-nav-button">Contact Us</a> -->
+    </div>
 </header>
 
 <style lang="less">
@@ -126,7 +139,6 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
 /*-- -------------------------- -->
 <---     Mobile Navigation      -->
 <--- -------------------------- -*/
-/* Add this to the Header.astro styles */
 #cs-navigation .cs-dropdown button.cs-dropdown-button,
 #cs-navigation .cs-dropdown .cs-li-link.cs-dropdown-button {
   font-family: "Lato", Arial, sans-serif !important;
@@ -748,300 +760,138 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
 }
 
 /*-- -------------------------- -->
-<---     Tertiary Navigation     -->
+<---    Tertiary Navigation     -->
 <--- -------------------------- -*/
 
-@media only screen and (min-width: 64rem) {
-  .cs-drop-link,
-  .cs-tertiary-link {
-    text-align: left !important;
-  }
-  
-  .cs-drop-ul,
-  .cs-tertiary-ul {
-    text-align: left;
-  }
-}
-
-.cs-tertiary-icon {
-  width: 0.75rem;
-  height: auto;
-  transform: rotate(-90deg);
-  margin-left: 0.5rem;
-}
-
 /* Mobile - 1023px */
-@media only screen and (max-width: 63.9375rem) {
-  /* Basic structure */
-  .cs-drop-li.cs-dropdown {
-    position: relative;
-  }
-  
-  /* Hide tertiary menu by default */
-  .cs-tertiary-ul {
-    display: none;
-    width: 100%;
-    background-color: #333;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-  }
-  
-  /* Show tertiary menu when parent is active */
-  .cs-drop-li.cs-dropdown.cs-active .cs-tertiary-ul {
-    display: block !important;
-  }
-  
-  /* Rotate icon when parent is active */
-  .cs-drop-li.cs-dropdown.cs-active .cs-tertiary-icon {
-    transform: rotate(0);
-  }
-  
-  /* Style for tertiary items */
-  .cs-tertiary-li {
-    list-style: none;
-  }
-  
-  .cs-tertiary-link {
-    color: #fff;
-    font-size: 0.875rem;
-    padding: 0.5rem;
-    display: block;
-  }
+@media only screen and (max-width: 1023px) {
+    #cs-navigation {
+        .cs-dropdown {
+            &.cs-active {
+                .cs-drop-ul {
+                    visibility: visible;
+                    opacity: 1;
+                    transform: scale(1);
+                    margin: (12/16rem) auto 0 auto;
+                    height: auto;
+                    padding: (24/16rem);
+                }
+
+                .cs-drop-link {
+                    opacity: 1;
+                }
+
+                .cs-dropdown-toggle {
+                    pointer-events: none;
+                }
+            }
+        }
+
+        .cs-dropdown-toggle {
+            pointer-events: none;
+        }
+
+        .cs-drop-ul {
+            width: 67%;
+            box-sizing: border-box;
+        }
+
+        .cs-drop3 {
+            visibility: hidden;
+            opacity: 0;
+            transform: scale(0);
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.2);
+            box-sizing: border-box;
+            height: 0;
+            width: 100%;
+            overflow: hidden;
+            padding: 0;
+            transition: padding 0.3s, margin 0.3s, height 0.3s, opacity 0.3s, transform 0.3s, visibility 0.3s;
+            gap: (8/16rem);
+            transform-origin: top;
+        }
+
+        .cs-drop-li {
+            width: 100%;
+
+            &.drop3-active {
+                .cs-drop3 {
+                    visibility: visible;
+                    opacity: 1;
+                    transform: scale(1);
+                    height: auto;
+                    padding: (20/16rem) (16/16rem) (20/16rem) (20/16rem);
+                }
+
+                .cs-drop3-main {
+                    margin-bottom: (12/16rem);
+                }
+            }
+        }
+
+        .cs-drop3-main {
+            font-weight: bold;
+            transition: margin 0.3s;
+
+            .cs-drop-icon {
+                filter: grayscale(1) brightness(1000%);
+            }
+        }
+
+        .cs-drop-li3 {
+            list-style: none;
+        }
+    }
 }
 
 /* Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
-  /* Basic structure */
-  .cs-drop-li.cs-dropdown {
-    position: relative;
-  }
+@media only screen and (min-width: 1024px) {
+    #cs-navigation {
+        .cs-drop-ul {
+            overflow: visible;
+        }
 
-   .cs-drop-li.cs-dropdown.cs-active > .cs-tertiary-ul {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    z-index: 9999 !important; /* Make sure it appears above other content */
-    pointer-events: auto;
-  }
-  
-  /* Hide tertiary menu by default */
-  .cs-tertiary-ul {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    min-width: 14rem;
-    background-color: #fff;
-    padding: 0.5rem 0;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    border-bottom: 5px solid var(--primary);
-  }
-  
-  /* Show tertiary menu on hover */
-  .cs-drop-li.cs-dropdown:hover > .cs-tertiary-ul {
-    display: block !important;
-  }
+        .cs-drop-li {
+            z-index: 1;
+            position: relative;
 
-/* Add this rule - Show tertiary menu when activated by keyboard */
-.cs-drop-li.cs-dropdown.cs-active > .cs-tertiary-ul {
-  display: block !important;
-}
+            &:hover {
+                .cs-drop3 {
+                    display: block;
+                }
+            }
+        }
 
-  
-  /* Style for tertiary items */
-  .cs-tertiary-li {
-    list-style: none;
-  }
-  
-  .cs-tertiary-link {
-    color: var(--bodyTextColor);
-    padding: 0.5rem 1rem;
-    display: block;
-    
-    &:hover {
-      background-color: #f5f5f5;
+        .cs-drop3 {
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            right: 100%;
+            display: none;
+            background-color: #fff;
+            min-width: (200/16rem);
+            padding: 0;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+
+        .cs-drop3-main {
+            &:hover {
+                .cs-drop-icon {
+                    transform: rotate(-90deg);
+                }
+            }
+        }
+
+        .cs-drop-icon {
+            transition: transform 0.3s;
+        }
+
+        .cs-drop-li3 {
+            list-style: none;
+        }
     }
-  }
-}
-
-/* Add these new styles - Nav wrapper for link + dropdown toggle */
-.cs-nav-wrapper {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-/* Separate dropdown toggle buttons */
-.cs-drop-icon-button,
-.cs-tertiary-toggle {
-  background: none;
-  border: none;
-  padding: 0 0 0 0.25rem;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-}
-
-/* Mobile-specific wrapper styling */
-@media only screen and (max-width: 63.9375rem) {
-  .cs-nav-wrapper {
-    width: 100%;
-    justify-content: space-between;
-  }
-  
-  /* For tertiary buttons in mobile */
-  .cs-tertiary-toggle {
-    color: #fff;
-  }
-  
-  /* Adjust the mobile dropdown padding to accommodate the new structure */
-  #cs-navigation .cs-dropdown .cs-li-link {
-    margin-right: 0.5rem;
-  }
-}
-
-/* Desktop specific wrapper styling */
-@media only screen and (min-width: 64rem) {
-  /* Fix dropdown indicator positioning on desktop */
-  .cs-drop-icon-button .cs-drop-icon,
-  .cs-tertiary-toggle .cs-tertiary-icon {
-    margin-left: 0.25rem;
-  }
-  
-  /* Adjust how the wrapper displays in desktop mode */
-  .cs-nav-wrapper {
-    gap: 0.25rem;
-  }
-  
-  /* For z-index issues with the dropdown menus */
-  #cs-navigation .cs-drop-ul {
-    z-index: 100; /* Increase from -100 to ensure proper layering */
-  }
-  
-  /* Improve tertiary menu positioning */
-  .cs-tertiary-ul {
-    transform: scaleY(0);
-    transform-origin: top left;
-    transition: transform 0.3s, visibility 0.3s, opacity 0.3s;
-  }
-  
-  /* Fix tertiary menu hover behavior */
-  .cs-drop-li.cs-dropdown:hover .cs-tertiary-ul,
-  .cs-drop-li.cs-dropdown.cs-active .cs-tertiary-ul {
-    transform: scaleY(1);
-  }
-}
-
-/* Fix for dropdown buttons text styling */
-#cs-navigation .cs-dropdown-button {
-  font-size: inherit;
-  color: inherit;
-  padding: 0;
-  display: flex;
-  align-items: center;
-}
-
-/* Make sure tertiary toggle icon stays visible */
-.cs-tertiary-toggle .cs-tertiary-icon {
-  display: inline-block;
-  min-width: 0.75rem;
-}
-
-/* Add these specific fixes for tertiary menus */
-@media only screen and (min-width: 64rem) {
-  /* Ensure tertiary menus are properly visible when their parent is active */
-  .cs-drop-li.cs-dropdown.cs-active > .cs-tertiary-ul,
-  .cs-drop-li.cs-dropdown:hover > .cs-tertiary-ul {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    transform: scaleY(1) !important;
-    z-index: 10000 !important;
-  }
-  
-  /* Properly position tertiary menus */
-  .cs-tertiary-ul {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    min-width: 14rem;
-    background-color: #fff;
-    border-bottom: 5px solid var(--primary);
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    z-index: 10000;
-  }
-  
-  /* Fix tertiary toggle button alignment */
-  .cs-tertiary-toggle {
-    position: relative;
-    z-index: 1;
-  }
-}
-
-/* Fix mobile tertiary menus */
-@media only screen and (max-width: 63.9375rem) {
-  .cs-tertiary-ul {
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    background-color: #444; /* Darker than parent dropdown */
-  }
-  
-  /* Make tertiary menu visible when parent is active */
-  .cs-drop-li.cs-dropdown.cs-active > .cs-tertiary-ul {
-    display: block !important;
-  }
-}
-
-/* Desktop-specific fixes for tertiary menus */
-@media only screen and (min-width: 64rem) {
-  /* Fix hover behavior with the new wrapper */
-  .cs-drop-li.cs-dropdown .cs-nav-wrapper:hover + .cs-tertiary-ul,
-  .cs-drop-li.cs-dropdown:hover > .cs-tertiary-ul {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: scaleY(1) !important;
-  }
-  
-  /* Fix tertiary menu positioning with the new structure */
-  .cs-tertiary-ul {
-    top: 0 !important; 
-    left: 100% !important;
-    position: absolute !important;
-    transform-origin: top left !important;
-    z-index: 10000 !important;
-  }
-  
-  /* Make sure the parent is correctly positioned for absolute children */
-  .cs-drop-li.cs-dropdown {
-    position: relative !important;
-  }
-  
-  /* Make sure the hover state includes the tertiary menu */
-  .cs-drop-li.cs-dropdown {
-    /* Ensure the hover continues when moving to submenu */
-    padding-right: 1rem; /* Add padding to create a "bridge" to the submenu */
-  }
-  
-  /* Another approach - add a "bridge" element to maintain hover state */
-  .cs-drop-li.cs-dropdown::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 100%;
-    top: 0;
-    right: -20px;
-    z-index: 9998;
-    pointer-events: none; /* Don't interfere with other interactions */
-  }
-  
-  /* Make tertiary menu visible when parent or toggle has focus */
-  .cs-tertiary-toggle:focus-visible + .cs-tertiary-ul,
-  .cs-tertiary-toggle:focus + .cs-tertiary-ul {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
 }
 
 
