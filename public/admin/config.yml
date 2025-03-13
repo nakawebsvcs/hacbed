@@ -44,3 +44,23 @@ collections:
       - { label: "Bio", name: "bio", widget: "markdown" }
       - { label: "Image", name: "image", widget: "image", media_folder: "/src/assets/images" }
       - { label: "Display Order", name: "order", widget: "number", required: false, value_type: "int" }
+  - name: "pages"
+    label: "Pages"
+    folder: "src/content/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Header Image", name: "headerImage", widget: "image" }
+      - { label: "Introduction", name: "intro", widget: "markdown" }
+      - { label: "Focus Areas", name: "focusAreas", widget: "markdown" }
+      - label: "Services"
+        name: "services"
+        widget: "list"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "ID", name: "id", widget: "string" }
+          - { label: "Description", name: "description", widget: "markdown" }
+          - { label: "Examples", name: "examples", widget: "markdown" }

@@ -19,7 +19,7 @@ const blogsCollection = defineCollection({
 		}),
 });
 
-// new collection for team members
+// team members collection
 const teamCollection = defineCollection({
 	loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/team" }),
 	schema: ({ image }) =>
@@ -32,7 +32,7 @@ const teamCollection = defineCollection({
 		}),
 });
 
-// new collection for board members
+// board members collection
 const boardCollection = defineCollection({
 	loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/board" }),
 	schema: ({ image }) =>
@@ -45,8 +45,31 @@ const boardCollection = defineCollection({
 		}),
 });
 
+// pages collection
+
+const pagesCollection = {
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    headerImage: z.string(),
+    content: z.string(), // Single content field with all the main text
+    services: z.array(
+      z.object({
+        title: z.string(),
+        image: z.string(),
+        id: z.string(),
+        description: z.string(),
+        examples: z.string(),
+      })
+    ),
+  }),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/pages" }),
+};
+
+
 export const collections = {
   blog: blogsCollection,
   team: teamCollection,
-  board: boardCollection
+  board: boardCollection,
+  pages: pagesCollection
 };
