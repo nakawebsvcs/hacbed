@@ -24,7 +24,7 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
         <!--Navigation List-->
         <nav class="cs-nav" role="navigation">
             <!--Mobile Nav Toggle-->
-            <button class="cs-toggle" aria-label="mobile menu toggle">
+            <button class="cs-toggle" id="mobile-menu-toggle" aria-label="mobile menu toggle">
                 <div class="cs-box" aria-hidden="true">
                     <span class="cs-line cs-line1" aria-hidden="true"></span>
                     <span class="cs-line cs-line2" aria-hidden="true"></span>
@@ -32,28 +32,31 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
                 </div>
             </button>
             <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
-            <div class="cs-ul-wrapper">
+            <div class="cs-ul-wrapper" id="cs-ul-wrapper">
                 <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
                     <li class="cs-li">
-                        <a href="" class="cs-li-link cs-active">
+                        <a href="/" class="cs-li-link cs-active">
                             Home
                         </a>
                     </li>
                     <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown and it will work-->
                     <li class="cs-li cs-dropdown" tabindex="0">
-                        <span class="cs-li-link">
+                          <span class="cs-li-link cs-dropdown-toggle">
                             About
                             <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
-                        </span>
+                          </span>
                         <ul class="cs-drop-ul">
-                            <li class="cs-drop-li">
-                                <a href="" class="cs-li-link cs-drop-link">How We Work</a>
+                           <li class="cs-drop-li">
+                                <a href="/about" class="cs-li-link cs-drop-link">About Us / Mission Statement</a>
                             </li>
                             <li class="cs-drop-li">
-                                <a href="" class="cs-li-link cs-drop-link">Our 'Ohana</a>
+                                <a href="/about/how-we-work" class="cs-li-link cs-drop-link">How We Work</a>
                             </li>
                             <li class="cs-drop-li">
-                                <a href="" class="cs-li-link cs-drop-link">Our Roots</a>
+                                <a href="/about/our-ohana" class="cs-li-link cs-drop-link">Our 'Ohana</a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="/about/our-roots" class="cs-li-link cs-drop-link">Our Roots</a>
                             </li>
                         </ul>
                     </li>
@@ -118,12 +121,12 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
                             </ul>
                             </li>
                     <li class="cs-li">
-                        <a href="" class="cs-li-link">
+                        <a href="/contact" class="cs-li-link">
                             Contact
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="" class="cs-li-link">
+                        <a href="http://paypal.com/us/fundraiser/charity/2274761" class="cs-li-link" target="_blank">
                             Donate
                         </a>
                     </li>
@@ -893,6 +896,5 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
         }
     }
 }
-
 
 </style>
