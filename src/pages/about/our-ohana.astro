@@ -423,26 +423,23 @@ const formattedBoardMembers = sortedBoardMembers.map(member => ({
       });
     });
     
-    // Close lightbox when clicking the close button
-    closeBtn.addEventListener('click', function() {
-      lightbox.style.display = "none";
-      document.body.style.overflow = "auto"; // Re-enable scrolling
+    // Close lightbox when clicking ANYWHERE in the lightbox (including the image)
+    lightbox.addEventListener('click', function() {
+      closeLightbox();
     });
     
-    // Close lightbox when clicking outside the image
-    lightbox.addEventListener('click', function(e) {
-      if (e.target === lightbox) {
-        lightbox.style.display = "none";
-        document.body.style.overflow = "auto"; // Re-enable scrolling
-      }
-    });
-    
-   // Close lightbox when pressing ESC key for accessibility
+    // Close lightbox when pressing ESC key for accessibility
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && lightbox.style.display === 'block') {
-        lightbox.style.display = "none";
-        document.body.style.overflow = "auto"; // Re-enable scrolling
+        closeLightbox();
       }
     });
+    
+    // Helper function to close the lightbox
+    function closeLightbox() {
+      lightbox.style.display = "none";
+      document.body.style.overflow = "auto"; // Re-enable scrolling
+    }
   });
 </script>
+

@@ -66,10 +66,30 @@ const pagesCollection = {
   loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/pages" }),
 };
 
+// projects collection
+
+export const projectsCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    subcategory: z.enum([
+      "Capacity Building & Technical Assistance",
+      "Network Coordination",
+      "Strategic & Community-Based Planning"
+    ]),
+    featured: z.boolean().default(false),
+    image: z.string().optional(),
+    publishDate: z.date(),
+    draft: z.boolean().default(false),
+  }),
+});
+
 
 export const collections = {
   blog: blogsCollection,
   team: teamCollection,
   board: boardCollection,
-  pages: pagesCollection
+  pages: pagesCollection,
+  projects: projectsCollection
 };
