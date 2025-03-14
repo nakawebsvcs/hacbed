@@ -42,8 +42,8 @@ document.addEventListener("astro:page-load", () => {
       // If the focus has moved outside the dropdown, remove the active class from the dropdown
       if (!element.contains(event.relatedTarget)) {
         element.classList.remove("cs-active");
-        // adjust aria-expanded attribute on the dropdown button only
-        const dropdownButton = element.querySelector(".cs-dropdown-button");
+        // Change this line to look for cs-dropdown-toggle instead of cs-dropdown-button
+        const dropdownButton = element.querySelector(".cs-dropdown-toggle");
         if (dropdownButton) {
           ariaExpanded(dropdownButton);
         }
@@ -51,7 +51,7 @@ document.addEventListener("astro:page-load", () => {
     });
 
     element.addEventListener("keydown", function (event) {
-      const dropdownButton = element.querySelector(".cs-dropdown-button");
+      const dropdownButton = element.querySelector(".cs-dropdown-toggle");
       // If the dropdown is active, stop the event from propagating. This is so we can use Escape to close the dropdown, then press it again to close the hamburger menu (if needed)
       if (element.classList.contains("cs-active")) {
         event.stopPropagation();
@@ -80,12 +80,12 @@ document.addEventListener("astro:page-load", () => {
     });
 
     // Handles dropdown menus on mobile - the matching media query (max-width: 63.9375rem) is necessary so that clicking the dropdown button on desktop does not add the active class and thus interfere with the hover state
-
     const maxWidthMediaQuery = window.matchMedia("(max-width: 63.9375rem)");
     if (maxWidthMediaQuery.matches) {
       element.addEventListener("click", (e) => {
         element.classList.toggle("cs-active");
-        const dropdownButton = element.querySelector(".cs-dropdown-button");
+        // Change this line to look for cs-dropdown-toggle instead of cs-dropdown-button
+        const dropdownButton = element.querySelector(".cs-dropdown-toggle");
         if (dropdownButton) {
           ariaExpanded(dropdownButton);
         }
@@ -124,4 +124,4 @@ document.addEventListener("astro:page-load", () => {
       item.classList.toggle("drop3-active");
     });
   }
-});                            
+});
