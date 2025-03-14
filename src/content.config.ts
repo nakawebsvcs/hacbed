@@ -47,24 +47,18 @@ const boardCollection = defineCollection({
 
 // pages collection
 
-const pagesCollection = {
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    headerImage: z.string(),
-    content: z.string(), // Single content field with all the main text
-    services: z.array(
-      z.object({
-        title: z.string(),
-        image: z.string(),
-        id: z.string(),
-        description: z.string(),
-        examples: z.string(),
-      })
-    ),
-  }),
+// Update the pagesCollection definition
+const pagesCollection = defineCollection({
   loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/pages" }),
-};
+  schema: z.object({
+    pageId: z.string(), // Identifier for the page (about, services, etc.)
+    mainContent: z.string(), // For the main text content
+    missionTitle: z.string().optional(), // Optional mission title
+    missionStatement: z.string().optional(), // Optional mission statement
+    missionContent: z.string().optional(), // Optional mission content
+    // Add other optional content sections as needed for different pages
+  }),
+});
 
 // projects collection
 

@@ -1,59 +1,49 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
+import { getCollection } from "astro:content";
+
+// Get the about page content
+const pages = await getCollection("pages");
+const aboutPage = pages.find(page => page.data.pageId === "about");
+
+// If no content is found, we'll use the hardcoded content
+const mainContent = aboutPage?.data.mainContent || "";
+const missionTitle = aboutPage?.data.missionTitle || "Mission";
+const missionStatement = aboutPage?.data.missionStatement || "";
+const missionContent = aboutPage?.data.missionContent || "";
 ---
 
 <BaseLayout
   title="About"
   description="Meta description for the page"
 >
-
-    <!-- ============================================ -->
-<!--                  Header Image                  -->
-<!-- ============================================ -->
- 
+  <!-- Header Image -->
   <section class="page-header">
-  <div class="full-width-image-container">
-    <img src="/assets/images/About-Page.png" alt="About page header" />
-    <div class="header-overlay">
-      <h1 class="header-title">ABOUT</h1>
+    <div class="full-width-image-container">
+      <img src="/assets/images/About-Page.png" alt="About page header" />
+      <div class="header-overlay">
+        <h1 class="header-title">ABOUT</h1>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-  <!-- ============================================ -->
-<!--                  Content                     -->
-<!-- ============================================ -->
-
-<section id="content-1450">
+  <!-- Content -->
+  <section id="content-1450">
     <div class="cs-container">
-        <div class="cs-content">
-           <!--  <span class="cs-topper">ABOUT US</span> 
-            <h2 class="cs-title">About</h2> -->
-            <p class="cs-text">
-                HACBED is a nonprofit intermediary that works to build the capacity of families and communities so that they have choice and control to achieve social, economic, and environmental justice.<br><br>
-
-For more than 30 years, HACBED's core competencies have been holding spaces for tough conversation, collecting stories and data, and disseminating that information. Recognizing that impact is limited when work is done in silos, HACBED works to break down barriers and to create networks and partnerships to bring about far reaching systemic change. HACBED begins with active listening to build relationships and break down barriers to create networks and partnerships to support partners to bring about systemic change. HACBED thus plays the role of network facilitator, catalyst, and advocate to support community building.<br><br>
-
-HACBED's strategic focuses are facilitation and network weaving, community and organizational capacity building, community based planning, and asset development and policy.
-            </p><br><br>
-            <h2 class="cs-title">Mission</h2><br>
-            <span class="cs-topper">HACBED strives to achieve economic, social, and environmental justice in Hawai`i<br> through community-based economic development.</span>
-            <p class="cs-text">
-              <!-- <br> <em> Pursuit of Our Mission </em>--><br><br> 
-
-HACBED pursues its mission by assisting community-based economic institutions that provide direct economic benefits to individuals, families, and communities. These institutions enhance community investments in order to help those communities build an economic structure that allows them to exercise greater control over their own futures.<br><br>
-
-Above all, HACBED serves this place called Hawai`i, as well as those who choose to be of this place and work to make it their home. In particular, HACBED has a strong focus on those who face social and economic injustices. HACBED provides this service by empowering education and capacity building for communities through policy development and advocacy for positive systemic change.<br><br>
-
-A “competitive advantage” is defined as “resources that allow an entity to develop and maintain an edge over competitors who produce similar goods and services.” HACBED's competitive advantages stem from its knowledge and experience as it relates to community engagement and the connections HACBED has been able to form. This advantage is founded on the belief that people “know” and “can” and is conducted through informed and skilled listening that strengthens the community voice and and promotes collective action. By focusing on its competitive advantages, HACBED is able to build trust and credibility while maintaining its activist roots, which involve addressing injustice by acting to correct wrongs.
-
-
-            </p>
-        </div>
+      <div class="cs-content">
+        <p class="cs-text" set:html={mainContent}></p>
+        <br><br>
+        
+        <h2 class="cs-title">{missionTitle}</h2><br>
+        {missionStatement && (
+          <span class="cs-topper">{missionStatement}</span>
+        )}
+        <br><br>
+        <p class="cs-text" set:html={missionContent}></p>
+      </div>
     </div>
-</section>
+  </section>
                               
   <CTA />
 </BaseLayout>
@@ -152,9 +142,11 @@ A “competitive advantage” is defined as “resources that allow an entity to
             margin: 0 0 (32/16rem) 0;
         }
          .cs-topper {
-    text-align: center;
-    width: 100%; /* Ensures the element takes full width */
-    display: block; /* Makes it a block element for proper centering */
+            text-align: center;
+            width: 80%; /* Ensures the element takes full width */
+            display: block; /* Makes it a block element for proper centering */
+            margin: 0 auto; /* Center the element */
+            line-height: 1.5;
   }
     }
 }

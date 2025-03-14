@@ -48,22 +48,15 @@ collections:
     label: "Pages"
     folder: "src/content/pages"
     create: true
-    slug: "{{slug}}"
+    slug: "{{pageId}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Header Image", name: "headerImage", widget: "image" }
-      - { label: "Introduction", name: "intro", widget: "markdown" }
-      - { label: "Focus Areas", name: "focusAreas", widget: "markdown" }
-      - label: "Services"
-        name: "services"
-        widget: "list"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Image", name: "image", widget: "image" }
-          - { label: "ID", name: "id", widget: "string" }
-          - { label: "Description", name: "description", widget: "markdown" }
-          - { label: "Examples", name: "examples", widget: "markdown" }
+      - { label: "Page ID", name: "pageId", widget: "string", hint: "Unique identifier for the page (e.g., 'about', 'services')" }
+      - { label: "Main Content", name: "mainContent", widget: "markdown" }
+      - { label: "Mission Title", name: "missionTitle", widget: "string", required: false }
+      - { label: "Mission Statement", name: "missionStatement", widget: "string", required: false }
+      - { label: "Mission Content", name: "missionContent", widget: "markdown", required: false }
+
+
   - name: "projects"
     label: "Projects"
     folder: "src/content/projects"
