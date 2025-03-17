@@ -1,0 +1,292 @@
+---
+import Founder from "./Founder.astro";
+
+export interface FounderData {
+  name: string;
+  bio: string;
+  imageUrl: string;
+  imageAlt?: string;
+}
+
+export interface Props {
+  id?: string;
+  title: string;
+  members: FounderData[];
+  topper?: string;
+}
+
+const { id, title, members, topper } = Astro.props;
+---
+
+<section id={id}>
+  <div class="cs-container">
+    <div class="cs-content">
+      {topper && <span class="cs-topper">{topper}</span>}
+      <h2 class="cs-title">{title}</h2>
+    </div>
+    <ul class="cs-card-group">
+      {members.map(member => (
+        <Founder 
+          name={member.name}
+          bio={member.bio}
+          imageUrl={member.imageUrl}
+          imageAlt={member.imageAlt}
+        />
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style lang="less" is:global>
+  /*-- -------------------------- -->
+<---         Founder Section          -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #founder-section {
+        text-align: center;
+        padding: var(--sectionPadding);
+        margin-top: 4rem;
+
+        .cs-container {
+            width: 100%;
+            max-width: (550/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(3rem, 6vw, 4rem);
+        }
+
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cs-title {
+          color: var(--secondary);
+        }
+
+        .cs-card-group {
+            width: 100%;
+            max-width: (955/16em);
+            padding: 0;
+            margin: 0 auto;
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            column-gap: clamp(0.5rem, 1.5vw, 1.25rem);
+            row-gap: (24/16rem); /* Increased row gap for vertical stacking */
+        }
+
+        .cs-item {
+            list-style: none;
+            width: 95%; /* Wider cards on mobile */
+            max-width: (500/16rem); /* Control maximum width */
+            padding-bottom: (24/16rem);
+            border-radius: (12/16rem);
+            background-color: #fff;
+            box-shadow: 0px 24px 54px rgba(87, 107, 147, 0.12);
+            border: 1px solid #b4b2c7;
+            position: relative;
+            cursor: pointer; /* Indicate it's clickable */
+            
+            &:before {
+                /* hover box */
+                content: "";
+                width: 99%;
+                height: 99%;
+                border: 4px solid var(--primary);
+                border-radius: (12/16rem);
+                background: transparent;
+                pointer-events: none;
+                opacity: 0;
+                position: absolute;
+                display: block;
+                z-index: 10;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition:
+                    transform 0.3s,
+                    width 0.3s,
+                    height 0.3s,
+                    opacity 0.3s;
+            }
+
+            &:hover {
+                &:before {
+                    opacity: 1;
+                }
+                .cs-picture {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+            
+            /* Card expanded state */
+            &.expanded {
+                .cs-bio {
+                    max-height: 500px;
+                    opacity: 1;
+                    margin-bottom: 1rem;
+                }
+                
+                .cs-read-more {
+                    &:after {
+                        content: "Read Less";
+                    }
+                }
+            }
+        }
+
+        .cs-picture {
+            width: 100%;
+            max-width: (120/16rem);
+            aspect-ratio: 1/1;
+            margin-bottom: (24/16rem);
+            margin: 0 auto (24/16rem) auto;
+            overflow: hidden;
+            border-radius: (12/16rem) (12/16rem) 0 0;
+            border-bottom: 1px solid #b4b2c7;
+            position: relative;
+            display: block;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: top;
+                transition: transform 0.6s;
+            }
+        }
+
+        .cs-name {
+            font-size: clamp(1rem, 2vw, 1.5625rem);
+            line-height: 1.2em;
+            font-weight: 700;
+            margin-bottom: (4/16rem);
+            color: var(--headerColor);
+            display: block;
+        }
+
+        .cs-job {
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            line-height: 1.5em;
+            color: var(--secondary);
+            display: block;
+        }
+
+        .cs-bio {
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            line-height: 1.5em;
+            color: var(--bodyTextColor);
+            margin-top: 0.75rem;
+            padding: 0 1rem;
+            display: block;
+            /* Initially collapsed */
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease, margin 0.5s ease;
+        }
+        
+        .cs-read-more {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: var(--secondary);
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.875rem;
+            background-color: transparent;
+            border: 1px solid #e0e0e0; 
+            border-radius: 4px;
+            padding: 0.25rem 0.75rem;
+            
+            &:after {
+                content: "Read More";
+            }
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+/* Tablet - 600px */
+@media only screen and (min-width: 37.5rem) {
+    #founder-section {
+        .cs-container {
+            max-width: (1280/16rem);
+        }
+
+        .cs-card-group {
+            flex-wrap: wrap;
+            justify-content: center;
+            column-gap: clamp(1rem, 2vw, 2rem);
+            row-gap: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .cs-item {
+            /* Back to multiple cards per row */
+            width: calc(50% - 1rem); /* 2 cards per row on medium screens */
+            max-width: (350/16rem);
+        }
+    }
+}
+/* Desktop - 1024px+ */
+@media only screen and (min-width: 64rem) {
+    #founder-section {
+      .cs-card-group {
+        column-gap: clamp(1.5rem, 3vw, 3rem);
+        row-gap: clamp(2rem, 4vw, 3rem);
+        flex-wrap: wrap;
+        max-width: (1200/16rem);
+        justify-content: center;
+      }
+      
+      .cs-item {
+        width: calc(33.33% - 2rem);
+        min-width: (350/16rem);
+        max-width: (400/16rem);
+        flex: 0 1 auto;
+      }
+    }
+}
+</style>
+
+<script>
+document.addEventListener('astro:page-load', () => {
+  const boardItems = document.querySelectorAll('#board-section .cs-item');
+  
+  boardItems.forEach(item => {
+    // Create read more button for each card
+    const bio = item.querySelector('.cs-bio');
+    const readMoreBtn = document.createElement('button');
+    readMoreBtn.className = 'cs-read-more';
+    readMoreBtn.setAttribute('aria-label', 'Read more about this board member');
+    item.appendChild(readMoreBtn);
+    
+    // Toggle expand/collapse on click
+    item.addEventListener('click', (e) => {
+      // Don't trigger if clicking on an anchor or button (except the read more button)
+      if (e.target.tagName === 'A' && !e.target.classList.contains('cs-read-more')) {
+        return;
+      }
+      
+      item.classList.toggle('expanded');
+    });
+  });
+});
+</script>

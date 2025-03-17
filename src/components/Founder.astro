@@ -1,0 +1,18 @@
+---
+export interface Props {
+  name: string;
+  bio: string;
+  imageUrl: string;
+  imageAlt?: string;
+}
+
+const { name, bio, imageUrl, imageAlt = `Founder ${name}` } = Astro.props;
+---
+
+<li class="cs-item">
+  <div class="cs-picture">
+    <img src={imageUrl} alt={imageAlt} width="305" height="400" loading="lazy" decoding="async">
+  </div>
+  <span class="cs-name">{name}</span>
+  <span class="cs-bio">{bio}</span>
+</li>
