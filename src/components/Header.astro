@@ -63,7 +63,7 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
                    <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown and it will work-->
                     <li class="cs-li cs-dropdown" tabindex="0">
                         <span class="cs-li-link cs-dropdown-toggle">
-                            Projects
+                            Current Support
                             <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
                         </span>
                         <ul class="cs-drop-ul">
@@ -105,7 +105,7 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
                             </li>
                              <li class="cs-drop-li cs-drop3-main">
                                 <span class="cs-li-link cs-drop-link ">
-                                    Past Projects
+                                    Past Support
                                     <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
                                 </span>
                                 <!--Tertiary-->
@@ -146,6 +146,14 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
 #cs-navigation .cs-dropdown .cs-li-link.cs-dropdown-button {
   font-family: "Lato", Arial, sans-serif !important;
 }
+
+#cs-navigation .cs-dropdown.cs-active .cs-drop-ul {
+  height: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: scale(1) !important;
+}
+
 
 /* Mobile - 1023px */
 @media only screen and (max-width: 63.9375rem) {

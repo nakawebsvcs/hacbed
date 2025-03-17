@@ -8,7 +8,7 @@ const serviceCategories = [
   "Capacity Building and Technical Assistance",
   "Network Coordination",
   "Strategic & Community-Based Planning",
-  "Past Projects"
+  "Past Support"
 ];
 
 // Map service categories to icons
@@ -16,7 +16,7 @@ const categoryIcons = {
   "Capacity Building and Technical Assistance": "https://csimg.nyc3.digitaloceanspaces.com/Services/pinwheel.svg",
   "Network Coordination": "https://csimg.nyc3.digitaloceanspaces.com/Services/ring.svg",
   "Strategic & Community-Based Planning": "https://csimg.nyc3.digitaloceanspaces.com/Services/leaf.svg",
-  "Past Projects": "https://csimg.nyc3.digitaloceanspaces.com/Services/bubble-wheel.svg"
+  "Past Support": "https://csimg.nyc3.digitaloceanspaces.com/Services/bubble-wheel.svg"
 };
 
 // Import navigation data
@@ -60,9 +60,9 @@ try {
           This intermediate kit includes a pre-configured Astro environment, which
 allows for repeated components, centralized data and greater room to scale as your clients grow. Decap CMS has been integrated to run a blog.
         </p> -->
-        <a href="/about" class="cs-button-solid">About Us</a>
-        <a href="http://paypal.com/us/fundraiser/charity/2274761" target="_blank" class="cs-button-solid">Donate</a>
-        <a href="/contact" class="cs-button-solid">Get In Touch</a>
+        <a href="/about/how-we-work" class="cs-button-solid">How We Work</a>
+        <a href="/about/our-ohana" target="_blank" class="cs-button-solid">Our 'Ohana</a>
+        <a href="/about/our-roots" class="cs-button-solid">Our Roots</a>
       </div>
     </div>
 
@@ -84,43 +84,6 @@ allows for repeated components, centralized data and greater room to scale as yo
       />
     </picture>
 
-  </section>
-
-  <!-- ============================================ -->
-<!--                  Services                    -->
-<!-- ============================================ -->
-
-<section id="services-24">
-    <div class="cs-container">
-        <div class="cs-content">
-            <h2 class="cs-title">OUR PROJECTS</h2>
-        </div>
-        <ul class="cs-card-group">
-            {serviceCategories.map(categoryName => {
-              // Get links for this category, or empty array if none
-              const links = categoryLinks[categoryName] || [];
-              
-              return (
-                <li class="cs-item">
-                  <a class="cs-link" href={links.length > 0 ? links[0].url : "#"}>
-                    <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" 
-                         src={categoryIcons[categoryName]} alt="icon" width="82" height="82">
-                    <h3 class="cs-h3">{categoryName}</h3>
-                    <ul>
-                      {links.length > 0 ? 
-                        links.map(link => (
-                          <li><a href={link.url}>{link.title}</a></li>
-                        )) : 
-                        <li>Dynamic Link</li>
-                      }
-                    </ul>
-                  </a>
-                </li>
-              );
-            })}
-        </ul>
-        <a href="/contact" class="cs-button-solid">Contact Us</a>
-    </div>
   </section>
 
   <!-- ============================================ -->
@@ -171,6 +134,43 @@ Where we want to go
         </div>
     </div>
 </section>
+
+<!-- ============================================ -->
+<!--                  Services                    -->
+<!-- ============================================ -->
+
+<section id="services-24">
+    <div class="cs-container">
+        <div class="cs-content">
+            <h2 class="cs-title">CURRENT SUPPORT</h2>
+        </div>
+        <ul class="cs-card-group">
+            {serviceCategories.map(categoryName => {
+              // Get links for this category, or empty array if none
+              const links = categoryLinks[categoryName] || [];
+              
+              return (
+                <li class="cs-item">
+                  <a class="cs-link" href={links.length > 0 ? links[0].url : "#"}>
+                    <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" 
+                         src={categoryIcons[categoryName]} alt="icon" width="82" height="82">
+                    <h3 class="cs-h3">{categoryName}</h3>
+                    <ul>
+                      {links.length > 0 ? 
+                        links.map(link => (
+                          <li><a href={link.url}>{link.title}</a></li>
+                        )) : 
+                        <li>Dynamic Link</li>
+                      }
+                    </ul>
+                  </a>
+                </li>
+              );
+            })}
+        </ul>
+        <a href="/contact" class="cs-button-solid">Contact Us</a>
+    </div>
+  </section>
                                 
 
   <CTA />

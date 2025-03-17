@@ -226,6 +226,15 @@ Ho`oulu `Āina -- Kokua Kalihi Valley in Kalihi Valley on O`ahu. Conducted feasi
     </div>
   </div>
 </section>
+
+<!-- Back to Top Button -->
+  <button id="back-to-top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+      <path fill="none" d="M0 0h24v24H0z"/>
+      <path d="M12 10.828l-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z" fill="currentColor"/>
+    </svg>
+  </button>
+
                                 
 
   <CTA />
@@ -694,6 +703,83 @@ Ho`oulu `Āina -- Kokua Kalihi Valley in Kalihi Valley on O`ahu. Conducted feasi
         }
     }
 }
+
+/*-- -------------------------- -->
+<---          BTT Button         -->
+<--- -------------------------- -*/
+
+/* Back to Top Button Styles */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--primary);
+    color: var(--secondary);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background-color: var(--secondary);
+      color: #fff;
+    }
+
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
                                 
 
   </style>
+  
+  <script>
+  // Astro:page-load wrapper for View Transitions purposes
+  document.addEventListener("astro:page-load", () => {
+    const backToTopButton = document.getElementById('back-to-top');
+    const facilitationSection = document.getElementById('facilitation');
+    
+    if (backToTopButton && facilitationSection) {
+      // Function to check scroll position and show/hide button
+      function toggleBackToTopButton() {
+        const facilitationPosition = facilitationSection.getBoundingClientRect().top;
+        
+        // Show button when facilitation section reaches top of viewport
+        if (facilitationPosition <= 0) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      }
+      
+      // Add scroll event listener
+      window.addEventListener('scroll', toggleBackToTopButton);
+      
+      // Initial check in case page is loaded already scrolled
+      toggleBackToTopButton();
+      
+      // Add click event to scroll back to top
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+  });
+</script>
