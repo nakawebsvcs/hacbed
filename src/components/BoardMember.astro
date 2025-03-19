@@ -5,17 +5,24 @@ export interface Props {
   bio: string;
   imageUrl: string;
   imageAlt?: string;
+  link?: string;
 }
 
-const { name, jobTitle, bio, imageUrl, imageAlt = `Board member ${name}` } = Astro.props;
+const { name, jobTitle, bio, imageUrl, imageAlt = `Board member ${name}`, link } = Astro.props;
 ---
 
 <li class="cs-item">
   <div class="cs-picture">
     <img src={imageUrl} alt={imageAlt} width="305" height="400" loading="lazy" decoding="async">
 </div>
-  </div>
   <span class="cs-name">{name}</span>
   <span class="cs-job">{jobTitle}</span>
-  <span class="cs-bio">{bio}</span>
+ <span class="cs-bio">
+  {bio}
+</span>
+{link && <div class="cs-bio-link">
+    <a href={link} class="cs-link" aria-label={`Visit ${name}'s link`} target="_blank" rel="noopener noreferrer">
+      <img src="/assets/images/link-icon.png" height="24" width="24" alt="" />
+    </a>
+  </div>}
 </li>

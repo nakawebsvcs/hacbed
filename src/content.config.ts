@@ -21,28 +21,29 @@ const blogsCollection = defineCollection({
 
 // team members collection
 const teamCollection = defineCollection({
-	loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/team" }),
-	schema: ({ image }) =>
-		z.object({
-			name: z.string(),
-			jobTitle: z.string(),
-			bio: z.string(),
-			image: image(),
-			order: z.number().optional(),
-		}),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/team" }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      jobTitle: z.string(),
+      bio: z.string(),
+      image: image(),
+      order: z.number().optional(),
+    }),
 });
 
 // board members collection
 const boardCollection = defineCollection({
-	loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/board" }),
-	schema: ({ image }) =>
-		z.object({
-			name: z.string(),
-			jobTitle: z.string(),
-			bio: z.string(),
-			image: image(),
-			order: z.number().optional(),
-		}),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/board" }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      jobTitle: z.string(),
+      bio: z.string(),
+      image: image(),
+      link: z.string().url().optional(),
+      order: z.number().optional(),
+    }),
 });
 
 // pages collection

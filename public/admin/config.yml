@@ -21,6 +21,7 @@ collections:
       - { label: "Image Caption", name: "imageAlt", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
       - { label: "Body", name: "body", widget: "markdown" }
+
   - name: "team"
     label: "Team Members"
     folder: "src/content/team"
@@ -43,7 +44,9 @@ collections:
       - { label: "Job Title", name: "jobTitle", widget: "string" }
       - { label: "Bio", name: "bio", widget: "markdown" }
       - { label: "Image", name: "image", widget: "image", media_folder: "/src/assets/images" }
+      - { label: "Link", name: "link", widget: "string", required: false }
       - { label: "Display Order", name: "order", widget: "number", required: false, value_type: "int" }
+
   - name: "pages"
     label: "Pages"
     folder: "src/content/pages"
@@ -55,7 +58,6 @@ collections:
       - { label: "Mission Title", name: "missionTitle", widget: "string", required: false }
       - { label: "Mission Statement", name: "missionStatement", widget: "string", required: false }
       - { label: "Mission Content", name: "missionContent", widget: "markdown", required: false }
-
 
   - name: "projects"
     label: "Projects"

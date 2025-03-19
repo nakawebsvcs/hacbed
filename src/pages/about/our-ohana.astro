@@ -27,7 +27,8 @@ const formattedBoardMembers = sortedBoardMembers.map(member => ({
   jobTitle: member.data.jobTitle,
   bio: member.data.bio,
   imageUrl: member.data.image.src,
-  imageAlt: member.data.name
+  imageAlt: member.data.name,
+  link: member.data.link
 }));
 ---
 
@@ -163,7 +164,7 @@ const formattedBoardMembers = sortedBoardMembers.map(member => ({
 
 
         .cs-image-group {
-            width: 100%;
+            width: 90%;
             height: auto;
             display: grid;
             grid-template-columns: repeat(10, 1fr);

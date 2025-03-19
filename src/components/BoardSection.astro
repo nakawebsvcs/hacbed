@@ -7,6 +7,7 @@ export interface BoardMemberData {
   bio: string;
   imageUrl: string;
   imageAlt?: string;
+  link?: string;
 }
 
 export interface Props {
@@ -33,6 +34,7 @@ const { id, title, members, topper } = Astro.props;
           bio={member.bio}
           imageUrl={member.imageUrl}
           imageAlt={member.imageAlt}
+          link={member.link}
         />
       ))}
     </ul>
@@ -200,6 +202,31 @@ const { id, title, members, topper } = Astro.props;
             overflow: hidden;
             transition: max-height 0.5s ease, opacity 0.5s ease, margin 0.5s ease;
         }
+
+          .cs-bio-link {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.cs-item.expanded .cs-bio-link {
+  max-height: 50px;
+  opacity: 1;
+  margin-bottom: 1rem;
+}
+
+.cs-link {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+}
         
         .cs-read-more {
             display: inline-block;
@@ -279,14 +306,15 @@ document.addEventListener('astro:page-load', () => {
     item.appendChild(readMoreBtn);
     
     // Toggle expand/collapse on click
-    item.addEventListener('click', (e) => {
-      // Don't trigger if clicking on an anchor or button (except the read more button)
-      if (e.target.tagName === 'A' && !e.target.classList.contains('cs-read-more')) {
-        return;
-      }
-      
-      item.classList.toggle('expanded');
-    });
+item.addEventListener('click', (e) => {
+  // Don't trigger if clicking on an anchor or button (except the read more button)
+  if ((e.target.tagName === 'A' || e.target.closest('a')) && !e.target.classList.contains('cs-read-more')) {
+    return;
+  }
+  
+  item.classList.toggle('expanded');
+});
+
   });
 });
 </script>
