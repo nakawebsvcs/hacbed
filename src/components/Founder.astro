@@ -4,9 +4,10 @@ export interface Props {
   bio: string;
   imageUrl: string;
   imageAlt?: string;
+  video?: string;
 }
 
-const { name, bio, imageUrl, imageAlt = `Founder ${name}` } = Astro.props;
+const { name, bio, imageUrl, imageAlt = `Founder ${name}`, video } = Astro.props;
 ---
 
 <li class="cs-item">
@@ -14,5 +15,15 @@ const { name, bio, imageUrl, imageAlt = `Founder ${name}` } = Astro.props;
     <img src={imageUrl} alt={imageAlt} width="305" height="400" loading="lazy" decoding="async">
   </div>
   <span class="cs-name">{name}</span>
-  <span class="cs-bio">{bio}</span>
+  <span class="cs-bio">
+  {bio}
+</span>
+{video && <div class="cs-bio-video">
+    <a href={video} class="cs-link" aria-label={`Watch ${name}'s video`} rel="noopener noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#ffffff">
+        <circle cx="12" cy="12" r="11" fill="var(--primary)" opacity="0.7"/>
+        <path d="M16.5 12l-7.5 4.33v-8.66l7.5 4.33z" fill="#ffffff"/>
+      </svg>
+    </a>
+  </div>}
 </li>

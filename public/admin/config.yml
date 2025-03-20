@@ -47,6 +47,18 @@ collections:
       - { label: "Link", name: "link", widget: "string", required: false }
       - { label: "Display Order", name: "order", widget: "number", required: false, value_type: "int" }
 
+  - name: "founders"
+    label: "Founders"
+    folder: "src/content/founders"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "text" }
+      - { label: "Image", name: "image", widget: "image", media_folder: "/src/assets/images" }
+      - { label: "Video URL", name: "video", widget: "string", required: false, hint: "YouTube or Vimeo embed URL" }
+      - { label: "Display Order", name: "order", widget: "number", required: false }
+
   - name: "pages"
     label: "Pages"
     folder: "src/content/pages"

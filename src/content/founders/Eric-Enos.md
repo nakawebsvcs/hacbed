@@ -1,0 +1,6 @@
+---
+name: "Eric Enos"
+bio: "Eric Enos is the co-founder and Executive Director of Ka'ala Farms, a Wai'anae-based community organization that has operated the Cultural Learning Center at Ka'ala for nearly three decades. As a lifelong resident of Wai'anae, Eric is deeply involved in the perpetuation of our cultural and ancestral traditions, as well as the management, care and restoration of our land and sea. Ka'ala Farms started as an initiative to provide youth an alternative opportunity for their own development and has evolved into an organization with a mission on the transmission of cultural knowledge from kūpuna to 'ōpio; protection and restoration of the ahupua'a with an emphasis on attendant rights and responsibilities; and integration of cultural knowledge, wisdom and practices into educational institutions that serve children. Uncle Eric's commitment to mālama 'āina and to the Wai'anae Coast community led him to working with other CBED practitioners to form HACBED."
+image: "/assets/images/founders/eric-enos.png"
+order: 6
+---

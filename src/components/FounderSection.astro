@@ -6,16 +6,17 @@ export interface FounderData {
   bio: string;
   imageUrl: string;
   imageAlt?: string;
+  link?: string;
 }
 
 export interface Props {
   id?: string;
   title: string;
-  members: FounderData[];
+  founders: FounderData[];
   topper?: string;
 }
 
-const { id, title, members, topper } = Astro.props;
+const { id, title, founders, topper } = Astro.props;
 ---
 
 <section id={id}>
@@ -25,15 +26,23 @@ const { id, title, members, topper } = Astro.props;
       <h2 class="cs-title">{title}</h2>
     </div>
     <ul class="cs-card-group">
-      {members.map(member => (
+      {founders.map(founder => (
         <Founder 
-          name={member.name}
-          bio={member.bio}
-          imageUrl={member.imageUrl}
-          imageAlt={member.imageAlt}
+          name={founder.name}
+          bio={founder.bio}
+          imageUrl={founder.imageUrl}
+          imageAlt={founder.imageAlt}
+          video={founder.video}
         />
       ))}
     </ul>
+  </div>
+
+  <!-- Lightbox HTML structure -->
+  <div id="video-lightbox" class="video-lightbox">
+    <div class="lightbox-container">
+      <div class="lightbox-content"></div>
+    </div>
   </div>
 </section>
 
@@ -134,7 +143,7 @@ const { id, title, members, topper } = Astro.props;
             /* Card expanded state */
             &.expanded {
                 .cs-bio {
-                    max-height: 500px;
+                    max-height: 800px;
                     opacity: 1;
                     margin-bottom: 1rem;
                 }
@@ -200,6 +209,31 @@ const { id, title, members, topper } = Astro.props;
             overflow: hidden;
             transition: max-height 0.5s ease, opacity 0.5s ease, margin 0.5s ease;
         }
+
+                 .cs-bio-video {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.cs-item.expanded .cs-bio-video {
+  max-height: 50px;
+  opacity: 1;
+  margin-bottom: 1rem;
+}
+
+.cs-link {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+}
         
         .cs-read-more {
             display: inline-block;
@@ -264,6 +298,57 @@ const { id, title, members, topper } = Astro.props;
       }
     }
 }
+
+/*-- -------------------------- -->
+<---      Video Lightbox     -->
+<--- -------------------------- -*/
+
+/* Video Lightbox Styles */
+.video-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.video-lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-lightbox-container {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  aspect-ratio: 16/9;
+}
+
+.video-lightbox-content {
+  width: 100%;
+  height: 100%;
+}
+
+.video-lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 10;
+}
+
 </style>
 
 <script>
@@ -278,10 +363,16 @@ document.addEventListener('astro:page-load', () => {
     readMoreBtn.setAttribute('aria-label', 'Read more about this board member');
     item.appendChild(readMoreBtn);
     
-    // Toggle expand/collapse on click
+   // Toggle expand/collapse on click
     item.addEventListener('click', (e) => {
-      // Don't trigger if clicking on an anchor or button (except the read more button)
-      if (e.target.tagName === 'A' && !e.target.classList.contains('cs-read-more')) {
+      // Don't trigger if clicking on an anchor, video link, or SVG within the video link
+      if (
+        e.target.tagName === 'A' || 
+        e.target.closest('.cs-bio-video') || 
+        e.target.tagName === 'SVG' || 
+        e.target.tagName === 'CIRCLE' || 
+        e.target.tagName === 'PATH'
+      ) {
         return;
       }
       
@@ -290,3 +381,4 @@ document.addEventListener('astro:page-load', () => {
   });
 });
 </script>
+<script src="/js/videoLightbox.js" is:inline></script>

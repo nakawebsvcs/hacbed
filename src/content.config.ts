@@ -46,9 +46,24 @@ const boardCollection = defineCollection({
     }),
 });
 
-// pages collection
+// founders collection
 
-// Update the pagesCollection definition
+const foundersCollection = defineCollection({
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/founders",
+  }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      bio: z.string(),
+      image: z.string(),
+      video: z.string().optional(),
+      order: z.number().optional(),
+    }),
+});
+
+// pages collection
 const pagesCollection = defineCollection({
   loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/pages" }),
   schema: z.object({
@@ -62,8 +77,7 @@ const pagesCollection = defineCollection({
 });
 
 // projects collection
-
-export const projectsCollection = defineCollection({
+const projectsCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
@@ -85,6 +99,7 @@ export const collections = {
   blog: blogsCollection,
   team: teamCollection,
   board: boardCollection,
+  founders: foundersCollection,
   pages: pagesCollection,
   projects: projectsCollection
 };

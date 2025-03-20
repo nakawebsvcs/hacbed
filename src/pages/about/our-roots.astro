@@ -2,14 +2,25 @@
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
 import FounderSection from "@components/FounderSection.astro";
-import foundersData from "../../data/founders.json"; // Import the founders data
+import { getCollection } from 'astro:content';
 
-// Format the data if needed
-const formattedFounders = foundersData.map(founder => ({
-  name: founder.name,
-  bio: founder.bio,
-  imageUrl: founder.imageUrl,
-  imageAlt: founder.imageAlt
+// Fetch founders from the collection
+const founders = await getCollection('founders');
+
+// Sort founders by order if available
+const sortedFounders = founders.sort((a, b) => {
+  const orderA = a.data.order || 999;
+  const orderB = b.data.order || 999;
+  return orderA - orderB;
+});
+
+// Map to the format expected by FounderSection
+const foundersData = sortedFounders.map(founder => ({
+  name: founder.data.name,
+  bio: founder.data.bio,
+  imageUrl: founder.data.image,
+  imageAlt: `Photo of ${founder.data.name}`,
+  video: founder.data.video
 }));
 ---
 
@@ -56,7 +67,7 @@ Since then, HACBED has supported community-based economic development by being a
 <FounderSection 
     id="founder-section"
     title="Our Founders" 
-    members={formattedFounders} 
+    founders={foundersData} 
   />
 
   <CTA />
