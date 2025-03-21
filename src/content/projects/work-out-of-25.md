@@ -1,8 +1,8 @@
 ---
-title: Sample Project
+title: Work Out of Our 25th Anniversary
 description: Lorem Acuti modo tardantis unam mitissima dissimulator
   inposuit   corpus sintque tura tremenda, nec coetum.
-category: Network Coordination
+category: "Past Support"
 image: /src/assets/images/blog/img-placeholder.png
 imageAlt: Image Placeholder
 tags:

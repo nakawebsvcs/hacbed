@@ -18,6 +18,10 @@ const projectsByCategory = {
   
   "Strategic & Community-Based Planning": allProjects.filter(
     project => project.data.category === "Strategic & Community-Based Planning"
+  ),
+
+  "Past Support": allProjects.filter(
+    project => project.data.category === "Past Support"
   )
 };
 ---
@@ -151,7 +155,7 @@ allows for repeated components, centralized data and greater room to scale as yo
                     
                     {/* Show a message if no projects */}
                     {projectsByCategory["Capacity Building & Technical Assistance"].length === 0 && (
-                        <p class="cs-item-text">No projects yet in this category.</p>
+                        <p class="cs-item-text">No content to show.</p>
                     )}
                 </div>
                 <picture class="cs-picture">
@@ -175,7 +179,7 @@ allows for repeated components, centralized data and greater room to scale as yo
                     
                     {/* Show a message if no projects */}
                     {projectsByCategory["Network Coordination"].length === 0 && (
-                        <p class="cs-item-text">No projects yet in this category.</p>
+                        <p class="cs-item-text">No content to show.</p>
                     )}
                 </div>
                 <picture class="cs-picture">
@@ -199,7 +203,7 @@ allows for repeated components, centralized data and greater room to scale as yo
                     
                     {/* Show a message if no projects */}
                     {projectsByCategory["Strategic & Community-Based Planning"].length === 0 && (
-                        <p class="cs-item-text">No projects yet in this category.</p>
+                        <p class="cs-item-text">No content to show.</p>
                     )}
                 </div>
                 <picture class="cs-picture">
@@ -225,8 +229,15 @@ allows for repeated components, centralized data and greater room to scale as yo
                     </picture>
                     <h3 class="cs-h3">Past Support</h3>
                     <p class="cs-item-text">Lorem ipsum dolor sit amet, consectetur.</p>
-                    <a href="" class="cs-link">Work Up to Our 25th Anniversary</a><br>
-                    <a href="" class="cs-link">Work Out of Our 25th Anniversary</a>
+                    {/* Dynamic project links */}
+                    {projectsByCategory["Past Support"].map(project => (
+                        <a href={`/projects/${project.id}`} class="cs-link">{project.data.title}</a>
+                    ))}
+                    
+                    {/* Show a message if no projects */}
+                    {projectsByCategory["Past Support"].length === 0 && (
+                        <p class="cs-item-text">No content to show.</p>
+                    )}
                 </div>
                 <picture class="cs-picture">
                     <source media="(max-width: 600px)" srcset="assets/images/Past-Projects.jpg">

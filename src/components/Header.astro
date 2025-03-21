@@ -18,6 +18,10 @@ const projectsByCategory = {
   
   "Strategic & Community-Based Planning": allProjects.filter(
     project => project.data.category === "Strategic & Community-Based Planning"
+  ).sort((a, b) => (a.data.order || 0) - (b.data.order || 0)),
+
+   "Past Support": allProjects.filter(
+    project => project.data.category === "Past Support"
   ).sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
 };
 ---
@@ -101,7 +105,7 @@ const projectsByCategory = {
                 ))}
                 {projectsByCategory["Capacity Building & Technical Assistance"].length === 0 && (
                     <li class="cs-drop-li3">
-                        <span class="cs-li-link cs-drop-link cs-drop-link3">No projects yet</span>
+                        <span class="cs-li-link cs-drop-link cs-drop-link3">No content to show</span>
                     </li>
                 )}
             </ul>
@@ -122,7 +126,7 @@ const projectsByCategory = {
                 ))}
                 {projectsByCategory["Network Coordination"].length === 0 && (
                     <li class="cs-drop-li3">
-                        <span class="cs-li-link cs-drop-link cs-drop-link3">No projects yet</span>
+                        <span class="cs-li-link cs-drop-link cs-drop-link3">No content to show</span>
                     </li>
                 )}
             </ul>
@@ -143,28 +147,34 @@ const projectsByCategory = {
                 ))}
                 {projectsByCategory["Strategic & Community-Based Planning"].length === 0 && (
                     <li class="cs-drop-li3">
-                        <span class="cs-li-link cs-drop-link cs-drop-link3">No projects yet</span>
+                        <span class="cs-li-link cs-drop-link cs-drop-link3">No content to show</span>
                     </li>
                 )}
             </ul>
         </li>
-                             <li class="cs-drop-li cs-drop3-main">
-                                <span class="cs-li-link cs-drop-link ">
-                                    Past Support
-                                    <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
-                                </span>
-                                <!--Tertiary-->
-                                <ul class="cs-drop3">
-                                    <li class="cs-drop-li3">
-                                        <a href="" class="cs-li-link cs-drop-link cs-drop-link3">Work Up to Our 25th Anniversary</a>
-                                    </li>
-                                     <li class="cs-drop-li3">
-                                        <a href="" class="cs-li-link cs-drop-link cs-drop-link3">Work Out of Our 25th Anniversary</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            </ul>
-                            </li>
+            <li class="cs-drop-li cs-drop3-main">
+            <span class="cs-li-link cs-drop-link ">
+                Past Support
+                <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+            </span>
+            <!--Tertiary-->
+            <ul class="cs-drop3">
+                {projectsByCategory["Past Support"].map(project => (
+                    <li class="cs-drop-li3">
+                        <a href={`/projects/${project.id}`} class="cs-li-link cs-drop-link cs-drop-link3">
+                            {project.data.title}
+                        </a>
+                    </li>
+                ))}
+                {projectsByCategory["Past Support"].length === 0 && (
+                    <li class="cs-drop-li3">
+                        <span class="cs-li-link cs-drop-link cs-drop-link3">No content to show</span>
+                    </li>
+                )}
+            </ul>
+        </li>
+        </ul>
+        </li>
                     <li class="cs-li">
                         <a href="/contact" class="cs-li-link">
                             Contact

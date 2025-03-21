@@ -91,6 +91,7 @@ const projectsCollection = defineCollection({
         "Capacity Building & Technical Assistance",
         "Network Coordination",
         "Strategic & Community-Based Planning",
+        "Past Support",
       ]),
       tags: z.array(z.string()),
       image: image(),

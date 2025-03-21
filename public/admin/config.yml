@@ -83,7 +83,7 @@ collections:
           label: "Category", 
           name: "category", 
           widget: "select", 
-          options: ["Capacity Building & Technical Assistance", "Network Coordination","Strategic & Community-Based Planning"] 
+          options: ["Capacity Building & Technical Assistance", "Network Coordination","Strategic & Community-Based Planning", "Past Support"] 
         }
       - { label: "Featured Image", name: "image", widget: "image" }
       - { label: "Image Caption", name: "imageAlt", widget: "string" }
