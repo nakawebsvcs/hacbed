@@ -1,46 +1,25 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
-import FAQ from "@components/FAQ.astro";
+import { getCollection } from "astro:content";
 
-// Define the service categories we want to display - hardcoded for safety
-const serviceCategories = [
-  "Capacity Building and Technical Assistance",
-  "Network Coordination",
-  "Strategic & Community-Based Planning",
-  "Past Support"
-];
+// Fetch all projects
+const allProjects = await getCollection("projects");
 
-// Map service categories to icons
-const categoryIcons = {
-  "Capacity Building and Technical Assistance": "https://csimg.nyc3.digitaloceanspaces.com/Services/pinwheel.svg",
-  "Network Coordination": "https://csimg.nyc3.digitaloceanspaces.com/Services/ring.svg",
-  "Strategic & Community-Based Planning": "https://csimg.nyc3.digitaloceanspaces.com/Services/leaf.svg",
-  "Past Support": "https://csimg.nyc3.digitaloceanspaces.com/Services/bubble-wheel.svg"
+// Group projects by category
+const projectsByCategory = {
+  "Capacity Building & Technical Assistance": allProjects.filter(
+    project => project.data.category === "Capacity Building & Technical Assistance"
+  ),
+  
+  "Network Coordination": allProjects.filter(
+    project => project.data.category === "Network Coordination"
+  ),
+  
+  "Strategic & Community-Based Planning": allProjects.filter(
+    project => project.data.category === "Strategic & Community-Based Planning"
+  )
 };
-
-// Import navigation data
-let categoryLinks = {};
-try {
-  const navData = await import("../data/navData.json");
-  console.log("Imported navData:", navData);
-  
-  // Find the navigation item with submenu (Projects)
-  const projectsNav = navData.default?.mainNav?.find(item => item.submenu);
-  
-  // Get category links if available
-  if (projectsNav?.submenu) {
-    projectsNav.submenu.forEach(category => {
-      if (category.category && category.links) {
-        categoryLinks[category.category] = category.links;
-      }
-    });
-  }
-  console.log("Processed categoryLinks:", categoryLinks);
-} catch (error) {
-  console.error("Error loading navigation data:", error);
-  // Continue with empty categoryLinks if there's an error
-}
 ---
 
 <BaseLayout
@@ -151,7 +130,6 @@ allows for repeated components, centralized data and greater room to scale as yo
 <section id="services-448" style="margin-top: -3rem;">
     <div class="cs-container">
         <div class="cs-content">
-          <!--  <span class="cs-topper">Current Support</span> -->
             <h2 class="cs-title">Current Support</h2>
             <p class="cs-text">
                 Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.
@@ -165,9 +143,16 @@ allows for repeated components, centralized data and greater room to scale as yo
                     </picture>
                     <h3 class="cs-h3">Capacity Building and Technical Assistance</h3>
                     <p class="cs-item-text">Lorem ipsum dolor sit amet, consectetur.</p>
-                    <a href="" class="cs-link">Project Link</a>
-                    <a href="" class="cs-link">Project Link</a>
-                    <a href="" class="cs-link">Project Link</a>
+                    
+                    {/* Dynamic project links */}
+                    {projectsByCategory["Capacity Building & Technical Assistance"].map(project => (
+                        <a href={`/projects/${project.id}`} class="cs-link">{project.data.title}</a>
+                    ))}
+                    
+                    {/* Show a message if no projects */}
+                    {projectsByCategory["Capacity Building & Technical Assistance"].length === 0 && (
+                        <p class="cs-item-text">No projects yet in this category.</p>
+                    )}
                 </div>
                 <picture class="cs-picture">
                     <source media="(max-width: 600px)" srcset="/assets/images/Capacity-Building-TA.jpg">
@@ -182,9 +167,16 @@ allows for repeated components, centralized data and greater room to scale as yo
                     </picture>
                     <h3 class="cs-h3">Network Coordination</h3>
                     <p class="cs-item-text">Lorem ipsum dolor sit amet, consectetur.</p>
-                    <a href="" class="cs-link">Project Link</a>
-                    <a href="" class="cs-link">Project Link</a>
-                    <a href="" class="cs-link">Project Link</a>
+                    
+                    {/* Dynamic project links */}
+                    {projectsByCategory["Network Coordination"].map(project => (
+                        <a href={`/projects/${project.id}`} class="cs-link">{project.data.title}</a>
+                    ))}
+                    
+                    {/* Show a message if no projects */}
+                    {projectsByCategory["Network Coordination"].length === 0 && (
+                        <p class="cs-item-text">No projects yet in this category.</p>
+                    )}
                 </div>
                 <picture class="cs-picture">
                     <source media="(max-width: 600px)" srcset="assets/images/Network-Coordination.jpg">
@@ -199,9 +191,16 @@ allows for repeated components, centralized data and greater room to scale as yo
                     </picture>
                     <h3 class="cs-h3">Strategic & Community-Based Planning</h3>
                     <p class="cs-item-text">Lorem ipsum dolor sit amet, consectetur.</p>
-                    <a href="" class="cs-link">Project Link</a>
-                    <a href="" class="cs-link">Project Link</a>
-                    <a href="" class="cs-link">Project Link</a>
+                    
+                    {/* Dynamic project links */}
+                    {projectsByCategory["Strategic & Community-Based Planning"].map(project => (
+                        <a href={`/projects/${project.id}`} class="cs-link">{project.data.title}</a>
+                    ))}
+                    
+                    {/* Show a message if no projects */}
+                    {projectsByCategory["Strategic & Community-Based Planning"].length === 0 && (
+                        <p class="cs-item-text">No projects yet in this category.</p>
+                    )}
                 </div>
                 <picture class="cs-picture">
                     <source media="(max-width: 600px)" srcset="assets/images/Strategic-Planning.jpg">
@@ -212,14 +211,14 @@ allows for repeated components, centralized data and greater room to scale as yo
         </ul>
     </div>
     <div class="cs-container">
-    <div class="cs-content" style="margin-top: 6rem;">
-       <h2 class="cs-title">Past Support</h2>
+        <div class="cs-content" style="margin-top: 6rem;">
+            <h2 class="cs-title">Past Support</h2>
             <p class="cs-text">
                 Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.
             </p>
-            </div>
-      <ul class="cs-card-group">
-         <li class="cs-item">
+        </div>
+        <ul class="cs-card-group">
+            <li class="cs-item">
                 <div class="cs-flex">
                     <picture class="cs-wrapper">
                         <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="src/icons/taro-icon.svg" alt="icon" width="70" height="70">
@@ -235,10 +234,9 @@ allows for repeated components, centralized data and greater room to scale as yo
                     <img aria-hidden="true" loading="lazy" decoding="async" src="assets/images/Past-Projects.jpg" alt="leaves" width="345" height="428">
                 </picture>
             </li>
-            </ul>
-            </div>
-</section>
-                                
+        </ul>
+    </div>
+</section>                      
                                 
 
   <CTA />
