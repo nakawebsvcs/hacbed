@@ -1,7 +1,25 @@
 ---
 import navData from "@data/navData.json";
 import { Icon } from 'astro-icon/components';
-import DarkModeToggle from "@components/DarkModeToggle.astro";
+import { getCollection } from "astro:content";
+
+// Fetch all projects
+const allProjects = await getCollection("projects");
+
+// Group projects by category
+const projectsByCategory = {
+  "Capacity Building & Technical Assistance": allProjects.filter(
+    project => project.data.category === "Capacity Building & Technical Assistance"
+  ).sort((a, b) => (a.data.order || 0) - (b.data.order || 0)),
+  
+  "Network Coordination": allProjects.filter(
+    project => project.data.category === "Network Coordination"
+  ).sort((a, b) => (a.data.order || 0) - (b.data.order || 0)),
+  
+  "Strategic & Community-Based Planning": allProjects.filter(
+    project => project.data.category === "Strategic & Community-Based Planning"
+  ).sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
+};
 ---
 
 <!-- ============================================ -->
@@ -61,48 +79,75 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
                         </ul>
                     </li>
                    <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown and it will work-->
-                    <li class="cs-li cs-dropdown" tabindex="0">
-                        <span class="cs-li-link cs-dropdown-toggle">
-                            Current Support
-                            <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
-                        </span>
-                        <ul class="cs-drop-ul">
-                            <li class="cs-drop-li cs-drop3-main">
-                                <span class="cs-li-link cs-drop-link ">
-                                    Capacity Building and Technical Assistance
-                                    <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
-                                </span>
-                                <!--Tertiary-->
-                                <ul class="cs-drop3">
-                                    <li class="cs-drop-li3">
-                                        <a href="" class="cs-li-link cs-drop-link cs-drop-link3">Dyanamic Link</a>
-                                    </li>
-                                </ul>
-                            </li>
-                             <li class="cs-drop-li cs-drop3-main">
-                                <span class="cs-li-link cs-drop-link ">
-                                    Network Coordination
-                                    <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
-                                </span>
-                                <!--Tertiary-->
-                                <ul class="cs-drop3">
-                                    <li class="cs-drop-li3">
-                                        <a href="" class="cs-li-link cs-drop-link cs-drop-link3">Dyanamic Link</a>
-                                    </li>
-                                </ul>
-                            </li>
-                             <li class="cs-drop-li cs-drop3-main">
-                                <span class="cs-li-link cs-drop-link ">
-                                    Strategic & Community-Based Planning
-                                    <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
-                                </span>
-                                <!--Tertiary-->
-                                <ul class="cs-drop3">
-                                    <li class="cs-drop-li3">
-                                        <a href="" class="cs-li-link cs-drop-link cs-drop-link3">Dyanamic Link</a>
-                                    </li>
-                                </ul>
-                            </li>
+                   <li class="cs-li cs-dropdown" tabindex="0">
+    <span class="cs-li-link cs-dropdown-toggle">
+        Current Support
+        <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+    </span>
+    <ul class="cs-drop-ul">
+        <li class="cs-drop-li cs-drop3-main">
+            <span class="cs-li-link cs-drop-link ">
+                Capacity Building and Technical Assistance
+                <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+            </span>
+            <!--Tertiary-->
+            <ul class="cs-drop3">
+                {projectsByCategory["Capacity Building & Technical Assistance"].map(project => (
+                    <li class="cs-drop-li3">
+                        <a href={`/projects/${project.id}`} class="cs-li-link cs-drop-link cs-drop-link3">
+                            {project.data.title}
+                        </a>
+                    </li>
+                ))}
+                {projectsByCategory["Capacity Building & Technical Assistance"].length === 0 && (
+                    <li class="cs-drop-li3">
+                        <span class="cs-li-link cs-drop-link cs-drop-link3">No projects yet</span>
+                    </li>
+                )}
+            </ul>
+        </li>
+        <li class="cs-drop-li cs-drop3-main">
+            <span class="cs-li-link cs-drop-link ">
+                Network Coordination
+                <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+            </span>
+            <!--Tertiary-->
+            <ul class="cs-drop3">
+                {projectsByCategory["Network Coordination"].map(project => (
+                    <li class="cs-drop-li3">
+                        <a href={`/projects/${project.id}`} class="cs-li-link cs-drop-link cs-drop-link3">
+                            {project.data.title}
+                        </a>
+                    </li>
+                ))}
+                {projectsByCategory["Network Coordination"].length === 0 && (
+                    <li class="cs-drop-li3">
+                        <span class="cs-li-link cs-drop-link cs-drop-link3">No projects yet</span>
+                    </li>
+                )}
+            </ul>
+        </li>
+        <li class="cs-drop-li cs-drop3-main">
+            <span class="cs-li-link cs-drop-link ">
+                Strategic & Community-Based Planning
+                <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+            </span>
+            <!--Tertiary-->
+            <ul class="cs-drop3">
+                {projectsByCategory["Strategic & Community-Based Planning"].map(project => (
+                    <li class="cs-drop-li3">
+                        <a href={`/projects/${project.id}`} class="cs-li-link cs-drop-link cs-drop-link3">
+                            {project.data.title}
+                        </a>
+                    </li>
+                ))}
+                {projectsByCategory["Strategic & Community-Based Planning"].length === 0 && (
+                    <li class="cs-drop-li3">
+                        <span class="cs-li-link cs-drop-link cs-drop-link3">No projects yet</span>
+                    </li>
+                )}
+            </ul>
+        </li>
                              <li class="cs-drop-li cs-drop3-main">
                                 <span class="cs-li-link cs-drop-link ">
                                     Past Support

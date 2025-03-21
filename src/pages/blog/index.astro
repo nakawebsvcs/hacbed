@@ -15,16 +15,18 @@ posts.sort(
 ---
 
 <BaseLayout
-  title="Blog"
+  title="Updates"
   description="Meta description for the page"
 >
-  <!-- Custom hero/banner section -->
+<!-- Custom hero/banner section -->
   <section class="page-header">
-    <div class="cs-container">
-      <h1>About</h1>
-      <img src="/assets/images/About-Page.png" alt="About page header" width="100%" />
+  <div class="full-width-image-container">
+    <img src="/assets/images/kalo-home-img.jpg" alt="kalo field" />
+    <div class="header-overlay">
+      <h1 class="header-title">Updates</h1>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- ============================================ -->
   <!--              Main Blog Content               -->
@@ -68,7 +70,7 @@ posts.sort(
                 </div>
                 <h2 class="blog-h1">{post.data.title}</h2>
                 <p class="blog-desc">{post.data.description}</p>
-                <a href={post.id} class="blog-link">
+                <a href={`/blog/${post.id}`} class="blog-link">
                   Continue Reading
                 </a>
               </div>
@@ -80,3 +82,83 @@ posts.sort(
   </div>
   <CTA />
 </BaseLayout>
+
+<style lang="less">
+/*-- -------------------------- -->
+<---       Custom Landing      -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  .page-header {
+    padding: 0; /* Remove padding as we want full-width */
+    margin-top: 60px; /* Add margin to push content below navbar */
+    
+    .full-width-image-container {
+      position: relative;
+      width: 100vw;
+      height: 50vh; /* Significantly increased height */
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 60% center; /* Keep focus on top */
+        display: block;
+      }
+      
+      .header-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+      
+      .header-title {
+        color: var(--primary);
+        text-align: center;
+        margin: 0;
+        padding: 0 1rem;
+        font-size: var(--headerFontSize, 2.5rem);
+        font-weight: 700;
+        line-height: 1.2em;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+      }
+    }
+  }
+}
+
+/* Large screens (desktops and tablets) */
+@media only screen and (min-width: 768px) {
+  .page-header {
+    .full-width-image-container {
+      height: 80vh; /* Significantly increased height */
+      
+      .header-title {
+        font-size: 4rem;
+      }
+    }
+  }
+}
+
+/* Extra Large screens (wide desktops) */
+@media only screen and (min-width: 1200px) {
+  .page-header {
+    .full-width-image-container {
+      height: 70vh; /* Significantly increased height */
+    }
+
+    .header-title {
+      font-size: 5rem;
+    }
+  }
+}
+  
+</style>

@@ -79,20 +79,23 @@ const pagesCollection = defineCollection({
 
 // projects collection
 const projectsCollection = defineCollection({
-  type: "content",
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    subcategory: z.enum([
-      "Capacity Building & Technical Assistance",
-      "Network Coordination",
-      "Strategic & Community-Based Planning"
-    ]),
-    featured: z.boolean().default(false),
-    image: z.string().optional(),
-    publishDate: z.date(),
-    draft: z.boolean().default(false),
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/projects",
   }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      category: z.enum([
+        "Capacity Building & Technical Assistance",
+        "Network Coordination",
+        "Strategic & Community-Based Planning",
+      ]),
+      tags: z.array(z.string()),
+      image: image(),
+      imageAlt: z.string(),
+    }),
 });
 
 

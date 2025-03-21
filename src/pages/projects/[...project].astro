@@ -8,16 +8,16 @@ import "@styles/blog.less";
 
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map((entry) => ({
-    params: { post: entry.id },
-    props: { post: entry },
+  const projects = await getCollection("projects");
+  return projects.map((entry) => ({
+    params: { project: entry.id },
+    props: { project: entry },
   }));
 }
 
-const { post } = Astro.props;
-const { title, date, description, image, imageAlt, author } = post.data;
-const { Content } = await render(post);
+const { project } = Astro.props;
+const { title, description, image, imageAlt, category } = project.data;
+const { Content } = await render(project);
 ---
 
 <BaseLayout
@@ -30,7 +30,7 @@ const { Content } = await render(post);
   <div class="full-width-image-container">
     <img src="/assets/images/kalo-home-img.jpg" alt="kalo field" />
     <div class="header-overlay">
-      <h1 class="header-title">Updates</h1>
+      <h1 class="header-title">Projects</h1>
     </div>
   </div>
 </section>
@@ -62,20 +62,8 @@ const { Content } = await render(post);
         <div class="article-group">
           <h1 class="blog-h1">{title}</h1>
           <div class="blog-authorGroup">
-            <!--Author Image-->
-            <picture class="blog-author-img">
-              <img
-                src="/assets/svgs/profile.svg"
-                alt="house"
-                width="32"
-                height="32"
-                decoding="async"
-              />
-            </picture>
-            <span class="blog-author">{author}</span>
-            <span aria-hidden="true" class="blog-dot"></span>
-            <!--Blog Date-->
-            <span class="blog-date">{formatDate(date)}</span>
+            <!--Category instead of Author-->
+            <span class="blog-author">{category}</span>
           </div>
         </div>
         <section id="blog-content">
@@ -83,7 +71,6 @@ const { Content } = await render(post);
         </section>
       </article>
     </div>
-    <FeaturedPost />
   </div>
 </BaseLayout>
 
