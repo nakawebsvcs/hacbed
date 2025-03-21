@@ -56,7 +56,8 @@ collections:
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Bio", name: "bio", widget: "text" }
       - { label: "Image", name: "image", widget: "image", media_folder: "/src/assets/images" }
-      - { label: "Video URL", name: "video", widget: "string", required: false, hint: "YouTube or Vimeo embed URL" }
+      - { label: "Video", name: "video", widget: "file", required: false, media_folder: "/public/assets/videos", public_folder: "/assets/videos", hint: "Upload a video file (MP4 recommended)" }
+      - { label: "Video Caption", name: "videoCaption", widget: "string", required: false, hint: "Caption that displays with the video" }
       - { label: "Display Order", name: "order", widget: "number", required: false }
 
   - name: "pages"

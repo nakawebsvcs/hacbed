@@ -59,6 +59,7 @@ const foundersCollection = defineCollection({
       bio: z.string(),
       image: z.string(),
       video: z.string().optional(),
+      videoCaption: z.string().optional(),
       order: z.number().optional(),
     }),
 });

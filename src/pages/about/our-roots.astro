@@ -7,6 +7,14 @@ import { getCollection } from 'astro:content';
 // Fetch founders from the collection
 const founders = await getCollection('founders');
 
+// Debug: Log all founders and their data
+console.log("All founders data:");
+founders.forEach(founder => {
+  console.log(`${founder.data.name}:`);
+  console.log(`  video = ${founder.data.video || "none"}`);
+  console.log(`  videoCaption = ${founder.data.videoCaption || "none"}`);
+});
+
 // Sort founders by order if available
 const sortedFounders = founders.sort((a, b) => {
   const orderA = a.data.order || 999;
@@ -14,16 +22,30 @@ const sortedFounders = founders.sort((a, b) => {
   return orderA - orderB;
 });
 
-// Map to the format expected by FounderSection
-const foundersData = sortedFounders.map(founder => ({
-  name: founder.data.name,
-  bio: founder.data.bio,
-  imageUrl: founder.data.image,
-  imageAlt: `Photo of ${founder.data.name}`,
-  video: founder.data.video
-}));
----
+// Debug: Log sorted founders
+console.log("Sorted founders:");
+sortedFounders.forEach(founder => {
+  console.log(`${founder.data.name} (order: ${founder.data.order})`);
+});
 
+// Map to the format expected by FounderSection
+const foundersData = sortedFounders.map(founder => {
+  const data = {
+    name: founder.data.name,
+    bio: founder.data.bio,
+    imageUrl: founder.data.image,
+    imageAlt: `Photo of ${founder.data.name}`,
+    video: founder.data.video,
+    videoCaption: founder.data.videoCaption
+  };
+  
+  // Debug: Log mapped data
+  console.log(`Mapped data for ${data.name}:`);
+  console.log(`  videoCaption = ${data.videoCaption || "none"}`);
+  
+  return data;
+});
+---
 
 <BaseLayout
   title="Our Roots"
@@ -60,7 +82,18 @@ The vision was given a name, Community-Based Economic Development (CBED), and an
 Since then, HACBED has supported community-based economic development by being a facilitator, a catalyst, a broker, and a producer of training, technical assistance, advocacy, education, as well as research & development (R&D) related products and services. Based on experiences in and with community, HACBED has moved away from a member-based model as membership is not as important in the scheme of building a broader movement.
             </p>
         </div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/8kxa8TTQdD0" title="CBED Clips for 25th V2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+       <div class="video-container">
+  <iframe 
+    width="100%" 
+    height="500" 
+    src="https://www.youtube.com/embed/8kxa8TTQdD0?rel=0&modestbranding=1&controls=1" 
+    title="CBED Clips for 25th V2" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+</div>
     </div>
 </section>
 
@@ -222,6 +255,35 @@ Since then, HACBED has supported community-based economic development by being a
         }
     }
 }
+
+/*-- -------------------------- -->
+<---      Embedded Video        -->
+<--- -------------------------- -*/
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .video-container::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
 
   </style>
 

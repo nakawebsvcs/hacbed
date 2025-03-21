@@ -5,8 +5,8 @@ export interface FounderData {
   name: string;
   bio: string;
   imageUrl: string;
-  imageAlt?: string;
-  link?: string;
+  video?: string;
+  videoCaption?: string;
 }
 
 export interface Props {
@@ -33,15 +33,18 @@ const { id, title, founders, topper } = Astro.props;
           imageUrl={founder.imageUrl}
           imageAlt={founder.imageAlt}
           video={founder.video}
+          videoCaption={founder.videoCaption}
         />
       ))}
     </ul>
   </div>
 
-  <!-- Lightbox HTML structure -->
-  <div id="video-lightbox" class="video-lightbox">
-    <div class="lightbox-container">
-      <div class="lightbox-content"></div>
+  <!-- Video Lightbox HTML Structure -->
+  <div class="video-lightbox-overlay">
+    <div class="video-lightbox-container">
+      <button class="video-lightbox-close" aria-label="Close video">&times;</button>
+      <div class="video-lightbox-content"></div>
+      <div class="video-lightbox-caption"></div>
     </div>
   </div>
 </section>
@@ -161,9 +164,9 @@ const { id, title, founders, topper } = Astro.props;
             max-width: (120/16rem);
             aspect-ratio: 1/1;
             margin-bottom: (24/16rem);
-            margin: 0 auto (24/16rem) auto;
+            margin: 1rem auto (24/16rem) auto;
             overflow: hidden;
-            border-radius: (12/16rem) (12/16rem) 0 0;
+            border-radius: 50%;
             border-bottom: 1px solid #b4b2c7;
             position: relative;
             display: block;
@@ -337,6 +340,20 @@ const { id, title, founders, topper } = Astro.props;
   height: 100%;
 }
 
+.video-lightbox-caption {
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-style: italic;
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5); /* Add background for better visibility */
+}
+
+
 .video-lightbox-close {
   position: absolute;
   top: -40px;
@@ -381,4 +398,4 @@ document.addEventListener('astro:page-load', () => {
   });
 });
 </script>
-<script src="/js/videoLightbox.js" is:inline></script>
+<script src="/js/videoPlayer.js" is:inline></script>
