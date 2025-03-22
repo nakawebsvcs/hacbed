@@ -151,5 +151,73 @@ const { Content } = await render(project);
     }
   }
 }
+
+/*-- -------------------------- -->
+<---       Custom Landing      -->
+<--- -------------------------- -*/
+
+/* Custom styles for project page */
+  .blog-article {
+    .blog-h1 {
+      text-align: center;
+      width: 100%;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem;
+    }
+    
+    .blog-authorGroup {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      
+      .blog-author {
+        text-align: center;
+      }
+    }
+  }
+
+/* Large screens (desktops and tablets) */
+@media only screen and (min-width: 768px) {
+  .page-header {
+    .full-width-image-container {
+      height: 80vh; /* Significantly increased height */
+      
+      .header-title {
+        font-size: 4rem;
+      }
+    }
+  }
+  
+  /* Custom styles for project page on larger screens */
+  .blog-article {
+    .blog-h1 {
+      font-size: 2.5rem;
+      max-width: 90%;
+    }
+  }
+}
+
+/* Extra Large screens (wide desktops) */
+@media only screen and (min-width: 1200px) {
+  .page-header {
+    .full-width-image-container {
+      height: 70vh; /* Significantly increased height */
+    }
+
+    .header-title {
+      font-size: 5rem;
+    }
+  }
+  
+  /* Custom styles for project page on extra large screens */
+  .blog-article {
+    .blog-h1 {
+      font-size: 3rem;
+      max-width: 80%;
+    }
+  }
+}
   
 </style>
