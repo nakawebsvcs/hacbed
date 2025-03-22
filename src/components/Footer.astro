@@ -59,11 +59,12 @@ const currentYear = getCurrentYear()
             <div class="cs-flex">
                 <a href="" class="cs-copyright-link">info@hacbed.org</a>
                 <span class="cs-separater">|</span>
-                <a href="" class="cs-copyright-link">1575 S. Beretania Street, Suite 211 Honolulu, HI 96826</a>
+                <a href="" class="cs-copyright-link"><span class="address-line">1575 S. Beretania Street,</span> Suite 211 Honolulu, HI 96826</a>
                 <span class="cs-separater">|</span>
                 <a href="" class="cs-copyright-link">808-550-2661</a>
             </div>
         </div>
+        <div class="cs-credits"><br><br>Website by <a href="https://nakamurawebservices.com" target="_blank">Nakamura Web Services</a></div>
     </div>
 </footer>
                                 
@@ -204,12 +205,38 @@ const currentYear = getCurrentYear()
             display: block;
         }
 
-        .cs-copyright-link,
-        .cs-separater {
+        .cs-flex {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (12/16rem);
+            width: 100%;
+        }
+
+        .cs-credits {
+    text-align: center;
+    font-size: inherit;
+    color: #bababa;
+    margin-top: (16/16rem);
+    
+    a {
+        color: #bababae7;
+        text-decoration: underline;
+        transition: color 0.3s;
+        
+        &:hover {
+            color: var(--primary);
+        }
+    }
+}
+
+        .cs-copyright-link {
             font-size: (16/16rem);
             text-decoration: none;
             color: #bababa;
             transition: color 0.3s;
+            text-align: center;
+            display: block;
 
             &:hover {
                 color: var(--primary);
@@ -217,8 +244,11 @@ const currentYear = getCurrentYear()
         }
 
         .cs-separater {
-            margin: 0 (16/16rem);
-            display: inline-block;
+            display: none; /* Hide separators on mobile */
+        }
+
+         .address-line {
+            display: block; /* Creates a line break after this span */
         }
     }
 }
@@ -237,11 +267,28 @@ const currentYear = getCurrentYear()
 
         .cs-flex {
             margin: 0 auto;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .cs-copyright-link {
+            display: inline-block; /* Change back to inline-block for desktop */
+        }
+
+        .cs-separater {
+            margin: 0 (16/16rem);
+            display: inline-block; /* Show separators on desktop */
+            font-size: (16/16rem);
+            color: #bababa;
         }
 
         .cs-social {
             /* sends it to the right in the 3rd position */
             order: 3;
+        }
+
+         .address-line {
+            display: inline; /* Remove the line break for desktop */
         }
     }
 }

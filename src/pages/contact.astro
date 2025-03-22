@@ -47,22 +47,21 @@ import client from "@data/client.json";
         <label>
           Phone
           <input
-            required
             type="text"
             id="phone"
             name="phone"
             placeholder="Phone"
           />
-        </label>
-        <label>
-          How Did You Find Us
-          <input
+          </label>
+          <label class="cs-label-subject">
+            Subject
+            <input 
+            required
             type="text"
-            id="find"
-            name="find-us"
-            placeholder="How did you find us?"
-          />
-        </label>
+            id="subject"
+            name="subject"
+            placeholder="Subject"/>
+          </label>
         <label class="cs-label-message">
           Message
           <textarea
@@ -186,6 +185,12 @@ import client from "@data/client.json";
           justify-content: center;
           align-items: flex-start;
         }
+
+       .cs-label-subject {
+        width: 100%;
+        /* Force to next line by using flex-basis */
+        flex-basis: 100%;
+      }
 
         .cs-label-message {
           /* 32px - 48px */
@@ -341,6 +346,11 @@ import client from "@data/client.json";
           width: 48%;
         }
 
+        .cs-label-subject {
+        width: 100%;
+        flex-basis: 100%;
+      }
+
         .cs-label-message {
           width: 100%;
         }
@@ -398,6 +408,11 @@ import client from "@data/client.json";
           max-width: (305/16rem);
         }
 
+        .cs-label-subject {
+        width: 100%;
+        max-width: 100%;
+      }
+
         .cs-label-message {
           max-width: 100%;
         }
@@ -405,45 +420,6 @@ import client from "@data/client.json";
 
       .cs-right-section {
         height: (578/16rem);
-      }
-    }
-  }
-
-  /* Dark Mode */
-  @media only screen and (min-width: 0em) {
-    body.dark-mode {
-      #cs-contact {
-        .cs-text,
-        .cs-title {
-          color: var(--bodyTextColorWhite);
-        }
-
-        .cs-topper {
-          color: var(--primaryLight);
-        }
-
-        #cs-form {
-          label,
-          input,
-          textarea {
-            color: var(--bodyTextColorWhite);
-            background-color: transparent;
-
-            &::placeholder {
-              /* lighten up the color of the text by 40%*/
-              filter: brightness(1.4);
-            }
-          }
-        }
-
-        .cs-bg-picture {
-          background-color: #000;
-
-          img {
-            /* lets parent background-color bleed through and darken it */
-            opacity: 0.5;
-          }
-        }
       }
     }
   }
