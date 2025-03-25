@@ -379,16 +379,16 @@ const { id, title, founders, topper } = Astro.props;
 <script client:idle>
   document.addEventListener('DOMContentLoaded', () => {
     // PART 1: Board items "Read More" functionality (from your existing script)
-    const boardItems = document.querySelectorAll('#board-section .cs-item');
+    const founderItems = document.querySelectorAll('#founder-section .cs-item');
 
        // Check if boardItems exist before proceeding
-    if (boardItems.length > 0) {
-    boardItems.forEach(item => {
+    if (founderItems.length > 0) {
+    founderItems.forEach(item => {
       // Create read more button for each card
       const bio = item.querySelector('.cs-bio');
       const readMoreBtn = document.createElement('button');
       readMoreBtn.className = 'cs-read-more';
-      readMoreBtn.setAttribute('aria-label', 'Read more about this board member');
+      readMoreBtn.setAttribute('aria-label', 'Read more about this founder');
       item.appendChild(readMoreBtn);
       
       // Toggle expand/collapse on click

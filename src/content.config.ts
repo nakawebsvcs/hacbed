@@ -68,14 +68,30 @@ const foundersCollection = defineCollection({
 const pagesCollection = defineCollection({
   loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/pages" }),
   schema: z.object({
-    pageId: z.string(), // Identifier for the page (about, services, etc.)
-    mainContent: z.string(), // For the main text content
+    pageId: z.string(), // Identifier for the page (about, home, how-we-work, etc.)
+    
+    // About page fields
+    mainContent: z.string().optional(), // For the main text content
     missionTitle: z.string().optional(), // Optional mission title
     missionStatement: z.string().optional(), // Optional mission statement
     missionContent: z.string().optional(), // Optional mission content
-    // Add other optional content sections as needed for different pages
+    
+    // Homepage fields
+    reflectionsContent: z.string().optional(), // Reflections content
+    currentSupportDesc: z.string().optional(), // Current support description
+    pastSupportDesc: z.string().optional(), // Past support description
+    
+    // How We Work page fields
+    howWeWorkIntro: z.string().optional(), // Intro content
+    facilitationContent: z.string().optional(), // Facilitation content
+    facilitationExamples: z.string().optional(), // Facilitation examples
+    networkContent: z.string().optional(), // Network content
+    networkExamples: z.string().optional(), // Network examples
+    planningContent: z.string().optional(), // Planning content
+    planningExamples: z.string().optional(), // Planning examples
   }),
 });
+
 
 // projects collection
 const projectsCollection = defineCollection({
