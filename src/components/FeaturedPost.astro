@@ -5,9 +5,10 @@ import { formatDate } from "@js/utils";
 import "@styles/blog.less";
 
 const posts = await getCollection("blog");
-const featuredPosts = posts.filter((post) =>
-  post.data.tags.includes("featured")
-);
+// Sort posts by date in descending order (newest first)
+const recentPosts = posts
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3); // Limit to the 3 most recent posts (adjust number as needed)
 ---
 
 <!-- ============================================ --><!--                Featured Posts                --><!-- ============================================ -->
@@ -16,7 +17,7 @@ const featuredPosts = posts.filter((post) =>
   <div class="blog-featured-group">
     <span class="blog-header">Recent Updates</span>
     {
-      featuredPosts.map((post) => (
+      recentPosts.map((post) => (
         <a class="blog-feature" href={`/blog/${post.id}`}>
           <picture class="blog-featureImage">
             <Image
