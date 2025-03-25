@@ -376,8 +376,8 @@ const { id, title, founders, topper } = Astro.props;
 
 </style>
 
-<script client:load>
-  document.addEventListener('astro:page-load', () => {
+<script client:idle>
+  document.addEventListener('DOMContentLoaded', () => {
     // PART 1: Board items "Read More" functionality (from your existing script)
     const boardItems = document.querySelectorAll('#board-section .cs-item');
     boardItems.forEach(item => {
