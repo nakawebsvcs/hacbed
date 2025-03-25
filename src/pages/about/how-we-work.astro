@@ -792,37 +792,56 @@ For more information on HACBED's strategic planning services or interest in rece
   </style>
   
   <script>
-  // Astro:page-load wrapper for View Transitions purposes
-  document.addEventListener("astro:page-load", () => {
-    const backToTopButton = document.getElementById('back-to-top');
-    const facilitationSection = document.getElementById('facilitation');
-    
-    if (backToTopButton && facilitationSection) {
-      // Function to check scroll position and show/hide button
-      function toggleBackToTopButton() {
-        const facilitationPosition = facilitationSection.getBoundingClientRect().top;
-        
-        // Show button when facilitation section reaches top of viewport
-        if (facilitationPosition <= 0) {
-          backToTopButton.classList.add('visible');
-        } else {
-          backToTopButton.classList.remove('visible');
-        }
+function initializeBackToTop() {
+  const backToTopButton = document.getElementById('back-to-top');
+  const facilitationSection = document.getElementById('facilitation');
+  
+  if (backToTopButton && facilitationSection) {
+    // Function to check scroll position and show/hide button
+    function toggleBackToTopButton() {
+      const facilitationPosition = facilitationSection.getBoundingClientRect().top;
+      
+      // Show button when facilitation section reaches top of viewport
+      if (facilitationPosition <= 0) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
       }
-      
-      // Add scroll event listener
-      window.addEventListener('scroll', toggleBackToTopButton);
-      
-      // Initial check in case page is loaded already scrolled
-      toggleBackToTopButton();
-      
-      // Add click event to scroll back to top
-      backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
     }
-  });
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', toggleBackToTopButton);
+    
+    // Initial check in case page is loaded already scrolled
+    toggleBackToTopButton();
+    
+    // Add click event to scroll back to top
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+}
+
+// Run on all possible events
+document.addEventListener('DOMContentLoaded', initializeBackToTop);
+document.addEventListener('astro:page-load', initializeBackToTop);
+document.addEventListener('astro:after-swap', initializeBackToTop);
+
+// Set up MutationObserver
+const observer = new MutationObserver((mutations) => {
+  for (const mutation of mutations) {
+    if (mutation.addedNodes.length) {
+      if (document.getElementById('back-to-top') && 
+          document.getElementById('facilitation')) {
+        initializeBackToTop();
+      }
+    }
+  }
+});
+
+// Start observing
+observer.observe(document.body, { childList: true, subtree: true });
 </script>

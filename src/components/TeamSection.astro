@@ -264,28 +264,66 @@ const { id, title, members, topper } = Astro.props;
 }
 </style>
 
-<!-- Add this script tag to handle the expand/collapse functionality -->
 <script>
-document.addEventListener('astro:page-load', () => {
+function initializeTeamSection() {
   const teamItems = document.querySelectorAll('#team-section .cs-item');
   
-  teamItems.forEach(item => {
-    // Create read more button for each card
-    const bio = item.querySelector('.cs-bio');
-    const readMoreBtn = document.createElement('button');
-    readMoreBtn.className = 'cs-read-more';
-    readMoreBtn.setAttribute('aria-label', 'Read more about this team member');
-    item.appendChild(readMoreBtn);
-    
-    // Toggle expand/collapse on click
-    item.addEventListener('click', (e) => {
-      // Don't trigger if clicking on an anchor or button (except the read more button)
-      if (e.target.tagName === 'A' && !e.target.classList.contains('cs-read-more')) {
-        return;
+  if (teamItems.length > 0) {
+    teamItems.forEach(item => {
+      // Only add read more button if it doesn't already exist
+      if (!item.querySelector('.cs-read-more')) {
+        const bio = item.querySelector('.cs-bio');
+        const readMoreBtn = document.createElement('button');
+        readMoreBtn.className = 'cs-read-more';
+        readMoreBtn.setAttribute('aria-label', 'Read more about this team member');
+        item.appendChild(readMoreBtn);
+        
+        // Remove any existing click listeners to prevent duplicates
+        const newItem = item.cloneNode(true);
+        item.parentNode.replaceChild(newItem, item);
+        
+        // Add click event listener to the new item
+        newItem.addEventListener('click', (e) => {
+          // Don't trigger if clicking on an anchor or button (except the read more button)
+          if (e.target.tagName === 'A' && !e.target.classList.contains('cs-read-more')) {
+            return;
+          }
+          
+          newItem.classList.toggle('expanded');
+        });
       }
-      
-      item.classList.toggle('expanded');
     });
-  });
+  }
+}
+
+// Run on all possible events
+document.addEventListener('DOMContentLoaded', initializeTeamSection);
+document.addEventListener('astro:page-load', initializeTeamSection);
+document.addEventListener('astro:after-swap', initializeTeamSection);
+
+// Set up MutationObserver to catch when components are added
+const teamObserver = new MutationObserver((mutations) => {
+  for (const mutation of mutations) {
+    if (mutation.addedNodes.length) {
+      if (document.querySelector('#team-section') && 
+          document.querySelectorAll('#team-section .cs-item').length > 0 && 
+          !document.querySelector('#team-section .cs-item .cs-read-more')) {
+        initializeTeamSection();
+      }
+    }
+  }
+});
+
+// Start observing
+teamObserver.observe(document.body, { childList: true, subtree: true });
+
+// Create a custom event that can be dispatched to force re-initialization
+document.addEventListener('hacbed:reinitialize', initializeTeamSection);
+
+// Dispatch this event after navigation completes with a small delay
+document.addEventListener('astro:page-load', () => {
+  setTimeout(() => {
+    document.dispatchEvent(new CustomEvent('hacbed:reinitialize'));
+  }, 100);
 });
 </script>
