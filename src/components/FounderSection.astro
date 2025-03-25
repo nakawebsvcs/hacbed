@@ -380,6 +380,9 @@ const { id, title, founders, topper } = Astro.props;
   document.addEventListener('DOMContentLoaded', () => {
     // PART 1: Board items "Read More" functionality (from your existing script)
     const boardItems = document.querySelectorAll('#board-section .cs-item');
+
+       // Check if boardItems exist before proceeding
+    if (boardItems.length > 0) {
     boardItems.forEach(item => {
       // Create read more button for each card
       const bio = item.querySelector('.cs-bio');
@@ -403,6 +406,7 @@ const { id, title, founders, topper } = Astro.props;
         item.classList.toggle('expanded');
       });
     });
+  }
 
     // PART 2: Video Lightbox functionality
     console.log('Video Lightbox: Initializing...');
