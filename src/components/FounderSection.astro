@@ -46,9 +46,7 @@ const { id, title, founders, topper } = Astro.props;
   <!-- Video Lightbox HTML Structure -->
   <div class="video-lightbox-overlay">
     <div class="video-lightbox-container">
-      <button class="video-lightbox-close" aria-label="Close video"
-        >&times;</button
-      >
+      <button class="video-lightbox-close" aria-label="Close video">&times;</button>
       <div class="video-lightbox-content"></div>
       <div class="video-lightbox-caption"></div>
     </div>
@@ -56,6 +54,7 @@ const { id, title, founders, topper } = Astro.props;
 </section>
 
 <style lang="less" is:global>
+  /* CSS styles remain unchanged */
   /*-- -------------------------- -->
 <---         Founder Section          -->
 <--- -------------------------- -*/
@@ -385,173 +384,198 @@ const { id, title, founders, topper } = Astro.props;
   }
 </style>
 
-<script>
-  // This script uses the 'astro:page-load' event which fires on initial page load AND after view transitions
-  document.addEventListener('astro:page-load', () => {
-    console.log("Page loaded or transitioned, initializing functionality...");
-    initializeFounderSection();
-    initializeVideoLightbox();
-  });
+<!-- Add production-ready script with "is:inline" to ensure it runs immediately -->
+<script is:inline>
+  // Use a self-executing function to avoid global scope pollution
+  (function() {
+    // Define the initialization function at the top level
+    window.initFounderElements = function() {
+      console.log("[FOUNDER] Running global initialization function");
+      setupReadMoreButtons();
+      setupVideoLightbox();
+    };
   
-  // We also need to set up a 'astro:after-swap' listener for View Transitions
-  document.addEventListener('astro:after-swap', () => {
-    console.log("View transition completed, reinitializing functionality...");
-    // Wait a moment for the DOM to be fully updated
-    setTimeout(() => {
-      initializeFounderSection();
-      initializeVideoLightbox();
-    }, 50);
-  });
-  
-  // Extract the founder section functionality into a reusable function
-  function initializeFounderSection() {
-    const sectionId = document.querySelector('#founder-section') ? 'founder-section' : 'board-section';
-    if (!document.querySelector(`#${sectionId}`)) {
-      console.log(`Section #${sectionId} not found in current page`);
-      return;
-    }
-    
-    console.log(`Initializing founder section #${sectionId}`);
-    const readMoreButtons = document.querySelectorAll(`#${sectionId} .cs-read-more`);
-    console.log(`Found ${readMoreButtons.length} Read More buttons`);
-    
-    // Remove existing event listeners (to avoid duplicates)
-    readMoreButtons.forEach(button => {
-      const newButton = button.cloneNode(true);
-      button.parentNode.replaceChild(newButton, button);
-      
-      // Add new event listener to the cloned button
-      newButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log("Read More button clicked");
-        
-        // Find the parent item and toggle its expanded state
-        const parentItem = newButton.closest('.cs-item');
-        if (parentItem) {
-          parentItem.classList.toggle('expanded');
-          console.log("Toggled expanded state on parent item");
-        }
-      });
+    // Set up the main listeners with minimal code
+    document.addEventListener('astro:page-load', function() {
+      console.log("[FOUNDER] 'astro:page-load' event fired");
+      window.initFounderElements();
     });
-  }
   
-  // Extract the video lightbox functionality into a reusable function
-  function initializeVideoLightbox() {
-    console.log("Video Lightbox: Initializing...");
-    // Get references to the existing lightbox elements
-    const overlay = document.querySelector(".video-lightbox-overlay");
-    const container = document.querySelector(".video-lightbox-container");
-    const content = document.querySelector(".video-lightbox-content");
-    const caption = document.querySelector(".video-lightbox-caption");
-    const closeBtn = document.querySelector(".video-lightbox-close");
-
-    // Check if all elements exist (we might be on a page without the lightbox)
-    if (!overlay || !container || !content || !caption || !closeBtn) {
-      console.log("Video Lightbox: Required elements not found in the DOM");
-      return;
+    document.addEventListener('astro:after-swap', function() {
+      console.log("[FOUNDER] 'astro:after-swap' event fired");
+      // Wait for DOM to be fully updated
+      setTimeout(window.initFounderElements, 100);
+    });
+  
+    // For direct navigation without transitions
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      console.log("[FOUNDER] Document already loaded, initializing now");
+      setTimeout(window.initFounderElements, 10);
+    } else {
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log("[FOUNDER] DOMContentLoaded event fired");
+        window.initFounderElements();
+      });
+    }
+  
+    // Setup Read More buttons
+    function setupReadMoreButtons() {
+      console.log("[FOUNDER] Setting up Read More buttons");
+      // Find the section first
+      const founderSection = document.getElementById('founder-section');
+      const boardSection = document.getElementById('board-section');
+      const activeSection = founderSection || boardSection;
+      
+      if (!activeSection) {
+        console.log("[FOUNDER] No founder or board section found on this page");
+        return;
+      }
+      
+      // Get all read more buttons within the active section
+      const readMoreButtons = activeSection.querySelectorAll('.cs-read-more');
+      console.log(`[FOUNDER] Found ${readMoreButtons.length} Read More buttons`);
+      
+      readMoreButtons.forEach(function(btn, index) {
+        console.log(`[FOUNDER] Processing Read More button ${index + 1}`);
+        
+        // Instead of cloning, we'll ensure single event binding with named functions
+        btn.removeEventListener('click', handleReadMoreClick);
+        btn.addEventListener('click', handleReadMoreClick);
+      });
     }
     
-    // Get all video links
-    const videoLinks = document.querySelectorAll(".cs-bio-video .cs-link");
-    console.log(`Video Lightbox: Found ${videoLinks.length} video links`);
-    
-    // Clean up existing event listeners to prevent duplicates
-    const newCloseBtn = closeBtn.cloneNode(true);
-    closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
-    
-    // Set up event listeners for closing
-    newCloseBtn.addEventListener("click", (e) => {
+    // Named function for the read more click handler
+    function handleReadMoreClick(e) {
       e.preventDefault();
       e.stopPropagation();
-      closeLightbox();
-      console.log("Close button clicked");
-    });
-    
-    // Remove existing event listener on overlay (using clone and replace technique)
-    const newOverlay = overlay.cloneNode(false);
-    while (overlay.firstChild) {
-      newOverlay.appendChild(overlay.firstChild);
-    }
-    overlay.parentNode.replaceChild(newOverlay, overlay);
-    
-    // Add new event listener to the cloned overlay
-    newOverlay.addEventListener("click", (e) => {
-      if (e.target === newOverlay) {
-        closeLightbox();
-        console.log("Overlay clicked");
+      console.log("[FOUNDER] Read More button clicked");
+      
+      // Find parent item and toggle class
+      const parentItem = this.closest('.cs-item');
+      if (parentItem) {
+        parentItem.classList.toggle('expanded');
+        console.log("[FOUNDER] Toggled expanded class on parent item");
       }
-    });
-    
-    // For global event listeners, we need to be careful to avoid duplicates
-    // We'll use a one-time setup flag in window object
-    if (!window.escKeyListenerSetup) {
-      document.addEventListener("keydown", (e) => {
-        const currentOverlay = document.querySelector(".video-lightbox-overlay");
-        if (e.key === "Escape" && currentOverlay && currentOverlay.classList.contains("active")) {
-          closeLightbox();
-          console.log("Escape key pressed");
-        }
+    }
+  
+    // Setup Video Lightbox
+    function setupVideoLightbox() {
+      console.log("[FOUNDER] Setting up Video Lightbox");
+      
+      // Check if elements exist before proceeding
+      const overlay = document.querySelector('.video-lightbox-overlay');
+      if (!overlay) {
+        console.log("[FOUNDER] No lightbox overlay found on this page");
+        return;
+      }
+      
+      const content = document.querySelector('.video-lightbox-content');
+      const caption = document.querySelector('.video-lightbox-caption');
+      const closeBtn = document.querySelector('.video-lightbox-close');
+      
+      if (!content || !caption || !closeBtn) {
+        console.log("[FOUNDER] Missing required lightbox elements");
+        return;
+      }
+      
+      // Set up close button event
+      closeBtn.removeEventListener('click', handleCloseBtnClick);
+      closeBtn.addEventListener('click', handleCloseBtnClick);
+      
+      // Set up overlay click event
+      overlay.removeEventListener('click', handleOverlayClick);
+      overlay.addEventListener('click', handleOverlayClick);
+      
+      // Set up escape key event (only once)
+      if (!window.lightboxKeyHandlerAdded) {
+        document.addEventListener('keydown', handleLightboxKeyPress);
+        window.lightboxKeyHandlerAdded = true;
+      }
+      
+      // Set up video links
+      const videoLinks = document.querySelectorAll('.cs-bio-video .cs-link');
+      console.log(`[FOUNDER] Found ${videoLinks.length} video links`);
+      
+      videoLinks.forEach(function(link, index) {
+        console.log(`[FOUNDER] Processing video link ${index + 1}`);
+        link.removeEventListener('click', handleVideoLinkClick);
+        link.addEventListener('click', handleVideoLinkClick);
       });
-      window.escKeyListenerSetup = true;
     }
     
-    // Clean up existing video link event listeners
-    videoLinks.forEach((link) => {
-      const newLink = link.cloneNode(true);
-      link.parentNode.replaceChild(newLink, link);
-      
-      // Add new event listener to the cloned link
-      newLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const videoUrl = newLink.getAttribute("href");
-        const captionText = newLink.getAttribute("data-caption") || "";
-        console.log(`Video Lightbox: Opening video ${videoUrl}`);
-        console.log(`Video Lightbox: Caption: "${captionText}"`);
-        openLightbox(videoUrl, captionText);
-      });
-    });
+    // Named functions for event handlers
+    function handleCloseBtnClick(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log("[FOUNDER] Close button clicked");
+      closeLightbox();
+    }
     
+    function handleOverlayClick(e) {
+      if (e.target === this) {
+        console.log("[FOUNDER] Overlay background clicked");
+        closeLightbox();
+      }
+    }
+    
+    function handleLightboxKeyPress(e) {
+      const overlay = document.querySelector('.video-lightbox-overlay');
+      if (e.key === 'Escape' && overlay && overlay.classList.contains('active')) {
+        console.log("[FOUNDER] Escape key pressed while lightbox active");
+        closeLightbox();
+      }
+    }
+    
+    function handleVideoLinkClick(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const videoUrl = this.getAttribute('href');
+      const captionText = this.getAttribute('data-caption') || '';
+      console.log(`[FOUNDER] Video link clicked: ${videoUrl}`);
+      openLightbox(videoUrl, captionText);
+    }
+    
+    // Lightbox open/close functions
     function openLightbox(videoUrl, captionText) {
-      // Ensure we have the latest reference to elements
-      const currentOverlay = document.querySelector(".video-lightbox-overlay");
-      const currentContent = document.querySelector(".video-lightbox-content");
-      const currentCaption = document.querySelector(".video-lightbox-caption");
+      console.log("[FOUNDER] Opening lightbox");
+      const overlay = document.querySelector('.video-lightbox-overlay');
+      const content = document.querySelector('.video-lightbox-content');
+      const caption = document.querySelector('.video-lightbox-caption');
       
-      // Clear previous content
-      currentContent.innerHTML = "";
+      if (!overlay || !content || !caption) {
+        console.error("[FOUNDER] Cannot find lightbox elements");
+        return;
+      }
       
-      // Create and add iframe
-      const iframe = document.createElement("iframe");
+      // Clear and set up content
+      content.innerHTML = '';
+      const iframe = document.createElement('iframe');
       iframe.src = videoUrl;
-      iframe.setAttribute("frameborder", "0");
-      iframe.setAttribute("allowfullscreen", "true");
-      iframe.setAttribute("width", "100%");
-      iframe.setAttribute("height", "100%");
-      currentContent.appendChild(iframe);
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allowfullscreen', 'true');
+      iframe.setAttribute('width', '100%');
+      iframe.setAttribute('height', '100%');
+      content.appendChild(iframe);
       
-      // Update caption
-      currentCaption.textContent = captionText || "";
-      currentCaption.style.display = captionText ? "block" : "none";
+      // Set caption
+      caption.textContent = captionText || '';
+      caption.style.display = captionText ? 'block' : 'none';
       
       // Show lightbox
-      currentOverlay.classList.add("active");
-      document.body.style.overflow = "hidden";
-      console.log("Video Lightbox: Opened");
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
     
     function closeLightbox() {
-      // Ensure we have the latest reference to elements
-      const currentOverlay = document.querySelector(".video-lightbox-overlay");
-      const currentContent = document.querySelector(".video-lightbox-content");
-      const currentCaption = document.querySelector(".video-lightbox-caption");
+      console.log("[FOUNDER] Closing lightbox");
+      const overlay = document.querySelector('.video-lightbox-overlay');
+      const content = document.querySelector('.video-lightbox-content');
+      const caption = document.querySelector('.video-lightbox-caption');
       
-      if (currentOverlay) currentOverlay.classList.remove("active");
-      document.body.style.overflow = "";
-      if (currentContent) currentContent.innerHTML = "";
-      if (currentCaption) currentCaption.textContent = "";
-      console.log("Video Lightbox: Closed");
+      if (overlay) overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      if (content) content.innerHTML = '';
+      if (caption) caption.textContent = '';
     }
-  }
+  })();
 </script>
