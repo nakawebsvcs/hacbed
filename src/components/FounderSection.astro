@@ -5,6 +5,7 @@ export interface FounderData {
   name: string;
   bio: string;
   imageUrl: string;
+  imageAlt?: string;
   video?: string;
   videoCaption?: string;
 }
@@ -26,23 +27,27 @@ const { id, title, founders, topper } = Astro.props;
       <h2 class="cs-title">{title}</h2>
     </div>
     <ul class="cs-card-group">
-      {founders.map(founder => (
-        <Founder 
-          name={founder.name}
-          bio={founder.bio}
-          imageUrl={founder.imageUrl}
-          imageAlt={founder.imageAlt}
-          video={founder.video}
-          videoCaption={founder.videoCaption}
-        />
-      ))}
+      {
+        founders.map((founder) => (
+          <Founder
+            name={founder.name}
+            bio={founder.bio}
+            imageUrl={founder.imageUrl}
+            imageAlt={founder.imageAlt}
+            video={founder.video}
+            videoCaption={founder.videoCaption}
+          />
+        ))
+      }
     </ul>
   </div>
 
   <!-- Video Lightbox HTML Structure -->
   <div class="video-lightbox-overlay">
     <div class="video-lightbox-container">
-      <button class="video-lightbox-close" aria-label="Close video">&times;</button>
+      <button class="video-lightbox-close" aria-label="Close video"
+        >&times;</button
+      >
       <div class="video-lightbox-content"></div>
       <div class="video-lightbox-caption"></div>
     </div>
@@ -54,236 +59,241 @@ const { id, title, founders, topper } = Astro.props;
 <---         Founder Section          -->
 <--- -------------------------- -*/
 
-/* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0rem) {
     #founder-section {
+      text-align: center;
+      padding: var(--sectionPadding);
+      margin-top: 4rem;
+
+      .cs-container {
+        width: 100%;
+        max-width: (550/16rem);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(3rem, 6vw, 4rem);
+      }
+
+      .cs-content {
         text-align: center;
-        padding: var(--sectionPadding);
-        margin-top: 4rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-        .cs-container {
-            width: 100%;
-            max-width: (550/16rem);
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: clamp(3rem, 6vw, 4rem);
+      .cs-title {
+        color: var(--secondary);
+      }
+
+      .cs-card-group {
+        width: 100%;
+        max-width: (955/16em);
+        padding: 0;
+        margin: 0 auto;
+        margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        column-gap: clamp(0.5rem, 1.5vw, 1.25rem);
+        row-gap: (24/16rem); /* Increased row gap for vertical stacking */
+      }
+
+      .cs-item {
+        list-style: none;
+        width: 95%; /* Wider cards on mobile */
+        max-width: (500/16rem); /* Control maximum width */
+        padding-bottom: (24/16rem);
+        border-radius: (12/16rem);
+        background-color: #fff;
+        box-shadow: 0px 24px 54px rgba(87, 107, 147, 0.12);
+        border: 1px solid #b4b2c7;
+        position: relative;
+        cursor: pointer; /* Indicate it's clickable */
+
+        &:before {
+          /* hover box */
+          content: "";
+          width: 99%;
+          height: 99%;
+          border: 4px solid var(--primary);
+          border-radius: (12/16rem);
+          background: transparent;
+          pointer-events: none;
+          opacity: 0;
+          position: absolute;
+          display: block;
+          z-index: 10;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition:
+            transform 0.3s,
+            width 0.3s,
+            height 0.3s,
+            opacity 0.3s;
         }
 
-        .cs-content {
-            text-align: center;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .cs-title {
-          color: var(--secondary);
-        }
-
-        .cs-card-group {
-            width: 100%;
-            max-width: (955/16em);
-            padding: 0;
-            margin: 0 auto;
-            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            column-gap: clamp(0.5rem, 1.5vw, 1.25rem);
-            row-gap: (24/16rem); /* Increased row gap for vertical stacking */
-        }
-
-        .cs-item {
-            list-style: none;
-            width: 95%; /* Wider cards on mobile */
-            max-width: (500/16rem); /* Control maximum width */
-            padding-bottom: (24/16rem);
-            border-radius: (12/16rem);
-            background-color: #fff;
-            box-shadow: 0px 24px 54px rgba(87, 107, 147, 0.12);
-            border: 1px solid #b4b2c7;
-            position: relative;
-            cursor: pointer; /* Indicate it's clickable */
-            
-            &:before {
-                /* hover box */
-                content: "";
-                width: 99%;
-                height: 99%;
-                border: 4px solid var(--primary);
-                border-radius: (12/16rem);
-                background: transparent;
-                pointer-events: none;
-                opacity: 0;
-                position: absolute;
-                display: block;
-                z-index: 10;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                transition:
-                    transform 0.3s,
-                    width 0.3s,
-                    height 0.3s,
-                    opacity 0.3s;
-            }
-
-            &:hover {
-                &:before {
-                    opacity: 1;
-                }
-                .cs-picture {
-                    img {
-                        transform: scale(1.1);
-                    }
-                }
-            }
-            
-            /* Card expanded state */
-            &.expanded {
-                .cs-bio {
-                    max-height: 800px;
-                    opacity: 1;
-                    margin-bottom: 1rem;
-                }
-                
-                .cs-read-more {
-                    &:after {
-                        content: "Read Less";
-                    }
-                }
-            }
-        }
-
-        .cs-picture {
-            width: 100%;
-            max-width: (120/16rem);
-            aspect-ratio: 1/1;
-            margin-bottom: (24/16rem);
-            margin: 1rem auto (24/16rem) auto;
-            overflow: hidden;
-            border-radius: 50%;
-            border-bottom: 1px solid #b4b2c7;
-            position: relative;
-            display: block;
-
+        &:hover {
+          &:before {
+            opacity: 1;
+          }
+          .cs-picture {
             img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-                object-position: top;
-                transition: transform 0.6s;
+              transform: scale(1.1);
             }
+          }
         }
 
-        .cs-name {
-            font-size: clamp(1rem, 2vw, 1.5625rem);
-            line-height: 1.2em;
-            font-weight: 700;
-            margin-bottom: (4/16rem);
-            color: var(--headerColor);
-            display: block;
-        }
+        /* Card expanded state */
+        &.expanded {
+          .cs-bio {
+            max-height: 800px;
+            opacity: 1;
+            margin-bottom: 1rem;
+          }
 
-        .cs-job {
-            font-size: clamp(0.875rem, 1.5vw, 1rem);
-            line-height: 1.5em;
-            color: var(--secondary);
-            display: block;
-        }
-
-        .cs-bio {
-            font-size: clamp(0.875rem, 1.5vw, 1rem);
-            line-height: 1.5em;
-            color: var(--bodyTextColor);
-            margin-top: 0.75rem;
-            padding: 0 1rem;
-            display: block;
-            /* Initially collapsed */
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease, opacity 0.5s ease, margin 0.5s ease;
-        }
-
-                 .cs-bio-video {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.5rem;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
-}
-
-.cs-item.expanded .cs-bio-video {
-  max-height: 50px;
-  opacity: 1;
-  margin-bottom: 1rem;
-}
-
-.cs-link {
-  display: inline-block;
-  transition: transform 0.3s ease;
-  
-  &:hover {
-    transform: scale(1.1);
-  }
-}
-        
-        .cs-read-more {
-            display: inline-block;
-            margin-top: 0.5rem;
-            color: var(--secondary);
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 0.875rem;
-            background-color: transparent;
-            border: 1px solid #e0e0e0; 
-            border-radius: 4px;
-            padding: 0.25rem 0.75rem;
-            
+          .cs-read-more {
             &:after {
-                content: "Read More";
+              content: "Read Less";
             }
-            
-            &:hover {
-                text-decoration: underline;
-            }
+          }
         }
-    }
-}
+      }
 
-/* Tablet - 600px */
-@media only screen and (min-width: 37.5rem) {
+      .cs-picture {
+        width: 100%;
+        max-width: (120/16rem);
+        aspect-ratio: 1/1;
+        margin-bottom: (24/16rem);
+        margin: 1rem auto (24/16rem) auto;
+        overflow: hidden;
+        border-radius: 50%;
+        border-bottom: 1px solid #b4b2c7;
+        position: relative;
+        display: block;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: top;
+          transition: transform 0.6s;
+        }
+      }
+
+      .cs-name {
+        font-size: clamp(1rem, 2vw, 1.5625rem);
+        line-height: 1.2em;
+        font-weight: 700;
+        margin-bottom: (4/16rem);
+        color: var(--headerColor);
+        display: block;
+      }
+
+      .cs-job {
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        color: var(--secondary);
+        display: block;
+      }
+
+      .cs-bio {
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        color: var(--bodyTextColor);
+        margin-top: 0.75rem;
+        padding: 0 1rem;
+        display: block;
+        /* Initially collapsed */
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.5s ease,
+          opacity 0.5s ease,
+          margin 0.5s ease;
+      }
+
+      .cs-bio-video {
+        display: flex;
+        justify-content: center;
+        margin-top: 0.5rem;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.5s ease,
+          opacity 0.5s ease;
+      }
+
+      .cs-item.expanded .cs-bio-video {
+        max-height: 50px;
+        opacity: 1;
+        margin-bottom: 1rem;
+      }
+
+      .cs-link {
+        display: inline-block;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .cs-read-more {
+        display: inline-block;
+        margin-top: 0.5rem;
+        color: var(--secondary);
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 0.875rem;
+        background-color: transparent;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        padding: 0.25rem 0.75rem;
+
+        &:after {
+          content: "Read More";
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  /* Tablet - 600px */
+  @media only screen and (min-width: 37.5rem) {
     #founder-section {
-        .cs-container {
-            max-width: (1280/16rem);
-        }
+      .cs-container {
+        max-width: (1280/16rem);
+      }
 
-        .cs-card-group {
-            flex-wrap: wrap;
-            justify-content: center;
-            column-gap: clamp(1rem, 2vw, 2rem);
-            row-gap: clamp(1.5rem, 3vw, 2rem);
-        }
+      .cs-card-group {
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: clamp(1rem, 2vw, 2rem);
+        row-gap: clamp(1.5rem, 3vw, 2rem);
+      }
 
-        .cs-item {
-            /* Back to multiple cards per row */
-            width: calc(50% - 1rem); /* 2 cards per row on medium screens */
-            max-width: (350/16rem);
-        }
+      .cs-item {
+        /* Back to multiple cards per row */
+        width: calc(50% - 1rem); /* 2 cards per row on medium screens */
+        max-width: (350/16rem);
+      }
     }
-}
-/* Desktop - 1024px+ */
-@media only screen and (min-width: 64rem) {
+  }
+  /* Desktop - 1024px+ */
+  @media only screen and (min-width: 64rem) {
     #founder-section {
       .cs-card-group {
         column-gap: clamp(1.5rem, 3vw, 3rem);
@@ -292,7 +302,7 @@ const { id, title, founders, topper } = Astro.props;
         max-width: (1200/16rem);
         justify-content: center;
       }
-      
+
       .cs-item {
         width: calc(33.33% - 2rem);
         min-width: (350/16rem);
@@ -300,232 +310,246 @@ const { id, title, founders, topper } = Astro.props;
         flex: 0 1 auto;
       }
     }
-}
+  }
 
-/*-- -------------------------- -->
+  /*-- -------------------------- -->
 <---      Video Lightbox     -->
 <--- -------------------------- -*/
 
-/* Video Lightbox Styles */
-.video-lightbox-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  padding: 40px 20px; /* Add padding to ensure content isn't flush with edges */
-}
+  /* Video Lightbox Styles */
+  .video-lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 40px 20px; /* Add padding to ensure content isn't flush with edges */
+  }
 
-.video-lightbox-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
+  .video-lightbox-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
 
-.video-lightbox-container {
-  position: relative;
-  width: 80%;
-  max-width: 900px;
-  aspect-ratio: 16/9;
-  margin-top: 70px; /* Add margin to push content down and make room for close button */
-}
+  .video-lightbox-container {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    aspect-ratio: 16/9;
+    margin-top: 70px; /* Add margin to push content down and make room for close button */
+  }
 
-.video-lightbox-content {
-  width: 100%;
-  height: 100%;
-  background-color: #000; /* Add background color to content area */
-}
+  .video-lightbox-content {
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* Add background color to content area */
+  }
 
-.video-lightbox-caption {
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-style: italic;
-  margin-top: 10px;
-  display: block;
-  width: 100%;
-  position: relative;
-  z-index: 10;
-  background-color: rgba(0, 0, 0, 0.5);
-}
+  .video-lightbox-caption {
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-style: italic;
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 
-.video-lightbox-close {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 30px;
-  cursor: pointer;
-  z-index: 10;
-  width: 40px; /* Add explicit width */
-  height: 40px; /* Add explicit height */
-  line-height: 40px; /* Center the × vertically */
-  text-align: center; /* Center the × horizontally */
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add shadow for better visibility */
-  display: block; /* Ensure it's displayed as a block element */
-}
-
+  .video-lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10;
+    width: 40px; /* Add explicit width */
+    height: 40px; /* Add explicit height */
+    line-height: 40px; /* Center the × vertically */
+    text-align: center; /* Center the × horizontally */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add shadow for better visibility */
+    display: block; /* Ensure it's displayed as a block element */
+  }
 </style>
 
-<script client:idle>
-document.addEventListener('DOMContentLoaded', () => {
-// PART 1: Founder items "Read More" functionality
-const founderItems = document.querySelectorAll('#founder-section .cs-item');
+<script>
+  function initializeTeamSection() {
+    const founderItems = document.querySelectorAll("#founder-section .cs-item");
 
+    if (founderItems.length > 0) {
+      founderItems.forEach((item) => {
+        // Only add read more button if it doesn't already exist
+        if (!item.querySelector(".cs-read-more")) {
+          const bio = item.querySelector(".cs-bio");
+          const readMoreBtn = document.createElement("button");
+          readMoreBtn.className = "cs-read-more";
+          readMoreBtn.setAttribute(
+            "aria-label",
+            "Read more about this team member"
+          );
+          item.appendChild(readMoreBtn);
 
-// Check if founderItems exist before proceeding
-if (founderItems.length > 0) {
-founderItems.forEach(item => {
-// Add click handler to toggle expanded state
-item.addEventListener('click', (e) => {
-// Don't trigger if clicking on an anchor, video link, or SVG within the video link
-if (
-e.target.tagName === 'A' ||
-e.target.closest('.cs-bio-video') ||
-e.target.tagName === 'SVG' ||
-e.target.tagName === 'CIRCLE' ||
-e.target.tagName === 'PATH'
-) {
-return;
-}
-item.classList.toggle('expanded');
-});
-});
-}
+          // Remove any existing click listeners to prevent duplicates
+          const newItem = item.cloneNode(true);
+          item.parentNode.replaceChild(newItem, item);
 
+          // Add click event listener to the new item
+          newItem.addEventListener("click", (e) => {
+            // Don't trigger if clicking on an anchor or button (except the read more button)
+            if (
+              e.target.tagName === "A" &&
+              !e.target.classList.contains("cs-read-more")
+            ) {
+              return;
+            }
 
-// PART 2: Video Lightbox functionality
-console.log('Video Lightbox: Initializing...');
-// Get references to the existing lightbox elements
-const overlay = document.querySelector('.video-lightbox-overlay');
-const container = document.querySelector('.video-lightbox-container');
-const content = document.querySelector('.video-lightbox-content');
-const caption = document.querySelector('.video-lightbox-caption');
-const closeBtn = document.querySelector('.video-lightbox-close');
+            newItem.classList.toggle("expanded");
+          });
+        }
+      });
+    }
+    
+    // Initialize video lightbox functionality
+    initializeVideoLightbox();
+  }
 
+  function initializeVideoLightbox() {
+    console.log('Video Lightbox: Initializing...');
 
-// Debug element existence
-console.log('Overlay element:', overlay);
-console.log('Container element:', container);
-console.log('Content element:', content);
-console.log('Caption element:', caption);
-console.log('Close button element:', closeBtn);
-// Check if all elements exist
-if (!overlay || !container || !content || !caption || !closeBtn) {
-console.error('Video Lightbox: Required elements not found in the DOM');
-return;
-}
-// Get all video links
-const videoLinks = document.querySelectorAll('.cs-bio-video .cs-link');
-console.log(`Video Lightbox: Found ${videoLinks.length} video links`);
-// Set up event listeners for closing
-closeBtn.addEventListener('click', (e) => {
-e.preventDefault();
-e.stopPropagation();
-closeLightbox();
-console.log('Close button clicked');
-});
-overlay.addEventListener('click', (e) => {
-if (e.target === overlay) {
-closeLightbox();
-console.log('Overlay clicked');
-}
-});
-document.addEventListener('keydown', (e) => {
-if (e.key === 'Escape' && overlay.classList.contains('active')) {
-closeLightbox();
-console.log('Escape key pressed');
-}
-});
-// Add click handlers to all video links
-videoLinks.forEach((link) => {
-link.addEventListener('click', (e) => {
-e.preventDefault();
-e.stopPropagation();
-const videoUrl = link.getAttribute('href');
-const captionText = link.getAttribute('data-caption') || '';
-console.log(`Video Lightbox: Opening video ${videoUrl}`);
-console.log(`Video Lightbox: Caption: "${captionText}"`);
-openLightbox(videoUrl, captionText);
-});
-});
-function openLightbox(videoUrl, captionText) {
-// Clear previous content
-content.innerHTML = '';
-// Create and add iframe
-const iframe = document.createElement('iframe');
-iframe.src = videoUrl;
-iframe.setAttribute('frameborder', '0');
-iframe.setAttribute('allowfullscreen', 'true');
-iframe.setAttribute('width', '100%');
-iframe.setAttribute('height', '100%');
-content.appendChild(iframe);
-// Update caption with inline styles to force visibility
-caption.textContent = captionText || '';
-// Force visibility with inline styles
-if (captionText) {
-caption.style.cssText = `
-display: block !important;
-visibility: visible !important;
-opacity: 1 !important;
-color: white !important;
-text-align: center !important;
-padding: 10px 0 !important;
-font-style: italic !important;
-margin-top: 10px !important;
-width: 100% !important;
-background-color: rgba(0, 0, 0, 0.5) !important;
-z-index: 10 !important;
-position: relative !important;
-`;
-} else {
-caption.style.display = 'none';
-}
-// Force visibility of close button
-closeBtn.innerHTML = 'x'; // Explicitly set the × character
-closeBtn.style.cssText = `
-position: absolute !important;
-top: -40px !important;
-right: 0 !important;
-background: none !important;
-border: none !important;
-color: white !important;
-font-size: 30px !important;
-cursor: pointer !important;
-z-index: 10000 !important;
-display: block !important;
-visibility: visible !important;
-opacity: 1 !important;
-width: 40px !important;
-height: 40px !important;
-line-height: 40px !important;
-text-align: center !important;
-text-shadow: 0 0 5px rgba(0, 0, 0, 0.5) !important;
-`;
-// Show lightbox
-overlay.classList.add('active');
-document.body.style.overflow = 'hidden';
-console.log('Video Lightbox: Opened');
-console.log('Caption element after setting:', caption);
-console.log('Caption text:', caption.textContent);
-console.log('Caption visibility:', caption.style.display);
-console.log('Close button visibility:', closeBtn.style.display);
-}
-function closeLightbox() {
-overlay.classList.remove('active');
-document.body.style.overflow = '';
-content.innerHTML = '';
-caption.textContent = '';
-console.log('Video Lightbox: Closed');
-}
-});
+    // Get references to the lightbox elements
+    const overlay = document.querySelector('.video-lightbox-overlay');
+    const container = document.querySelector('.video-lightbox-container');
+    const content = document.querySelector('.video-lightbox-content');
+    const caption = document.querySelector('.video-lightbox-caption');
+    const closeBtn = document.querySelector('.video-lightbox-close');
+
+    // Debug element existence
+    console.log('Overlay element:', overlay);
+    console.log('Container element:', container);
+    console.log('Content element:', content);
+    console.log('Caption element:', caption);
+    console.log('Close button element:', closeBtn);
+
+    // Check if all elements exist
+    if (!overlay || !container || !content || !caption || !closeBtn) {
+      console.error('Video Lightbox: Required elements not found in the DOM');
+      return; // Only return from this function, not the entire script
+    }
+
+    // Get all video links
+    const videoLinks = document.querySelectorAll('.cs-bio-video .cs-link');
+    console.log(`Video Lightbox: Found ${videoLinks.length} video links`);
+
+    // Set up event listeners for closing
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeLightbox();
+      console.log('Close button clicked');
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        closeLightbox();
+        console.log('Overlay clicked');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('active')) {
+        closeLightbox();
+        console.log('Escape key pressed');
+      }
+    });
+
+    // Add click handlers to all video links
+    videoLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const videoUrl = link.getAttribute('href');
+        const captionText = link.getAttribute('data-caption') || '';
+        console.log(`Video Lightbox: Opening video ${videoUrl}`);
+        console.log(`Video Lightbox: Caption: "${captionText}"`);
+        openLightbox(videoUrl, captionText);
+      });
+    });
+
+    function openLightbox(videoUrl, captionText) {
+      // Clear previous content
+      content.innerHTML = '';
+
+      // Create and add iframe
+      const iframe = document.createElement('iframe');
+      iframe.src = videoUrl;
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allowfullscreen', 'true');
+      iframe.setAttribute('width', '100%');
+      iframe.setAttribute('height', '100%');
+      content.appendChild(iframe);
+
+      // Update caption
+      caption.textContent = captionText || '';
+      caption.style.display = captionText ? 'block' : 'none';
+
+      // Show lightbox
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      console.log('Video Lightbox: Opened');
+    }
+
+    function closeLightbox() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      content.innerHTML = '';
+      caption.textContent = '';
+      console.log('Video Lightbox: Closed');
+    }
+  }
+
+  // Run on all possible events
+  document.addEventListener("DOMContentLoaded", initializeTeamSection);
+  document.addEventListener("astro:page-load", initializeTeamSection);
+  document.addEventListener("astro:after-swap", initializeTeamSection);
+
+  // Set up MutationObserver to catch when components are added
+  const teamObserver = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.addedNodes.length) {
+        if (
+          document.querySelector("#team-section") &&
+          document.querySelectorAll("#team-section .cs-item").length > 0 &&
+          !document.querySelector("#team-section .cs-item .cs-read-more")
+        ) {
+          initializeTeamSection();
+        }
+      }
+    }
+  });
+
+  // Start observing
+  teamObserver.observe(document.body, { childList: true, subtree: true });
+
+  // Create a custom event that can be dispatched to force re-initialization
+  document.addEventListener("hacbed:reinitialize", initializeTeamSection);
+
+  // Dispatch this event after navigation completes with a small delay
+  document.addEventListener("astro:page-load", () => {
+    setTimeout(() => {
+      document.dispatchEvent(new CustomEvent("hacbed:reinitialize"));
+    }, 100);
+  });
 </script>
