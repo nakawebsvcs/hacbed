@@ -377,179 +377,155 @@ const { id, title, founders, topper } = Astro.props;
 </style>
 
 <script client:idle>
-  document.addEventListener('DOMContentLoaded', () => {
-    // PART 1: Board items "Read More" functionality (from your existing script)
-    const founderItems = document.querySelectorAll('#founder-section .cs-item');
+document.addEventListener('DOMContentLoaded', () => {
+// PART 1: Founder items "Read More" functionality
+const founderItems = document.querySelectorAll('#founder-section .cs-item');
 
-       // Check if boardItems exist before proceeding
-    if (founderItems.length > 0) {
-    founderItems.forEach(item => {
-      // Create read more button for each card
-      const bio = item.querySelector('.cs-bio');
-      const readMoreBtn = document.createElement('button');
-      readMoreBtn.className = 'cs-read-more';
-      readMoreBtn.setAttribute('aria-label', 'Read more about this founder');
-      item.appendChild(readMoreBtn);
-      
-      // Toggle expand/collapse on click
-      item.addEventListener('click', (e) => {
-        // Don't trigger if clicking on an anchor, video link, or SVG within the video link
-        if (
-          e.target.tagName === 'A' ||
-          e.target.closest('.cs-bio-video') ||
-          e.target.tagName === 'SVG' ||
-          e.target.tagName === 'CIRCLE' ||
-          e.target.tagName === 'PATH'
-        ) {
-          return;
-        }
-        item.classList.toggle('expanded');
-      });
-    });
-  }
 
-    // PART 2: Video Lightbox functionality
-    console.log('Video Lightbox: Initializing...');
-    
-    // Get references to the existing lightbox elements
-    const overlay = document.querySelector('.video-lightbox-overlay');
-    const container = document.querySelector('.video-lightbox-container');
-    const content = document.querySelector('.video-lightbox-content');
-    const caption = document.querySelector('.video-lightbox-caption');
-    const closeBtn = document.querySelector('.video-lightbox-close');
+// Check if founderItems exist before proceeding
+if (founderItems.length > 0) {
+founderItems.forEach(item => {
+// Add click handler to toggle expanded state
+item.addEventListener('click', (e) => {
+// Don't trigger if clicking on an anchor, video link, or SVG within the video link
+if (
+e.target.tagName === 'A' ||
+e.target.closest('.cs-bio-video') ||
+e.target.tagName === 'SVG' ||
+e.target.tagName === 'CIRCLE' ||
+e.target.tagName === 'PATH'
+) {
+return;
+}
+item.classList.toggle('expanded');
+});
+});
+}
 
-    
-    // Debug element existence
-    console.log('Overlay element:', overlay);
-    console.log('Container element:', container);
-    console.log('Content element:', content);
-    console.log('Caption element:', caption);
-    console.log('Close button element:', closeBtn);
-    
-    // Check if all elements exist
-    if (!overlay || !container || !content || !caption || !closeBtn) {
-      console.error('Video Lightbox: Required elements not found in the DOM');
-      return;
-    }
-    
-    // Get all video links
-    const videoLinks = document.querySelectorAll('.cs-bio-video .cs-link');
-    console.log(`Video Lightbox: Found ${videoLinks.length} video links`);
-    
-    // Set up event listeners for closing
-    closeBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      closeLightbox();
-      console.log('Close button clicked');
-    });
-    
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        closeLightbox();
-        console.log('Overlay clicked');
-      }
-    });
-    
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && overlay.classList.contains('active')) {
-        closeLightbox();
-        console.log('Escape key pressed');
-      }
-    });
-    
-    // Add click handlers to all video links
-    videoLinks.forEach((link) => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const videoUrl = link.getAttribute('href');
-        const captionText = link.getAttribute('data-caption') || '';
-        
-        console.log(`Video Lightbox: Opening video ${videoUrl}`);
-        console.log(`Video Lightbox: Caption: "${captionText}"`);
-        
-        openLightbox(videoUrl, captionText);
-      });
-    });
-    
-    function openLightbox(videoUrl, captionText) {
-      // Clear previous content
-      content.innerHTML = '';
-      
-      // Create and add iframe
-      const iframe = document.createElement('iframe');
-      iframe.src = videoUrl;
-      iframe.setAttribute('frameborder', '0');
-      iframe.setAttribute('allowfullscreen', 'true');
-      iframe.setAttribute('width', '100%');
-      iframe.setAttribute('height', '100%');
-      content.appendChild(iframe);
-      
-      // Update caption with inline styles to force visibility
-      caption.textContent = captionText || '';
-      
-      // Force visibility with inline styles
-      if (captionText) {
-        caption.style.cssText = `
-          display: block !important;
-          visibility: visible !important;
-          opacity: 1 !important;
-          color: white !important;
-          text-align: center !important;
-          padding: 10px 0 !important;
-          font-style: italic !important;
-          margin-top: 10px !important;
-          width: 100% !important;
-          background-color: rgba(0, 0, 0, 0.5) !important;
-          z-index: 10 !important;
-          position: relative !important;
-        `;
-      } else {
-        caption.style.display = 'none';
-      }
-      
-      // Force visibility of close button
-      closeBtn.innerHTML = 'x'; // Explicitly set the × character
-closeBtn.style.cssText = `
-  position: absolute !important;
-  top: -40px !important;
-  right: 0 !important;
-  background: none !important;
-  border: none !important;
-  color: white !important;
-  font-size: 30px !important;
-  cursor: pointer !important;
-  z-index: 10000 !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  width: 40px !important;
-  height: 40px !important;
-  line-height: 40px !important;
-  text-align: center !important;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5) !important;
+
+// PART 2: Video Lightbox functionality
+console.log('Video Lightbox: Initializing...');
+// Get references to the existing lightbox elements
+const overlay = document.querySelector('.video-lightbox-overlay');
+const container = document.querySelector('.video-lightbox-container');
+const content = document.querySelector('.video-lightbox-content');
+const caption = document.querySelector('.video-lightbox-caption');
+const closeBtn = document.querySelector('.video-lightbox-close');
+
+
+// Debug element existence
+console.log('Overlay element:', overlay);
+console.log('Container element:', container);
+console.log('Content element:', content);
+console.log('Caption element:', caption);
+console.log('Close button element:', closeBtn);
+// Check if all elements exist
+if (!overlay || !container || !content || !caption || !closeBtn) {
+console.error('Video Lightbox: Required elements not found in the DOM');
+return;
+}
+// Get all video links
+const videoLinks = document.querySelectorAll('.cs-bio-video .cs-link');
+console.log(`Video Lightbox: Found ${videoLinks.length} video links`);
+// Set up event listeners for closing
+closeBtn.addEventListener('click', (e) => {
+e.preventDefault();
+e.stopPropagation();
+closeLightbox();
+console.log('Close button clicked');
+});
+overlay.addEventListener('click', (e) => {
+if (e.target === overlay) {
+closeLightbox();
+console.log('Overlay clicked');
+}
+});
+document.addEventListener('keydown', (e) => {
+if (e.key === 'Escape' && overlay.classList.contains('active')) {
+closeLightbox();
+console.log('Escape key pressed');
+}
+});
+// Add click handlers to all video links
+videoLinks.forEach((link) => {
+link.addEventListener('click', (e) => {
+e.preventDefault();
+e.stopPropagation();
+const videoUrl = link.getAttribute('href');
+const captionText = link.getAttribute('data-caption') || '';
+console.log(`Video Lightbox: Opening video ${videoUrl}`);
+console.log(`Video Lightbox: Caption: "${captionText}"`);
+openLightbox(videoUrl, captionText);
+});
+});
+function openLightbox(videoUrl, captionText) {
+// Clear previous content
+content.innerHTML = '';
+// Create and add iframe
+const iframe = document.createElement('iframe');
+iframe.src = videoUrl;
+iframe.setAttribute('frameborder', '0');
+iframe.setAttribute('allowfullscreen', 'true');
+iframe.setAttribute('width', '100%');
+iframe.setAttribute('height', '100%');
+content.appendChild(iframe);
+// Update caption with inline styles to force visibility
+caption.textContent = captionText || '';
+// Force visibility with inline styles
+if (captionText) {
+caption.style.cssText = `
+display: block !important;
+visibility: visible !important;
+opacity: 1 !important;
+color: white !important;
+text-align: center !important;
+padding: 10px 0 !important;
+font-style: italic !important;
+margin-top: 10px !important;
+width: 100% !important;
+background-color: rgba(0, 0, 0, 0.5) !important;
+z-index: 10 !important;
+position: relative !important;
 `;
-      
-      // Show lightbox
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      
-      console.log('Video Lightbox: Opened');
-      console.log('Caption element after setting:', caption);
-      console.log('Caption text:', caption.textContent);
-      console.log('Caption visibility:', caption.style.display);
-      console.log('Close button visibility:', closeBtn.style.display);
-    }
-    
-    function closeLightbox() {
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-      content.innerHTML = '';
-      caption.textContent = '';
-      
-      console.log('Video Lightbox: Closed');
-    }
-  });
+} else {
+caption.style.display = 'none';
+}
+// Force visibility of close button
+closeBtn.innerHTML = 'x'; // Explicitly set the × character
+closeBtn.style.cssText = `
+position: absolute !important;
+top: -40px !important;
+right: 0 !important;
+background: none !important;
+border: none !important;
+color: white !important;
+font-size: 30px !important;
+cursor: pointer !important;
+z-index: 10000 !important;
+display: block !important;
+visibility: visible !important;
+opacity: 1 !important;
+width: 40px !important;
+height: 40px !important;
+line-height: 40px !important;
+text-align: center !important;
+text-shadow: 0 0 5px rgba(0, 0, 0, 0.5) !important;
+`;
+// Show lightbox
+overlay.classList.add('active');
+document.body.style.overflow = 'hidden';
+console.log('Video Lightbox: Opened');
+console.log('Caption element after setting:', caption);
+console.log('Caption text:', caption.textContent);
+console.log('Caption visibility:', caption.style.display);
+console.log('Close button visibility:', closeBtn.style.display);
+}
+function closeLightbox() {
+overlay.classList.remove('active');
+document.body.style.overflow = '';
+content.innerHTML = '';
+caption.textContent = '';
+console.log('Video Lightbox: Closed');
+}
+});
 </script>
