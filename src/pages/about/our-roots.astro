@@ -1,15 +1,16 @@
 ---
+// Our Roots Page our-roots.astro
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
 import FounderSection from "@components/FounderSection.astro";
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
 
 // Fetch founders from the collection
-const founders = await getCollection("founders");
+const founders = await getCollection('founders');
 
 // Debug: Log all founders and their data
 console.log("All founders data:");
-founders.forEach((founder) => {
+founders.forEach(founder => {
   console.log(`${founder.data.name}:`);
   console.log(`  video = ${founder.data.video || "none"}`);
   console.log(`  videoCaption = ${founder.data.videoCaption || "none"}`);
@@ -24,305 +25,269 @@ const sortedFounders = founders.sort((a, b) => {
 
 // Debug: Log sorted founders
 console.log("Sorted founders:");
-sortedFounders.forEach((founder) => {
+sortedFounders.forEach(founder => {
   console.log(`${founder.data.name} (order: ${founder.data.order})`);
 });
 
 // Map to the format expected by FounderSection
-const foundersData = sortedFounders.map((founder) => {
+const foundersData = sortedFounders.map(founder => {
   const data = {
     name: founder.data.name,
     bio: founder.data.bio,
     imageUrl: founder.data.image,
     imageAlt: `Photo of ${founder.data.name}`,
     video: founder.data.video,
-    videoCaption: founder.data.videoCaption,
+    videoCaption: founder.data.videoCaption
   };
-
+  
   // Debug: Log mapped data
   console.log(`Mapped data for ${data.name}:`);
   console.log(`  videoCaption = ${data.videoCaption || "none"}`);
-
+  
   return data;
 });
 ---
 
-<BaseLayout title="Our Roots" description="Meta description for the page">
-  <!-- Custom hero/banner section -->
+<BaseLayout
+  title="Our Roots"
+  description="Meta description for the page"
+>
+ <!-- Custom hero/banner section -->
   <section class="page-header">
-    <div class="full-width-image-container">
-      <img src="/assets/images/Our-Roots.png" alt="Our Roots" />
-      <div class="header-overlay">
-        <h1 class="header-title">OUR ROOTS</h1>
-      </div>
+  <div class="full-width-image-container">
+    <img src="/assets/images/Our-Roots.png" alt="Our Roots" />
+    <div class="header-overlay">
+      <h1 class="header-title">OUR ROOTS</h1>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================ -->
-  <!--                  Content                     -->
-  <!-- ============================================ -->
+<!-- ============================================ -->
+<!--                  Content                     -->
+<!-- ============================================ -->
 
-  <section id="content-1450">
+<section id="content-1450">
     <div class="cs-container">
-      <div class="cs-content">
-        <!-- <span class="cs-topper">Reflections<br><br></span>
+        <div class="cs-content">
+           <!-- <span class="cs-topper">Reflections<br><br></span>
              <h2 class="cs-title">Stitch Non-profit Charity is the largest global crowdfunding community in the world</h2> -->
-        <p class="cs-text">
-          The 1970s and '80s were decades of tremendous growth and development
-          for the state of Hawai`i. Spurred by advances in air transportation
-          and the obvious potential of Hawai`i as a tourist destination,
-          overseas companies engaged in record levels of real estate acquisition
-          and development in those decades. New hotels, condominiums, shopping
-          centers and housing subdivisions sprung up, transforming the islands
-          into a Pacific mecca for tourists.<br /><br />
+            <p class="cs-text">
+              The 1970s and '80s were decades of tremendous growth and development for the state of Hawai`i. Spurred by advances in air transportation and the obvious potential of Hawai`i as a tourist destination, overseas companies engaged in record levels of real estate acquisition and development in those decades. New hotels, condominiums, shopping centers and housing subdivisions sprung up, transforming the islands into a Pacific mecca for tourists.<br><br>
 
-          These “boom” years were not uniformly celebrated by the residents and
-          communities of Hawai`i. While the rise of the visitor industry
-          generated tremendous wealth for some, many communities continued to
-          suffer from high levels of poverty, unemployment, crime, and other
-          related social ills. Furthermore, some Hawai`i communities saw new
-          development directly linked to the loss of their natural resources,
-          lifestyle, and culture.<br /><br />
+These "boom" years were not uniformly celebrated by the residents and communities of Hawai`i. While the rise of the visitor industry generated tremendous wealth for some, many communities continued to suffer from high levels of poverty, unemployment, crime, and other related social ills. Furthermore, some Hawai`i communities saw new development directly linked to the loss of their natural resources, lifestyle, and culture.<br><br>
 
-          Thus, while the '70s and '80s are often viewed as prosperous years for
-          Hawai`i, those years also gave rise to a protest movement that
-          continues to evolve today. In 1992, the movement's leaders convened to
-          discuss a new direction for their efforts. After years of fighting
-          unwanted forms of development, they assembled to define the kind of
-          development they did want: development that would respect culture and
-          values, distribute wealth equitably, and empower residents rather than
-          leave them disenfranchised -- development guided by the needs and
-          priorities of the communities themselves.<br /><br />
+Thus, while the '70s and '80s are often viewed as prosperous years for Hawai`i, those years also gave rise to a protest movement that continues to evolve today. In 1992, the movement's leaders convened to discuss a new direction for their efforts. After years of fighting unwanted forms of development, they assembled to define the kind of development they did want: development that would respect culture and values, distribute wealth equitably, and empower residents rather than leave them disenfranchised -- development guided by the needs and priorities of the communities themselves.<br><br>
 
-          The vision was given a name, Community-Based Economic Development
-          (CBED), and an organization was founded to advance it. The Hawai`i
-          Alliance for Community Based Economic Development (HACBED) is a
-          501(c)(3) not-for-profit organization, established in 1992, designed
-          to encourage increased investment in community-based approaches to
-          economic development. Consistent with its philosophy of
-          community-driven change, HACBED was formed as a membership-based
-          entity, governed by community-based, nonprofit organizations that are
-          CBED practitioners.<br /><br />
+The vision was given a name, Community-Based Economic Development (CBED), and an organization was founded to advance it. The Hawai`i Alliance for Community Based Economic Development (HACBED) is a 501(c)(3) not-for-profit organization, established in 1992, designed to encourage increased investment in community-based approaches to economic development. Consistent with its philosophy of community-driven change, HACBED was formed as a membership-based entity, governed by community-based, nonprofit organizations that are CBED practitioners.<br><br>
 
-          Since then, HACBED has supported community-based economic development
-          by being a facilitator, a catalyst, a broker, and a producer of
-          training, technical assistance, advocacy, education, as well as
-          research & development (R&D) related products and services. Based on
-          experiences in and with community, HACBED has moved away from a
-          member-based model as membership is not as important in the scheme of
-          building a broader movement.
-        </p>
-      </div>
-      <div class="video-container">
-        <iframe
-          width="100%"
-          height="500"
-          src="https://www.youtube.com/embed/8kxa8TTQdD0?rel=0&modestbranding=1&controls=1"
-          title="CBED Clips for 25th V2"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        >
-        </iframe>
-      </div>
+Since then, HACBED has supported community-based economic development by being a facilitator, a catalyst, a broker, and a producer of training, technical assistance, advocacy, education, as well as research & development (R&D) related products and services. Based on experiences in and with community, HACBED has moved away from a member-based model as membership is not as important in the scheme of building a broader movement.
+            </p>
+        </div>
+       <div class="video-container">
+  <iframe 
+    width="100%" 
+    height="500" 
+    src="https://www.youtube.com/embed/8kxa8TTQdD0?rel=0&modestbranding=1&controls=1" 
+    title="CBED Clips for 25th V2" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+</div>
     </div>
-  </section>
+</section>
 
-  <FounderSection
+<FounderSection 
     id="founder-section"
-    title="Our Founders"
-    founders={foundersData}
-  />
+    title="Our Founders" 
+    founders={foundersData} 
+/>
 
-  <CTA />
+<CTA />
 </BaseLayout>
 
 <style lang="less">
   /* PAGE-SPECIFIC STYLES FOR THE PAGE */
 
-  /*-- -------------------------- -->
+/*-- -------------------------- -->
 <---       Custom Landing      -->
 <--- -------------------------- -*/
 
-  /* Mobile - 360px */
-  @media only screen and (min-width: 0rem) {
-    .page-header {
-      padding: 0; /* Remove padding as we want full-width */
-      margin-top: 60px; /* Add margin to push content below navbar */
-
-      .full-width-image-container {
-        position: relative;
-        width: 100vw;
-        height: 50vh; /* Significantly increased height */
-        overflow: hidden;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: 60% center; /* Keep focus on top */
-          display: block;
-        }
-
-        .header-overlay {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .header-title {
-          color: var(--primary);
-          text-align: center;
-          margin: 0;
-          padding: 0 1rem;
-          font-size: var(--headerFontSize, 2.5rem);
-          font-weight: 700;
-          line-height: 1.2em;
-          text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-        }
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  .page-header {
+    padding: 0; /* Remove padding as we want full-width */
+    margin-top: 60px; /* Add margin to push content below navbar */
+    
+    .full-width-image-container {
+      position: relative;
+      width: 100vw;
+      height: 50vh; /* Significantly increased height */
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 60% center; /* Keep focus on top */
+        display: block;
       }
-    }
-  }
-
-  /* Large screens (desktops and tablets) */
-  @media only screen and (min-width: 768px) {
-    .page-header {
-      .full-width-image-container {
-        height: 80vh; /* Significantly increased height */
-
-        .header-title {
-          font-size: 4rem;
-        }
+      
+      .header-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.4);
       }
-    }
-  }
-
-  /* Extra Large screens (wide desktops) */
-  @media only screen and (min-width: 1200px) {
-    .page-header {
-      .full-width-image-container {
-        height: 70vh; /* Significantly increased height */
-      }
-
+      
       .header-title {
-        font-size: 5rem;
+        color: var(--primary);
+        text-align: center;
+        margin: 0;
+        padding: 0 1rem;
+        font-size: var(--headerFontSize, 2.5rem);
+        font-weight: 700;
+        line-height: 1.2em;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
       }
     }
   }
+}
 
-  /*-- -------------------------- -->
+/* Large screens (desktops and tablets) */
+@media only screen and (min-width: 768px) {
+  .page-header {
+    .full-width-image-container {
+      height: 80vh; /* Significantly increased height */
+      
+      .header-title {
+        font-size: 4rem;
+      }
+    }
+  }
+}
+
+/* Extra Large screens (wide desktops) */
+@media only screen and (min-width: 1200px) {
+  .page-header {
+    .full-width-image-container {
+      height: 70vh; /* Significantly increased height */
+    }
+
+    .header-title {
+      font-size: 5rem;
+    }
+  }
+}
+
+/*-- -------------------------- -->
 <---          Content           -->
 <--- -------------------------- -*/
 
-  /* Mobile - 360px */
-  @media only screen and (min-width: 0rem) {
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
     #content-1450 {
-      padding: var(--sectionPadding);
-
-      .cs-container {
-        width: 100%;
-        max-width: (1280/16rem);
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* 48px - 64px */
-        gap: clamp(3rem, 6vw, 4rem);
-      }
-
-      .cs-content {
-        /* set text align to left if content needs to be left aligned */
-        text-align: left;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        /* centers content horizontally, set to flex-start to left align */
-        align-items: center;
-
-        ul {
-          width: 100%;
-          max-width: 100%;
-          margin: 0 0 (24/16rem) 0;
-          padding-left: (24/16rem);
-          list-style-position: outside;
-
-          li {
-            font-size: clamp(
-              1rem,
-              2vw,
-              1.25rem
-            ); // Match your .cs-text font size
-            line-height: 1.5em;
-            color: var(--bodyTextColor);
-            margin-bottom: (8/16rem);
-            position: relative;
-            padding-left: (4/16rem);
-
-            &::marker {
-              color: var(--primary); // Use your brand color for bullets
-            }
-
-            // For nested lists
-            ul {
-              margin: (8/16rem) 0 (8/16rem) 0;
-
-              li {
-                font-size: 0.95em; // Slightly smaller than parent
-              }
-            }
-          }
+        padding: var(--sectionPadding);
+        
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
         }
+
+        .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: left;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
+        
+              ul {
+                width: 100%;
+                max-width: 100%;
+                margin: 0 0 (24/16rem) 0;
+                padding-left: (24/16rem);
+                list-style-position: outside;
+                
+                li {
+                  font-size: clamp(1rem, 2vw, 1.25rem); // Match your .cs-text font size
+                  line-height: 1.5em;
+                  color: var(--bodyTextColor);
+                  margin-bottom: (8/16rem);
+                  position: relative;
+                  padding-left: (4/16rem);
+                  
+                  &::marker {
+                    color: var(--primary); // Use your brand color for bullets
+                  }
+                  
+                  // For nested lists
+                  ul {
+                    margin: (8/16rem) 0 (8/16rem) 0;
+                    
+                    li {
+                      font-size: 0.95em; // Slightly smaller than parent
+                    }
       }
-
-      // Add styling for ordered lists too
-      ol {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 0 (24/16rem) 0;
-        padding-left: (24/16rem);
-        list-style-position: outside;
-        counter-reset: item;
-
-        li {
-          font-size: clamp(1rem, 2vw, 1.25rem);
-          line-height: 1.5em;
-          color: var(--bodyTextColor);
-          margin-bottom: (8/16rem);
-          position: relative;
-          padding-left: (4/16rem);
-
-          &::marker {
-            color: var(--secondary);
-          }
-        }
-      }
-
-      .cs-title,
-      .cs-text {
-        max-width: 100%;
-      }
-
-      .cs-text {
-        /* 16px - 20px */
-        font-size: clamp(1rem, 2vw, 1.25rem);
-        margin: 0 0 (32/16rem) 0;
+    }
+  }
+}
+  
+  // Add styling for ordered lists too
+  ol {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 (24/16rem) 0;
+    padding-left: (24/16rem);
+    list-style-position: outside;
+    counter-reset: item;
+    
+    li {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      line-height: 1.5em;
+      color: var(--bodyTextColor);
+      margin-bottom: (8/16rem);
+      position: relative;
+      padding-left: (4/16rem);
+      
+      &::marker {
+        color: var(--secondary);
       }
     }
   }
 
-  /*-- -------------------------- -->
+        .cs-title, .cs-text {
+            max-width: 100%;
+        }
+
+        .cs-text {
+            /* 16px - 20px */
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin: 0 0 (32/16rem) 0;
+          
+        }
+    }
+}
+
+/*-- -------------------------- -->
 <---      Embedded Video        -->
 <--- -------------------------- -*/
 
-  .video-container {
+.video-container {
     position: relative;
     width: 100%;
     max-width: 800px;
@@ -331,13 +296,13 @@ const foundersData = sortedFounders.map((founder) => {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
-
+  
   .video-container::before {
     content: "";
     display: block;
     padding-top: 56.25%; /* 16:9 Aspect Ratio */
   }
-
+  
   .video-container iframe {
     position: absolute;
     top: 0;
@@ -346,36 +311,5 @@ const foundersData = sortedFounders.map((founder) => {
     height: 100%;
     border: none;
   }
-</style>
-<!-- 
-<script>
-  document.addEventListener("astro:page-load", () => {
-    // Get the section ID from the component props or use a default
-    const sectionId = document.getElementById("founder-section")
-      ? "founder-section"
-      : "board-section";
-    const items = document.querySelectorAll(`#${sectionId} .cs-item`);
 
-    items.forEach((item) => {
-      // Create read more button for each card
-      const bio = item.querySelector(".cs-bio");
-      const readMoreBtn = document.createElement("button");
-      readMoreBtn.className = "cs-read-more";
-      readMoreBtn.setAttribute("aria-label", "Read more about this person");
-      item.appendChild(readMoreBtn);
-
-      // Toggle expand/collapse on click
-      item.addEventListener("click", (e) => {
-        // Don't trigger if clicking on an anchor or button (except the read more button)
-        if (
-          e.target.tagName === "A" &&
-          !e.target.classList.contains("cs-read-more")
-        ) {
-          return;
-        }
-
-        item.classList.toggle("expanded");
-      });
-    });
-  });
-</script> -->
+  </style>

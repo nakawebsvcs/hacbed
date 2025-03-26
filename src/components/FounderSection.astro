@@ -1,4 +1,5 @@
 ---
+// FounderSection.astro
 import Founder from "./Founder.astro";
 
 export interface FounderData {
@@ -112,7 +113,6 @@ const { id, title, founders, topper } = Astro.props;
         box-shadow: 0px 24px 54px rgba(87, 107, 147, 0.12);
         border: 1px solid #b4b2c7;
         position: relative;
-        cursor: pointer; /* Indicate it's clickable */
 
         &:before {
           /* hover box */
@@ -160,6 +160,12 @@ const { id, title, founders, topper } = Astro.props;
             &:after {
               content: "Read Less";
             }
+          }
+
+          .cs-bio-video {
+            max-height: 50px;
+            opacity: 1;
+            margin-bottom: 1rem;
           }
         }
       }
@@ -231,12 +237,6 @@ const { id, title, founders, topper } = Astro.props;
         transition:
           max-height 0.5s ease,
           opacity 0.5s ease;
-      }
-
-      .cs-item.expanded .cs-bio-video {
-        max-height: 50px;
-        opacity: 1;
-        margin-bottom: 1rem;
       }
 
       .cs-link {
@@ -386,170 +386,172 @@ const { id, title, founders, topper } = Astro.props;
 </style>
 
 <script>
-  function initializeTeamSection() {
-    const founderItems = document.querySelectorAll("#founder-section .cs-item");
-
-    if (founderItems.length > 0) {
-      founderItems.forEach((item) => {
-        // Only add read more button if it doesn't already exist
-        if (!item.querySelector(".cs-read-more")) {
-          const bio = item.querySelector(".cs-bio");
-          const readMoreBtn = document.createElement("button");
-          readMoreBtn.className = "cs-read-more";
-          readMoreBtn.setAttribute(
-            "aria-label",
-            "Read more about this team member"
-          );
-          item.appendChild(readMoreBtn);
-
-          // Remove any existing click listeners to prevent duplicates
-          const newItem = item.cloneNode(true);
-          item.parentNode.replaceChild(newItem, item);
-
-          // Add click event listener to the new item
-          newItem.addEventListener("click", (e) => {
-            // Don't trigger if clicking on an anchor or button (except the read more button)
-            if (
-              e.target.tagName === "A" &&
-              !e.target.classList.contains("cs-read-more")
-            ) {
-              return;
-            }
-
-            newItem.classList.toggle("expanded");
-          });
-        }
-      });
+  // This script uses the 'astro:page-load' event which fires on initial page load AND after view transitions
+  document.addEventListener('astro:page-load', () => {
+    console.log("Page loaded or transitioned, initializing functionality...");
+    initializeFounderSection();
+    initializeVideoLightbox();
+  });
+  
+  // We also need to set up a 'astro:after-swap' listener for View Transitions
+  document.addEventListener('astro:after-swap', () => {
+    console.log("View transition completed, reinitializing functionality...");
+    // Wait a moment for the DOM to be fully updated
+    setTimeout(() => {
+      initializeFounderSection();
+      initializeVideoLightbox();
+    }, 50);
+  });
+  
+  // Extract the founder section functionality into a reusable function
+  function initializeFounderSection() {
+    const sectionId = document.querySelector('#founder-section') ? 'founder-section' : 'board-section';
+    if (!document.querySelector(`#${sectionId}`)) {
+      console.log(`Section #${sectionId} not found in current page`);
+      return;
     }
     
-    // Initialize video lightbox functionality
-    initializeVideoLightbox();
+    console.log(`Initializing founder section #${sectionId}`);
+    const readMoreButtons = document.querySelectorAll(`#${sectionId} .cs-read-more`);
+    console.log(`Found ${readMoreButtons.length} Read More buttons`);
+    
+    // Remove existing event listeners (to avoid duplicates)
+    readMoreButtons.forEach(button => {
+      const newButton = button.cloneNode(true);
+      button.parentNode.replaceChild(newButton, button);
+      
+      // Add new event listener to the cloned button
+      newButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("Read More button clicked");
+        
+        // Find the parent item and toggle its expanded state
+        const parentItem = newButton.closest('.cs-item');
+        if (parentItem) {
+          parentItem.classList.toggle('expanded');
+          console.log("Toggled expanded state on parent item");
+        }
+      });
+    });
   }
-
+  
+  // Extract the video lightbox functionality into a reusable function
   function initializeVideoLightbox() {
-    console.log('Video Lightbox: Initializing...');
+    console.log("Video Lightbox: Initializing...");
+    // Get references to the existing lightbox elements
+    const overlay = document.querySelector(".video-lightbox-overlay");
+    const container = document.querySelector(".video-lightbox-container");
+    const content = document.querySelector(".video-lightbox-content");
+    const caption = document.querySelector(".video-lightbox-caption");
+    const closeBtn = document.querySelector(".video-lightbox-close");
 
-    // Get references to the lightbox elements
-    const overlay = document.querySelector('.video-lightbox-overlay');
-    const container = document.querySelector('.video-lightbox-container');
-    const content = document.querySelector('.video-lightbox-content');
-    const caption = document.querySelector('.video-lightbox-caption');
-    const closeBtn = document.querySelector('.video-lightbox-close');
-
-    // Debug element existence
-    console.log('Overlay element:', overlay);
-    console.log('Container element:', container);
-    console.log('Content element:', content);
-    console.log('Caption element:', caption);
-    console.log('Close button element:', closeBtn);
-
-    // Check if all elements exist
+    // Check if all elements exist (we might be on a page without the lightbox)
     if (!overlay || !container || !content || !caption || !closeBtn) {
-      console.error('Video Lightbox: Required elements not found in the DOM');
-      return; // Only return from this function, not the entire script
+      console.log("Video Lightbox: Required elements not found in the DOM");
+      return;
     }
-
+    
     // Get all video links
-    const videoLinks = document.querySelectorAll('.cs-bio-video .cs-link');
+    const videoLinks = document.querySelectorAll(".cs-bio-video .cs-link");
     console.log(`Video Lightbox: Found ${videoLinks.length} video links`);
-
+    
+    // Clean up existing event listeners to prevent duplicates
+    const newCloseBtn = closeBtn.cloneNode(true);
+    closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
+    
     // Set up event listeners for closing
-    closeBtn.addEventListener('click', (e) => {
+    newCloseBtn.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
       closeLightbox();
-      console.log('Close button clicked');
+      console.log("Close button clicked");
     });
-
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
+    
+    // Remove existing event listener on overlay (using clone and replace technique)
+    const newOverlay = overlay.cloneNode(false);
+    while (overlay.firstChild) {
+      newOverlay.appendChild(overlay.firstChild);
+    }
+    overlay.parentNode.replaceChild(newOverlay, overlay);
+    
+    // Add new event listener to the cloned overlay
+    newOverlay.addEventListener("click", (e) => {
+      if (e.target === newOverlay) {
         closeLightbox();
-        console.log('Overlay clicked');
+        console.log("Overlay clicked");
       }
     });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && overlay.classList.contains('active')) {
-        closeLightbox();
-        console.log('Escape key pressed');
-      }
-    });
-
-    // Add click handlers to all video links
+    
+    // For global event listeners, we need to be careful to avoid duplicates
+    // We'll use a one-time setup flag in window object
+    if (!window.escKeyListenerSetup) {
+      document.addEventListener("keydown", (e) => {
+        const currentOverlay = document.querySelector(".video-lightbox-overlay");
+        if (e.key === "Escape" && currentOverlay && currentOverlay.classList.contains("active")) {
+          closeLightbox();
+          console.log("Escape key pressed");
+        }
+      });
+      window.escKeyListenerSetup = true;
+    }
+    
+    // Clean up existing video link event listeners
     videoLinks.forEach((link) => {
-      link.addEventListener('click', (e) => {
+      const newLink = link.cloneNode(true);
+      link.parentNode.replaceChild(newLink, link);
+      
+      // Add new event listener to the cloned link
+      newLink.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const videoUrl = link.getAttribute('href');
-        const captionText = link.getAttribute('data-caption') || '';
+        const videoUrl = newLink.getAttribute("href");
+        const captionText = newLink.getAttribute("data-caption") || "";
         console.log(`Video Lightbox: Opening video ${videoUrl}`);
         console.log(`Video Lightbox: Caption: "${captionText}"`);
         openLightbox(videoUrl, captionText);
       });
     });
-
+    
     function openLightbox(videoUrl, captionText) {
+      // Ensure we have the latest reference to elements
+      const currentOverlay = document.querySelector(".video-lightbox-overlay");
+      const currentContent = document.querySelector(".video-lightbox-content");
+      const currentCaption = document.querySelector(".video-lightbox-caption");
+      
       // Clear previous content
-      content.innerHTML = '';
-
+      currentContent.innerHTML = "";
+      
       // Create and add iframe
-      const iframe = document.createElement('iframe');
+      const iframe = document.createElement("iframe");
       iframe.src = videoUrl;
-      iframe.setAttribute('frameborder', '0');
-      iframe.setAttribute('allowfullscreen', 'true');
-      iframe.setAttribute('width', '100%');
-      iframe.setAttribute('height', '100%');
-      content.appendChild(iframe);
-
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allowfullscreen", "true");
+      iframe.setAttribute("width", "100%");
+      iframe.setAttribute("height", "100%");
+      currentContent.appendChild(iframe);
+      
       // Update caption
-      caption.textContent = captionText || '';
-      caption.style.display = captionText ? 'block' : 'none';
-
+      currentCaption.textContent = captionText || "";
+      currentCaption.style.display = captionText ? "block" : "none";
+      
       // Show lightbox
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      console.log('Video Lightbox: Opened');
+      currentOverlay.classList.add("active");
+      document.body.style.overflow = "hidden";
+      console.log("Video Lightbox: Opened");
     }
-
+    
     function closeLightbox() {
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-      content.innerHTML = '';
-      caption.textContent = '';
-      console.log('Video Lightbox: Closed');
+      // Ensure we have the latest reference to elements
+      const currentOverlay = document.querySelector(".video-lightbox-overlay");
+      const currentContent = document.querySelector(".video-lightbox-content");
+      const currentCaption = document.querySelector(".video-lightbox-caption");
+      
+      if (currentOverlay) currentOverlay.classList.remove("active");
+      document.body.style.overflow = "";
+      if (currentContent) currentContent.innerHTML = "";
+      if (currentCaption) currentCaption.textContent = "";
+      console.log("Video Lightbox: Closed");
     }
   }
-
-  // Run on all possible events
-  document.addEventListener("DOMContentLoaded", initializeTeamSection);
-  document.addEventListener("astro:page-load", initializeTeamSection);
-  document.addEventListener("astro:after-swap", initializeTeamSection);
-
-  // Set up MutationObserver to catch when components are added
-  const teamObserver = new MutationObserver((mutations) => {
-    for (const mutation of mutations) {
-      if (mutation.addedNodes.length) {
-        if (
-          document.querySelector("#team-section") &&
-          document.querySelectorAll("#team-section .cs-item").length > 0 &&
-          !document.querySelector("#team-section .cs-item .cs-read-more")
-        ) {
-          initializeTeamSection();
-        }
-      }
-    }
-  });
-
-  // Start observing
-  teamObserver.observe(document.body, { childList: true, subtree: true });
-
-  // Create a custom event that can be dispatched to force re-initialization
-  document.addEventListener("hacbed:reinitialize", initializeTeamSection);
-
-  // Dispatch this event after navigation completes with a small delay
-  document.addEventListener("astro:page-load", () => {
-    setTimeout(() => {
-      document.dispatchEvent(new CustomEvent("hacbed:reinitialize"));
-    }, 100);
-  });
 </script>
