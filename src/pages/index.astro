@@ -673,7 +673,7 @@ allows for repeated components, centralized data and greater room to scale as yo
     #RPsbsr-600 {
         /* 90px - 150px */
         /* returned section padding to the section container, this Stitch has 1.5X padding top and bottom than the normal Stitch */
-        padding: clamp(4rem, 6vw, 6rem) (16/16rem);
+        padding: clamp(5rem, 7vw, 7rem) (16/16rem);
         .cs-container {
             flex-direction: row;
             justify-content: flex-end;
@@ -699,51 +699,6 @@ allows for repeated components, centralized data and greater room to scale as yo
     }
 }
 
-/* Desktop - 1280px and up */
-@media only screen and (min-width: 80rem) {
-    #RPsbs-600,
-    #RPsbsr-600 {
-        
-        .cs-container {
-            max-width: 1280px; /* Lock the container width at 1280px */
-            margin: 0 auto; /* Center the container */
-        }
-
-        .cs-background {
-            width: 50%;
-            max-width: 640px; /* 50% of 1280px */
-            
-            img {
-                max-width: 100%;
-                max-height: 100%;
-                object-fit: contain; /* Ensures image maintains aspect ratio */
-                /* Remove image box shadow for large screens */
-                box-shadow: none;
-            }
-        }
-
-        .cs-content {
-            width: 45%;
-            max-width: 576px; /* 45% of 1280px */
-            padding: 0 0 0 clamp(2rem, 4vw, 3rem);
-        }
-    }
-
-    /* Specific adjustments for the reverse section */
-    #RPsbsr-600 {
-        
-        .cs-background {
-            left: 49%;
-        }
-
-         .cs-content {
-            /* Adjust padding for the reverse section */
-            padding: 0 clamp(2rem, 4vw, 3rem) 0 0;
-            /* Add more margin for better spacing on large screens */
-            margin-left: clamp(2rem, 3vw, 3rem);
-        }
-    }
-}
 
 /*-- -------------------------- -->
 <---   Side By Side Reverse     -->
