@@ -585,6 +585,29 @@ allows for repeated components, centralized data and greater room to scale as yo
 <---       Side By Side         -->
 <--- -------------------------- -*/
 
+/* First section - shadow only on top */
+#RPsbs-600 {
+    position: relative;
+    background-color: #E5EFD4;
+    /* Use the 4-value syntax for box-shadow to control each side precisely */
+    /* offset-x | offset-y | blur-radius | color */
+    box-shadow: 
+        0px -5px 15px rgba(0, 0, 0, 0.3), /* Top shadow */
+        0px 0px 0px rgba(0, 0, 0, 0);     /* No bottom shadow */
+    z-index: 2; /* Higher z-index to ensure it's above the second section */
+}
+
+/* Second section - shadow only on bottom */
+#RPsbsr-600 {
+    position: relative;
+    background-color: #E5EFD4;
+    box-shadow: 
+        0px 0px 0px rgba(0, 0, 0, 0),     /* No top shadow */
+        0px 5px 15px rgba(0, 0, 0, 0.3);  /* Bottom shadow */
+    z-index: 1; /* Lower z-index */
+    margin-top: -1px; /* Slight overlap to prevent any gap between sections */
+}
+
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #RPsbs-600,
