@@ -631,17 +631,14 @@ allows for repeated components, centralized data and greater room to scale as yo
             width: 100%;
             height: (256/16rem);
             z-index: 1;
-            border: 6px solid var(--secondary); /* Using the secondary color variable */
-        border-radius: 4px; /* Optional: adds rounded corners */
         overflow: hidden; /* Ensures the image respects the border radius */
 
             img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
+                height: auto;
                 width: 100%;
-                object-fit: cover;
+                aspect-ratio: 16/9;
+                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+                border-radius: 4px;
             }
         }
     }
@@ -653,19 +650,23 @@ allows for repeated components, centralized data and greater room to scale as yo
     #RPsbsr-600 {
         /* 90px - 150px */
         /* returned section padding to the section container, this Stitch has 1.5X padding top and bottom than the normal Stitch */
-        padding: clamp(5.625rem, 9vw, 9.375rem) (16/16rem);
+        padding: clamp(4rem, 6vw, 6rem) (16/16rem);
         .cs-container {
             flex-direction: row;
             justify-content: flex-end;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
         }
 
         .cs-background {
             width: 50%;
-            height: auto;
+            height: 100%;
             position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 50%;
+            top: 55%;
+            right: 49%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            padding-left: clamp(1rem, 3vw, 2rem);
         }
 
         .cs-content {
@@ -690,7 +691,7 @@ allows for repeated components, centralized data and greater room to scale as yo
     }
 }
 
-/* Mobile - 768px */
+/* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
     #RPsbsr-600 {
         .cs-container {
@@ -698,8 +699,16 @@ allows for repeated components, centralized data and greater room to scale as yo
         }
 
         .cs-background {
-            left: 50%;
+            left: 49%; /* Adjust position to move closer to center */
             right: auto;
+            top: 46%;
+            padding-right: clamp(1rem, 3vw, 2rem);
+        }
+        
+        .cs-content {
+            /* Add a small margin to pull content closer to center */
+            margin-left: clamp(1rem, 2vw, 2rem);
+            margin-right: 0;
         }
     }
 }
