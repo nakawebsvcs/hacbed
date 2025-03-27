@@ -112,15 +112,50 @@ document.addEventListener("astro:page-load", () => {
       }
     });
   });
+
+  // tertiary nav toggle code
+  initTertiaryNav();
 });
 
-// tertiary nav toggle code
-const tertiaryDrop = Array.from(document.querySelectorAll('#cs-navigation .cs-drop3-main'));
+// Add this function to initialize tertiary navigation
+function initTertiaryNav() {
+  console.log("Initializing tertiary navigation");
+  const tertiaryDrop = Array.from(
+    document.querySelectorAll("#cs-navigation .cs-drop3-main")
+  );
 
-for (const item of tertiaryDrop) {
-    item.addEventListener('click', (e) => {
-        e.stopPropagation();
-        item.classList.toggle('drop3-active');
+  // Remove existing event listeners first (if any)
+  tertiaryDrop.forEach((item) => {
+    const newItem = item.cloneNode(true);
+    item.parentNode.replaceChild(newItem, item);
+  });
+
+  // Get fresh references after cloning
+  const freshTertiaryDrop = Array.from(
+    document.querySelectorAll("#cs-navigation .cs-drop3-main")
+  );
+
+  // Add new event listeners
+  for (const item of freshTertiaryDrop) {
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
+      item.classList.toggle("drop3-active");
     });
+  }
+}
+
+// Add event listener for view transitions
+document.addEventListener("astro:after-swap", () => {
+  console.log("View transition completed, reinitializing tertiary nav");
+  // Use setTimeout to ensure DOM is fully updated
+  setTimeout(initTertiaryNav, 100);
+});
+
+// Initialize on direct navigation
+if (
+  document.readyState === "complete" ||
+  document.readyState === "interactive"
+) {
+  setTimeout(initTertiaryNav, 10);
 }
                                 
