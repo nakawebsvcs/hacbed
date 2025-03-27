@@ -403,44 +403,149 @@ const formattedBoardMembers = sortedBoardMembers.map(member => ({
                                 
 </style>
 
-<script>
-  // Lightbox functionality - wrapped in astro:page-load for View Transitions compatibility
-  document.addEventListener('astro:page-load', () => {
+<script is:inline>
+// Use a self-executing function to avoid global scope pollution
+(function() {
+  // Define the initialization function at the top level
+  window.initGalleryLightbox = function() {
+    console.log("[GALLERY] Running gallery lightbox initialization");
+    setupLightbox();
+  };
+
+  // Set up the main listeners with minimal code
+  document.addEventListener('astro:page-load', function() {
+    console.log("[GALLERY] 'astro:page-load' event fired");
+    window.initGalleryLightbox();
+  });
+
+  document.addEventListener('astro:after-swap', function() {
+    console.log("[GALLERY] 'astro:after-swap' event fired");
+    // Wait for DOM to be fully updated
+    setTimeout(window.initGalleryLightbox, 100);
+  });
+
+  // For direct navigation without transitions
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    console.log("[GALLERY] Document already loaded, initializing now");
+    setTimeout(window.initGalleryLightbox, 10);
+  } else {
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("[GALLERY] DOMContentLoaded event fired");
+      window.initGalleryLightbox();
+    });
+  }
+
+  // Setup Lightbox functionality
+  function setupLightbox() {
+    console.log("[GALLERY] Setting up lightbox");
+    
+    // Check if elements exist before proceeding
     const lightbox = document.getElementById("lightbox");
+    if (!lightbox) {
+      console.log("[GALLERY] No lightbox found on this page");
+      return;
+    }
+    
     const lightboxImg = document.getElementById("lightbox-img");
     const closeBtn = document.querySelector(".close");
     
+    if (!lightboxImg || !closeBtn) {
+      console.log("[GALLERY] Missing required lightbox elements");
+      return;
+    }
+    
     // Get all gallery images with data-lightbox attribute
     const galleryImages = document.querySelectorAll("[data-lightbox='gallery']");
+    console.log(`[GALLERY] Found ${galleryImages.length} gallery images`);
     
     // Open lightbox when gallery image is clicked
-    galleryImages.forEach(image => {
-      image.addEventListener('click', function(e) {
-        e.preventDefault();
-        const imgSrc = this.getAttribute('href');
-        lightboxImg.src = imgSrc;
-        lightbox.style.display = "block";
-        document.body.style.overflow = "hidden"; // Prevent scrolling when lightbox is open
-      });
+    galleryImages.forEach(function(image, index) {
+      console.log(`[GALLERY] Processing gallery image ${index + 1}`);
+      
+      // Remove existing event listeners before adding new ones
+      image.removeEventListener('click', handleGalleryImageClick);
+      image.addEventListener('click', handleGalleryImageClick);
     });
     
-    // Close lightbox when clicking ANYWHERE in the lightbox (including the image)
-    lightbox.addEventListener('click', function() {
-      closeLightbox();
-    });
+    // Set up close button event
+    closeBtn.removeEventListener('click', handleCloseBtnClick);
+    closeBtn.addEventListener('click', handleCloseBtnClick);
     
-    // Close lightbox when pressing ESC key for accessibility
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && lightbox.style.display === 'block') {
+    // Set up lightbox click event - IMPORTANT CHANGE: Now we use document.body for the click event
+    // This ensures we catch all clicks anywhere on the page when lightbox is open
+    document.body.removeEventListener('click', handleBodyClick);
+    document.body.addEventListener('click', handleBodyClick);
+    
+    // Set up escape key event (only once)
+    if (!window.lightboxKeyHandlerAdded) {
+      document.addEventListener('keydown', handleLightboxKeyPress);
+      window.lightboxKeyHandlerAdded = true;
+    }
+  }
+  
+  // Named functions for event handlers
+  function handleGalleryImageClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const imgSrc = this.getAttribute('href');
+    console.log(`[GALLERY] Gallery image clicked: ${imgSrc}`);
+    
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    
+    if (!lightbox || !lightboxImg) {
+      console.error("[GALLERY] Cannot find lightbox elements");
+      return;
+    }
+    
+    lightboxImg.src = imgSrc;
+    lightbox.style.display = "block";
+    document.body.style.overflow = "hidden"; // Prevent scrolling when lightbox is open
+  }
+  
+  function handleCloseBtnClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log("[GALLERY] Close button clicked");
+    closeLightbox();
+  }
+  
+  // New function to handle clicks anywhere on the body when lightbox is open
+  function handleBodyClick(e) {
+    const lightbox = document.getElementById("lightbox");
+    
+    // Only process if lightbox is visible
+    if (lightbox && lightbox.style.display === "block") {
+      // Check if the click is on a gallery image (to prevent immediate closing after opening)
+      const isGalleryImageClick = e.target.closest('[data-lightbox="gallery"]');
+      
+      if (!isGalleryImageClick) {
+        console.log("[GALLERY] Click detected while lightbox is open");
         closeLightbox();
       }
-    });
+    }
+  }
+  
+  function handleLightboxKeyPress(e) {
+    const lightbox = document.getElementById("lightbox");
+    if (e.key === 'Escape' && lightbox && lightbox.style.display === 'block') {
+      console.log("[GALLERY] Escape key pressed while lightbox active");
+      closeLightbox();
+    }
+  }
+  
+  // Lightbox close function
+  function closeLightbox() {
+    console.log("[GALLERY] Closing lightbox");
+    const lightbox = document.getElementById("lightbox");
     
-    // Helper function to close the lightbox
-    function closeLightbox() {
+    if (lightbox) {
       lightbox.style.display = "none";
       document.body.style.overflow = "auto"; // Re-enable scrolling
     }
-  });
+  }
+})();
 </script>
+
 
