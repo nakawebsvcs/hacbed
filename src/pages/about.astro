@@ -4,15 +4,8 @@ import CTA from "@components/CTA.astro";
 import { getCollection } from "astro:content";
 
 // Get the about page content
-const pages = await getCollection("pages");
-
-// Find the about page - prefer published version if available
-const publishedAboutPage = pages.find(page => page.data.pageId === "about" && page.data.status === "published");
-const draftAboutPage = pages.find(page => page.data.pageId === "about" && page.data.status === "draft");
-
-// Use published version, fall back to draft if no published version exists
-// In production, you might want to only show published content
-const aboutPage = publishedAboutPage || draftAboutPage;
+const aboutPages = await getCollection("about");
+const aboutPage = aboutPages.find(page => page.data.pageId === "about");
 
 // If no content is found, we'll use the hardcoded content
 const mainContent = aboutPage?.data.mainContent || "";

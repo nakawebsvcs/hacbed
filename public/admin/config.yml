@@ -67,11 +67,11 @@ collections:
       - { label: "Video Caption", name: "videoCaption", widget: "string", required: false, hint: "Caption that displays with the video" }
       - { label: "Display Order", name: "order", widget: "number", required: false }
 
-  - name: "pages"
-    label: "Pages"
-    folder: "src/content/pages"
+  - name: "about"
+    label: "About"
+    folder: "src/content/about"
     create: false
-    slug: "{{pageId}}"
+    slug: "about"
     fields:
       - { label: "Page ID", name: "pageId", widget: "string", hint: "Unique identifier for the page (e.g., 'about', 'services')" }
       - {

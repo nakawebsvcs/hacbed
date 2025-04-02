@@ -63,9 +63,9 @@ const foundersCollection = defineCollection({
     }),
 });
 
-// pages collection
-const pagesCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/pages" }),
+// about collection
+const aboutCollection = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/about" }),
   schema: z.object({
     pageId: z.string(), // Identifier for the page (about, home, how-we-work, etc.)
     
@@ -120,6 +120,6 @@ export const collections = {
   team: teamCollection,
   board: boardCollection,
   founders: foundersCollection,
-  pages: pagesCollection,
+  about: aboutCollection,
   projects: projectsCollection
 };
