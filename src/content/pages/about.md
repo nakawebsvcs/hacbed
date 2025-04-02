@@ -1,5 +1,6 @@
 ---
 pageId: "about"
+status: "published"
 mainContent: "HACBED is a nonprofit intermediary that works to build the capacity of families and communities so that they have choice and control to achieve social, economic, and environmental justice.\n\nFor more than 30 years, HACBED's core competencies have been holding spaces for tough conversation, collecting stories and data, and disseminating that information. Recognizing that impact is limited when work is done in silos, HACBED works to break down barriers and to create networks and partnerships to bring about far reaching systemic change. HACBED begins with active listening to build relationships and break down barriers to create networks and partnerships to support partners to bring about systemic change. HACBED thus plays the role of network facilitator, catalyst, and advocate to support community building.\n\nHACBED's strategic focuses are facilitation and network weaving, community and organizational capacity building, community based planning, and asset development and policy."
 missionTitle: "Mission"
 missionStatement: "HACBED strives to achieve economic, social, and environmental justice in Hawai`i through community-based economic development."

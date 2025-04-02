@@ -2,7 +2,6 @@
 title: Sample Post
 description: Lorem Acuti modo tardantis unam mitissima dissimulator
   inposuit   corpus sintque tura tremenda, nec coetum.
-author: HACBED
 date: 2023-06-08T15:26:46.705Z
 image: /src/assets/images/blog/25-anniversary.png
 imageAlt: 25-anniversary

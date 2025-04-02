@@ -107,6 +107,7 @@ allows for repeated components, centralized data and greater room to scale as yo
             <p class="cs-text">
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
             </p>
+            <a href="" class="cs-button-solid">How We Work</a>
         </div>
     </div>
 </section>
@@ -133,6 +134,7 @@ allows for repeated components, centralized data and greater room to scale as yo
             <p class="cs-text">
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
             </p>
+            <a href="" class="cs-button-solid">Our 'Ohana</a>
         </div>
     </div>
 </section>
@@ -259,62 +261,25 @@ allows for repeated components, centralized data and greater room to scale as yo
     </div>
 </section>   
 
- <!-- ============================================ -->
+<!-- ============================================ -->
 <!--                  Content                     -->
 <!-- ============================================ -->
 
-<section id="home-content">
+<section id="reflections">
     <div class="cs-container">
         <div class="cs-content">
-            <!-- This spans both columns -->
             <h2 class="cs-title">Serving Hawai'i Communities for Over 30 Years</h2>
             <span class="cs-topper">Reflections</span>
-            
-            <!-- First column content -->
-            <div class="cs-column">
-                <p>
+            <p class="cs-text">
                     The vision was given a name, Community-Based Economic Development (CBED), and an organization was founded to advance it. The Hawai`i Alliance for Community Based Economic Development (HACBED) is a 501(c)(3) not-for-profit organization, established in 1992, designed to encourage increased investment in community-based approaches to economic development. Consistent with its philosophy of community-driven change, HACBED was formed as a membership-based entity, governed by community-based, nonprofit organizations that are CBED practitioners. Text edit.<br><br>
                 </p>
-                <p>
+                <p class="cs-text">
                     Since then, HACBED has supported community-based economic development by being a facilitator, a catalyst, a broker, and a producer of training, technical assistance, advocacy, education, as well as research & development (R&D) related products and services. Based on experiences in and with community, HACBED has moved away from a member-based model as membership is not as important in the scheme of building a broader movement.
                 </p>
-            </div>
-            
-            <!-- Second column content -->
-            <div class="cs-column">
-                <ul>
-                    <li>
-                        Where we are (out of 25th/30th Anniversary)
-                        <ul>
-                            <li>Intergenerational Knowledge Evolution</li>
-                            <li>'Aina & Food Justice</li>
-                            <li>Community Driven Institutional Change</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Where we see ourselves based on the current environment as it relates to HACBED's mission
-                        <ul>
-                            <li>(issues/capacity of orgs vs that of institutions/etc)</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Where we want to go
-                        <ul>
-                            <li>'Aina & Food Justice</li>
-                            <li>Intergenerational Knowledge Evolution</li>
-                            <li>Community Driven Institutional Change</li>
-                            <li>Tourism?</li>
-                            <li>4 day / 32 hour work week</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!-- This spans both columns -->
-            <div style="clear: both; padding-top: 2rem;">
-            <a href="/about/our-roots/" class="cs-button-solid">Read Our History</a>
-            </div>
+                <a href="/about/our-roots/" class="cs-button-solid">Our Roots</a>
+        </div>
     </div>
-</section>
+</section> 
                                 
 
   <CTA />
@@ -388,35 +353,12 @@ allows for repeated components, centralized data and greater room to scale as yo
     
     /* Important: Use a consistent padding that's not too large */
     padding: clamp(2em, 5vw, 3em) 0;
-    
-    &:before {
-      /* Left Line */
-      content: "";
-      width: 1px;
-      height: 100%;
-      background: -moz-linear-gradient(
-        top,
-        rgba(250, 251, 252, 0.5) 0%,
-        rgba(250, 251, 252, 0) 100%
-      );
-      background: -webkit-linear-gradient(
-        top,
-        rgba(250, 251, 252, 0.5) 0%,
-        rgba(250, 251, 252, 0) 100%
-      );
-      opacity: 1;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
   }
 
   .cs-flex-group {
-    width: 80vw;
-    max-width: clamp(29em, 60vw, 35.125em);
+    width: 90vw;
+    max-width: clamp(35em, 80vw, 50em);
     margin: auto; /* This centers it horizontally */
-    /* REMOVE the margin-bottom that was pushing content up */
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -429,12 +371,17 @@ allows for repeated components, centralized data and greater room to scale as yo
     text-align: center;
     margin-bottom: (16/16rem);
     color: var(--primary);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    width: 100%;
+    max-width: 100%;
   }
 
   .cs-title {
     text-align: center;
     width: 100%;
+    max-width: 100%;
     color: var(--bodyTextColorWhite);
+    font-size: clamp(4rem, 5vw, 5rem);
   }
 
   .cs-button-solid {
@@ -449,31 +396,6 @@ allows for repeated components, centralized data and greater room to scale as yo
 @media only screen and (min-width: 48em) {
   #hero {
     padding: 0 clamp(2em, 5vw, 2.5em);
-
-    .cs-container {
-      /* IMPORTANT: DON'T add huge padding here that would push content out of center */
-      &:after {
-        /* Right Line */
-        content: "";
-        width: 1px;
-        height: 100%;
-        background: -moz-linear-gradient(
-          top,
-          rgba(250, 251, 252, 0) 0%,
-          rgba(250, 251, 252, 0.5) 100%
-        );
-        background: -webkit-linear-gradient(
-          top,
-          rgba(250, 251, 252, 0) 0%,
-          rgba(250, 251, 252, 0.5) 100%
-        );
-        opacity: 1;
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-      }
-    }
 
     .cs-button-solid {
       margin-right: (20/16rem);
@@ -499,7 +421,7 @@ allows for repeated components, centralized data and greater room to scale as yo
     font-weight: 400;
   }
 
-    /*-- -------------------------- -->
+/*-- -------------------------- -->
 <---          First Paragraph    -->
 <--- -------------------------- -*/
 
@@ -739,183 +661,59 @@ allows for repeated components, centralized data and greater room to scale as yo
 
 
 /*-- -------------------------- -->
-<---        Home Content        -->
+<---          Reflections    -->
 <--- -------------------------- -*/
 
-/* Mobile - 360px and up */
+/* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #home-content {
+    #reflections {
         padding: var(--sectionPadding);
-        background-color: #fff;
         
         .cs-container {
             width: 100%;
             max-width: (1280/16rem);
             margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
         }
 
         .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: left;
             width: 100%;
-            display: block;
-            padding-bottom: 2.5rem;
-            
-            /* Use a clearfix to handle floated elements */
-            &:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
         }
 
-        .cs-title {
-          display: block;
-            text-align: center;
-            margin-bottom: (24/16rem);
+        .cs-title, .cs-text {
+            max-width: 100%;
         }
 
         .cs-topper {
-            display: block;
-            text-align: center;
-            margin-bottom: (24/16rem);
-            color: var(--secondary);
-            font-weight: 600;
-            font-size: clamp(0.875rem, 1.5vw, 1rem);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+            padding-bottom: 2rem;
         }
 
-        .cs-column {
-            display: block;
-            width: 100%;
-            margin-bottom: (32/16rem);
-            
-            p {
-                /* 16px - 20px */
-                font-size: clamp(1rem, 2vw, 1.25rem);
-                line-height: 1.5em;
-                color: var(--bodyTextColor);
-                margin: 0 0 (16/16rem) 0;
-                
-                &:last-of-type {
-                    margin-bottom: 0;
-                }
-            }
-            
-            ul {
-                width: 100%;
-                max-width: 100%;
-                margin: 0 0 (24/16rem) 0;
-                padding-left: (24/16rem);
-                list-style-position: outside;
-                
-                &:last-child {
-                    margin-bottom: 0;
-                }
-                
-                li {
-                    font-size: clamp(1rem, 2vw, 1.25rem);
-                    line-height: 1.5em;
-                    color: var(--bodyTextColor);
-                    margin-bottom: (8/16rem);
-                    position: relative;
-                    padding-left: (4/16rem);
-                    
-                    &::marker {
-                        color: var(--primary);
-                    }
-                    
-                    // For nested lists
-                    ul {
-                        margin: (8/16rem) 0 (8/16rem) 0;
-                        
-                        li {
-                            font-size: 0.95em;
-                            margin-bottom: (6/16rem);
-                            
-                            &:last-of-type {
-                                margin-bottom: 0;
-                            }
-                        }
-                    }
-                    
-                    &:last-of-type {
-                        margin-bottom: 0;
-                    }
-                }
-            }
+        .cs-text {
+            /* 16px - 20px */
+            font-size: clamp(.9rem, 1.9vw, 1.1rem);
+            margin: 0 0 (18/16rem) 0;
         }
 
         .cs-button-solid {
-          clear: both;
-            display: block;
-            width: fit-content;
-            margin: (40/16rem) auto 0;
+            margin-top: clamp(3rem, 5vw, 5rem);
         }
     }
 }
-
-/* Tablet - 768px and up */
-@media only screen and (min-width: 48em) {
-    #home-content {
-
-      .cs-content {
-    width: 100%;
-    display: block;
-    padding-bottom: 4rem;
-      }
-        .cs-column {
-            float: left;
-            width: 48%;
-            
-            &:first-of-type {
-                margin-right: 4%;
-            }
-        }
-        
-        .cs-button-solid {
-            clear: both;
-            margin-top: (40/16rem);
-        }
-        
-        .cs-topper {
-            margin-bottom: (32/16rem);
-        }
-    }
-}
-
-/* Desktop - 1024px and up */
-@media only screen and (min-width: 64em) {
-    #home-content {
-
-      
-        .cs-column {
-            p, ul li {
-                /* Slightly larger text on desktop */
-                font-size: clamp(1.125rem, 1.2vw, 1.25rem);
-            }
-        }
-    }
-}
-
-
 
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
-    #content-page-847 {
-        .cs-container {
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: space-between;
-        }
-
-        .cs-content {
-            flex: none;
-            width: 60%;
-        }
-
-        .cs-image-group {
-            display: flex;
-        }
+    #reflections {
+        margin-top: -4rem;
     }
 }
 

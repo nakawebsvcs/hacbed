@@ -3,6 +3,7 @@ backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
 local_backend: true
+publish_mode: editorial_workflow
 media_folder: src/assets/images/blog # Location where files will be stored in the repo - we store them in src so that Astro can optimize them.
 public_folder: src/assets/images/blog  # Ensure that this path is the same as the media_folder path above.
 site_url: https://hacbed.org # Displays a link to home page in the top-right corner of the CMS dashboard
@@ -15,12 +16,18 @@ collections:
     fields: # The fields for each document
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Featured Image", name: "image", widget: "image" }
       - { label: "Image Caption", name: "imageAlt", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
       - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Status",
+          name: "status",
+          widget: "select",
+          options: ["draft", "published"],
+          default: "draft"
+        }
 
   - name: "team"
     label: "Team Members"
@@ -63,30 +70,23 @@ collections:
   - name: "pages"
     label: "Pages"
     folder: "src/content/pages"
-    create: true
+    create: false
     slug: "{{pageId}}"
     fields:
       - { label: "Page ID", name: "pageId", widget: "string", hint: "Unique identifier for the page (e.g., 'about', 'services')" }
-
+      - {
+          label: "Status",
+          name: "status",
+          widget: "select",
+          options: ["draft", "published"],
+          default: "draft"
+        }
       # About page fields
       - { label: "Main Content", name: "mainContent", widget: "markdown" }
       - { label: "Mission Title", name: "missionTitle", widget: "string", required: false }
       - { label: "Mission Statement", name: "missionStatement", widget: "string", required: false }
       - { label: "Mission Content", name: "missionContent", widget: "markdown", required: false }
-
-       # Homepage fields
-      - { label: "Reflections Content", name: "reflectionsContent", widget: "markdown", required: false, hint: "Content for the reflections section on homepage" }
-      - { label: "Current Support Description", name: "currentSupportDesc", widget: "markdown", required: false, hint: "Description for Current Support section" }
-      - { label: "Past Support Description", name: "pastSupportDesc", widget: "markdown", required: false, hint: "Description for Past Support section" }
-      
-      # How We Work page fields
-      - { label: "How We Work Intro", name: "howWeWorkIntro", widget: "markdown", required: false, hint: "Introduction content for How We Work page" }
-      - { label: "Facilitation Content", name: "facilitationContent", widget: "markdown", required: false, hint: "Content for Facilitation section" }
-      - { label: "Facilitation Examples", name: "facilitationExamples", widget: "markdown", required: false, hint: "Examples of Facilitation work" }
-      - { label: "Network Content", name: "networkContent", widget: "markdown", required: false, hint: "Content for Network Coordination section" }
-      - { label: "Network Examples", name: "networkExamples", widget: "markdown", required: false, hint: "Examples of Network Coordination work" }
-      - { label: "Planning Content", name: "planningContent", widget: "markdown", required: false, hint: "Content for Strategic Planning section" }
-      - { label: "Planning Examples", name: "planningExamples", widget: "markdown", required: false, hint: "Examples of Strategic Planning work" }
+    
 
   - name: "projects" # Used in routes, e.g., /admin/collections/blog. Is also the key when fetching data from the CMS.
     label: "Projects" # Used in the admin dashboard UI

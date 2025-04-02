@@ -151,27 +151,29 @@ const { id, title, members, topper } = Astro.props;
             }
         }
 
-        .cs-picture {
-            width: 100%;
-            aspect-ratio: 305/350;
-            margin-bottom: (24/16rem);
-            overflow: hidden;
-            border-radius: (12/16rem) (12/16rem) 0 0;
-            border-bottom: 1px solid #b4b2c7;
-            position: relative;
-            display: block;
+         .cs-picture {
+        width: 100%;
+        max-width: (150/16rem);
+        aspect-ratio: 1/1;
+        margin-bottom: (24/16rem);
+        margin: 1rem auto (24/16rem) auto;
+        overflow: hidden;
+        border-radius: 50%;
+        border-bottom: 1px solid #b4b2c7;
+        position: relative;
+        display: block;
 
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-                object-position: top;
-                transition: transform 0.6s;
-            }
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: top;
+          transition: transform 0.6s;
         }
+      }
 
         .cs-name {
             font-size: clamp(1rem, 2vw, 1.5625rem);
@@ -268,7 +270,7 @@ const { id, title, members, topper } = Astro.props;
         .cs-item {
             /* Back to multiple cards per row */
             width: calc(50% - 1rem); /* 2 cards per row on medium screens */
-            max-width: (350/16rem);
+            max-width: (300/16rem);
         }
     }
 }
@@ -276,17 +278,17 @@ const { id, title, members, topper } = Astro.props;
 @media only screen and (min-width: 64rem) {
     #board-section {
       .cs-card-group {
-        column-gap: clamp(1.5rem, 3vw, 3rem);
+        column-gap: clamp(1rem, 2vw, 2rem);
         row-gap: clamp(2rem, 4vw, 3rem);
         flex-wrap: wrap;
-        max-width: (1200/16rem);
+        max-width: (1280/16rem);
         justify-content: center;
       }
       
       .cs-item {
-        width: calc(33.33% - 2rem);
-        min-width: (350/16rem);
-        max-width: (400/16rem);
+        width: calc(25% - 1.5rem);
+        min-width: (250/16rem);
+        max-width: (280/16rem);
         flex: 0 1 auto;
       }
     }

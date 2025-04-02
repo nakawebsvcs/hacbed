@@ -25,7 +25,7 @@ import client from "@data/client.json";
           </p>
         </div>
         <label>
-          Name
+          Name<span class="asterisk">*</span>
           <input
             required
             type="text"
@@ -35,7 +35,7 @@ import client from "@data/client.json";
           />
         </label>
         <label>
-          Email
+          Email<span class="asterisk">*</span>
           <input
             required
             type="text"
@@ -54,7 +54,7 @@ import client from "@data/client.json";
           />
           </label>
           <label class="cs-label-subject">
-            Subject
+            Subject<span class="asterisk">*</span>
             <input 
             required
             type="text"
@@ -63,7 +63,7 @@ import client from "@data/client.json";
             placeholder="Subject"/>
           </label>
         <label class="cs-label-message">
-          Message
+          Message<span class="asterisk">*</span>
           <textarea
             required
             name="Message"
@@ -219,6 +219,10 @@ import client from "@data/client.json";
           font-family: inherit;
           min-height: (120/16rem);
           padding-top: (20/16rem);
+        }
+
+        .asterisk {
+          color: red;
         }
 
         .cs-button-solid {
