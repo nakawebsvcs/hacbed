@@ -6,6 +6,11 @@ import { getCollection } from "astro:content";
 // Fetch all projects
 const allProjects = await getCollection("projects");
 
+// Fetch home page content
+const homeContent = await getCollection("home");
+const homePage = homeContent[0];
+
+
 // Group projects by category
 const projectsByCategory = {
   "Capacity Building & Technical Assistance": allProjects.filter(
@@ -76,17 +81,14 @@ allows for repeated components, centralized data and greater room to scale as yo
 <section id="first-paragraph">
     <div class="cs-container">
         <div class="cs-content">
-          <!--  <span class="cs-topper">ABOUT US</span> 
-            <h2 class="cs-title">HACBED Headline</h2> -->
             <p class="cs-text">
-                HACBED is a nonprofit intermediary that works to build the capacity of families and communities so that they have choice and control to achieve social, economic, and environmental justice. For more than 30 years, HACBED's core competencies have been holding spaces for tough conversation, collecting stories and data, and disseminating that information. HACBED begins with active listening to build relationships and break down barriers to create networks and partnerships to support partners to bring about systemic change. Above all, HACBED serves this place called Hawaiʻi, as well as those who choose to be of this place and work to make it their home.<br><br>
+                {homePage.data.firstParagraphContent}
             </p>
-                    <h2 class="cs-title">Mission</h2><br>
-          <span class="cs-topper">HACBED strives to achieve economic, social, and environmental justice in Hawaiʻi through community-based economic development.
-          </span>
+            <h2 class="cs-title">Mission</h2><br>
+            <span class="cs-topper">{homePage.data.missionStatement}</span>
         </div>
     </div>
-</section>
+  </section>
 
 <!-- ============================================ -->
 <!--                Side By Side                  -->
@@ -94,9 +96,7 @@ allows for repeated components, centralized data and greater room to scale as yo
 
 <section id="RPsbs-600">
     <picture class="cs-background">
-        <!--Mobile Image-->
         <source media="(max-width: 600px)" srcset="/assets/images/Our-Roots2.png">
-        <!--Tablet and above Image-->
         <source media="(min-width: 601px)" srcset="/assets/images/Our-Roots2.png">
         <img loading="lazy" decoding="async" src="/assets/images/Our-Roots2.png" alt="our roots" width="960" height="796">
     </picture>
@@ -104,17 +104,16 @@ allows for repeated components, centralized data and greater room to scale as yo
         <div class="cs-content">
             <span class="cs-topper">Where We Started</span>
             <p class="cs-text">
-                HACBED started with the underlying belief that people "know" and "can" and was guided by informed and skilled listening that strengthens community voice and promotes collective action. HACBED initially focused on assisting community-based economic institutions and organizations that provide direct economic benefits to individuals, families, and communities. These entities enhance community investments in order to help those communities build an economic structure that allows them to exercise greater choice and control over their own futures. 
+                {homePage.data.whereWeStartedContent}
             </p>
             <span class="cs-topper">Where We Are</span>
             <p class="cs-text">
-                The current team at HACBED continues that legacy in the following areas based on initial guidance out of HACBED's 25th Anniversary, efforts to apply that guidance during the enormous and unexpected disruptions of the COVID-19 pandemic, and iterative guidance out of HACBED's 30th Anniversary: Intergenerational Knowledge Evolution, 'Āina & Food Justice, and Community Driven Institutional Change.
-
+                {homePage.data.whereWeAreContent}
             </p>
             <a href="/about/how-we-work" class="cs-button-solid">How We Work</a>
         </div>
     </div>
-</section>
+  </section>
                                 
 <!-- ============================================ -->
 <!--              Side By Side Reverse            -->
@@ -122,31 +121,27 @@ allows for repeated components, centralized data and greater room to scale as yo
 
 <section id="RPsbsr-600">
     <picture class="cs-background">
-        <!--Mobile Image-->
         <source media="(max-width: 600px)" srcset="/assets/images/25-anniversary.png">
-        <!--Tablet and above Image-->
         <source media="(min-width: 601px)" srcset="/assets/images/25-anniversary.png">
         <img loading="lazy" decoding="async" src="/assets/images/25-anniversary.png" alt="our 25th anniversary" width="960" height="796">
     </picture>
-     <div class="cs-button-container">
-         <!-- Desktop button (visible only on desktop) -->
-    <a href="/about/our-ohana" class="cs-button-solid desktop-button">Our 'Ohana</a>
+    <div class="cs-button-container">
+        <a href="/about/our-ohana" class="cs-button-solid desktop-button">Our 'Ohana</a>
     </div>
     <div class="cs-container">
         <div class="cs-content">
             <span class="cs-topper">Where We See Ourselves</span>
             <p class="cs-text">
-                As we begin to experience a large generational transition, we are humbled at those activists who came before us as well as excited by the next generation of leaders, who are connected to this place and culture; as well as trained in the current system to take the work forward. Subsequently, there appears to be a continuing need to support our place-based institutions to remain connected to this place and the beings that call this place home, despite the myriad of external pressures and factors, and a continuing desire to rethink work and economic development, particularly given experiences out of the COVID-19 pandemic. 
+                {homePage.data.whereWeSeeOurselvesContent}
             </p>
             <span class="cs-topper">Where We Want to Go</span>
             <p class="cs-text">
-                Our team recognizes the need to keep our work centered around 'āina & approaches modeled by kanaka maoli as we support the people in entities across our pae 'āina in processes that mutually benefit new and kupuna leaders as well as strengthen community relationship building efforts by institutions so that the individuals who are open to leading these processes are mindful of their institution's history and contributions to the current context. We see particular opportunities to rethink the relationship of our communities with tourism in a way that centers 'āina and our personal identities as tied to work via a four day thirty-two hour work week.
+                {homePage.data.whereWeWantToGoContent}
             </p>
-            <!-- Mobile button (visible only on mobile/tablet) -->
             <a href="/about/our-ohana" class="cs-button-solid mobile-button">Our 'Ohana</a>
         </div>
     </div>
-</section>
+  </section>
 
 <!-- ============================================ -->
 <!--                  Services                    -->
@@ -157,7 +152,7 @@ allows for repeated components, centralized data and greater room to scale as yo
         <div class="cs-content">
             <h2 class="cs-title">Current Support</h2>
             <p class="cs-text">
-                Below are broad ways in which we provide support to entities connected to and committed to this place.
+                {homePage.data.currentSupportDesc}
             </p>
         </div>
         <ul class="cs-card-group">
@@ -167,7 +162,7 @@ allows for repeated components, centralized data and greater room to scale as yo
                         <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="/assets/images/taro-icon.svg" alt="icon" width="70" height="70">
                     </picture>
                     <h3 class="cs-h3">Capacity Building and Technical Assistance</h3>
-                    <p class="cs-item-text">Lorem ipsum dolor sit amet, consectetur.</p>
+                 <!--    <p class="cs-item-text">Strengthening grassroots organizations through strategic planning, training, and coaching to support sustainable, community-driven initiatives.</p> -->
                     
                     {/* Dynamic project links */}
                     {projectsByCategory["Capacity Building & Technical Assistance"].map(project => (
@@ -191,7 +186,7 @@ allows for repeated components, centralized data and greater room to scale as yo
                         <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="/assets/images/taro-icon.svg" alt="icon" width="70" height="70">
                     </picture>
                     <h3 class="cs-h3">Network Coordination</h3>
-                    <p class="cs-item-text">Lorem ipsum dolor sit amet, consectetur.</p>
+                 <!--   <p class="cs-item-text">Building and strengthening networks, fostering collaboration among community organizations, institutions, and individuals for greater collective impact.</p> -->
                     
                     {/* Dynamic project links */}
                     {projectsByCategory["Network Coordination"].map(project => (
@@ -215,7 +210,7 @@ allows for repeated components, centralized data and greater room to scale as yo
                         <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="/assets/images/taro-icon.svg" alt="icon" width="70" height="70">
                     </picture>
                     <h3 class="cs-h3">Strategic & Community-Based Planning</h3>
-                    <p class="cs-item-text">Lorem ipsum dolor sit amet, consectetur.</p>
+               <!--     <p class="cs-item-text">Helping communities create and implement sustainable development strategies, ensuring local voices shape decisions and outcomes.</p> -->
                     
                     {/* Dynamic project links */}
                     {projectsByCategory["Strategic & Community-Based Planning"].map(project => (
@@ -238,8 +233,8 @@ allows for repeated components, centralized data and greater room to scale as yo
     <div class="cs-container">
         <div class="cs-content" style="margin-top: 6rem;">
             <h2 class="cs-title">Past Support</h2>
-            <p class="cs-text">
-                The HACBED team began a shift in its areas of focus given new team members and based on feedback that culminated in and out of its 25th Anniversary in 2017 and then iterated on in its 30th Anniversary in 2022.
+             <p class="cs-text">
+                {homePage.data.pastSupportDesc}
             </p>
         </div>
         <ul class="cs-card-group">
@@ -249,7 +244,7 @@ allows for repeated components, centralized data and greater room to scale as yo
                         <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="/assets/images/taro-icon.svg" alt="icon" width="70" height="70">
                     </picture>
                     <h3 class="cs-h3">Past Support</h3>
-                    <p class="cs-item-text">Lorem ipsum dolor sit amet, consectetur.</p>
+                 <!--   <p class="cs-item-text">Lorem ipsum dolor sit amet, consectetur.</p> -->
                     {/* Dynamic project links */}
                     {projectsByCategory["Past Support"].map(project => (
                         <a href={`/projects/${project.id}`} class="cs-link">{project.data.title}</a>
@@ -277,16 +272,15 @@ allows for repeated components, centralized data and greater room to scale as yo
 <section id="reflections">
     <div class="cs-container">
         <div class="cs-content">
-            <h2 class="cs-title">Serving Hawaiʻi Communities for Over 30 Years</h2>
-       <!--     <span class="cs-topper">Reflections</span> -->
+            <h2 class="cs-title">{homePage.data.finalParagraphTitle}</h2>
             <p class="cs-text">
                 <br>
-                    The Hawaiʻi Alliance for Community Based Economic Development (HACBED) is a 501(c)(3) not-for-profit organization, established in 1992, designed to encourage increased investment in community-based approaches to economic development. Since then, HACBED has supported community-based economic development by being a facilitator, a catalyst, a broker, and a producer of training, technical assistance, advocacy, education, as well as research & development (R&D) related products and services. 
-                </p>
-                <a href="/about/our-roots/" class="cs-button-solid">Our Roots</a>
+                {homePage.data.finalParagraphContent}
+            </p>
+            <a href="/about/our-roots/" class="cs-button-solid">Our Roots</a>
         </div>
     </div>
-</section> 
+  </section>
                                 
 
   <CTA />

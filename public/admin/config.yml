@@ -8,6 +8,9 @@ media_folder: src/assets/images/blog # Location where files will be stored in th
 public_folder: src/assets/images/blog  # Ensure that this path is the same as the media_folder path above.
 site_url: https://hacbed.org # Displays a link to home page in the top-right corner of the CMS dashboard
 logo_url: https://codestitch.app/frontend/images/logo.png # change url to a link to the image you want to use, no file paths, must be a URL
+editor:
+  preview: false
+
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog. Is also the key when fetching data from the CMS.
     label: "Blog" # Used in the admin dashboard UI
@@ -67,26 +70,40 @@ collections:
       - { label: "Video Caption", name: "videoCaption", widget: "string", required: false, hint: "Caption that displays with the video" }
       - { label: "Display Order", name: "order", widget: "number", required: false }
 
-  - name: "about"
-    label: "About"
-    folder: "src/content/about"
+  - name: "home"
+    label: "Home Page"
+    folder: "src/content/home"
     create: false
-    slug: "about"
+    slug: "{{slug}}"
+    identifier_field: "pageId" 
     fields:
-      - { label: "Page ID", name: "pageId", widget: "string", hint: "Unique identifier for the page (e.g., 'about', 'services')" }
-      - {
-          label: "Status",
-          name: "status",
-          widget: "select",
-          options: ["draft", "published"],
-          default: "draft"
-        }
-      # About page fields
-      - { label: "Main Content", name: "mainContent", widget: "markdown" }
-      - { label: "Mission Title", name: "missionTitle", widget: "string", required: false }
-      - { label: "Mission Statement", name: "missionStatement", widget: "string", required: false }
-      - { label: "Mission Content", name: "missionContent", widget: "markdown", required: false }
-    
+      - { label: "Page ID", name: "pageId", widget: "hidden", default: "home" }
+      - { label: "First Paragraph Content", name: "firstParagraphContent", widget: "markdown", required: true }
+      - { label: "Mission Statement", name: "missionStatement", widget: "string", required: true }
+      - { label: "Where We Started Content", name: "whereWeStartedContent", widget: "markdown", required: true }
+      - { label: "Where We Are Content", name: "whereWeAreContent", widget: "markdown", required: true }
+      - { label: "Where We See Ourselves Content", name: "whereWeSeeOurselvesContent", widget: "markdown", required: true }
+      - { label: "Where We Want To Go Content", name: "whereWeWantToGoContent", widget: "markdown", required: true }
+      - { label: "Current Support Description", name: "currentSupportDesc", widget: "markdown", required: true }
+      - { label: "Past Support Description", name: "pastSupportDesc", widget: "markdown", required: true }
+      - { label: "Final Paragraph Title", name: "finalParagraphTitle", widget: "string", required: true }
+      - { label: "Final Paragraph Content", name: "finalParagraphContent", widget: "markdown", required: true }
+
+  - name: "how-we-work"
+    label: "How We Work Page"
+    folder: "src/content/how-we-work"
+    create: false
+    slug: "{{slug}}"
+    identifier_field: "pageId" 
+    fields:
+      - { label: "Page ID", name: "pageId", widget: "hidden", default: "how-we-work" }
+      - { label: "Introduction Content", name: "howWeWorkIntro", widget: "markdown", required: true }
+      - { label: "Facilitation Content", name: "facilitationContent", widget: "markdown", required: true }
+      - { label: "Facilitation Examples", name: "facilitationExamples", widget: "markdown", required: true }
+      - { label: "Network Coordination Content", name: "networkContent", widget: "markdown", required: true }
+      - { label: "Network Coordination Examples", name: "networkExamples", widget: "markdown", required: true }
+      - { label: "Strategic Planning Content", name: "planningContent", widget: "markdown", required: true }
+      - { label: "Strategic Planning Examples", name: "planningExamples", widget: "markdown", required: true }
 
   - name: "projects" # Used in routes, e.g., /admin/collections/blog. Is also the key when fetching data from the CMS.
     label: "Projects" # Used in the admin dashboard UI

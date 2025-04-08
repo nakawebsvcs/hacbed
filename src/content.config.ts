@@ -63,31 +63,38 @@ const foundersCollection = defineCollection({
     }),
 });
 
-// about collection
-const aboutCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/about" }),
+// home page collection
+const homeCollection = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/home" }),
   schema: z.object({
-    pageId: z.string(), // Identifier for the page (about, home, how-we-work, etc.)
-    
-    // About page fields
-    mainContent: z.string().optional(), // For the main text content
-    missionTitle: z.string().optional(), // Optional mission title
-    missionStatement: z.string().optional(), // Optional mission statement
-    missionContent: z.string().optional(), // Optional mission content
-    
-    // Homepage fields
-    reflectionsContent: z.string().optional(), // Reflections content
-    currentSupportDesc: z.string().optional(), // Current support description
-    pastSupportDesc: z.string().optional(), // Past support description
-    
-    // How We Work page fields
-    howWeWorkIntro: z.string().optional(), // Intro content
-    facilitationContent: z.string().optional(), // Facilitation content
-    facilitationExamples: z.string().optional(), // Facilitation examples
-    networkContent: z.string().optional(), // Network content
-    networkExamples: z.string().optional(), // Network examples
-    planningContent: z.string().optional(), // Planning content
-    planningExamples: z.string().optional(), // Planning examples
+    pageId: z.string(), // Identifier for the page
+    firstParagraphContent: z.string(), // First paragraph content above mission statement
+    currentSupportDesc: z.string(), // Current support description
+    pastSupportDesc: z.string(), // Past support description
+    missionStatement: z.string(), // Mission statement
+    whereWeStartedContent: z.string(), // Where We Started content
+    whereWeAreContent: z.string(), // Where We Are content
+    whereWeSeeOurselvesContent: z.string(), // Where We See Ourselves content
+    whereWeWantToGoContent: z.string(), // Where We Want To Go content
+    finalParagraphTitle: z.string(), // Reflections title
+    finalParagraphContent: z.string(), // Serving Hawaii for 30 Years content
+  }),
+});
+
+const howWeWorkCollection = defineCollection({
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/how-we-work",
+  }),
+  schema: z.object({
+    pageId: z.string(), // Identifier for the page
+    howWeWorkIntro: z.string(), // Introduction content
+    facilitationContent: z.string(), // Facilitation section content
+    facilitationExamples: z.string(), // Facilitation examples
+    networkContent: z.string(), // Network coordination content
+    networkExamples: z.string(), // Network examples
+    planningContent: z.string(), // Strategic planning content
+    planningExamples: z.string(), // Planning examples
   }),
 });
 
@@ -128,6 +135,7 @@ export const collections = {
   team: teamCollection,
   board: boardCollection,
   founders: foundersCollection,
-  about: aboutCollection,
-  projects: projectsCollection
+  home: homeCollection,
+  howWeWork: howWeWorkCollection,
+  projects: projectsCollection,
 };

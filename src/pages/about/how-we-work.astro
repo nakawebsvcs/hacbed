@@ -1,6 +1,21 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
+import { marked } from 'marked';
 import CTA from "@components/CTA.astro";
+import { getCollection } from "astro:content";
+
+// Fetch how-we-work page content
+const howWeWorkContent = await getCollection("howWeWork");
+const howWeWorkPage = howWeWorkContent[0];
+
+// Parse markdown to HTML
+const facilitationContentHtml = marked.parse(howWeWorkPage.data.facilitationContent);
+const facilitationExamplesHtml = marked.parse(howWeWorkPage.data.facilitationExamples);
+const networkContentHtml = marked.parse(howWeWorkPage.data.networkContent);
+const networkExamplesHtml = marked.parse(howWeWorkPage.data.networkExamples);
+const planningContentHtml = marked.parse(howWeWorkPage.data.planningContent);
+const planningExamplesHtml = marked.parse(howWeWorkPage.data.planningExamples);
+const howWeWorkIntroHtml = marked.parse(howWeWorkPage.data.howWeWorkIntro);
 ---
 
 <BaseLayout
@@ -95,21 +110,9 @@ import CTA from "@components/CTA.astro";
       <div class="cs-content-col">
         <h2 class="cs-title">Facilitation</h2>
         <div class="cs-text-wrapper">
-          <p class="cs-text">
-            As facilitators, HACBED staff starts with active listening to hold safe spaces for meaningful conversations. The process of facilitation is a way of providing leadership without taking the reigns, and contributing structure and process to interactions so groups are able to function effectively and make high-quality decisions. A facilitative leader focuses on both content and process.
-          </p>
-          
-          <ul class="cs-list">
-            <li>Content = What tasks, subjects, problems are being addressed;</li>
-            <li>Process = How things are discussed, including Methods, Procedures, Format, Tools, Style of interaction, Group norms, Group dynamics and Group climate</li>
-          </ul>
-          
-          <p class="cs-text">
-            The key responsibility as a facilitator is to create this group process and an environment in which it can flourish, and so help the group reach a successful decision, solution or conclusion. To facilitate effectively, HACBED staff operate objectively with a neutral stance as to solely focus on the group process. We work from a set of core values consistent with the concepts of empowerment, commitment, collaboration, learning and partnership.
-            <br><br>
-            All staff are required to attend <a href="https://www.pacificcollaboration.com/" target="_blank" class="in-text-link">Facilitative Skills: An Essential Foundation for Collaborative Leadership</a>, a two day facilitator training session by Donna Ching, Ph.D.<br><br>
-            For more information on our facilitation services, please contact us.
-          </p>
+          <div class="cs-text markdown-content" set:html=
+             {facilitationContentHtml}>
+        </div>
         </div>
       </div>
       
@@ -117,13 +120,7 @@ import CTA from "@components/CTA.astro";
       <div class="cs-content-col">
         <h2 class="cs-title">Examples of Our Work</h2>
         <div class="cs-text-wrapper">
-          <p class="cs-text">
-            <strong>Hawaiʻi Community Foundation & Hawai`i Tourism Authority</strong> -- Conducted a strategic dialogue process with the advisory groups that make up HTA's Natural Resources & Kukulu Ola: Living Hawaiian Culture Programs to inform the new partnership in which HCF will administer the two grantmaking programs for HTA.
-            <br><br>
-            <strong>Schools Of The Future</strong> -- Through a contract with the Hawaiʻi Community Foundation and in partnership with the Hawai`i Association of Independent Schools, HACBED provided facilitation and technical support for learning circles being formed in and between the 20 schools chosen to be part of HCF's Schools Of The Future
-            <br><br>
-            <strong>Youth Matters Network</strong> -- Through a contract with the Hawaiʻi Community Foundation, provided facilitation and technical support to establish and conduct learning circles for 18 nonprofit youth serving organizations in the YMN.
-          </p>
+          <div class="cs-text markdown-content" set:html={facilitationExamplesHtml}></div>
           <a href="/contact" class="cs-button-solid">Work With Us</a>
         </div>
       </div>
@@ -146,14 +143,7 @@ import CTA from "@components/CTA.astro";
       <div class="cs-content-col">
         <h2 class="cs-title">Network Coordination and Development</h2>
         <div class="cs-text-wrapper">
-          <p class="cs-text">
-            Networks allow individuals and organizations with often quite different perspectives, strengths and experiences to work together to achieve a common goal. Effective networks have the potential to make immense impact on systemic change at any level -- from a community or grassroots level to a global scale.<br><br>
-
-Here, across all islands of Hawaiʻi, HACBED works to coordinate and develop quality networks that are based on intention, accountability, and trust. As a network facilitator, HACBED designs and facilitates gatherings to help partners uplift their interests, identify challenges, and structure network activities that connect people strategically where there is mutual benefit. HACBED also catalyzes ideas into collective action through coordination and coaching. Should the network run into structural issues for itself or its communities, HACBED takes on the role of advocate to bridge disconnects between grassroots action and institutional policy.<br><br>
-
-Every network has different needs, focuses and challenges. To learn more about HACBED's role as a network weaver, please contact us.<br><br>
-<em>Reference Materials on Network Development:</em> <a href="http://www.networkweaver.com/" target="_blank" class="in-text-link">Weaving Smart Networks</a>
-          </p>
+           <div class="cs-text markdown-content" set:html={networkContentHtml}></div>
         </div>
       </div>
       
@@ -161,11 +151,7 @@ Every network has different needs, focuses and challenges. To learn more about H
       <div class="cs-content-col">
         <h2 class="cs-title">Examples of Our Work</h2>
         <div class="cs-text-wrapper">
-          <p class="cs-text">
-           <a href="https://www.hacbed.org/hinai-2/" target="_blank" class="in-text-link">Hinaʻi Network</a> -- The Hinaʻi Network is comprised of individuals and organizations that represent nonprofit community services agencies, government entities, educational institutions and experts in agriculture. Together, this network is working together on multiple projects across the state of Hawaiʻi to build a sustainable agriculture economy.<br><br>
-
- <a href="https://www.hacbed.org/current-projects/hoowaiwai-network-hawaii-island/" target="_blank" class="in-text-link">Hoʻowaiwai Network</a> -- The members of the Hoʻowaiwai Network work to develop, sustain and expand their <em>Hoʻowaiwai Empowerment Services.</em> These services aim to Build Genuine Wealth & Financial Security at the <em>Individual & Family Level;</em> Improve Productivity & Viability at the <em>Private & Public Sector Level;</em> and Nurture Sustainability & Resilience at the <em>Community Level.</em> Members represent nonprofit community agencies, government entities, volunteer organizations as well as unaffiliated individuals interested in furthering the goals of the network.
-          </p>
+          <div class="cs-text markdown-content" set:html={networkExamplesHtml}></div>
           <a href="/contact" class="cs-button-solid">Work With Us</a>
         </div>
       </div>
@@ -188,14 +174,7 @@ Every network has different needs, focuses and challenges. To learn more about H
       <div class="cs-content-col">
         <h2 class="cs-title">Strategic Planning and Technical Assistance</h2>
         <div class="cs-text-wrapper">
-          <p class="cs-text">
-            Sometimes people just need to talk story. HACBED serves as an intentional listener to help communities to articulate their ideas in a safe space, synthesize ideas, and action plan their next steps. We listen to every stakeholder to ensure each voice is equally lifted up. As such, we remain connected to our “activist” roots by ensuring that no voice is unheard so that the organization can move forward collectively.<br><br>
-
-General technical assistance captures broad support we offer to people and organizations to meet them where they are at. Strategic planning is a more structured approach to how an organization determines where it is going over the next year or more, how it's going to get there, and how it will know if it got there or not. The focus of a strategic plan is usually on the entire organization, while the focus of a business plan is usually on a particular product, service or program. Our role is then to help organizations identify long term action plans through a collaborative approach with all stakeholders.<br><br>
-
-There are a variety for approaches for strategic planning and general technical assistance and HACBED's approach is founded in an asset-based mindset that lifts up the assets of the community using the appreciative inquiry method. From that base, HACBED employs a variety of techniques and models in ways that make sense for each community. The way that a strategic plan or other technical assistance is offered and developed depends on the nature of the organization's leadership, culture of the organization, complexity of the organization's environment, and size of the organization, among other considerations.<br><br>
-For more information on HACBED's strategic planning services or interest in receiving more general technical support, please contact us.
-          </p>
+           <div class="cs-text markdown-content" set:html={planningContentHtml}></div>
         </div>
       </div>
       
@@ -203,13 +182,7 @@ For more information on HACBED's strategic planning services or interest in rece
       <div class="cs-content-col">
         <h2 class="cs-title">Examples of Our Work</h2>
         <div class="cs-text-wrapper">
-          <p class="cs-text">
-            <a href="https://www.hacbed.org/hinai-2/" target="_blank" class="in-text-link">Halau Ku Mana Public Charter School</a> -- in 2014 and 2015, HACBED provided Strategic Planning services to help HKM outline their activities and priorities for the coming years.<br><br>
-
-<strong>Nā Kūpuna A Me Nā Kākoʻo O Hālawa</strong> --  HACBED has provided facilitation and technical support for strategic planning, board development, operational support, and development of a sustainability plan to the nonprofit granted to maintain the historic Hālawa Valley.<br><br>
-
-<strong>Hoʻoulu ʻĀina</strong> -- Kokua Kalihi Valley in Kalihi Valley on Oʻahu. Conducted feasibility analysis for culturally appropriate venture development concepts for the 100 acre Hoʻoulu ʻĀina Nature Preserve of Kokua Kalihi Valley that provides comprehensive family services and operates the Charles Judd Community Health Center.
-          </p>
+         <div class="cs-text markdown-content" set:html={planningExamplesHtml}></div>
           <a href="/contact" class="cs-button-solid">Work With Us</a>
         </div>
       </div>
@@ -230,7 +203,7 @@ For more information on HACBED's strategic planning services or interest in rece
   <CTA />
 </BaseLayout>
 
-<style lang="less">
+<style is:global lang="less">
   /* PAGE-SPECIFIC STYLES FOR THE PAGE */
 
 /*-- -------------------------- -->
@@ -725,6 +698,97 @@ For more information on HACBED's strategic planning services or interest in rece
             grid-column: span 4;
         }
     }
+}
+
+/*-- -------------------------- -->
+<---       Markdown Content         -->
+<--- -------------------------- -*/
+
+.markdown-content {
+  /* Style for paragraphs */
+  p {
+    font-size: clamp(.9rem, 1.8vw, 1.05rem);
+    line-height: 1.5;
+    color: var(--bodyTextColor);
+    margin-bottom: (16/16rem);
+  }
+  
+  /* Style for unordered lists - matching your existing ul styling in #content-1450 */
+  ul {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 (24/16rem) 0;
+    padding-left: (24/16rem);
+    list-style-position: outside;
+    
+    li {
+      font-size: clamp(.9rem, 1.8vw, 1.05rem);
+      line-height: 1.5em;
+      color: var(--bodyTextColor);
+      margin-bottom: (8/16rem);
+      position: relative;
+      padding-left: (4/16rem);
+      
+      &::marker {
+        color: var(--primary);
+      }
+      
+      /* For nested lists */
+      ul {
+        margin: (8/16rem) 0 (8/16rem) 0;
+        
+        li {
+          font-size: 0.95em;
+        }
+      }
+    }
+  }
+  
+  /* Style for ordered lists - matching your existing ol styling */
+  ol {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 (24/16rem) 0;
+    padding-left: (24/16rem);
+    list-style-position: outside;
+    counter-reset: item;
+    
+    li {
+      font-size: clamp(.9rem, 1.8vw, 1.05rem);
+      line-height: 1.5em;
+      color: var(--bodyTextColor);
+      margin-bottom: (8/16rem);
+      position: relative;
+      padding-left: (4/16rem);
+      
+      &::marker {
+        color: var(--secondary);
+      }
+    }
+  }
+  
+  /* Style for links - matching your .in-text-link style from #sbs-1024 */
+  a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-style: italic;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  /* Style for strong/bold text */
+  strong, b {
+    font-weight: 700;
+    color: var(--bodyTextColor);
+  }
+  
+  /* Style for emphasis/italic text */
+  em, i {
+    font-style: italic;
+    color: var(--bodyTextColor);
+  }
 }
 
 /*-- -------------------------- -->
