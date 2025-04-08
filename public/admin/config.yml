@@ -105,3 +105,13 @@ collections:
       - { label: "Image Caption", name: "imageAlt", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
       - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Project Partners"
+        name: "partners"
+        widget: "list"
+        required: false
+        summary: "{{fields.image}}"
+        fields:
+        - { label: "Partner Logo", name: "image", widget: "image", media_folder: "/src/assets/images/partners", public_folder: "/assets/images/partners" }
+        - { label: "Partner Website", name: "link", widget: "string" }
+          
+        

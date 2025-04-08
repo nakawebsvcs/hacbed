@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import "@styles/blog.less";
+
+const { partners } = Astro.props;
+---
+
+<!-- ============================================ --><!--                Project Partners                --><!-- ============================================ -->
+<div class="blog-sidebar">
+  <!--Partners-->
+  <div class="blog-featured-group">
+    <span class="blog-header">Learn more about project partners:</span>
+    {
+      partners && partners.length > 0 ? (
+        partners.map((partner) => (
+          <a class="blog-feature" href={partner.link || "#"} target="_blank" rel="noopener noreferrer">
+            <picture class="partnerImage">
+              <img
+                src={partner.image}
+                alt="Partner logo"
+                loading="lazy"
+                style="max-width: 300px; max-height: 200px; width: auto; height: auto; object-fit: contain;"
+              />
+            </picture>
+          </a>
+        ))
+      ) : (
+        <p>No partners for this project</p>
+      )
+    }
+  </div>
+</div>

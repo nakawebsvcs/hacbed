@@ -2,12 +2,17 @@
 title: Sample Project
 description: Lorem Acuti modo tardantis unam mitissima dissimulator
   inposuit   corpus sintque tura tremenda, nec coetum.
-category: Network Coordination
+category: "Network Coordination"
 image: /src/assets/images/blog/img-placeholder.png
 imageAlt: Image Placeholder
 tags:
   - project
-  - capacity building
+  - network coordination
+partners:
+  - image: "/assets/images/img-placeholder.png"
+    link: ""
+  - image: "/assets/images/img-placeholder.png"
+    link: ""
 ---
 
 ## Lacerans aliter tetigit praeterea rite

@@ -7,7 +7,12 @@ image: /src/assets/images/blog/img-placeholder.png
 imageAlt: Image Placeholder
 tags:
   - project
-  - capacity building
+  - strategic & community-based planning
+partners:
+  - image: "/assets/images/img-placeholder.png"
+    link: ""
+  - image: "/assets/images/img-placeholder.png"
+    link: ""
 ---
 
 ## Lacerans aliter tetigit praeterea rite

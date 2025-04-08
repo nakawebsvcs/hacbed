@@ -8,6 +8,11 @@ imageAlt: Image Placeholder
 tags:
   - project
   - capacity building
+partners:
+  - image: "/assets/images/img-placeholder.png"
+    link: ""
+  - image: "/assets/images/img-placeholder.png"
+    link: ""
 ---
 
 ## Lacerans aliter tetigit praeterea rite

@@ -111,6 +111,14 @@ const projectsCollection = defineCollection({
       tags: z.array(z.string()),
       image: image(),
       imageAlt: z.string(),
+      partners: z
+        .array(
+          z.object({
+            image: z.string(),
+            link: z.string().optional(),
+          })
+        )
+        .optional(),
     }),
 });
 
