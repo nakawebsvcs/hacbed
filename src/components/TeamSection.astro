@@ -261,7 +261,7 @@ const { id, title, members, topper } = Astro.props;
             width: calc(33.33% - 2rem);
             min-width: (350/16rem);
             max-width: (400/16rem);
-            height: clamp(18rem, 33vw, 22rem); 
+            min-height: clamp(18rem, 33vw, 22rem);
             flex: 1 1 0;
         }
     }
