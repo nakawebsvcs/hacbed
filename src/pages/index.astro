@@ -416,6 +416,15 @@ allows for repeated components, centralized data and greater room to scale as yo
   }
 }
 
+/* Large screens - prevent wrapping */
+@media only screen and (min-width: 90em) { /* 1440px */
+  #hero .cs-title {
+    font-size: 5rem; /* Fixed size for large screens */
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+}
+
   /* PAGE-SPECIFIC STYLES FOR THE HOME PAGE */
 
    h2 {
