@@ -1,21 +1,14 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
-import CTA from "@components/CTA.astro";
 import { getCollection } from "astro:content";
 
-// Get the about page content
-const aboutPages = await getCollection("about");
-const aboutPage = aboutPages.find(page => page.data.pageId === "about");
-
-// If no content is found, we'll use the hardcoded content
-const mainContent = aboutPage?.data.mainContent || "";
-const missionTitle = aboutPage?.data.missionTitle || "Mission";
-const missionStatement = aboutPage?.data.missionStatement || "";
-const missionContent = aboutPage?.data.missionContent || "";
+// Get the donate page content
+const donatePage = await getCollection("donate");
+const donatePage = donatePage.find(page => page.data.pageId === "donate");
 ---
 
 <BaseLayout
-  title="About"
+  title="Donate"
   description="Meta description for the page"
 >
   <!-- Header Image -->
@@ -45,7 +38,6 @@ const missionContent = aboutPage?.data.missionContent || "";
     </div>
   </section>
                               
-  <CTA />
 </BaseLayout>
 
 <style lang="less">
