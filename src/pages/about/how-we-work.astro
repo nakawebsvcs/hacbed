@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import { marked } from 'marked';
-import CTA from "@components/CTA.astro";
+import QUOTE from "@components/QUOTE-how-we-work.astro";
 import { getCollection } from "astro:content";
 
 // Fetch how-we-work page content
@@ -200,7 +200,7 @@ const howWeWorkIntroHtml = marked.parse(howWeWorkPage.data.howWeWorkIntro);
 
                                 
 
-  <CTA />
+  <QUOTE />
 </BaseLayout>
 
 <style is:global lang="less">

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
-import CTA from "@components/CTA.astro";
+import QUOTE from "@components/QUOTE-our-ohana.astro";
 import TeamSection from "@components/TeamSection.astro";
 import BoardSection from "@components/BoardSection.astro";
 import { getCollection } from 'astro:content';
@@ -62,7 +62,7 @@ const formattedBoardMembers = sortedBoardMembers.map(member => ({
         </p>
             </div>
         </div>
-        <div class="cs-image-group">
+        <div class="cs-image-group" style="margin-bottom: -4rem;">
             <!-- Wrap each image in an anchor tag with data-lightbox attribute -->
             <a href="/assets/images/former-team/Hacbed-1.jpg" class="cs-picture cs-picture-1" data-lightbox="gallery" aria-label="View larger image">
                 <img loading="lazy" decoding="async" src="/assets/images/former-team/Hacbed-1.jpg" alt="former hacbed team members" width="380" height="271">
@@ -127,7 +127,7 @@ const formattedBoardMembers = sortedBoardMembers.map(member => ({
         </div>
       </section>
                                 
-  <CTA />
+  <QUOTE />
 </BaseLayout>
 
 <style lang="less">
