@@ -3,8 +3,8 @@ import BaseLayout from "src/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
 // Get the donate page content
-const donatePage = await getCollection("donate");
-const donatePage = donatePage.find(page => page.data.pageId === "donate");
+// const donatePage = await getCollection("donate");
+// const donatePage = donatePage.find(page => page.data.pageId === "donate");
 ---
 
 <BaseLayout
@@ -16,27 +16,28 @@ const donatePage = donatePage.find(page => page.data.pageId === "donate");
     <div class="full-width-image-container">
       <img src="/assets/images/About-Mission.jpg" alt="About page header" />
       <div class="header-overlay">
-        <h1 class="header-title">ABOUT</h1>
+        <h1 class="header-title">DONATE</h1>
       </div>
     </div>
   </section>
 
-  <!-- Content -->
-  <section id="content-1450">
+<!-- ============================================ -->
+<!--                  Content                     -->
+<!-- ============================================ -->
+
+<section id="content-1450">
     <div class="cs-container">
-      <div class="cs-content">
-        <p class="cs-text" set:html={mainContent}></p>
-        <br><br>
-        
-        <h2 class="cs-title">{missionTitle}</h2><br>
-        {missionStatement && (
-          <span class="cs-topper">{missionStatement}</span>
-        )}
-        <br><br>
-        <p class="cs-text" set:html={missionContent}></p>
-      </div>
+        <div class="cs-content">
+            <span class="cs-topper">ABOUT US</span>
+            <h2 class="cs-title">Stitch Non-profit Charity is the largest global crowdfunding community in the world</h2>
+            <p class="cs-text">
+                Proactively procrastinate cross-platform results via extensive ideas distinctively underwhelm enterprise. Compellingly plagiarize value-added sources with inexpensive schemas. The school provides the best possible education and practical training necessary for those who wish to pursue a career in music, as well as for music-loving children whose aims are non-professional.
+            </p>
+            <a href="http://paypal.com/us/fundraiser/charity/2274761" target="_blank" class="cs-button-solid">Donate</a>
+        </div>
     </div>
-  </section>
+</section>
+                                
                               
 </BaseLayout>
 
@@ -143,7 +144,7 @@ const donatePage = donatePage.find(page => page.data.pageId === "donate");
 
         .cs-content {
             /* set text align to left if content needs to be left aligned */
-            text-align: left;
+            text-align: center;
             width: 100%;
             display: flex;
             flex-direction: column;

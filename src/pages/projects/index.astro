@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
-import CTA from "@components/CTA.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 
@@ -79,7 +78,6 @@ const projectsByCategory = projects.reduce((acc, project) => {
       }
     </div>
   </div>
-  <CTA />
 </BaseLayout>
 
 <style lang="less">
