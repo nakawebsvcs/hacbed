@@ -23,7 +23,8 @@ const isIndexPage = Astro.url.pathname === "/";
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content={description}>
-<meta name="keywords" content="">
+<meta name="keywords" content="Community development, economic development, Hawaii, HACBED, community-based, capacity building, technical assistance, network coordination, facilitation, community voice, collective action, policy development, advocacy, social justice, economic justice, community empowerment, Hawaii Alliance for Community-Based Economic Development, community investment, community resilience, wellness, community building, strategic planning, community engagement, collaborative leadership
+">
 <link rel="canonical" href={`https://${client.domain}${Astro.url.pathname}`}>
 
 
@@ -51,12 +52,7 @@ const isIndexPage = Astro.url.pathname === "/";
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
-<!--For home page, use service keywords for the title, including location for SEO.
-Other pages should just include the page name.
-EXAMPLE:
-Home page - House Painting Contractors | Painters and Co. | TestCity, WA
-About Page - About us | Painters and Co.
--->
+
 <title>
 {Astro.url.pathname === "/" ? (`${ title }
 |
