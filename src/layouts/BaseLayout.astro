@@ -32,8 +32,12 @@ const isIndexPage = Astro.url.pathname === "/";
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={`https://${client.domain}${Astro.url.pathname}`} />
-<meta property="og:image" content="/assets/images/logo-small.png" />
-<meta property="og:image:secure_url" content="/assets/images/logo-small.png" />
+<meta property="og:image" content={`https://${client.domain}/assets/images/kalo-home-img.jpg`} />
+<meta property="og:image:secure_url" content={`https://${client.domain}/assets/images/kalo-home-img.jpg`} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="HACBED - Hawaii Alliance for Community-Based Economic Development" />
+
 <!--Favicons-->
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon.ico">
