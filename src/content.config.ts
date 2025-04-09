@@ -98,6 +98,29 @@ const howWeWorkCollection = defineCollection({
   }),
 });
 
+const ourRootsCollection = defineCollection({
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/our-roots",
+  }),
+  schema: z.object({
+    pageId: z.string(),
+    rootsContent: z.string(),
+  }),
+});
+
+const ourOhanaCollection = defineCollection({
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/our-ohana",
+  }),
+  schema: z.object({
+    pageId: z.string(),
+    formerTeam: z.string(),
+    formerBoard: z.string(),
+  }),
+});
+
 
 // projects collection
 const projectsCollection = defineCollection({
@@ -137,5 +160,7 @@ export const collections = {
   founders: foundersCollection,
   home: homeCollection,
   howWeWork: howWeWorkCollection,
+  ourRoots: ourRootsCollection,
+  ourOhana: ourOhanaCollection,
   projects: projectsCollection,
 };

@@ -4,17 +4,18 @@ import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
 import FounderSection from "@components/FounderSection.astro";
 import { getCollection } from 'astro:content';
+import { marked } from 'marked';
 
 // Fetch founders from the collection
 const founders = await getCollection('founders');
 
-// Debug: Log all founders and their data
-console.log("All founders data:");
-founders.forEach(founder => {
-  console.log(`${founder.data.name}:`);
-  console.log(`  video = ${founder.data.video || "none"}`);
-  console.log(`  videoCaption = ${founder.data.videoCaption || "none"}`);
-});
+// Fetch our-roots content
+const ourRootsContent = await getCollection('ourRoots');
+const ourRootsPage = ourRootsContent[0]; // Get the first (and only) entry
+
+// Parse markdown to HTML
+const rootsContentHtml = marked.parse(ourRootsPage.data.rootsContent);
+
 
 // Sort founders by order if available
 const sortedFounders = founders.sort((a, b) => {
@@ -23,11 +24,6 @@ const sortedFounders = founders.sort((a, b) => {
   return orderA - orderB;
 });
 
-// Debug: Log sorted founders
-console.log("Sorted founders:");
-sortedFounders.forEach(founder => {
-  console.log(`${founder.data.name} (order: ${founder.data.order})`);
-});
 
 // Map to the format expected by FounderSection
 const foundersData = sortedFounders.map(founder => {
@@ -39,10 +35,6 @@ const foundersData = sortedFounders.map(founder => {
     video: founder.data.video,
     videoCaption: founder.data.videoCaption
   };
-  
-  // Debug: Log mapped data
-  console.log(`Mapped data for ${data.name}:`);
-  console.log(`  videoCaption = ${data.videoCaption || "none"}`);
   
   return data;
 });
@@ -71,17 +63,14 @@ const foundersData = sortedFounders.map(founder => {
         <div class="cs-content">
            <!-- <span class="cs-topper">Reflections<br><br></span>
              <h2 class="cs-title">Stitch Non-profit Charity is the largest global crowdfunding community in the world</h2> -->
-            <p class="cs-text">
-              The 1970s and '80s were decades of tremendous growth and development for the state of Hawai`i. Spurred by advances in air transportation and the obvious potential of Hawai`i as a tourist destination, overseas companies engaged in record levels of real estate acquisition and development in those decades. New hotels, condominiums, shopping centers and housing subdivisions sprung up, transforming the islands into a Pacific mecca for tourists.<br><br>
-
-These "boom" years were not uniformly celebrated by the residents and communities of Hawai`i. While the rise of the visitor industry generated tremendous wealth for some, many communities continued to suffer from high levels of poverty, unemployment, crime, and other related social ills. Furthermore, some Hawai`i communities saw new development directly linked to the loss of their natural resources, lifestyle, and culture.<br><br>
-
-Thus, while the '70s and '80s are often viewed as prosperous years for Hawai`i, those years also gave rise to a protest movement that continues to evolve today. In 1992, the movement's leaders convened to discuss a new direction for their efforts. After years of fighting unwanted forms of development, they assembled to define the kind of development they did want: development that would respect culture and values, distribute wealth equitably, and empower residents rather than leave them disenfranchised -- development guided by the needs and priorities of the communities themselves.<br><br>
-
-The vision was given a name, Community-Based Economic Development (CBED), and an organization was founded to advance it. The Hawai`i Alliance for Community Based Economic Development (HACBED) is a 501(c)(3) not-for-profit organization, established in 1992, designed to encourage increased investment in community-based approaches to economic development. Consistent with its philosophy of community-driven change, HACBED was formed as a membership-based entity, governed by community-based, nonprofit organizations that are CBED practitioners.<br><br>
-
-Since then, HACBED has supported community-based economic development by being a facilitator, a catalyst, a broker, and a producer of training, technical assistance, advocacy, education, as well as research & development (R&D) related products and services. Based on experiences in and with community, HACBED has moved away from a member-based model as membership is not as important in the scheme of building a broader movement.
-            </p>
+          <p class="cs-text">
+              {ourRootsPage.data.rootsContent.split('\n\n').map((paragraph) => (
+                <>
+                  {paragraph}
+                  <br /><br />
+                </>
+              ))}
+          </p>
         </div>
        <div class="video-container">
   <iframe 
@@ -276,9 +265,36 @@ Since then, HACBED has supported community-based economic development by being a
             /* 16px - 20px */
             font-size: clamp(1rem, 2vw, 1.25rem);
             margin: 0 0 (32/16rem) 0;
+
+            & > div > p {
+              font-size: inherit;
+              line-height: 1.5;
+              color: var(--bodyTextColor);
+              margin-bottom: (16/16rem);
+              
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
           
         }
     }
+}
+
+/* Add this as a separate section in your styles */
+.markdown-rendered {
+  /* Target paragraphs generated by markdown */
+  p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.5;
+    color: var(--bodyTextColor);
+    margin-bottom: 1rem;
+  }
+  
+  /* Ensure proper spacing between paragraphs */
+  p + p {
+    margin-top: 0.5rem;
+  }
 }
 
 /*-- -------------------------- -->

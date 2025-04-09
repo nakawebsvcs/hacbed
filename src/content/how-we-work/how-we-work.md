@@ -1,5 +1,5 @@
 ---
-pageId: "how-we-work"
+pageId: "How We Work"
 howWeWorkIntro: "HACBED uplifts community voice and supports collective action towards community-based economic development as a facilitator, catalyst, community builder and broker as asked by the communities we serve. Our approach  is founded on the belief that people \"know\" and \"can\" and is conducted through informed and skilled listening that strengthens community voice and promotes collective action. Please click the images below to learn more about how we do our work."
 facilitationContent: |
     As facilitators, HACBED staff starts with active listening to hold safe spaces for meaningful conversations. The process of facilitation is a way of providing leadership without taking the reigns, and contributing structure and process to interactions so groups are able to function effectively and make high-quality decisions. A facilitative leader focuses on both content and process.

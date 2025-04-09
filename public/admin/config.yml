@@ -32,6 +32,32 @@ collections:
           default: "draft"
         }
 
+  - name: "projects" # Used in routes, e.g., /admin/collections/blog. Is also the key when fetching data from the CMS.
+    label: "Projects" # Used in the admin dashboard UI
+    folder: "src/content/projects" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { 
+          label: "Category", 
+          name: "category", 
+          widget: "select", 
+          options: ["Capacity Building & Technical Assistance", "Network Coordination","Strategic & Community-Based Planning", "Past Support"] 
+        }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Image Caption", name: "imageAlt", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Project Partners"
+        name: "partners"
+        widget: "list"
+        required: false
+        summary: "{{fields.image}}"
+        fields:
+        - { label: "Partner Logo", name: "image", widget: "image", media_folder: "/src/assets/images/partners", public_folder: "/assets/images/partners" }
+        - { label: "Partner Website", name: "link", widget: "string" }
+
   - name: "team"
     label: "Team Members"
     folder: "src/content/team"
@@ -105,30 +131,25 @@ collections:
       - { label: "Strategic Planning Content", name: "planningContent", widget: "markdown", required: true }
       - { label: "Strategic Planning Examples", name: "planningExamples", widget: "markdown", required: true }
 
-  - name: "projects" # Used in routes, e.g., /admin/collections/blog. Is also the key when fetching data from the CMS.
-    label: "Projects" # Used in the admin dashboard UI
-    folder: "src/content/projects" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields for each document
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { 
-          label: "Category", 
-          name: "category", 
-          widget: "select", 
-          options: ["Capacity Building & Technical Assistance", "Network Coordination","Strategic & Community-Based Planning", "Past Support"] 
-        }
-      - { label: "Featured Image", name: "image", widget: "image" }
-      - { label: "Image Caption", name: "imageAlt", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - label: "Project Partners"
-        name: "partners"
-        widget: "list"
-        required: false
-        summary: "{{fields.image}}"
-        fields:
-        - { label: "Partner Logo", name: "image", widget: "image", media_folder: "/src/assets/images/partners", public_folder: "/assets/images/partners" }
-        - { label: "Partner Website", name: "link", widget: "string" }
+  - name: "our-roots"
+    label: "Our Roots Page"
+    folder: "src/content/our-roots"
+    create: false 
+    slug: "{{slug}}"
+    identifier_field: "pageId" 
+    fields:
+      - { label: "Page ID", name: "pageId", widget: "hidden", default: "our-roots" }
+      - { label: "Roots Content", name: "rootsContent", widget: "markdown" }
+
+  - name: "our-ohana"
+    label: "Our Ohana Page"
+    folder: "src/content/our-ohana"
+    create: false 
+    slug: "{{slug}}"
+    identifier_field: "pageId" 
+    fields:
+      - { label: "Page ID", name: "pageId", widget: "hidden", default: "our-ohana" }
+      - { label: "Former Team Members", name: "formerTeam", widget: "markdown" }
+      - { label: "Former Board Members", name: "formerBoard", widget: "markdown" }
           
         

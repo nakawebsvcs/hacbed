@@ -8,6 +8,8 @@ import { getCollection } from 'astro:content';
 // Get data from content collections
 const teamMembers = await getCollection('team');
 const boardMembers = await getCollection('board');
+const ourOhanaContent = await getCollection('ourOhana');
+const ourOhanaPage = ourOhanaContent[0];
 
 // Sort by order field if provided
 const sortedTeamMembers = teamMembers.sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
@@ -53,8 +55,11 @@ const formattedBoardMembers = sortedBoardMembers.map(member => ({
                 <span class="cs-topper">We mahalo the following former team members for their hard work and dedication:</span>
               <!--  <h2 class="cs-title">Capturing Precious Moments of Your Dream Wedding</h2> -->
                 <p class="cs-text"><br><br>
-                    Bob Agres · Paige Allen · Will Chen · Molly Chlebnikow · Jamie Cook · Ben Costigan · Brent Dillabaugh · Trung Doan · Anna Dorman · Kamuela Enos · Athena Esene · Avemaoe Galea'i · Justin Fanslau · Maggie Flynn · Elwen Freitas · Sharde Freitas · Randy Gingras · Tony Hall · Hunter Heaivilin · John Higgins · Eden Jablon · Manish Joshi · Larissa Meinecke Kick · Derrick Kiyabu · James Koshiba · Malachi Krishok · Trevor La Torre-Couch · Vivienne Lee · Jay Mason · Gary Maunakea-Forth · Blake McElheny · Hermina Morita · Briana Monroe · Paula Nagao ·  Alex Narrajos · Keoki Noji · Mika Okuno · Chelsie Onaga · Gaby Orantes · Tommy Otake · Vini Pabon · Kehau Padilla · Sang-Hyoun Pahk · Foley Pfalzgraf · Pi'ilani Pang · Joong-hee Park · Angelica Ramsey · Richard Pezzulo · Ethan Porter · David Rothwell · William Simmons · Padmendra Shrestha · Collin Siu · Susan Tamanaha · Sean Tangco · Lee Tokuhara · Hanale Vincent · David Washburn ·  Pua Lani Yang · Johnathan Yim<br><br>
-                </p>
+                 <p class="cs-text">
+          {ourOhanaPage.data.formerTeam.split('\n\n').map((paragraph) => (
+            <>{paragraph}<br /><br /></>
+          ))}
+        </p>
             </div>
         </div>
         <div class="cs-image-group">
@@ -111,11 +116,13 @@ const formattedBoardMembers = sortedBoardMembers.map(member => ({
     <div class="cs-container">
         <div class="cs-content">
             <div class="cs-flex">
-                <span class="cs-topper">We mahalo the following former board members for their invaluable guidance and support:</span>
+                <span class="cs-topper">We mahalo the following former board members for their invaluable guidance and support:<br><br><br></span>
               <!--  <h2 class="cs-title">Capturing Precious Moments of Your Dream Wedding</h2> -->
-                <p class="cs-text"><br><br>
-                    Akoni Akana · David Arakawa · Norm Baker · Darrlyn Bunda · Stacy Helm Crivello · Adrienne Dillard · Rian Dubach · Carol Fukunaga · Puni Kekauoha · Keikialoha Kekipi · Kipukai Kuali`i · Kapio Kukahiko · Amy Luersen · Kukui & Gary Maunakea-Forth · Susie Osborne · Tommy Otake · Stacy Sproat-Beck · Carol Yurth<br><br>
-                </p>
+               <p class="cs-text">
+          {ourOhanaPage.data.formerBoard.split('\n\n').map((paragraph) => (
+            <>{paragraph}<br /><br /></>
+          ))}
+        </p>
             </div>
         </div>
       </section>

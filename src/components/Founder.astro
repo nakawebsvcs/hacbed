@@ -10,8 +10,6 @@ export interface Props {
 }
 
 const { name, bio, imageUrl, imageAlt = `Founder ${name}`, video, videoCaption } = Astro.props;
-console.log(`Founder component for ${name}:`);
-console.log(`  videoCaption = "${videoCaption || ""}"`);
 ---
 
 <li class="cs-item">
