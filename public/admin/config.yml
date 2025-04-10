@@ -27,13 +27,6 @@ collections:
       - { label: "Image Caption", name: "imageAlt", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
       - { label: "Body", name: "body", widget: "markdown" }
-      - {
-          label: "Status",
-          name: "status",
-          widget: "select",
-          options: ["draft", "published"],
-          default: "draft"
-        }
 
   - name: "projects" # Used in routes, e.g., /admin/collections/blog. Is also the key when fetching data from the CMS.
     label: "Projects" # Used in the admin dashboard UI
