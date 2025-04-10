@@ -2,7 +2,7 @@
 backend:
   name: git-gateway
   repo: nakawebsvcs/hacbed
-  branch: main
+  branch: master
   identity_url: https://auth.decapbridge.com/sites/fc1ae123-94aa-46a0-82ed-5d286bfe6bca
   gateway_url: https://gateway.decapbridge.com
 local_backend: true
