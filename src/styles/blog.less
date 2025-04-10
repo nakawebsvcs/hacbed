@@ -561,20 +561,28 @@
                 color: var(--secondary);
             }
 
-            ul,
-            ol {
-                margin: 0;
-                margin: (16/16rem) 0;
-                padding-left: (40/16rem);
+           ul, ol {
+        margin: 0;
+        margin: (16/16rem) 0;
+        padding-left: (40/16rem);
 
-                li {
-                    font-size: (16/16rem);
-                    line-height: 1.6em;
-                    list-style: circle;
-                    margin-bottom: (16/16rem);
-                    color: var(--bodyTextColor);
-                }
+        li {
+            font-size: (16/16rem);
+            line-height: 1.6em;
+            list-style: disc; // Change to disc for first-level bullets
+            margin-bottom: (16/16rem);
+            color: var(--bodyTextColor);
+        }
+
+        // Nested lists
+        ul, ol {
+            margin: (8/16rem) 0; // Slightly less margin for nested lists
+            
+            li {
+                list-style: circle; // Circle for second-level bullets
             }
+        }
+    }
 
             img {
                 width: 100%;

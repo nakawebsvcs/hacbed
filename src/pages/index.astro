@@ -496,6 +496,16 @@ allows for repeated components, centralized data and greater room to scale as yo
     }
 }
 
+/* Mobile - Shared styles for background elements in both sections */
+@media only screen and (min-width: 0rem) {
+  #RPsbs-600 .cs-background {
+    margin-bottom: -1.5rem;
+  }
+  #RPsbsr-600 .cs-background {
+    margin-bottom: -4rem;
+  }
+}
+
 /* First section - shadow only on top */
 #RPsbs-600 {
     position: relative;
@@ -746,6 +756,57 @@ allows for repeated components, centralized data and greater room to scale as yo
         
         .mobile-button {
             display: none; /* Hide on desktop */
+        }
+    }
+}
+
+
+/*-- -------------------------- -->
+<---   Large Screen Styles      -->
+<--- -------------------------- -*/
+
+/* Large Desktop - 1500px and above */
+@media only screen and (min-width: 93.75rem) {
+    /* Adjust Side by Side section - push content more to the right */
+    #RPsbs-600 {
+        .cs-container {
+            max-width: 80rem; /* 1280px */
+            margin: 0 auto;
+        }
+        
+        .cs-content {
+            /* Move content more to the right by increasing right margin */
+            margin-right: -5%; 
+        }
+        
+        .cs-background {
+            /* Adjust image position to be more to the left */
+            right: 46%;
+        }
+    }
+    
+    /* Adjust Side by Side Reverse section - push content more to the left */
+    #RPsbsr-600 {
+        .cs-container {
+            max-width: 80rem; /* 1280px */
+            margin: 0 auto;
+        }
+        
+        .cs-content {
+            /* Move content more to the left by increasing left margin */
+            margin-left: -5%;
+        }
+        
+        .cs-background {
+            /* Adjust image position to be more to the right */
+            left: 46%;
+            top: 45%;
+        }
+        
+        .cs-button-container {
+            /* Adjust button position to match the new image position */
+            left: 71%;
+            top: 85%;
         }
     }
 }
