@@ -13,7 +13,7 @@ const { partners } = Astro.props;
     {
       partners && partners.length > 0 ? (
         partners.map((partner) => (
-          <a class="blog-feature" href={partner.link || "#"} target="_blank" rel="noopener noreferrer">
+          <a class="blog-feature project-partner" href={partner.link || "#"} target="_blank" rel="noopener noreferrer">
             <picture class="partnerImage">
               <img
                 src={partner.image}
