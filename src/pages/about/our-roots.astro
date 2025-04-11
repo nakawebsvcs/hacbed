@@ -47,7 +47,7 @@ const foundersData = sortedFounders.map(founder => {
  <!-- Custom hero/banner section -->
   <section class="page-header">
   <div class="full-width-image-container">
-    <img src="/assets/images/Our-Roots.png" alt="Our Roots" />
+    <img src="/assets/images/HACBED-Our Roots.jpg" alt="Our Roots" />
     <div class="header-overlay">
       <h1 class="header-title">OUR ROOTS</h1>
     </div>
@@ -117,27 +117,27 @@ const foundersData = sortedFounders.map(founder => {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: 60% center; /* Keep focus on top */
+        object-position: 60% 60%;
         display: block;
       }
       
       .header-overlay {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: 0; /* Changed from 50% to 0 to align at the top */
+        left: 0; /* Changed from 50% to 0 */
         width: 100%;
         height: 100%;
         display: flex;
-        align-items: center;
+        align-items: flex-start; /* Changed from center to flex-start to align at the top */
         justify-content: center;
         background-color: rgba(0, 0, 0, 0.4);
+        transform: none; /* Remove the transform that was centering it */
       }
       
       .header-title {
         color: var(--primary);
         text-align: center;
-        margin: 0;
+        margin: 2rem 0 0 0; /* Add top margin to push it down a bit from the very top */
         padding: 0 1rem;
         font-size: var(--headerFontSize, 2.5rem);
         font-weight: 700;
@@ -170,6 +170,24 @@ const foundersData = sortedFounders.map(founder => {
 
     .header-title {
       font-size: 5rem;
+    }
+  }
+}
+
+/* Restore centered position for large desktop screens */
+@media only screen and (min-width: 1400px) {
+  .page-header {
+    .full-width-image-container {
+      .header-overlay {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        align-items: center;
+      }
+      
+      .header-title {
+        margin: 0; /* Reset margin */
+      }
     }
   }
 }
