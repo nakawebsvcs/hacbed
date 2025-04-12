@@ -21,7 +21,6 @@ firstParagraphContent: HACBED is a nonprofit intermediary that works to build
   barriers to create networks and partnerships to support partners to bring
   about systemic change. Above all, HACBED serves this place called Hawaiʻi, as
   well as those who choose to be of this place and work to make it their home.
-  Testing changes.
 missionStatement: HACBED strives to achieve economic, social, and environmental
   justice in Hawaiʻi through community-based economic development.
 whereWeStartedContent: HACBED started with the underlying belief that people
