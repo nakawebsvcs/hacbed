@@ -99,6 +99,10 @@ collections:
     slug: "{{slug}}"
     identifier_field: "pageId" 
     fields:
+      - label: "⚠️ IMPORTANT INSTRUCTIONS"
+        name: "instructions_notice"
+        widget: "markdown"
+        required: true
       - { label: "Page ID", name: "pageId", widget: "hidden", default: "home" }
       - { label: "First Paragraph Content", name: "firstParagraphContent", widget: "markdown", required: true }
       - { label: "Mission Statement", name: "missionStatement", widget: "string", required: true }
@@ -118,6 +122,10 @@ collections:
     slug: "{{slug}}"
     identifier_field: "pageId" 
     fields:
+      - label: "⚠️ IMPORTANT INSTRUCTIONS"
+        name: "instructions_notice"
+        widget: "markdown"
+        required: true
       - { label: "Page ID", name: "pageId", widget: "hidden", default: "how-we-work" }
       - { label: "Introduction Content", name: "howWeWorkIntro", widget: "markdown", required: true }
       - { label: "Facilitation Content", name: "facilitationContent", widget: "markdown", required: true }
@@ -134,6 +142,10 @@ collections:
     slug: "{{slug}}"
     identifier_field: "pageId" 
     fields:
+      - label: "⚠️ IMPORTANT INSTRUCTIONS"
+        name: "instructions_notice"
+        widget: "markdown"
+        required: true
       - { label: "Page ID", name: "pageId", widget: "hidden", default: "our-roots" }
       - { label: "Roots Content", name: "rootsContent", widget: "markdown" }
 
@@ -144,6 +156,10 @@ collections:
     slug: "{{slug}}"
     identifier_field: "pageId" 
     fields:
+      - label: "⚠️ IMPORTANT INSTRUCTIONS"
+        name: "instructions_notice"
+        widget: "markdown"
+        required: true
       - { label: "Page ID", name: "pageId", widget: "hidden", default: "our-ohana" }
       - { label: "Former Team Members", name: "formerTeam", widget: "markdown" }
       - { label: "Former Board Members", name: "formerBoard", widget: "markdown" }
@@ -155,6 +171,10 @@ collections:
     slug: "{{slug}}"
     identifier_field: "pageId" 
     fields:
+      - label: "⚠️ IMPORTANT INSTRUCTIONS"
+        name: "instructions_notice"
+        widget: "markdown"
+        required: true
       - { label: "Page ID", name: "pageId", widget: "hidden", default: "Donate" }
       - { label: "Main Content", name: "donateContent", widget: "markdown" }
       - { label: "Closing", name: "donatePartners", widget: "markdown" }

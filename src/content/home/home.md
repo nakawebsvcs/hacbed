@@ -1,4 +1,12 @@
 ---
+instructions_notice: |
+    ## INSTRUCTIONS - DO NOT EDIT THIS FIELD
+    
+    ❗️**Reminder**: Please do not use the **"Unpublish"** or **"Delete Published Entry"** options on this page as this will break your site's code.❗️
+
+    - Make edits to the text in the sections below
+    - Hit "Save"
+    - Changes will take a few minutes to propagate on your live site
 pageId: "Home"
 firstParagraphContent: "HACBED is a nonprofit intermediary that works to build the capacity of families and communities so that they have choice and control to achieve social, economic, and environmental justice. For more than 30 years, HACBED's core competencies have been holding spaces for tough conversation, collecting stories and data, and disseminating that information. HACBED begins with active listening to build relationships and break down barriers to create networks and partnerships to support partners to bring about systemic change. Above all, HACBED serves this place called Hawaiʻi, as well as those who choose to be of this place and work to make it their home."
 missionStatement: "HACBED strives to achieve economic, social, and environmental justice in Hawaiʻi through community-based economic development."

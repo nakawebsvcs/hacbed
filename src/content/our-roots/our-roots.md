@@ -1,4 +1,12 @@
 ---
+instructions_notice: |
+    ## INSTRUCTIONS - DO NOT EDIT THIS FIELD
+    
+    ❗️**Reminder**: Please do not use the **"Unpublish"** or **"Delete Published Entry"** options on this page as this will break your site's code.❗️
+
+    - Make edits to the text in the sections below
+    - Hit "Save"
+    - Changes will take a few minutes to propagate on your live site
 pageId: "Our Roots"
 rootsContent: |
     The 1970s and '80s were decades of tremendous growth and development for the state of Hawaiʻi. Spurred by advances in air transportation and the obvious potential of Hawaiʻi as a tourist destination, overseas companies engaged in record levels of real estate acquisition and development in those decades. New hotels, condominiums, shopping centers and housing subdivisions sprung up, transforming the islands into a Pacific mecca for tourists.

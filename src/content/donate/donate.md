@@ -1,4 +1,12 @@
 ---
+instructions_notice: |
+    ## INSTRUCTIONS - DO NOT EDIT THIS FIELD
+    
+    ❗️**Reminder**: Please do not use the **"Unpublish"** or **"Delete Published Entry"** options on this page as this will break your site's code.❗️
+
+    - Make edits to the text in the sections below
+    - Hit "Save"
+    - Changes will take a few minutes to propagate on your live site
 pageId: "Donate"
 donateContent: |
   Aloha Kākou,
