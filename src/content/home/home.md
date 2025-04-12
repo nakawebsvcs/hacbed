@@ -2,7 +2,7 @@
 instructions_notice: |
     ## INSTRUCTIONS - DO NOT EDIT THIS FIELD
     
-   ❗️**Reminder**: Please do not use the **"Delete entry"** option on this page as this will break your site's code.❗️
+    ❗️**Reminder**: Please do not use the **"Delete entry"** option on this page as this will break your site's code.❗️
 
     - Make edits to the text in the sections below
     - Click "Publish" >> "Publish now"
