@@ -2,10 +2,10 @@
 instructions_notice: |
     ## INSTRUCTIONS - DO NOT EDIT THIS FIELD
     
-    ❗️**Reminder**: Please do not use the **"Unpublish"** or **"Delete Published Entry"** options on this page as this will break your site's code.❗️
+    ❗️**Reminder**: Please do not use the **"Delete entry"** option on this page as this will break your site's code.❗️
 
     - Make edits to the text in the sections below
-    - Hit "Save"
+    - Click "Publish" >> "Publish now"
     - Changes will take a few minutes to propagate on your live site
 pageId: "How We Work"
 howWeWorkIntro: "HACBED uplifts community voice and supports collective action towards community-based economic development as a facilitator, catalyst, community builder and broker as asked by the communities we serve. Our approach  is founded on the belief that people \"know\" and \"can\" and is conducted through informed and skilled listening that strengthens community voice and promotes collective action. Please click the images below to learn more about how we do our work."
