@@ -1,7 +1,36 @@
 ---
-pageId: "donate"
-mainContent: "HACBED is a nonprofit intermediary that works to build the capacity of families and communities so that they have choice and control to achieve social, economic, and environmental justice.\n\nFor more than 30 years, HACBED's core competencies have been holding spaces for tough conversation, collecting stories and data, and disseminating that information. Recognizing that impact is limited when work is done in silos, HACBED works to break down barriers and to create networks and partnerships to bring about far reaching systemic change. HACBED begins with active listening to build relationships and break down barriers to create networks and partnerships to support partners to bring about systemic change. HACBED thus plays the role of network facilitator, catalyst, and advocate to support community building.\n\nHACBED's strategic focuses are facilitation and network weaving, community and organizational capacity building, community based planning, and asset development and policy."
-missionTitle: "Mission"
-missionStatement: "HACBED strives to achieve economic, social, and environmental justice in Hawai`i through community-based economic development."
-missionContent: "HACBED pursues its mission by assisting community-based economic institutions that provide direct economic benefits to individuals, families, and communities. These institutions enhance community investments in order to help those communities build an economic structure that allows them to exercise greater control over their own futures.\n\nAbove all, HACBED serves this place called Hawai`i, as well as those who choose to be of this place and work to make it their home. In particular, HACBED has a strong focus on those who face social and economic injustices. HACBED provides this service by empowering education and capacity building for communities through policy development and advocacy for positive systemic change.\n\nA \"competitive advantage\" is defined as \"resources that allow an entity to develop and maintain an edge over competitors who produce similar goods and services.\" HACBED's competitive advantages stem from its knowledge and experience as it relates to community engagement and the connections HACBED has been able to form. This advantage is founded on the belief that people \"know\" and \"can\" and is conducted through informed and skilled listening that strengthens the community voice and and promotes collective action. By focusing on its competitive advantages, HACBED is able to build trust and credibility while maintaining its activist roots, which involve addressing injustice by acting to correct wrongs."
+pageId: "Donate"
+donateContent: |
+  Aloha Kākou,
+
+  For more than 30 years, the Hawaiʻi Alliance for Community-Based Economic Development (HACBED) has stood with communities across our islands — listening deeply, holding space for tough conversations, and supporting local solutions rooted in culture, ʻāina, and justice.
+
+  Born out of the Hawaiian Renaissance, HACBED was founded in 1992 with a bold vision: that development in Hawai'i should be led by the people who live here — not imposed from the outside. That it should honor our values, restore our connections to land and language, and empower communities to define their own futures.
+
+  From food and ʻāina justice to rethinking our relationship with tourism, to intergenerational leadership to the future of work in a post-COVID world, HACBED continues to evolve alongside the communities we serve.
+
+  **Why Support HACBED**
+
+  By supporting HACBED, you are directly supporting work that advances intergenerational knowledge evolution, ʻāina and food justice, and community driven institutional change; place-based approaches to our economy, tourism, and workforce development; and relationship building and shared accountability for institutional partners and the communities with whom they collaborate. 
+
+  We believe that people know, and people can. Communities are the experts of their own context. Our role is to listen, uplift, and help remove barriers so that families and grassroots organizations can do what they do best: care for one another and the places they call home.
+
+  By supporting HACBED, you support HACBED's efforts behind the scenes to:
+
+  - Provide training, technical assistance, and research to support community-based economic initiatives
+  - Build capacity in local organizations and families so they have the tools to act on their own priorities
+  - Gather and share stories, data, and lessons to inform systems change
+  - Create networks across sectors to seed collaboration
+  - Hold space for new and long-time leaders to work together toward community transformation
+
+  Together, we can continue shaping a Hawaiʻi where communities have the choice and control to thrive — now and for generations to come.
+
+  **How to Donate**
+
+  Gifts of any size are greatly appreciated as HACBED works toward its mission to achieve economic, social, and environmental justice in Hawaiʻi through community-based economic development. Donating can be done in 2 ways:​
+
+donatePartners: |
+  Please call us at 808-550-2661 if you have more questions about how you might support our work as well as the work of our partners.
+  
+  **Donate Directly To Our Partners:** If you've been moved by the work of any of our partners, please follow the links highlighted in our Current and Past Support pages to be directed to their websites where you can learn more about these organizations and make a donation to support their efforts.
 ---

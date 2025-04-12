@@ -147,5 +147,16 @@ collections:
       - { label: "Page ID", name: "pageId", widget: "hidden", default: "our-ohana" }
       - { label: "Former Team Members", name: "formerTeam", widget: "markdown" }
       - { label: "Former Board Members", name: "formerBoard", widget: "markdown" }
+
+  - name: "donate"
+    label: "Donate Page"
+    folder: "src/content/donate"
+    create: false 
+    slug: "{{slug}}"
+    identifier_field: "pageId" 
+    fields:
+      - { label: "Page ID", name: "pageId", widget: "hidden", default: "Donate" }
+      - { label: "Main Content", name: "donateContent", widget: "markdown" }
+      - { label: "Closing", name: "donatePartners", widget: "markdown" }
           
         

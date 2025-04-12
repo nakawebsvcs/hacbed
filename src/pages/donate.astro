@@ -1,10 +1,21 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import { marked } from 'marked';
 
 // Get the donate page content
-// const donatePage = await getCollection("donate");
-// const donatePage = donatePage.find(page => page.data.pageId === "donate");
+const donateCollection = await getCollection("donate");
+const donatePage = donateCollection.find(page => page.data.pageId === "Donate");
+
+// Configure marked to preserve line breaks
+marked.setOptions({
+  breaks: true,  // This converts single line breaks to <br>
+  gfm: true      // GitHub Flavored Markdown
+});
+
+// Parse markdown to HTML
+const donateContentHtml = donatePage ? marked.parse(donatePage.data.donateContent) : '';
+const donatePartnersHtml = donatePage ? marked.parse(donatePage.data.donatePartners) : '';
 ---
 
 <BaseLayout
@@ -28,12 +39,26 @@ import { getCollection } from "astro:content";
 <section id="content-1450">
     <div class="cs-container">
         <div class="cs-content">
-            <span class="cs-topper">ABOUT US</span>
-            <h2 class="cs-title">Stitch Non-profit Charity is the largest global crowdfunding community in the world</h2>
-            <p class="cs-text">
-                Proactively procrastinate cross-platform results via extensive ideas distinctively underwhelm enterprise. Compellingly plagiarize value-added sources with inexpensive schemas. The school provides the best possible education and practical training necessary for those who wish to pursue a career in music, as well as for music-loving children whose aims are non-professional.
-            </p>
-            <a href="http://paypal.com/us/fundraiser/charity/2274761" target="_blank" class="cs-button-solid">Donate</a>
+            <span class="cs-topper">A Letter from Brent</span>
+        <!--    <h2 class="cs-title">Stitch Non-profit Charity is the largest global crowdfunding community in the world</h2> -->
+             <div class="cs-text markdown-content" set:html={donateContentHtml}></div>
+
+<ul id="list-826" class="cs-ul">
+    <li class="cs-item">
+        <h3 class="cs-h3">Online via PayPal</h3>
+        <p class="cs-item-text">
+            Visit our PayPal to make a one-time, secure contribution.
+        </p>
+         <a href="http://paypal.com/us/fundraiser/charity/2274761" target="_blank" class="cs-button-solid">Donate</a>
+    </li>
+    <li class="cs-item">
+        <h3 class="cs-h3">By Mail</h3>
+        <p class="cs-item-text">
+            Send your donation to:<br>HACBED<br>1575 South Beretania St.<br>Suite 211<br>Honolulu, HI 96826.
+        </p>
+    </li>
+</ul>
+<div class="cs-text markdown-content" set:html={donatePartnersHtml}></div>
         </div>
     </div>
 </section>
@@ -41,7 +66,7 @@ import { getCollection } from "astro:content";
                               
 </BaseLayout>
 
-<style lang="less">
+<style is:global lang="less">
   /* PAGE-SPECIFIC STYLES FOR THE ABOUT PAGE */
 
 /*-- -------------------------- -->
@@ -122,53 +147,130 @@ import { getCollection } from "astro:content";
 }
 
 
-  /*-- -------------------------- -->
+/*-- -------------------------- -->
 <---          Content           -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #content-1450 {
-        padding: var(--sectionPadding);
+  #content-1450 {
+    padding: var(--sectionPadding);
+    
+    .cs-container {
+      width: 70%;
+      max-width: (1280/16rem);
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 48px - 64px */
+      gap: clamp(3rem, 6vw, 4rem);
+    }
+
+    .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: left;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: center;
+    }
+
+    .cs-title, .cs-text {
+      max-width: 100%;
+    }
+
+    .cs-text {
+      /* Increased font size */
+      font-size: clamp(0.8rem, 2vw, 1.2rem);
+      margin: 0 0 (32/16rem) 0;
+      
+      /* Ensure all child elements inherit the font size */
+      & > * {
+        font-size: inherit;
+      }
+      
+      /* Ensure paragraphs have proper spacing */
+      p {
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+        font-size: inherit;
+      }
+      
+      /* Style for strong/bold text */
+      strong, b {
+        font-weight: 700;
+        color: var(--bodyTextColor);
+        font-size: inherit;
+      }
+      
+      /* Style for lists */
+      ul, ol {
+        margin-left: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-size: inherit;
         
-        .cs-container {
-            width: 100%;
-            max-width: (1280/16rem);
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* 48px - 64px */
-            gap: clamp(3rem, 6vw, 4rem);
+        li {
+          margin-bottom: 0.5rem;
+          font-size: inherit;
         }
+      }
+    }
 
-        .cs-content {
-            /* set text align to left if content needs to be left aligned */
-            text-align: center;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            /* centers content horizontally, set to flex-start to left align */
-            align-items: center;
-        }
+    .cs-topper {
+      text-align: center;
+      width: 80%; /* Ensures the element takes full width */
+      display: block; /* Makes it a block element for proper centering */
+      margin: 0 auto 3rem auto;
+      line-height: 1.5;
+    }
 
-        .cs-title, .cs-text {
-            max-width: 100%;
-        }
-
-        .cs-text {
-            /* 16px - 20px */
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            margin: 0 0 (32/16rem) 0;
-        }
-         .cs-topper {
-            text-align: center;
-            width: 80%; /* Ensures the element takes full width */
-            display: block; /* Makes it a block element for proper centering */
-            margin: 0 auto; /* Center the element */
-            line-height: 1.5;
+    .cs-button-solid {
+      margin-top: 1.5rem;
+    }
   }
+}
+
+/* Mobile - 360px */
+#list-826 {
+    width: 100%;
+    max-width: (630/16rem);
+    padding: 0;
+    margin: 0 0 (32/16rem) 0;
+    padding-top: (12/16rem);
+    padding-bottom:(32/16rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: (36/16rem);
+
+    .cs-item {
+        list-style: none;
+        width: 100%;
+        max-width: (264/16rem);
+        margin: 0;
+    }
+
+    .cs-h3 {
+        /* 16px - 20px */
+        font-size: clamp(1rem, 2.3vw, 1.25rem);
+        line-height: 1.5em;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin: 0 0 (8/16rem) 0;
+        color: var(--secondary);
+    }
+
+    .cs-item-text {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        margin: 0;
+        color: var(--bodyTextColor);
     }
 }
+
+                                
                                 
 </style>

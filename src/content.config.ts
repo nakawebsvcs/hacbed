@@ -121,6 +121,18 @@ const ourOhanaCollection = defineCollection({
   }),
 });
 
+const donateCollection = defineCollection({
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/donate",
+  }),
+  schema: z.object({
+    pageId: z.string(),
+    donateContent: z.string(),
+    donatePartners: z.string(),
+  }),
+});
+
 
 // projects collection
 const projectsCollection = defineCollection({
@@ -162,5 +174,6 @@ export const collections = {
   howWeWork: howWeWorkCollection,
   ourRoots: ourRootsCollection,
   ourOhana: ourOhanaCollection,
+  donate: donateCollection,
   projects: projectsCollection,
 };
