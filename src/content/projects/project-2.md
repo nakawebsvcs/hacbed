@@ -8,13 +8,13 @@ tags:
   - project
   - network coordination
 partners:
-  - image: "/src/assets/images/blog/NCRC.png"
+  - image: "/assets/images/partners/NCRC.png"
     link: ""
-  - image: "/src/assets/images/blog/prosperity-now.png"
+  - image: "/assets/images/partners/prosperity-now.png"
     link: ""
-  - image: "/src/assets/images/blog/cities-financial-empowerment.png"
+  - image: "/assets/images/partners/cities-financial-empowerment.png"
     link: ""
-  - image: "/src/assets/images/blog/national-capacd.png"
+  - image: "/assets/images/partners/national-capacd.png"
     link: ""
 ---
 

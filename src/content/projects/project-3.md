@@ -8,7 +8,7 @@ tags:
   - project
   - strategic & community-based planning
 partners:
-  - image: "/src/assets/images/blog/county-of-HI.png"
+  - image: "/assets/images/partners/county-of-HI.png"
     link: ""
 ---
 

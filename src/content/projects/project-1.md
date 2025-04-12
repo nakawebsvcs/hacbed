@@ -10,7 +10,7 @@ tags:
   - project
   - capacity building
 partners:
-  - image: /src/assets/images/blog/County-of-HI-R-D.webp
+  - image: /assets/images/partners/County-of-HI-R-D.webp
     link: '""'
 ---
 
