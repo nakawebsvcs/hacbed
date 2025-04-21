@@ -35,9 +35,9 @@ networkContent: |
     
     *Reference Materials on Network Development:* [Weaving Smart Networks](http://www.networkweaver.com/)
 networkExamples: |
-    [Hinaʻi Network](https://www.hacbed.org/hinai-2/) -- The Hinaʻi Network is comprised of individuals and organizations that represent nonprofit community services agencies, government entities, educational institutions and experts in agriculture. Together, this network is working together on multiple projects across the state of Hawaiʻi to build a sustainable agriculture economy.
+    **Hinaʻi Network** -- The Hinaʻi Network is comprised of individuals and organizations that represent nonprofit community services agencies, government entities, educational institutions and experts in agriculture. Together, this network is working together on multiple projects across the state of Hawaiʻi to build a sustainable agriculture economy.
     
-    [Hoʻowaiwai Network](https://www.hacbed.org/current-projects/hoowaiwai-network-hawaii-island/) -- The members of the Hoʻowaiwai Network work to develop, sustain and expand their *Hoʻowaiwai Empowerment Services.* These services aim to Build Genuine Wealth & Financial Security at the *Individual & Family Level;* Improve Productivity & Viability at the *Private & Public Sector Level;* and Nurture Sustainability & Resilience at the *Community Level.* Members represent nonprofit community agencies, government entities, volunteer organizations as well as unaffiliated individuals interested in furthering the goals of the network.
+    **Hoʻowaiwai Network** -- The members of the Hoʻowaiwai Network work to develop, sustain and expand their *Hoʻowaiwai Empowerment Services.* These services aim to Build Genuine Wealth & Financial Security at the *Individual & Family Level;* Improve Productivity & Viability at the *Private & Public Sector Level;* and Nurture Sustainability & Resilience at the *Community Level.* Members represent nonprofit community agencies, government entities, volunteer organizations as well as unaffiliated individuals interested in furthering the goals of the network.
 planningContent: |
     Sometimes people just need to talk story. HACBED serves as an intentional listener to help communities to articulate their ideas in a safe space, synthesize ideas, and action plan their next steps. We listen to every stakeholder to ensure each voice is equally lifted up. As such, we remain connected to our "activist" roots by ensuring that no voice is unheard so that the organization can move forward collectively.
     
@@ -47,7 +47,7 @@ planningContent: |
     
     For more information on HACBED's strategic planning services or interest in receiving more general technical support, please contact us.
 planningExamples: |
-    [Halau Ku Mana Public Charter School](https://www.hacbed.org/hinai-2/) -- in 2014 and 2015, HACBED provided Strategic Planning services to help HKM outline their activities and priorities for the coming years.
+    **Halau Ku Mana Public Charter School** -- in 2014 and 2015, HACBED provided Strategic Planning services to help HKM outline their activities and priorities for the coming years.
     
     **Nā Kūpuna A Me Nā Kākoʻo O Hālawa** --  HACBED has provided facilitation and technical support for strategic planning, board development, operational support, and development of a sustainability plan to the nonprofit granted to maintain the historic Hālawa Valley.
     

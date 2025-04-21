@@ -1,15 +1,14 @@
 ---
-title: Hawaiʻi Island Draft General Plan 2045 and Community Development Plan Outreach Support 
+title: Hawaiʻi Island Draft General Plan 2045 and Community Development Plan Outreach Support
 description: HACBED supported the Planning Department with an outreach process that was designed to authentically engage community members across the island to integrate community voice.
-category: "Strategic & Community-Based Planning"
-image: /src/assets/images/blog/img-placeholder.png
-imageAlt: Image Placeholder
+category: Strategic & Community-Based Planning
+image: ""
 tags:
   - project
-  - strategic & community-based planning
+  - strategic & community-based planningg
 partners:
   - image: "/assets/images/partners/county-of-HI.png"
-    link: ""
+    link: "https://www.planning.hawaiicounty.gov/home"
 ---
 
 ## General Plan Outreach Support: 
@@ -25,4 +24,4 @@ Hawaiʻi Island’s [Community Development Plans (CDPs)](https://www.planning.ha
 - CDP Action Committee (AC) Engagement 
 - Public Workshops 
 
-Previously, HACBED partnered with Hawaiʻi County Office of Planning and Islander Institute with the development of region specific Community Development Plans (CDPs) for Kaʻū and Hāmākua. See HACBED’s prior work with the CDP [here](https://www.hacbed.org/hawai%CA%BBi-county-community-development-plans/).
+Previously, HACBED partnered with Hawaiʻi County Office of Planning and Islander Institute with the development of region specific Community Development Plans (CDPs) for Kaʻū and Hāmākua.

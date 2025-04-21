@@ -149,10 +149,11 @@ const projectsCollection = defineCollection({
         "Network Coordination",
         "Strategic & Community-Based Planning",
         "Past Support",
+        "Unlisted",
       ]),
       tags: z.array(z.string()),
-      image: image(),
-      imageAlt: z.string(),
+      image: image().optional(),
+      imageAlt: z.string().optional().default("Project image"),
       partners: z
         .array(
           z.object({

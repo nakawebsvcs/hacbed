@@ -1,21 +1,20 @@
 ---
 title: National Partnerships
 description: Learn more about HACBED's national partnerships.
-category: "Network Coordination"
-image: /src/assets/images/blog/img-placeholder.png
-imageAlt: Image Placeholder
+category: Network Coordination
+image: ""
 tags:
   - project
   - network coordination
 partners:
   - image: "/assets/images/partners/NCRC.png"
-    link: ""
+    link: "https://ncrc.org/about/"
   - image: "/assets/images/partners/prosperity-now.png"
-    link: ""
+    link: "https://www.prosperitynow.org/about-us"
   - image: "/assets/images/partners/cities-financial-empowerment.png"
-    link: ""
+    link: "https://cfefund.org/coalition/"
   - image: "/assets/images/partners/national-capacd.png"
-    link: ""
+    link: "https://www.nationalcapacd.org/about/"
 ---
 
 The National Community Reinvestment Coalition and its grassroots member organizations create opportunities for people to build wealth. They work with community leaders, policymakers and financial institutions to champion fairness in banking, housing and business. HACBED serves as a board member.
