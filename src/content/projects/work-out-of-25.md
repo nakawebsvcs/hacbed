@@ -4,7 +4,7 @@ description: In 2017, the HACBED team convened close partners and supporters to
   celebrate HACBED’s 25th Anniversary as well as listen to feedback on areas of
   need for our community and institutional partners...
 category: Past Support
-image: src/assets/images/blog/out-of-25.jpg
+image: src/assets/images/projects/out-of-25.jpg
 imageAlt: HACBED
 tags:
   - project

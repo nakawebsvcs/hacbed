@@ -4,7 +4,7 @@ description: HACBED developed a body of information, experience, and expertise
   to support the field of community-based economic development and asset
   building in Hawai‘i by...
 category: Past Support
-image: src/assets/images/blog/up-to-25.jpg
+image: src/assets/images/projects/up-to-25.jpg
 imageAlt: HACBED
 tags:
   - project
