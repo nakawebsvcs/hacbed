@@ -2,7 +2,6 @@
 title: National Partnerships
 description: Learn more about HACBED's national partnerships.
 category: Network Coordination
-image: ""
 tags:
   - project
   - network coordination

@@ -4,7 +4,6 @@ title: Native Hawaiian Women Development Initiative and Empowering Hawaiʻi
 description: Supporting the economic equity of Native Hawaiian women while
   promoting sustainable and regenerative practices in Hawaiʻi.
 category: Capacity Building & Technical Assistance
-image: ""
 tags:
   - project
   - capacity building

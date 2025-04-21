@@ -2,7 +2,6 @@
 title: Hawaiʻi Island Draft General Plan 2045 and Community Development Plan Outreach Support
 description: HACBED supported the Planning Department with an outreach process that was designed to authentically engage community members across the island to integrate community voice.
 category: Strategic & Community-Based Planning
-image: ""
 tags:
   - project
   - strategic & community-based planningg
