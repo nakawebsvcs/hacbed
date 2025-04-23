@@ -14,7 +14,7 @@ import client from "@data/client.json";
 
   <section id="cs-contact" style="margin-top: 5rem;">
     <div class="cs-container">
-      <form data-netlify="true" id="cs-form" name="Contact Form" method="post">
+      <form id="cs-form" name="Contact Form" method="post" netlify>
         <div class="cs-content">
           <span class="cs-topper">Contact</span>
           <h2 class="cs-title">Get in Touch<br><br></h2>
@@ -70,8 +70,7 @@ import client from "@data/client.json";
             id="message"
             placeholder="Write message..."></textarea>
         </label>
-        <div data-netlify-recaptcha="true"></div>
-<button class="cs-button-solid" type="submit">Submit Message</button>
+        <button class="cs-button-solid" type="submit">Submit Message</button>
       </form>
       <div class="cs-right-section">
         <!--Email-->
