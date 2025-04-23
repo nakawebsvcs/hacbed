@@ -23,4 +23,8 @@ Hawaiʻi Island’s [Community Development Plans (CDPs)](https://www.planning.ha
 - CDP Action Committee (AC) Engagement 
 - Public Workshops 
 
-Previously, HACBED partnered with Hawaiʻi County Office of Planning and Islander Institute with the development of region specific Community Development Plans (CDPs) for Kaʻū and Hāmākua.
+Previously, HACBED partnered with Hawaiʻi County Office of Planning and Islander Institute with the development of region specific Community Development Plans (CDPs) for Kaʻū and Hāmākua. The CDPs were intended to serve as the forum for community input into establishing County policy at the regional level and coordinating the delivery of County services to the community. In other words, the CDPs created a framework for regional planning that provides residents and other stakeholders the opportunity to actively participate in planning for their communities and implementing those plans.
+
+As the Kaʻū and Hāmākua CDPs were being developed, HACBED worked closely with County of Hawaiʻi planners to design and facilitate a community engagement process that made CDP content accessible to residents and provided opportunities for input and spaces for community review of CDP drafts.
+
+[Click here](https://www.planning.hawaiicounty.gov/general-plan-community-planning/cdp) for more information on Community Development Plans, or learn more about the CDP process for the Kaʻū CDP Community SpeakOuts [here](https://www.youtube.com/watch?v=AaPrTuIELD8).
