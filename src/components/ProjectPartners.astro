@@ -7,7 +7,6 @@ const { partners } = Astro.props;
 
 <!-- ============================================ --><!--                Project Partners                --><!-- ============================================ -->
 <div class="blog-sidebar">
-  <!--Partners-->
   <div class="blog-featured-group">
     <span class="blog-header">Learn more about our partner(s):</span>
     {
@@ -15,17 +14,19 @@ const { partners } = Astro.props;
         partners.map((partner) => (
           <a class="blog-feature project-partner" href={partner.link || "#"} target="_blank" rel="noopener noreferrer">
             <picture class="partnerImage">
-              <img
-                src={partner.image}
-                alt="Partner logo"
-                loading="lazy"
-                style="max-width: 300px; max-height: 200px; width: auto; height: auto; object-fit: contain;"
-              />
+              {partner.image && (
+                <img
+                  src={partner.image.startsWith('/') ? partner.image : `/${partner.image}`}
+                  alt="Partner logo"
+                  loading="lazy"
+                  style="max-width: 300px; max-height: 200px; width: auto; height: auto; object-fit: contain;"
+                />
+              )}
             </picture>
           </a>
         ))
       ) : (
-        <p>No partners for this project</p>
+        <p>No partners to display</p>
       )
     }
   </div>
