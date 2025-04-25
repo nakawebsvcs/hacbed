@@ -150,7 +150,7 @@ allows for repeated components, centralized data and greater room to scale as yo
 <section id="services-448">
     <div class="cs-container">
         <div class="cs-content">
-            <h2 class="cs-title">Current Support</h2>
+            <h2 class="cs-title">Current and Recent Support</h2>
             <p class="cs-text">
                 {homePage.data.currentSupportDesc}
             </p>
@@ -926,6 +926,7 @@ allows for repeated components, centralized data and greater room to scale as yo
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            height: 100%; /* Added to ensure consistent height */
             &:hover {
                 .cs-picture {
                     img {
@@ -973,43 +974,59 @@ allows for repeated components, centralized data and greater room to scale as yo
         }
 
         .cs-flex {
-    text-align: center;
-    width: 88%;
-    padding: 0 (24/16rem) (24/16rem) (24/16rem);
-    /* prevents padding and border from affecting height and width */
-    box-sizing: border-box;
-    border: 1px solid #dad9e3;
-    border-radius: (12/16rem);
-    background-color: #fffffff4;
-    box-shadow: 0px 24px 54px rgba(87, 107, 147, 0.12);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    /* Add minimum height for consistent card sizing */
-    min-height: clamp(380/16rem, 30vw, 400/16rem);
+            text-align: center;
+            width: 88%;
+            padding: 0 (24/16rem) (24/16rem) (24/16rem);
+            /* prevents padding and border from affecting height and width */
+            box-sizing: border-box;
+            border: 1px solid #dad9e3;
+            border-radius: (12/16rem);
+            background-color: #fffffff4;
+            box-shadow: 0px 24px 54px rgba(87, 107, 147, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Changed from center to flex-start */
+            align-items: center;
+            position: relative;
+            /* Add minimum height for consistent card sizing */
+            min-height: clamp(380/16rem, 30vw, 400/16rem);
 
-    &:before {
-        /* hover border box */
-        content: "";
-        background: transparent;
-        /* prevents the mouse from interacting with it */
-        pointer-events: none;
-        border: 4px solid var(--primary);
-        border-radius: (12/16rem);
-        /* prevents border from affecting height and width */
-        box-sizing: border-box;
-        opacity: 0;
-        position: absolute;
-        display: block;
-        top: -1px;
-        left: -1px;
-        right: -1px;
-        bottom: -1px;
-        transition: opacity 0.5s;
-    }
-}
+            &:before {
+                /* hover border box */
+                content: "";
+                background: transparent;
+                /* prevents the mouse from interacting with it */
+                pointer-events: none;
+                border: 4px solid var(--primary);
+                border-radius: (12/16rem);
+                /* prevents border from affecting height and width */
+                box-sizing: border-box;
+                opacity: 0;
+                position: absolute;
+                display: block;
+                top: -1px;
+                left: -1px;
+                right: -1px;
+                bottom: -1px;
+                transition: opacity 0.5s;
+            }
+        }
+
+        /* New class for links container */
+        .cs-links-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            min-height: 120px; /* Set a minimum height for the links container */
+            margin-top: auto; /* Push to the bottom if needed */
+            flex: 1; /* Take up available space */
+        }
+
+        /* New class for placeholder space */
+        .cs-placeholder {
+            flex: 1;
+            min-height: 40px; /* Adjust as needed */
+        }
 
         .cs-wrapper {
             /* 80px - 120px */
@@ -1043,11 +1060,11 @@ allows for repeated components, centralized data and greater room to scale as yo
             font-size: clamp(1.25rem, 1.9vw, 1.5625rem);
             line-height: 1.2em;
             font-weight: 700;
-            margin: 0 0 (8/16rem) 0;
+            margin: 0 0 (16/16rem) 0; /* Increased from 8/16rem to 16/16rem */
             color: var(--headerColor);
         }
 
-       /* .cs-title {
+        /* .cs-title {
             font-size: clamp(3rem, 3.5vw, 3.25rem);
             line-height: 1.5em;
             font-weight: 700;
@@ -1071,7 +1088,7 @@ allows for repeated components, centralized data and greater room to scale as yo
             line-height: 1.5em;
             font-weight: 400;
             text-decoration: none;
-            margin: 0;
+            margin: 0 0 0.5rem 0; /* Added bottom margin for spacing between links */
             padding: .4rem;
             color: var(--secondary);
             display: inline-block;
@@ -1109,27 +1126,28 @@ allows for repeated components, centralized data and greater room to scale as yo
 
         .cs-card-group {
             flex-direction: row;
+            align-items: stretch; /* Added to ensure cards stretch to match tallest */
         }
 
         .cs-item {
             width: 47%;
+            height: 100%; /* Ensure full height */
         }
 
         .cs-text {
-            width:75%;
+            width: 75%;
         }
 
-         .cs-link {
+        .cs-link {
             /* 16px - 20px */
             font-size: clamp(1rem, 1.5vw, 1.3rem);
             line-height: 1.5em;
             font-weight: 400;
-         }
+        }
 
         .cs-picture {
-
             img {
-              object-position: center 100% !important;
+                object-position: center 100% !important;
             }
         }
     }
@@ -1141,29 +1159,35 @@ allows for repeated components, centralized data and greater room to scale as yo
         .cs-card-group {
             flex-wrap: nowrap;
         }
+        
         .cs-item {
             width: 100%;
             /* 144px - 274px */
             padding-top: clamp(15rem, 23vw, 23rem);
         }
 
-         .cs-link {
+        .cs-link {
             /* 16px - 20px */
             font-size: clamp(1rem, 1.2vw, 1rem);
             line-height: 1.5em;
             font-weight: 400;
-         }
+        }
 
         .cs-picture {
             /* 224px - 428px */
             height: clamp(14rem, 28vw, 26.75rem);
 
             img {
-              object-position: center 100% !important;
+                object-position: center 100% !important;
             }
+        }
+        
+        /* Adjust links container for desktop */
+        .cs-links-container {
+            min-height: 150px; /* Slightly taller for desktop */
         }
     }
 }
-                                
+                               
                                 
 </style>
