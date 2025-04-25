@@ -5,6 +5,7 @@ import BaseLayout from "src/layouts/BaseLayout.astro";
 import { formatDate } from "@js/utils";
 import ProjectPartners from "@components/ProjectPartners.astro";
 import "@styles/blog.less";
+import BackToTop from "@components/BackToTop.astro";
 
 
 export async function getStaticPaths() {
@@ -95,6 +96,9 @@ const { Content } = await render(project);
     }
   </div>
 </div>
+
+<BackToTop />
+
 </BaseLayout>
 
 <style lang="less">
@@ -333,4 +337,3 @@ const { Content } = await render(project);
       }
     }
   }
-</style>

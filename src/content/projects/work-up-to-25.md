@@ -19,6 +19,125 @@ HACBED developed a body of information, experience, and expertise to support the
 
 HACBEDʻs focus and scope of work was in the following areas:
 
+<!-- -- -- -- -- -- **IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION** -- -- -- -- -- -- -->
+
+<div class="section-grid">
+  <div class="grid-container">
+    <div class="grid-item">
+      <a href="#community--organizational-capacity-building">
+        <div class="image-container first-image">
+          <img src="/src/assets/images/blog/capacity-building.png" alt="Community & Organizational Capacity Building">
+        </div>
+        <p>Community & Organizational Capacity Building</p>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="#family--community-asset-building-for-self-sufficiency">
+        <div class="image-container">
+          <div class="image-wrapper" style="margin-top: -50px;">
+            <img src="/src/assets/images/blog/community-asset-building.png" alt="Family & Community Asset Building">
+          </div>
+        </div>
+        <p>Family & Community Asset Building</p>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="#community-based-planning">
+        <div class="image-container">
+          <div class="image-wrapper" style="margin-top: -50px;">
+            <img src="/src/assets/images/blog/community-based-planning.png" alt="Community Based Planning">
+          </div>
+        </div>
+        <p>Community Based Planning</p>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="#finance-and-fund-development">
+        <div class="image-container">
+          <div class="image-wrapper" style="margin-top: -50px;">
+            <img src="/src/assets/images/blog/finance-fund-dev.png" alt="Finance and Fund Development">
+          </div>
+        </div>
+        <p>Finance and Fund Development</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section-grid {
+    margin: 2rem 0;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem;
+  }
+  .grid-item {
+    text-align: center;
+  }
+  .image-container {
+    width: 100%;
+    height: 130px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+  .image-container img {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 175px;
+    transform: translateY(-50%);
+    object-fit: cover;
+    transition: all 0.3s ease;
+  }
+  /* Special handling for the first image */
+  .first-image img {
+    height: 150px; 
+    margin-top: 0; 
+  }
+  .grid-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+ .image-container:hover {
+    overflow: hidden;
+  }
+  .image-container:hover img {
+    transform: translateY(-50%) scale(1.05);
+  }
+  .grid-item p {
+    margin-top: 0.5rem;
+    font-weight: bold;
+  }
+
+  /* scroll margin for anchor positioning */
+  h3 {
+    scroll-margin-top: 100px;
+  }
+  
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+    .image-container {
+      height: 130px;
+    }
+    .image-container img {
+      height: 160px; /* Reduced from 180px to 160px */
+    }
+    .first-image img {
+      height: 130px;
+    }
+  }
+</style>
+
+<!-- -- -- -- -- -- **END HTML CODE SECTION** -- -- -- -- -- -- -->
+
 ### *Community & Organizational Capacity Building*
 
 ![](src/assets/images/blog/capacity-building.png)
