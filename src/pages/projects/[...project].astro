@@ -98,7 +98,20 @@ const { Content } = await render(project);
 
 <BackToTop />
 
- <script src="/src/js/project-links-new-tab.js" is:inline></script>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const containers = document.querySelectorAll('.new-tab-links');
+    containers.forEach(container => {
+      const links = container.querySelectorAll('a');
+      links.forEach(link => {
+        if (!link.hasAttribute('target')) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    });
+  });
+</script>
 
 </BaseLayout>
 
