@@ -42,7 +42,7 @@ collections:
         }
       - { label: "Featured Image", name: "image", widget: "image", required: false }
       - { label: "Image Caption", name: "imageAlt", widget: "string", required: false }
-      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+      - { label: "Tags", name: "tags", widget: "list", default: ["project"], required: false }
       - { label: "Body", name: "body", widget: "markdown" }
       - label: "Project Partners"
         name: "partners"
