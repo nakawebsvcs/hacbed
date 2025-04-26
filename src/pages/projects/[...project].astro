@@ -24,6 +24,18 @@ const { title, description, category, partners } = project.data;
 const hasImage = !!project.data.image;
 const imageAlt = project.data.imageAlt || "Project image";
 
+// Process partners to fix image paths
+const processedPartners = partners ? partners.map(partner => {
+  if (partner.image && partner.image.startsWith('src/')) {
+    // Convert src/assets/images/... to /assets/images/...
+    return {
+      ...partner,
+      image: partner.image.replace('src/', '/')
+    };
+  }
+  return partner;
+}) : [];
+
 const { Content } = await render(project);
 ---
 
