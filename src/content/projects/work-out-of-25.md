@@ -27,7 +27,7 @@ In 2017, the HACBED team convened close partners and supporters to celebrate HAC
     <div class="custom-grid-item">
       <a href="#intergenerational-knowledge-evolution" class="custom-item-link">
         <div class="custom-image-container">
-          <img src="/src/assets/images/blog/intergenerational-knowledge.png" alt="Intergenerational Knowledge Evolution">
+          <img src="/assets/images/projects/intergenerational-knowledge.png" alt="Intergenerational Knowledge Evolution">
         </div>
         <p class="custom-item-title">Intergenerational Knowledge Evolution</p>
       </a>
@@ -35,7 +35,7 @@ In 2017, the HACBED team convened close partners and supporters to celebrate HAC
     <div class="custom-grid-item">
       <a href="#āina--food-justice" class="custom-item-link">
         <div class="custom-image-container">
-          <img src="/src/assets/images/blog/aina-food-justice.png" alt="'Āina & Food Justice">
+          <img src="/assets/images/projects/aina-food-justice.png" alt="'Āina & Food Justice">
         </div>
         <p class="custom-item-title">'Āina & Food Justice</p>
       </a>
@@ -43,7 +43,7 @@ In 2017, the HACBED team convened close partners and supporters to celebrate HAC
     <div class="custom-grid-item">
       <a href="#community-driven-institutional-support" class="custom-item-link">
         <div class="custom-image-container">
-          <img src="/src/assets/images/blog/community-driven-support.png" alt="Community-Driven Institutional Support">
+          <img src="/assets/images/projects/community-driven-support.png" alt="Community-Driven Institutional Support">
         </div>
         <p class="custom-item-title">Community-Driven Institutional Support</p>
       </a>

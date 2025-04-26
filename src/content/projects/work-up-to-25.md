@@ -26,7 +26,7 @@ HACBEDʻs focus and scope of work was in the following areas:
     <div class="grid-item">
       <a href="#community--organizational-capacity-building">
         <div class="image-container first-image">
-          <img src="/src/assets/images/blog/capacity-building.png" alt="Community & Organizational Capacity Building">
+          <img src="/assets/images/projects/capacity-building.png" alt="Community & Organizational Capacity Building">
         </div>
         <p>Community & Organizational Capacity Building</p>
       </a>
@@ -35,7 +35,7 @@ HACBEDʻs focus and scope of work was in the following areas:
       <a href="#family--community-asset-building-for-self-sufficiency">
         <div class="image-container">
           <div class="image-wrapper" style="margin-top: -50px;">
-            <img src="/src/assets/images/blog/community-asset-building.png" alt="Family & Community Asset Building">
+            <img src="/assets/images/projects/community-asset-building.png" alt="Family & Community Asset Building">
           </div>
         </div>
         <p>Family & Community Asset Building</p>
@@ -45,7 +45,7 @@ HACBEDʻs focus and scope of work was in the following areas:
       <a href="#community-based-planning">
         <div class="image-container">
           <div class="image-wrapper" style="margin-top: -50px;">
-            <img src="/src/assets/images/blog/community-based-planning.png" alt="Community Based Planning">
+            <img src="/assets/images/projects/community-based-planning.png" alt="Community Based Planning">
           </div>
         </div>
         <p>Community Based Planning</p>
@@ -55,7 +55,7 @@ HACBEDʻs focus and scope of work was in the following areas:
       <a href="#finance-and-fund-development">
         <div class="image-container">
           <div class="image-wrapper" style="margin-top: -50px;">
-            <img src="/src/assets/images/blog/finance-fund-dev.png" alt="Finance and Fund Development">
+            <img src="/assets/images/projects/finance-fund-dev.png" alt="Finance and Fund Development">
           </div>
         </div>
         <p>Finance and Fund Development</p>
