@@ -8,9 +8,9 @@ image: src/assets/images/blog/image5.png
 tags:
   - post
 partners:
-  - image: src/assets/images/blog/image38.jpg
+  - image: /assets/images/projects/image38.jpg
     link: http://www.hawaiicounty.gov
-  - image: src/assets/images/blog/image64.gif
+  - image: /assets/images/projects/image64.gif
     link: https://www.hawaiifoodbasket.org/
 ---
 Puna Community Resilience & Capacity Building Support was a collaboration between the County of Hawaiʻi, HACBED, and other community partners. The goal of the project was to provide tools and support to communities and community-based organizations so that they can build relationships and robust networks that take care of the people they serve, the facilities they use, and their broader communities. The project aimed to build community resilience by strengthening connections and growing partnerships between community organizations, with a focus on providing capacity building support  and  community resilience and asset mapping workshops

@@ -9,7 +9,7 @@ image: src/assets/images/blog/image54.png
 tags:
   - post
 partners:
-  - image: src/assets/images/blog/image6.jpg
+  - image: /assets/images/projects/image6.jpg
     link: https://www.kahuapaamua.org/
 ---
 Kahua Pa‘a Mua (KPM) is a 501(c)(3) non-profit organization based in North Kohala whose mission is to enhance communities through economic, conservation- and preservation-focused, social, and educational programs for youth and adults. David Fuertes and his wife Carolyn Fuertes—each with 30+ years of agriculture, economic development, and youth mentorship-related community service in North Kohala—initiated KPM for the benefit of the entire community.

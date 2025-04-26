@@ -8,7 +8,7 @@ image: src/assets/images/blog/image10.png
 tags:
   - post
 partners:
-  - image: src/assets/images/blog/image53.jpg
+  - image: /assets/images/projects/image53.jpg
     link: https://www.hoaainaomakaha.org/
 ---
 Since its beginning, Hoa ʻĀina O Mākaha – “Land Shared in Friendship” – has centered its focus on supporting family, community self-reliance, and peacebuilding on O‘ahu’s Waiʻanae Coast. When visiting, one can feel the land’s power: a fertile educational center that emerged from barren land.

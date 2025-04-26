@@ -8,9 +8,9 @@ image: src/assets/images/blog/image62.png
 tags:
   - post
 partners:
-  - image: src/assets/images/blog/image45.png
+  - image: /assets/images/projects/image45.png
     link: https://www.nps.gov/havo/learn/historyculture/kahuku-pohue.htm
-  - image: src/assets/images/blog/image37.png
+  - image: /assets/images/projects/image37.png
     link: https://www.tpl.org/our-work/pohue-bay
 ---
 Pōhue Bay on Hawaiʻi Island sits adjacent to Hawaiʻi Volcanoes National Park near the State Manukā Natural Area Reserve and Kaʻū Forest Reserve. Pōhue Bay and the surrounding area provide habitats for federally listed endangered Hawaiʻi animals such as the honuʻea (hawksbill sea turtle) and Hawaiian monk seal. Anchialine ponds at the Bay area are home to ʻōpae ʻula and frequented by native and migratory birds on the shoreline. The natural beauty of this area has led to it being threatened with rezoning and development since the 1980s with the most recent development proposal in 2008, which was faced with public opposition and denied by Hawaiʻi County. 

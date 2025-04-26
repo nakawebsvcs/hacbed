@@ -8,15 +8,15 @@ image: src/assets/images/blog/image2.png
 tags:
   - post
 partners:
-  - image: src/assets/images/blog/image40.jpg
+  - image: /assets/images/projects/image40.jpg
     link: http://www.hawaiiancommunity.net/
-  - image: src/assets/images/blog/image66.png
+  - image: /assets/images/projects/image66.png
     link: https://pbrhawaii.com/
-  - image: src/assets/images/blog/image34.png
+  - image: /assets/images/projects/image34.png
     link: https://www.rcac.org/
-  - image: src/assets/images/blog/image15.png
+  - image: /assets/images/projects/image15.png
     link: https://atahawaii.com/
-  - image: src/assets/images/blog/image14.png
+  - image: /assets/images/projects/image14.png
     link: https://hiappleseed.org/
 ---
 On November 9, 2020 the Office of Council Services contracted [Hawaiian Community Assets ](http://www.hawaiiancommunity.net/)(HCA) to engage the Maui community around solutions for affordable housing. This feedback will help to inform recommendations for a comprehensive affordable housing plan to be reviewed and approved by the Maui County Council in June 2021. 
