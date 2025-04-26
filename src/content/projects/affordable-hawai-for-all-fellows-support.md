@@ -9,28 +9,28 @@ image: src/assets/images/blog/image22.png
 tags:
   - post
 partners:
-  - image: src/assets/images/blog/image40.jpg
+  - image: /assets/images/projects/image40.jpg
     link: https://hawaiiancommunity.net/
-  - image: src/assets/images/blog/image14.png
+  - image: /assets/images/projects/image14.png
     link: https://hiappleseed.org/
-  - image: src/assets/images/blog/image4.png
+  - image: /assets/images/projects/image4.png
     link: https://healthy.kaiserpermanente.org/
-  - image: src/assets/images/blog/image12.png
+  - image: /assets/images/projects/image12.png
     link: https://www.nationalservice.gov/
-  - image: src/assets/images/blog/image31.png
+  - image: /assets/images/projects/image31.png
     link: https://www.frbsf.org/
-  - image: src/assets/images/blog/image8.png
+  - image: /assets/images/projects/image8.png
   - link: https://www.hawaiicommunityfoundation.org/
-    image: src/assets/images/blog/image26.png
-  - image: src/assets/images/blog/image29.png
+    image: /assets/images/projects/image26.png
+  - image: /assets/images/projects/image29.png
     link: https://www.ksbe.edu/
-  - image: src/assets/images/blog/image21.png
+  - image: /assets/images/projects/image21.png
     link: https://www.rcac.org/?gclid=EAIaIQobChMIl6aG-OC95wIVDv5kCh3z-Q9UEAAYASAAEgKybfD_BwE
-  - image: src/assets/images/blog/image33.png
+  - image: /assets/images/projects/image33.png
     link: https://www.lisc.org
-  - image: src/assets/images/blog/image17.png
+  - image: /assets/images/projects/image17.png
     link: https://prosperitynow.org/
-  - image: src/assets/images/blog/image7.png
+  - image: /assets/images/projects/image7.png
     link: https://kresge.org/
 ---
 The Housing Affordability Coalition (HAC) was established in November 2018 and was made up of individuals and organizations who advocate together for policies and best practices that advance housing affordability in Hawaiʻi. Three organizations provide support to this effort: [Hawaiian Community Assets](http://www.hawaiiancommunity.net/), [Hawaiʻi Appleseed](https://hiappleseed.org/), and the Hawaiʻi Alliance for Community-Based Economic Development. A planning year in 2019 led to the co-creation with participants of the following values:

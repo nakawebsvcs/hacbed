@@ -3,14 +3,6 @@ import { Image } from "astro:assets";
 import "@styles/blog.less";
 
 const { partners } = Astro.props;
-
-// Function to fix image paths
-function fixImagePath(path) {
-  if (path && path.startsWith('src/')) {
-    return path.replace('src/', '/');
-  }
-  return path;
-}
 ---
 
 <!-- ============================================ --><!--                Project Partners                --><!-- ============================================ -->
@@ -23,8 +15,8 @@ function fixImagePath(path) {
           <a class="blog-feature project-partner" href={partner.link || "#"} target="_blank" rel="noopener noreferrer">
             <picture class="partnerImage">
               {partner.image && (
-               <img
-                  src={fixImagePath(partner.image.startsWith('/') ? partner.image : `/${partner.image}`)}
+              <img
+                  src={partner.image}
                   alt="Partner logo"
                   loading="lazy"
                   style="max-width: 300px; max-height: 200px; width: auto; height: auto; object-fit: contain;"
