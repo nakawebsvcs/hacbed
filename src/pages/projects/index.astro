@@ -52,7 +52,7 @@ const projectsByCategory = projects.reduce((acc, project) => {
         projects.length >= 1 &&
           projects.map((project) => (
             <article class="recent-articles">
-             {/* Only render the image if it exists */}
+         <!--    {/* Only render the image if it exists */}
               {project.data.image && (
                 <picture class="blog-mainImage">
                   <Image
@@ -63,18 +63,17 @@ const projectsByCategory = projects.reduce((acc, project) => {
                     decoding="async"
                   />
                 </picture>
-              )}
+              )} -->
 
               <div class="article-group">
                 <div class="blog-authorGroup">
-                  {/* Display category instead of author */}
                   <span class="blog-category">{project.data.category}</span>
                 </div>
-                <h2 class="blog-h1">{project.data.title}</h2>
-                <p class="blog-desc">{project.data.description}</p>
+                <a href={`/projects/${project.id}`}><h2 class="blog-h1">{project.data.title}</h2></a>
+            <!--    <p class="blog-desc">{project.data.description}</p> 
                 <a href={`/projects/${project.id}`} class="blog-link">
-                  Read More
-                </a>
+                  Project Page
+                </a> -->
               </div>
             </article>
           ))

@@ -99,19 +99,72 @@ const { Content } = await render(project);
 <BackToTop />
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const containers = document.querySelectorAll('.new-tab-links');
-    containers.forEach(container => {
-      const links = container.querySelectorAll('a');
-      links.forEach(link => {
-        if (!link.hasAttribute('target')) {
-          link.setAttribute('target', '_blank');
-          link.setAttribute('rel', 'noopener noreferrer');
-        }
-      });
-    });
+// Use a self-executing function to avoid global scope pollution
+(function() {
+  // Define the initialization function at the top level
+  window.initProjectLinks = function() {
+    console.log("[PROJECT-LINKS] Running global initialization function");
+    setupNewTabLinks();
+  };
+
+  // Set up the main listeners with minimal code
+  document.addEventListener('astro:page-load', function() {
+    console.log("[PROJECT-LINKS] 'astro:page-load' event fired");
+    window.initProjectLinks();
   });
+
+  document.addEventListener('astro:after-swap', function() {
+    console.log("[PROJECT-LINKS] 'astro:after-swap' event fired");
+    // Wait for DOM to be fully updated
+    setTimeout(window.initProjectLinks, 100);
+  });
+
+  // For direct navigation without transitions
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    console.log("[PROJECT-LINKS] Document already loaded, initializing now");
+    setTimeout(window.initProjectLinks, 10);
+  } else {
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("[PROJECT-LINKS] DOMContentLoaded event fired");
+      window.initProjectLinks();
+    });
+  }
+
+  // Setup New Tab Links
+  function setupNewTabLinks() {
+    console.log("[PROJECT-LINKS] Setting up new tab links");
+    
+    // Find the section first
+    const projectContent = document.querySelector('.new-tab-links');
+    
+    if (!projectContent) {
+      console.log("[PROJECT-LINKS] No project content with class 'new-tab-links' found on this page");
+      return;
+    }
+    
+    // Get all links within the project content
+    const links = projectContent.querySelectorAll('a');
+    console.log(`[PROJECT-LINKS] Found ${links.length} links in project content`);
+    
+    links.forEach(function(link, index) {
+      // Skip links that already have a target attribute or are anchor links
+      if (link.hasAttribute('target') || link.getAttribute('href').startsWith('#')) {
+        console.log(`[PROJECT-LINKS] Skipping link ${index + 1} (already has target or is anchor link): ${link.href}`);
+        return;
+      }
+      
+      console.log(`[PROJECT-LINKS] Processing link ${index + 1}: ${link.href}`);
+      
+      // Add target and rel attributes
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+      
+      console.log(`[PROJECT-LINKS] Added target="_blank" to link: ${link.href}`);
+    });
+  }
+})();
 </script>
+
 
 </BaseLayout>
 
