@@ -7,7 +7,6 @@ import ProjectPartners from "@components/ProjectPartners.astro";
 import "@styles/blog.less";
 import BackToTop from "@components/BackToTop.astro";
 
-
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
   return projects.map((entry) => ({
@@ -82,7 +81,7 @@ const { Content } = await render(project);
       <!-- ============================================ -->
 
       <article class="blog-article">
-        <section id="blog-content">
+        <section id="blog-content" class="new-tab-links">
           <Content />
         </section>
       </article>
@@ -98,6 +97,8 @@ const { Content } = await render(project);
 </div>
 
 <BackToTop />
+
+ <script src="/src/js/project-links-new-tab.js" is:inline></script>
 
 </BaseLayout>
 

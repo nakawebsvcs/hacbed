@@ -19,6 +19,7 @@
     "decap-server": "^3.1.2",
     "less": "^4.2.0",
     "marked": "^15.0.8",
+    "remark-external-links": "^9.0.1",
     "typescript": "^5.6.3"
   },
   "devDependencies": {

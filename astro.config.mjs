@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import remarkExternalLinks from "remark-external-links";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
@@ -15,4 +16,12 @@ export default defineConfig({
       priority: 0.7,
     }),
   ],
+  markdown: {
+    remarkPlugins: [
+      [
+        remarkExternalLinks,
+        { target: "_blank", rel: ["noopener", "noreferrer"] },
+      ],
+    ],
+  },
 });
