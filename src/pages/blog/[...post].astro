@@ -78,13 +78,80 @@ const { Content } = await render(post);
             <span class="blog-date">{formatDate(date)}</span>
           </div>
         </div>
-        <section id="blog-content">
+        <section id="blog-content" class="new-tab-links">
           <Content />
         </section>
       </article>
     </div>
     <FeaturedPost />
   </div>
+
+<script is:inline>
+// Use a self-executing function to avoid global scope pollution
+(function() {
+  // Define the initialization function at the top level
+  window.initBlogLinks = function() {
+    console.log("[BLOG-LINKS] Running global initialization function");
+    setupNewTabLinks();
+  };
+
+  // Set up the main listeners with minimal code
+  document.addEventListener('astro:page-load', function() {
+    console.log("[BLOG-LINKS] 'astro:page-load' event fired");
+    window.initBlogLinks();
+  });
+
+  document.addEventListener('astro:after-swap', function() {
+    console.log("[BLOG-LINKS] 'astro:after-swap' event fired");
+    // Wait for DOM to be fully updated
+    setTimeout(window.initBlogLinks, 100);
+  });
+
+  // For direct navigation without transitions
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    console.log("[BLOG-LINKS] Document already loaded, initializing now");
+    setTimeout(window.initBlogLinks, 10);
+  } else {
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("[BLOG-LINKS] DOMContentLoaded event fired");
+      window.initBlogLinks();
+    });
+  }
+
+  // Setup New Tab Links
+  function setupNewTabLinks() {
+    console.log("[BLOG-LINKS] Setting up new tab links");
+    
+    // Find the section first
+    const blogContent = document.querySelector('.new-tab-links');
+    
+    if (!blogContent) {
+      console.log("[BLOG-LINKS] No blog content with class 'new-tab-links' found on this page");
+      return;
+    }
+    
+    // Get all links within the blog content
+    const links = blogContent.querySelectorAll('a');
+    console.log(`[BLOG-LINKS] Found ${links.length} links in blog content`);
+    
+    links.forEach(function(link, index) {
+      // Skip links that already have a target attribute or are anchor links
+      if (link.hasAttribute('target') || link.getAttribute('href').startsWith('#')) {
+        console.log(`[BLOG-LINKS] Skipping link ${index + 1} (already has target or is anchor link): ${link.href}`);
+        return;
+      }
+      
+      console.log(`[BLOG-LINKS] Processing link ${index + 1}: ${link.href}`);
+      
+      // Add target and rel attributes
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+      
+      console.log(`[BLOG-LINKS] Added target="_blank" to link: ${link.href}`);
+    });
+  }
+})();
+</script>
 </BaseLayout>
 
 <style lang="less">

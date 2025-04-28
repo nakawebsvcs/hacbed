@@ -23,7 +23,7 @@ Lorem markdownum tardantis unam mitissima dissimulator inposuit corpus sintque t
 
 ## Aut pedum tendit ut raptae
 
-Est vicinia, est herba ut et [duro](http://pars.net/iamcum), agnosse dicitur spectator gracili aquarum. **Amore adfer metam** queri quartus cunctas ego.
+Est vicinia, est herba ut et [duro](/about/our-ohana), agnosse dicitur spectator gracili aquarum. **Amore adfer metam** queri quartus cunctas ego.
 
 Tectis Iovemque moriens fraternaeque Gorgonei equosque Oceanumque, huius corporis, contigerant metu vecta patietur versasse. Et undis superbus? Cura cortice
 saepe admisitque tamen iuvenum, vivere Lemnicolae est vidi dilapsa ianua gelidum, Ismenus. Est dic lacertos regnum quippe certo, ut vultus tollere.
