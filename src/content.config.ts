@@ -143,7 +143,7 @@ const projectsCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      description: z.string(),
+      description: z.string().optional(),
       category: z.enum([
         "Capacity Building & Technical Assistance",
         "Network Coordination",
@@ -151,7 +151,7 @@ const projectsCollection = defineCollection({
         "Past Support",
         "Unlisted",
       ]),
-      tags: z.array(z.string()),
+      tags: z.array(z.string()).optional(),
       image: image().optional(),
       imageAlt: z.string().optional().default("Project image"),
       partners: z
