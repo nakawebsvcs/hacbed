@@ -6,7 +6,7 @@ backend:
   identity_url: https://auth.decapbridge.com/sites/fc1ae123-94aa-46a0-82ed-5d286bfe6bca
   gateway_url: https://gateway.decapbridge.com
 local_backend: true
-media_folder: /assets/images/uploads # Location where files will be stored in the repo
+media_folder: public/assets/images/uploads # Location where files will be stored in the repo
 public_folder: /assets/images/uploads  # Ensure that this path is the same as the media_folder path above.
 site_url: https://hacbed.org # Displays a link to home page in the top-right corner of the CMS dashboard
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg # change url to a link to the image you want to use, no file paths, must be a URL
