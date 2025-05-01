@@ -19,7 +19,7 @@ In 2017, the HACBED team convened close partners and supporters to celebrate HAC
 * Finding people among us who can make bridges is just as important as the CBED vision. We have to be strategic about how to identify people in the power structure.
 * We also collectively committed to bucketing our work into the following areas:
 
-<!-- -- -- -- -- -- \*\*IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION\*\* -- -- -- -- -- -- -->
+<!-- -- -- -- -- -- \\*\\*IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION\\*\\* -- -- -- -- -- -- -->
 
 <div class="custom-section-grid">
   <div class="custom-grid-container">
@@ -141,7 +141,7 @@ In 2017, the HACBED team convened close partners and supporters to celebrate HAC
   }
 </style>
 
-<!-- -- -- -- -- -- \*\*END HTML CODE SECTION\*\* -- -- -- -- -- -- -->
+<!-- -- -- -- -- -- \\*\\*END HTML CODE SECTION\\*\\* -- -- -- -- -- -- -->
 
 In 2022, the HACBED team reconvened close partners for HACBED’s [30th Anniversary](https://www.arcgis.com/apps/Cascade/index.html?appid=c3e5a7ebe24243829c48c28b70967188), which was particularly momentous as we were all reemerging from the COVID-19 pandemic.
 
@@ -215,6 +215,7 @@ Working with individuals connected with institutions who are committed to this p
 * [Maui Affordable Housing Plan Community Shareback](/projects/maui-affordable-housing-plan-community-shareback/) – In support of Hawaiian Community Assets’ (HCA) contract with the Office of Council Services on November 9, 2020, HACBED supported the HCA team in carrying out four shareback meetings in April 2021 that helped to inform the published [Maui County’s Comprehensive Affordable Housing Plan](https://drive.google.com/file/d/1yuPu5IuBPnq1wfuLxgTtnzZR6mMpUXVy/view?usp=sharing). HACBED provided planning, coordination, and documentation support during the four virtual share back meetings. These share back meetings encouraged several community members to call their representatives, volunteer to be affordable housing advocates, and offer their professional skills in support of this plan.
 * [Hawaiʻi Island Tourism Strategic Plan](/projects/hawaiʻi-island-tourism-strategic-plan) – HACBED supported [Hawai‘i County Department of Research & Development](https://www.hawaiicounty.gov/departments/research-and-development) to update the [2006-2016 Hawai‘i Island Tourism Strategic Plan](https://files.hawaii.gov/dbedt/op/spb/DRAFT_CEDS_09.20.16.pdf) to include current local and global trends looking towards 2020-2025. HACBED worked with the County on background research on local and global trends, stakeholder engagement with individuals and groups from the community, the visitor industry, cultural practitioners, and others, as well as network gatherings to engage the broader community. The published 2020-2025 Hawaiʻi Island Tourism Strategic Plan can be found [here](https://recovery.hawaiicounty.gov/home/showpublisheddocument?id=302795).
 * [Pōhue Bay](/projects/pōhue-bay) – HACBED supported the [Trust for Public Land](https://www.tpl.org/our-work/pohue-bay) (TPL) and [National Park Service](https://www.tpl.org/our-work/pohue-bay) (NPS) in preparation of the transfer of a 16,451-acre parcel of Pōhue Bay to Hawaiʻi Volcanoes National Park through the convening of various stakeholders to guide its management, protection, and preservation of the parcel. HACBED convened community engagement listening sessions surrounding updates tied to Pōhue Bay and the current process for NPS to manage the land and collected community feedback, concerns, and suggestions that focused around stewardship of and access to the area. HACBED gathered community feedback and concerns from key stakeholders, including residents near the Pōhue Bay property, Native Hawaiians individuals with historical connections to the land, Native Hawaiian organizations, and other Hawaiʻi Island stewardship organizations
+* [Native Hawaiian Women Development Initiative and Empowering Hawaiʻi Island Businesses](/projects/nhwdi-ehib/) –  HACBED supported the Hawaiʻi County Research and Development Team with the Native Hawaiian Women's Development Initiative which aimed to support economic equity of Native Hawaiian women while promoting sustainable and regenerative  practices in Hawaiʻi. The project focused on empowering Native Hawaiian women entrepreneurs, fostering economic diversification, and addressing social and environmental challenges by providing financial resources, business training, mentorship, and community  support, to create an inclusive ecosystem that promotes the economic well-being of Native Hawaiian women and their communities. [](/projects/nhwdi-ehib/)
 
 ### *General Capacity Building*
 
