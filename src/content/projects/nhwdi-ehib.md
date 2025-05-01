@@ -3,13 +3,13 @@ title: Native Hawaiian Women Development Initiative and Empowering Hawaiʻi
   Island Businesses
 description: Supporting the economic equity of Native Hawaiian women while
   promoting sustainable and regenerative practices in Hawaiʻi.
-category: Capacity Building & Technical Assistance
+category: Unlisted
 tags:
   - project
   - capacity building
 partners:
   - image: /assets/images/partners/County-of-HI-R-D.webp
-    link: "https://sites.google.com/view/hawaiicountybusiness/home"
+    link: https://sites.google.com/view/hawaiicountybusiness/home
 ---
 
 The Native Hawaiian Women's Development Initiative is a project aimed at supporting the 
