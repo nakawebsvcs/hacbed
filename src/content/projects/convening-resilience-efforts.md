@@ -3,7 +3,7 @@ title: "Convening Resilience Efforts "
 description: The COVID-19 pandemic has had an unprecedented impact on individual
   health, family, and work considerations as well as broader systemic, economic,
   and social conditions.
-category: Unlisted
+category: Network Coordination
 image: src/assets/images/blog/image11.png
 tags:
   - post
