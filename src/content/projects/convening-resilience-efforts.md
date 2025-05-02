@@ -71,4 +71,4 @@ The different groups shared a myriad of resources for other groups to utilize an
 
 Mahalo to our funding partners:
 
-![partner logos](src/assets/images/blog/untitled-design.png "Mahalo to our funding partners")
+![partner logos](/assets/images/uploads/resilience-funders.png "Mahalo to our funding partners")
