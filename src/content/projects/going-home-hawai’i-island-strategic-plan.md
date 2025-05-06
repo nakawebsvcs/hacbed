@@ -1,5 +1,5 @@
 ---
-title: Going Home Hawai’i Island Strategic Plan
+title: Going Home Hawaiʻi Island Strategic Plan
 description: In the past year, HACBED provided strategic planning services to
   Going Home Hawai’i, a consortium of over 50 public and private entities
   currently totaling over 250 members.
