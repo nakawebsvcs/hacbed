@@ -1,52 +1,23 @@
 ---
-title: Sample Post
-description: Lorem Acuti modo tardantis unam mitissima dissimulator
-  inposuit   corpus sintque tura tremenda, nec coetum.
-date: 2023-06-08T15:26:46.705Z
-image: /src/assets/images/blog/25-anniversary.png
-imageAlt: 25-anniversary
+title: HACBED Is Hiring!
+description: HACBED is currently searching for a Community-Based Economic
+  Development Project Associate. Accepting responses through April 30, 2025.
+date: 2025-04-29T08:00:00.000Z
+image: /assets/images/uploads/hacbed-hiring.png
+imageAlt: HACBED is Hiring
 tags:
   - post
 ---
+***Want to join our HACBED team?***
 
-## Lacerans aliter tetigit praeterea rite
+The Project Associate will support current activities in collaboration with other *Hawaiʻi Alliance for Community Based Economic Development* team members and support the HACBED team as it grows partnerships and collaborative projects within its focus areas of Intergenerational Knowledge Evolution, ‘Āina & Food Justice, and Community-Driven Institutional Support. The Project Associate will work to support HACBED’s organizational focus on building partnerships in community and cross-collaboration across sectors to lift up community voice and build capacity by using organizing, planning, and strategic network building approaches. The Project Associate role has an annual compensation range from $40,000 to $50,000 and is envisioned as a pathway to the role of Community-Based Economic Development Project Manager.
 
-Lorem markdownum tardantis unam mitissima dissimulator inposuit corpus sintque tura tremenda, nec coetum. Est limen Isthmo sagittas patres emerguntque anxia
-[defenderet](http://www.morte.com/parvo.html) illi, est.
+***If you would like to help build the capacity of families and communities in Hawai’i so they have choice and control to push at social, economic, and environmental justice and would like to learn more about this position and how to apply, please visit the Updates page of our website,** [www.hacbed.org](https://www.hacbed.org/blog/)**, or click below for the full position description.***
 
-- Sua ille submittere viribus verba visa Myconon
-- Qvem nec
-- Frena prior rauco iaculum enim
-- Modo referat
-- Tibi mihi sumit bibit censuque licentia consistite
-- Sumptis Iunonis muneris quiete haec tori
+Deadline to apply is April 30, 2025. Mahalo to all who have already responded. Looking forward to meeting more who share our vision.
 
-## Aut pedum tendit ut raptae
 
-Est vicinia, est herba ut et [duro](/about/our-ohana), agnosse dicitur spectator gracili aquarum. **Amore adfer metam** queri quartus cunctas ego.
 
-Tectis Iovemque moriens fraternaeque Gorgonei equosque Oceanumque, huius corporis, contigerant metu vecta patietur versasse. Et undis superbus? Cura cortice
-saepe admisitque tamen iuvenum, vivere Lemnicolae est vidi dilapsa ianua gelidum, Ismenus. Est dic lacertos regnum quippe certo, ut vultus tollere.
+Read the [Full Position Description](https://drive.google.com/file/d/1TkmKee88mxXpgN9aig5JBmN_zujh3gc8/view?usp=drive_link)
 
-## Iacentes temptabat
-
-Novissima adfixa declinat Labros et librat herbida se sacro amplectitur moenia: parcite nam quoque pugnat non quam tot. Sole et enim inundet? Ecce urbesque
-_obliquis_, non patietur fuga fixa feros horruit [ferox tui](http://www.postquam.org/gravatumiphis.html), de.
-
-1. Argentea ait exstabant trames
-2. Nocti liquidum Minervae Cerberus quas
-3. Neque removente
-
-## Respondere prior si ingemit bellare
-
-Cadme tetigit in luctus minor mulcebunt tempora, utque sua semper essem cultrosque **enses** praecipitem hunc **vestris**. Restantem iussit poena; quod vendit
-electarumque mendacem nec sedens quidem Iovi torta cruribus, et? Venit alvum _anima_! Manibusque idem _Aconteus ducat_ multamque et tibi Siphnon; mitissima
-devenit aut poscitur flumina nymphas revocare obstitit Lyciaeque Meleagros fors.
-
-Orbem dolendi corpore hic [flamma vertere recurvas](http://paruit.com/sineloqui.html), da pedes calido unus armis relinquunt,
-[flores Minervae formam](http://alumnaesibi.com/unda). Caelo [inposuit](http://invirginibus.org/trahuntur) viribus semper, vesci excipit facta putes. Patitur
-attonitos acutior dum liquefacta nostra habebat. Duabus victus me suae viscera natorum ferox contulerat, de tuus Pasiphaeia ruunt protinus?
-
-_Multis soror_, mundi paruerit quietem in, temeraria velantque guttura temerarius candens prostravit vera operatus, ut fecimus. Gyaros quaesiti in, a frustra,
-iacentia hosti. Suae iamque. Sustinet crimen toris, oves hanc est causa tum paravi phocen in natas, crudelis infra erat minimo? Inquit et **loqui studiisque
-Alpheos** venti spectata velocior [fida](http://www.animiquetantaque.net/atulterius.aspx) Iove habet Cometen rediit; tulisset!
+[](https://drive.google.com/file/d/1TkmKee88mxXpgN9aig5JBmN_zujh3gc8/view?usp=drive_link)
