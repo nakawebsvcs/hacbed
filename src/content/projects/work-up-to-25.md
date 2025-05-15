@@ -17,9 +17,9 @@ HACBED developed a body of information, experience, and expertise to support the
 * Implementing field building strategies to improve the environment in which community-based organizations must operate in Hawai‘i. 
 * Sitting, talking story, and listening to capture, synthesize, reflect, and sometimes translate the vision and ideas of community members.
 
-HACBEDʻs focus and scope of work was in the following areas:
+HACBED's focus and scope of work was in the following areas:
 
-<!-- -- -- -- -- -- \\\\*\\\\*IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION\\\\*\\\\* -- -- -- -- -- -- -->
+<!-- -- -- -- -- -- \\\\\*\\\\\*IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION\\\\\*\\\\\* -- -- -- -- -- -- -->
 
 <div class="section-grid">
   <div class="grid-container">
@@ -136,7 +136,7 @@ HACBEDʻs focus and scope of work was in the following areas:
   }
 </style>
 
-<!-- -- -- -- -- -- \\\\*\\\\*END HTML CODE SECTION\\\\*\\\\* -- -- -- -- -- -- -->
+<!-- -- -- -- -- -- \\\\\*\\\\\*END HTML CODE SECTION\\\\\*\\\\\* -- -- -- -- -- -- -->
 
 ### *Community & Organizational Capacity Building*
 
