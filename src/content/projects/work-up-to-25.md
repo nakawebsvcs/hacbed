@@ -19,7 +19,7 @@ HACBED developed a body of information, experience, and expertise to support the
 
 HACBEDʻs focus and scope of work was in the following areas:
 
-<!-- -- -- -- -- -- \\*\\*IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION\\*\\* -- -- -- -- -- -- -->
+<!-- -- -- -- -- -- \\\*\\\*IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION\\\*\\\* -- -- -- -- -- -- -->
 
 <div class="section-grid">
   <div class="grid-container">
@@ -136,7 +136,7 @@ HACBEDʻs focus and scope of work was in the following areas:
   }
 </style>
 
-<!-- -- -- -- -- -- \\*\\*END HTML CODE SECTION\\*\\* -- -- -- -- -- -- -->
+<!-- -- -- -- -- -- \\\*\\\*END HTML CODE SECTION\\\*\\\* -- -- -- -- -- -- -->
 
 ### *Community & Organizational Capacity Building*
 
@@ -192,6 +192,7 @@ Developing policies and community practices around strategies that help individu
 
 * *Hoʻowaiwai Network* -- The Hoʻowaiwai Network is a statewide coalition of over 130 members of private and public organizations, community practitioners, financial institutions, families, and youth in Hawaiʻi that organize actions to address asset poverty and build the wealth and financial stability of Hawaiʻi’s working families. Locally on Hawaiʻi Island, the Hoʻowaiwai Network is comprised of private and public organizations, community practitioners, financial institutions, and families and youth in Hawaiʻi that organize actions to address asset poverty and build the wealth and financial stability of Hawaiʻi’s working families. Hoʻowaiwai Network members work to build strategies and tools to increase family and community assets within the unique context of Hawaiʻi.
 * *[Youth Savings Initiative: Kōkua Kalihi Valley](/projects/youth-savings-initiative--kōkua-kalihi-valley/)* -- HACBED and Kōkua Kalihi Valley (KKV) partnered to offer the participants in their bike exchange program an opportunity to earn match savings and bonus cash incentives by attending a series of financial education and life skills workshops.
+* *[Hawaiʻi Asset Building Conferences](https://hacbed.netlify.app/projects/hawai%CA%BBi-asset-building-conferences/)* -- HACBED and the statewide Hoʻowaiwai Network convened local and national asset building leaders for a statewide symposia in 2010 titled "Springboard To Prosperity: Building the Financial Stability, Wealth, & Well-being of Hawaiʻi's Working Families" and again in 2012 titled, "Kahua O Ke Ola: Foundations for Prosperity". Each symposium served as a space to share, collaborate, and discuss strategies and tools for action to increase family and community assets within the unique context of Hawaiʻi.
 * *Asset Building Task Force* -- Provided management and leadership support for the State Asset Building Task Force that was established by the State legislature to initially focus on universal children’s savings accounts, financial education, and eliminating asset limits.
 * *Hawaiʻi VITA & Financial Empowerment Program* -- This program of HACBED coordinated a statewide network of volunteer income tax assistance (VITA) sites and trains volunteers to provide free tax assistance to low income working individuals and families. In the 2015 tax season, FISSP assisted 5,748 workers across the state to file their taxes, saving them over $1 Million in fees and helping them to claim more than $14 Million in refunds and earned income and child tax credits.
 * *Publications* -- In partnership with 3Point Consulting and other partners, HACBED developed the publication [Asset-Building Policy for Hawaiʻi](https://drive.google.com/file/d/1VMeBgXzqBCUnQYoBkD3G6WkW01lWIh5R/view?usp=sharing) that identifies six goals for a Hawai'i asset building policy agenda – make work pay; teach asset-building; break down barriers to asset-building; help people save; help people start and own businesses; and help people buy homes. In addition, One Step Forward, Two Steps Back-Policy Incentives & Deterrents in the Lives of Low Income Families was also produced. HACBED’s most recent publication, [Asset Policy Roadmap](https://drive.google.com/file/d/1KJ1-TJMZvQi5si1F5EA2QN1tGbq50p0_/view?usp=sharing): A Strategy For Advancing Financial Security & Opportunity In Hawaiʻi, was developed in partnership with the Corporation for Enterprise Development (CFED).
