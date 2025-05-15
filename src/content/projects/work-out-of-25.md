@@ -10,7 +10,7 @@ tags:
   - project
   - capacity building
 ---
-In 2017, the HACBED team convened close partners and supporters to celebrate HACBED’s 25th Anniversary as well as listen to feedback on areas of need for our community and institutional partners. The following themes that emerged or were affirmed included:
+In 2017, the HACBED team convened close partners and supporters to celebrate [HACBED’s 25th Anniversary](https://www.arcgis.com/apps/Cascade/index.html?appid=175d7427c38448a684a3fb4b4d0c49f0) as well as listen to feedback on areas of need for our community and institutional partners. The following themes that emerged or were affirmed included:
 
 * Transition is a dangerous period. It works best when values are passed on -- shared values help to guide the vision.
 * HACBED's core competency is holding space -- spaces for tough conversations.
@@ -19,7 +19,7 @@ In 2017, the HACBED team convened close partners and supporters to celebrate HAC
 * Finding people among us who can make bridges is just as important as the CBED vision. We have to be strategic about how to identify people in the power structure.
 * We also collectively committed to bucketing our work into the following areas:
 
-<!-- -- -- -- -- -- \\\\\*\\\\\*IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION\\\\\*\\\\\* -- -- -- -- -- -- -->
+<!-- -- -- -- -- -- \\\\\\*\\\\\\*IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION\\\\\\*\\\\\\* -- -- -- -- -- -- -->
 
 <div class="custom-section-grid">
   <div class="custom-grid-container">
@@ -141,7 +141,7 @@ In 2017, the HACBED team convened close partners and supporters to celebrate HAC
   }
 </style>
 
-<!-- -- -- -- -- -- \\\\\*\\\\\*END HTML CODE SECTION\\\\\*\\\\\* -- -- -- -- -- -- -->
+<!-- -- -- -- -- -- \\\\\\*\\\\\\*END HTML CODE SECTION\\\\\\*\\\\\\* -- -- -- -- -- -- -->
 
 In 2022, the HACBED team reconvened close partners for HACBED’s [30th Anniversary](https://www.arcgis.com/apps/Cascade/index.html?appid=c3e5a7ebe24243829c48c28b70967188), which was particularly momentous as we were all reemerging from the COVID-19 pandemic.
 
