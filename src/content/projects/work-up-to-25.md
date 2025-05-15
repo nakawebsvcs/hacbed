@@ -19,7 +19,7 @@ HACBED developed a body of information, experience, and expertise to support the
 
 HACBEDʻs focus and scope of work was in the following areas:
 
-<!-- -- -- -- -- -- \\\*\\\*IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION\\\*\\\* -- -- -- -- -- -- -->
+<!-- -- -- -- -- -- \\\\*\\\\*IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION\\\\*\\\\* -- -- -- -- -- -- -->
 
 <div class="section-grid">
   <div class="grid-container">
@@ -136,7 +136,7 @@ HACBEDʻs focus and scope of work was in the following areas:
   }
 </style>
 
-<!-- -- -- -- -- -- \\\*\\\*END HTML CODE SECTION\\\*\\\* -- -- -- -- -- -- -->
+<!-- -- -- -- -- -- \\\\*\\\\*END HTML CODE SECTION\\\\*\\\\* -- -- -- -- -- -- -->
 
 ### *Community & Organizational Capacity Building*
 
@@ -156,7 +156,7 @@ In the same period, HACBED has also provided technical assistance to more than 3
 * *[Molokaʻi Homestead Farmers Alliance (MHFA)](/projects/moloka-i-homestead-farmers-alliance-business-plan/)* -- HACBED assisted the MHFA with business planning services, specifically for the repair of the Lanikeha Center in Hoʻolehua, Molokaʻi.
 * *[Nā Kūpuna A Me Nā Kākoʻo O Hālawa](/projects/ka-uhane-o-halawa/)* -- In Hālawa Valley on Oʻahu. Over the past year, HACBED has provided facilitation and technical support for strategic planning, board development, operational support, and development of a sustainability plan
 * *[Waiohuli Hawaiian Homesteaders Association](/projects/waiohuli-hawaiian-homesteaders-association/)* -- On the island of Maui. Conducted stakeholder interviews and feasibility analysis for place-based and culturally relevant opportunities for the use of a soon-to-be constructed community center and commercial kitchen.
-* *Hoʻoulu ʻĀina* – Kōkua Kalihi Valley in Kalihi Valley on Oʻahu. Conducted feasibility analysis for culturally appropriate venture development concepts for the 100 acre Hoʻoulu ʻĀina Nature Preserve of Kōkua Kalihi Valley that provides comprehensive family services and operates the Charles Judd Community Health Center.
+* *Hoʻoulu ʻĀina* -- Kōkua Kalihi Valley in Kalihi Valley on Oʻahu. Conducted feasibility analysis for culturally appropriate venture development concepts for the 100 acre Hoʻoulu ʻĀina Nature Preserve of Kōkua Kalihi Valley that provides comprehensive family services and operates the Charles Judd Community Health Center.
 * *Hui No Ke Ola Pono* -- Conducted an organizational assessment and strategic planning process for this Maui based nonprofit organization that is part of the statewide Native Hawaiian Health Care System.
 * *Ke ʻAnuenue Area Health Education Center Inc.* -- Conducted a strategic planning process for this Hawai‘i Island based nonprofit.
 * *Waipā Foundation* -- Feasibility analysis and business planning support was provided to Waipā Foundation for implementation of components of its master land use plan for its 1,600 acre ahupuaʻa.
@@ -200,8 +200,8 @@ Developing policies and community practices around strategies that help individu
 * *State Asset Leaders Learning Circle* -- HACBED represented the Hawaiʻi Asset Building Network in the 9 state Learning Circle that includes California, Hawaiʻi, Washington, Pennsylvania, Delaware, Texas, Illinois, Connecticut, and Michigan.
 * *Scorecard Partner* -- HACBED was chosen as one of eleven 2009-2010 Assets & Opportunity Established Asset Policy Coalition partners from across the nation to work with CFED on its national Assets & Opportunity Campaign.
 * *CBED Conferences* -- With support from financial institutions, government agencies, and CBEDOs, HACBED organized the 2004 CBED conference – “Families Defining Economic Success: Redefining Wealth & Poverty In Hawaiʻi” that laid the groundwork for Hoʻowaiwai – The Hawaiʻi Asset Policy Initiative.
-* *Public Policy* – NRFC Policy Committee – HACBED served as a member of the National Rural Funders Collaborative policy committee for two years.
-* *State Asset Policy Research* – HACBED is one of six state asset policy initiatives that was the focus of research supported by the Fannie Mae Foundation and is currently part of the on-going learning network comprised of the six state initiatives.
+* *Public Policy* -- NRFC Policy Committee – HACBED served as a member of the National Rural Funders Collaborative policy committee for two years.
+* *State Asset Policy Research* -- HACBED is one of six state asset policy initiatives that was the focus of research supported by the Fannie Mae Foundation and is currently part of the on-going learning network comprised of the six state initiatives.
 * *Hawaiʻi Individual Development Account Collaborative (HIDAC)* -- HACBED served as fiscal sponsor and management agent for HIDAC, a collaborative of IDA practitioners and funders that provided restricted matched savings for low income individuals. Nearly 500 IDAs were opened; over $500,000 in participant savings amassed with an earned match of nearly $800,000; more than 73 small businesses were started or expanded, 49 participants became first-time homeowners; and 53 participants acquired a post-secondary education.
 * *National Rural Funders Collaborative* -- HACBED has been a part of NRFC’s (a collaborative of 12 national funders) learning network of 20 rural regional asset development collaboratives for the past 3 years. HACBED was also one of 6 teams chosen by NRFC to participate in the Aspen Institute and Annie E. Casey Foundation’s training institute for Rural Family Economic Success (RUFES).
 * *City & County of Honolulu Department of Community Services* -- Development of an [Asset Policy Roadmap](https://drive.google.com/file/d/1uSMvs0qtWYtDaTg-QlN_6T6xy0-dHaY8/view?usp=sharing) for the City & County of Honolulu.
