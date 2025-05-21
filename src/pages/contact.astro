@@ -14,7 +14,10 @@ import client from "@data/client.json";
 
   <section id="cs-contact" style="margin-top: 5rem;">
     <div class="cs-container">
-      <form id="cs-form" name="Contact Form" method="post" netlify>
+      <form id="cs-form" name="Contact Form" method="post" netlify netlify-honeypot="company">
+  <p class="hidden">
+    <label>Don't fill this out if you're human: <input name="company" /></label>
+  </p>
         <div class="cs-content">
           <span class="cs-topper">Contact</span>
           <h2 class="cs-title">Get in Touch<br><br></h2>
@@ -122,6 +125,15 @@ import client from "@data/client.json";
   /*-- -------------------------- -->
 <---          Contact           -->
 <--- -------------------------- -*/
+
+.hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 
   /* Mobile - 360px */
   @media only screen and (min-width: 0em) {
