@@ -36,7 +36,7 @@ In 2017, the HACBED team convened close partners and supporters to celebrate [HA
         <div class="custom-image-container">
           <img src="/assets/images/projects/aina-food-justice.png" alt="'Āina & Food Justice">
         </div>
-        <p class="custom-item-title">'Āina & Food Justice</p>
+        <p class="custom-item-title">‘Āina & Food Justice</p>
       </a>
     </div>
     <div class="custom-grid-item">

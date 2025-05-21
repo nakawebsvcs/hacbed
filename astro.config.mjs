@@ -7,7 +7,7 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  site: "https://www.yourwebsite.com", // update me!
+  site: "https://www.hacbed.org",
   integrations: [
     icon(),
     sitemap({
