@@ -19,7 +19,7 @@ HACBED developed a body of information, experience, and expertise to support the
 
 HACBED's focus and scope of work was in the following areas:
 
-<!-- -- -- -- -- -- \\\\\*\\\\\*IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION\\\\\*\\\\\* -- -- -- -- -- -- -->
+<!-- -- -- -- -- -- \\\\\\*\\\\\\*IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION\\\\\\*\\\\\\* -- -- -- -- -- -- -->
 
 <div class="section-grid">
   <div class="grid-container">
@@ -136,7 +136,7 @@ HACBED's focus and scope of work was in the following areas:
   }
 </style>
 
-<!-- -- -- -- -- -- \\\\\*\\\\\*END HTML CODE SECTION\\\\\*\\\\\* -- -- -- -- -- -- -->
+<!-- -- -- -- -- -- \\\\\\*\\\\\\*END HTML CODE SECTION\\\\\\*\\\\\\* -- -- -- -- -- -- -->
 
 ### *Community & Organizational Capacity Building*
 
@@ -199,8 +199,8 @@ Developing policies and community practices around strategies that help individu
 * *County of Hawaiʻi’s Department of Research & Development* -- Development of the Asset Policy Roadmap for the County of Hawaiʻi.
 * *State Asset Leaders Learning Circle* -- HACBED represented the Hawaiʻi Asset Building Network in the 9 state Learning Circle that includes California, Hawaiʻi, Washington, Pennsylvania, Delaware, Texas, Illinois, Connecticut, and Michigan.
 * *Scorecard Partner* -- HACBED was chosen as one of eleven 2009-2010 Assets & Opportunity Established Asset Policy Coalition partners from across the nation to work with CFED on its national Assets & Opportunity Campaign.
-* *CBED Conferences* -- With support from financial institutions, government agencies, and CBEDOs, HACBED organized the 2004 CBED conference – “Families Defining Economic Success: Redefining Wealth & Poverty In Hawaiʻi” that laid the groundwork for Hoʻowaiwai – The Hawaiʻi Asset Policy Initiative.
-* *Public Policy* -- NRFC Policy Committee – HACBED served as a member of the National Rural Funders Collaborative policy committee for two years.
+* *CBED Conferences* -- With support from financial institutions, government agencies, and CBEDOs, HACBED organized the 2004 CBED conference–“Families Defining Economic Success: Redefining Wealth & Poverty In Hawaiʻi” that laid the groundwork for Hoʻowaiwai–The Hawaiʻi Asset Policy Initiative.
+* *Public Policy* -- NRFC Policy Committee–HACBED served as a member of the National Rural Funders Collaborative policy committee for two years.
 * *State Asset Policy Research* -- HACBED is one of six state asset policy initiatives that was the focus of research supported by the Fannie Mae Foundation and is currently part of the on-going learning network comprised of the six state initiatives.
 * *Hawaiʻi Individual Development Account Collaborative (HIDAC)* -- HACBED served as fiscal sponsor and management agent for HIDAC, a collaborative of IDA practitioners and funders that provided restricted matched savings for low income individuals. Nearly 500 IDAs were opened; over $500,000 in participant savings amassed with an earned match of nearly $800,000; more than 73 small businesses were started or expanded, 49 participants became first-time homeowners; and 53 participants acquired a post-secondary education.
 * *National Rural Funders Collaborative* -- HACBED has been a part of NRFC’s (a collaborative of 12 national funders) learning network of 20 rural regional asset development collaboratives for the past 3 years. HACBED was also one of 6 teams chosen by NRFC to participate in the Aspen Institute and Annie E. Casey Foundation’s training institute for Rural Family Economic Success (RUFES).
