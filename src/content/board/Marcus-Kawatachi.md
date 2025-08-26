@@ -9,7 +9,7 @@ bio: Marcus Kawatachi has worked almost his entire career in public service at
   hopes to continue to assist individuals and families in creating opportunities
   to live their lives as they choose. He is a proud graduate of Princeton
   University and the William S. Richardson School of Law.
-image: src/assets/images/MK.png
+image: /src/assets/images/marcus-kawatachi-board-photo.jpg
 link: http://labor.hawaii.gov/hcrc/
 order: 3
 ---
