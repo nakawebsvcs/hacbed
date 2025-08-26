@@ -1,8 +1,18 @@
 ---
-name: "Miwa Tamanaha"
-jobTitle: "Director"
-bio: "Miwa has served environmental and economic justice efforts in non-profit, private and public sectors, for over 20 years, including as a Co-Founder and Co-Director of backbone organization KUA (Kuaʻāina Ulu ʻAuamo) and advocacy non-profit Executive Director of KAHEA: The Hawaiian-Environmental Alliance. Miwa holds a joint- B.A./M.A. in Economics from the University of Southern California. Miwa is currently serving the Co-CEO at Hawaiʻi Investment Ready (HIR), a social impact finance intermediary. At HACBED, Miwa hopes to contribute to HACBED's long legacy of supporting community economic self-determination, and the vision of its founders."
-image: "src/assets/images/Miwa-Tamanaha.jpg"
-link: "https://miwatamanaha.wixsite.com/miwa-tamanaha/portfolio"
+name: Miwa Tamanaha
+jobTitle: Director
+bio: >-
+  Miwa is the Co-CEO of Hawaii Investment Ready, a social impact investing
+  intermediary committed to building a just, humane, and place-based island
+  economy for Hawaii and its people. Miwa has worked in environmental justice
+  advocacy/policy and community-based economic development initiatives in
+  communities and ecologies from artisanal fisheries in Baja California to
+  national parklands in Tanzania, including as the Executive Director of KAHEA:
+  The Hawaiian-Environmental Alliance.
+
+
+  From 2011–2021, Miwa co-founded and served as the Co-Director of local non-profit Kuaaina Ulu Auamo (KUA). She continues to serve as an advisor, and member of the Limu Hui at KUA, a network of native seaweed practitioners which she helped to establish in 2014.
+image: src/assets/images/Miwa-Tamanaha.jpg
+link: https://miwatamanaha.wixsite.com/miwa-tamanaha/portfolio
 order: 5
 ---
