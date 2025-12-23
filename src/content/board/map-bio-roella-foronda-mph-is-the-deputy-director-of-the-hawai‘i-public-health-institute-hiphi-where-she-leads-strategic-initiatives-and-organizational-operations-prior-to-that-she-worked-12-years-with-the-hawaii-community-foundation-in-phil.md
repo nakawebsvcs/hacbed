@@ -11,4 +11,5 @@ bio: Roella Foronda, MPH, is the Deputy Director of the Hawai‘i Public Health
   San Francisco State University. Outside of work, she enjoys gardening, baking,
   and spending time with her family.
 image: /src/assets/images/roella-foronda-headshot.jpg
+order: 0
 ---
