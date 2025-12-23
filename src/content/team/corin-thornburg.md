@@ -1,7 +1,17 @@
 ---
-name: "Corin Thornburg"
-jobTitle: "Senior Community-Based Economic Development Project Associate"
-bio: "Corin Thornburg supports the team with current activities as HACBED grows partnerships and collaborative projects. Prior to HACBED, Corin worked as a teacher and grant writer at Hakipuʻu Learning Center, Public Charter School in Kāneʻohe, Oʻahu. Following graduation, Corin worked at the University of San Diego, supporting local procurement initiatives in Linda Vista, California. She is grateful to all who have guided, mentored, and taught her. Corin grew up in ʻEwa Beach and Mānana on Oʻahu. She received her B.A. in Psychology from Azusa Pacific University and M.A .from the University of San Diego in Social Innovation."
-image: "src/assets/images/Corin-Thornburg.jpeg"
+name: Mckenzie Au
+jobTitle: Community-Based Economic Development Project Associate
+bio: Mckenzie Au supports HACBED’s work through research, project support, and
+  collaboration efforts. Prior to joining HACBED, Mckenzie worked as an
+  Investigator at the Hawaiʻi Civil Rights Commission, where she investigated
+  housing discrimination complaints and drafted reports under Hawaiʻi civil
+  rights laws. Her background also includes legal research, litigation support,
+  and direct client advocacy. Mckenzie holds a J.D. from the William S.
+  Richardson School of Law and a B.A. in Interdisciplinary Studies (Sociology,
+  Communications, and Art) from Wheaton College. Mckenzieʻs family history of
+  coming to Hawaiʻi from Japan and Puerto Rico during the plantation era grounds
+  her work and motivates her commitment to advancing justice for Native
+  Hawaiians and local communities.
+image: /src/assets/images/wjvhdq6f.png
 order: 3
 ---
