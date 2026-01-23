@@ -63,8 +63,10 @@ const currentYear = getCurrentYear()
                 <a href="tel:8085502661" class="cs-copyright-link">808-550-2661</a>
             </div>
         </div>
-        <div class="cs-credits"><br><br>Website by <a href="https://nakamurawebservices.com" target="_blank">Nakamura Web Services</a></div>
-    </div>
+       <div class="cs-credits">
+            <a href="/privacy-policy" class="cs-privacy-link">Privacy Policy</a>
+            <span>Website by <a href="https://nakamurawebservices.com" target="_blank">Nakamura Web Services</a></span>
+        </div>
 </footer>
                                 
 
@@ -77,6 +79,7 @@ const currentYear = getCurrentYear()
 @media only screen and (min-width: 0rem) {
     #footer-1390 {
         padding: var(--sectionPadding);
+        padding-bottom: 3rem;
         background-color: #1a1a1a;
         position: relative;
         z-index: 1;
@@ -204,6 +207,16 @@ const currentYear = getCurrentYear()
             display: block;
         }
 
+        .cs-privacy-link {
+            margin-top: 1rem;
+            color: #bababa;
+            text-decoration: underline;
+            transition: color 0.3s;
+
+            &:hover {
+        }
+    }
+
         .cs-flex {
             display: flex;
             flex-direction: column;
@@ -213,21 +226,25 @@ const currentYear = getCurrentYear()
         }
 
         .cs-credits {
-    text-align: center;
-    font-size: inherit;
-    color: #bababa;
-    margin-top: (16/16rem);
-    
-    a {
-        color: #bababae7;
-        text-decoration: underline;
-        transition: color 0.3s;
-        
-        &:hover {
-            color: var(--primary);
+            text-align: center;
+            font-size: inherit;
+            color: #bababa;
+            margin-top: (16/16rem);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (4rem);
+            
+            a {
+                color: #bababae7;
+                text-decoration: underline;
+                transition: color 0.3s;
+                
+                &:hover {
+                    color: var(--primary);
+                }
+            }
         }
-    }
-}
 
         .cs-copyright-link {
             font-size: (16/16rem);
