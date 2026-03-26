@@ -19,7 +19,7 @@ HACBED developed a body of information, experience, and expertise to support the
 
 HACBED's focus and scope of work was in the following areas:
 
-<!-- -- -- -- -- -- \\\\\\*\\\\\\*IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION\\\\\\*\\\\\\* -- -- -- -- -- -- -->
+<!-- -- -- -- -- -- \\\\\\\*\\\\\\\*IMPORTANT! DO NOT EDIT THIS HTML CODE SECTION\\\\\\\*\\\\\\\* -- -- -- -- -- -- -->
 
 <div class="section-grid">
   <div class="grid-container">
@@ -136,7 +136,7 @@ HACBED's focus and scope of work was in the following areas:
   }
 </style>
 
-<!-- -- -- -- -- -- \\\\\\*\\\\\\*END HTML CODE SECTION\\\\\\*\\\\\\* -- -- -- -- -- -- -->
+<!-- -- -- -- -- -- \\\\\\\*\\\\\\\*END HTML CODE SECTION\\\\\\\*\\\\\\\* -- -- -- -- -- -- -->
 
 ### *Community & Organizational Capacity Building*
 
@@ -179,7 +179,7 @@ Other examples of HACBED’s community and organizational capacity building to s
 * *County of Hawaiʻi Department of Research & Development* -- Designed and implemented a leadership development training collaborative for nonprofit and community based groups on Hawaiʻi Island through a contract with the County of Hawaiʻi.
 * *Department of Hawaiian Home Lands* -- Through a contract with DHHL, HACBED conducted a 7 month capacity building training and technical assistance program for 35 Hawaiian Homestead Associations from across the State.
 * *Editorial Board & Board of Directors of The Nonprofit Quarterly* -- In 2001, HACBED was appointed to the editorial board of The Nonprofit Quarterly, a national publication for the nation’s nonprofit sector, and was also a founding board member of the Nonprofit Information Networking Association that publishes the Quarterly.
-* *Field Building Consulting Services* -- Based on its organizational assessment, strategic planning, and organizational capacity building work, HACBED has provided field building services for organizations in such areas of interest as faith-based organizations, and foster care. Citibank and the National Alliance for Nonprofit Management also contracted HACBED to provide a field building workshop to Asian and Pacific Island CBED organizations from California and Florida.
+* *Field Building Consulting Services* -- Based on its organizational assessment, strategic planning, and organizational capacity building work, HACBED has provided field building services for organizations in such areas of interest as faith-based organizations and foster care. Citibank and the National Alliance for Nonprofit Management also contracted HACBED to provide a field building workshop to Asian and Pacific Island CBED organizations from California and Florida.
 * *[Hawaiʻi VITA & Financial Empowerment Program](/projects/hawaii-vita-financial-empowerment-program/)* -- HACBED provided free tax assistance to low-to-moderate income Hawaiʻi residents from 2006 to 2016. In that period, we saved over 32,000 Hawaiʻi taxpayers more than $5.8 million in tax preparation fees.
 * *Hinaʻi: Hawaiʻi Center for Sustainable Food & Agriculture* -- Having grown from community engagement opportunities, this Network increased food security and experiential and place-based education opportunities, ultimately aiding the restoration of ancestral abundance and pathways for self-governance.
 * *[Ho‘owaiwai Network Kohala Collaboration](/projects/hoowaiwai-network-kohala-collaboration/)* -- Building on the work of network partners–including a diverse coalition of nonprofits, government departments, social service agencies, and businesses–HACBED worked to determine the feasibility of expanding and deepening the impact of the Hoʻowaiwai Network by conducting a planning process with support for potential pilots in collaboration with partners in North Hawaiʻi.
@@ -188,7 +188,7 @@ Other examples of HACBED’s community and organizational capacity building to s
 
 ![](src/assets/images/blog/community-asset-building.png)
 
-Developing policies and community practices around strategies that help individuals, families, and communities to build wealth/assets. These assets will then help them to become self sufficient and develop increased opportunities that will allow them to exercise choice and control over their futures. This work includes:
+Developing policies and community practices around strategies that help individuals, families, and communities to build wealth/assets. These assets will then help them to become self-sufficient and develop increased opportunities that will allow them to exercise choice and control over their futures. This work includes:
 
 * *Hoʻowaiwai Network* -- The Hoʻowaiwai Network is a statewide coalition of over 130 members of private and public organizations, community practitioners, financial institutions, families, and youth in Hawaiʻi that organize actions to address asset poverty and build the wealth and financial stability of Hawaiʻi’s working families. Locally on Hawaiʻi Island, the Hoʻowaiwai Network is comprised of private and public organizations, community practitioners, financial institutions, and families and youth in Hawaiʻi that organize actions to address asset poverty and build the wealth and financial stability of Hawaiʻi’s working families. Hoʻowaiwai Network members work to build strategies and tools to increase family and community assets within the unique context of Hawaiʻi.
 * *[Youth Savings Initiative: Kōkua Kalihi Valley](/projects/youth-savings-initiative--kōkua-kalihi-valley/)* -- HACBED and Kōkua Kalihi Valley (KKV) partnered to offer the participants in their bike exchange program an opportunity to earn match savings and bonus cash incentives by attending a series of financial education and life skills workshops.
