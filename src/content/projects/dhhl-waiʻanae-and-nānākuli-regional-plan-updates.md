@@ -9,7 +9,7 @@ image: src/assets/images/blog/image32.png
 tags:
   - post
 ---
-HACBED provided support to the [Department of Hawaiian Home Lands (DHHL)](http://dhhl.hawaii.gov/) in its 10-month process of updating the [Wai‘anae and Lualualei Regional Plan (previously updated in 2010)](https://dhhl.hawaii.gov/wp-content/uploads/2019/09/Wai%CA%BBanae-Lualualei-RP2018.pdf) and the [Regional Plan for the Traditional Native Lands of the Ahupua‘a of Nānākuli (previously updated in 2009)](https://dhhl.hawaii.gov/wp-content/uploads/2018/11/Nanakuli-RP2018-Final.pdf). In consultation with its Wai‘anae and Nānākuli regional beneficiaries and other stakeholders, as well as members of DHHL, this update process sought to articulate a communal vision, incorporate any changes that have occurred since the last planning process, and frame and organize current and future initiatives.
+HACBED provided support to the [Department of Hawaiian Home Lands (DHHL)](http://dhhl.hawaii.gov/) in its 10-month process of updating the [Wai‘anae and Lualualei Regional Plan (previously updated in 2010)](https://dhhl.hawaii.gov/wp-content/uploads/2019/09/Wai%CA%BBanae-Lualualei-RP2018.pdf) and the [Regional Plan for the Traditional Native Lands of the Ahupua‘a of Nānākuli (previously updated in 2009)](https://dhhl.hawaii.gov/wp-content/uploads/2018/11/Nanakuli-RP2018-Final.pdf). In consultation with its Waiʻanae and Nānākuli regional beneficiaries and other stakeholders, as well as members of DHHL, this update process sought to articulate a communal vision, incorporate any changes that have occurred since the last planning process, and frame and organize current and future initiatives.
 
 ![plan update process](src/assets/images/blog/image44.png "Plan Update Process")
 
