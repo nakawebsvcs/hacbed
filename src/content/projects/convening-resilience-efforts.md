@@ -34,21 +34,21 @@ Participants lifted up broad areas for ongoing support that would build collecti
 * Coordination of different groups to align multi-faceted approach to legislative action 
 * Shared infrastructure to collaboratively fund outcomes of the convenings
 * Efforts with a social change and systems change focus 
-* Networks and network-based efforts, such as ‘Āina Aloha Economic Futures Declaration, Hawai‘i Green Growth, AHA Fellows, Working Families Coalition, and Green Passport, amongst other efforts
+* Networks and network-based efforts, such as ʻĀina Aloha Economic Futures Declaration, Hawaiʻi Green Growth, AHA Fellows, Working Families Coalition, and Green Passport, amongst other efforts
 * Participatory processes, i.e. grant-making, budgeting, group priority setting, and decision making 
 * Coalitions of smaller actors
 * Intermediaries to support networked efforts and groups, such as Hawai‘i People’s Fund, KUA, AgHui, and HACBED amongst other efforts
 
 Guided by the collective values and principles that were shared in individual talk stories, a series of four convenings were held in November and December 2020. The collective efforts nurtured cross-sectoral and individual relationships and identified shared goals, outcomes, and collaborative opportunities to address challenges to resilience. This led to the formation of subgroups focused on the following areas for action: 
 
-* Coordinate & Strategize on Policy & Advocacy — creating a place-based experiential learning pilot focusing on centering voices of individuals closest to the issues, working in environments that expose participants to current issues, and in doing so build the awareness of participants to affect change within their different sectors. 
-* Support Coalitions & Coalition Building of Smaller Actors — created an action learning huakaʻi to Hawaiʻi Island on November 3-5, 2021 where community practitioners held a “mirror” up to representatives from all 4 counties and had open and honest self-reflection to problem-solve around strengthening capacity, as government practitioners, to more effectively engage and partner with communities. The subgroup is now working to continue the process of ongoing action and reflection (praxis) by growing a statewide community of practice around recovery and resilience. 
-* Build Trust & Mechanisms for Internal & Institutional Relationship Building — thinking through an ahupuaʻa approach to agriculture site visits that lift up a larger narrative as tied to food systems and food security issues here in Hawaiʻi, the group hosted a Windward Zero Waste School Hui Tour on April 1, 2022 to identify models to manage waste on Oʻahu. The group also toured Hawaiʻi Meats on May 27, 2022.
+* Coordinate & Strategize on Policy & Advocacy – creating a place-based experiential learning pilot focusing on centering voices of individuals closest to the issues, working in environments that expose participants to current issues, and in doing so build the awareness of participants to affect change within their different sectors. 
+* Support Coalitions & Coalition Building of Smaller Actors – created an action learning huakaʻi to Hawaiʻi Island on November 3-5, 2021 where community practitioners held a “mirror” up to representatives from all 4 counties and had open and honest self-reflection to problem-solve around strengthening capacity, as government practitioners, to more effectively engage and partner with communities. The subgroup is now working to continue the process of ongoing action and reflection (praxis) by growing a statewide community of practice around recovery and resilience. 
+* Build Trust & Mechanisms for Internal & Institutional Relationship Building – thinking through an ahupuaʻa approach to agriculture site visits that lift up a larger narrative as tied to food systems and food security issues here in Hawaiʻi, the group hosted a Windward Zero Waste School Hui Tour on April 1, 2022 to identify models to manage waste on Oʻahu. The group also toured Hawaiʻi Meats on May 27, 2022.
 
 The different groups shared a myriad of resources for other groups to utilize and support. Below is an overview of each with links to specific sheets, tools, and other resources: 
 
 * [Kūkulu Switchboard](https://kukulu.switchboardhq.com/)
-* ‘Āina Aloha Economic Futures [Huliau Action Agenda & Assessment Tool Rubric ](https://www.ainaalohafutures.com/action-agenda)
+* ʻĀina Aloha Economic Futures [Huliau Action Agenda & Assessment Tool Rubric ](https://www.ainaalohafutures.com/action-agenda)
 * Hawaiʻi Green Passport & HTA
 
   * Green Passport Full Report 
