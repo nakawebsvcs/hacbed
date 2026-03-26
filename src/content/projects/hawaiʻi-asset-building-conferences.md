@@ -26,7 +26,7 @@ San Francisco Treasurer and then Co-Chair of the National Cities for Financial E
 
 **Kahua O Ke Ola: Foundations for Prosperity (June 27-29, 2012)**
 
-This three-day symposium brought together more than 75 local and guest presenters to speak to over 300 participants. The presenters shared best practices and lessons learned around family and community financial empowerment strategies and initiatives relevant to the unique context of Hawaiʻi and our unique foundations of prosperity –ʻaina, aloha, and ʻohana.
+This three-day symposium brought together more than 75 local and guest presenters to speak to over 300 participants. The presenters shared best practices and lessons learned around family and community financial empowerment strategies and initiatives relevant to the unique context of Hawaiʻi and our unique foundations of prosperity–ʻaina, aloha, and ʻohana.
 
 Sessions included:
 
