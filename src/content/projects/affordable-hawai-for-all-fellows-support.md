@@ -38,7 +38,7 @@ The Housing Affordability Coalition (HAC) was established in November 2018 and w
 * Willingness to arrive as people first and step into a shared commitment of housing for all
 * Willingness to partner and build relationships with those most impacted by the issue
 * Openness to diverse perspectives
-* Openness to creative solutions that build community and are connected to ‘āina
+* Openness to creative solutions that build community and are connected to ʻāina
 
 An equally important part of the work was to support a group of individuals who have experienced houselessness or housing instability and are connected to communities severely impacted by the lack of affordable housing in Hawaiʻi. These individuals began to meet regularly in June 2019 and also spent time joining HAC gatherings. In the group’s separate meetings these individuals discussed the topic of housing affordability in Hawaiʻi from their unique perspectives and eventually dubbed themselves the [“Affordable Hawaiʻi for All” (AHA) Fellows](https://www.ahafellows.com/).
 
